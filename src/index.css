@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand: #0540F2;
+  --color-brand-light: #056CF2;
+  --color-brand-dark: #402516;
+  --color-brand-bg: #F2F2F2;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

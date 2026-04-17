@@ -1,0 +1,44 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        request.auth.token.email == "tuannm3812@gmail.com" && 
+        request.auth.token.email_verified == true;
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+    }
+
+    // Contact messages
+    match /contacts/{contactId} {
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt']) &&
+                    request.resource.data.name is string &&
+                    isValidEmail(request.resource.data.email) &&
+                    request.resource.data.message is string &&
+                    request.resource.data.createdAt is timestamp;
+      allow read: if isAdmin();
+    }
+
+    // Blog post comments
+    match /blog_posts/{postId}/comments/{commentId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasAll(['postId', 'authorName', 'text', 'createdAt']) &&
+                    request.resource.data.postId == postId &&
+                    request.resource.data.authorName is string &&
+                    request.resource.data.text is string &&
+                    request.resource.data.createdAt is timestamp;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

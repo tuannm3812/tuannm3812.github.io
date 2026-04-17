@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "ContactMessage": {
+      "title": "Contact Message",
+      "description": "Messages sent via the contact form",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Sender's full name" },
+        "email": { "type": "string", "format": "email", "description": "Sender's email address" },
+        "message": { "type": "string", "description": "The message content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the message was sent" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    },
+    "Comment": {
+      "title": "Blog Comment",
+      "description": "Comments left on blog posts",
+      "type": "object",
+      "properties": {
+        "postId": { "type": "string", "description": "ID of the blog post" },
+        "authorName": { "type": "string", "description": "Name of the commenter" },
+        "text": { "type": "string", "description": "Comment content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the comment was posted" }
+      },
+      "required": ["postId", "authorName", "text", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/contacts/{contactId}": {
+      "schema": "ContactMessage",
+      "description": "Collection of contact form submissions"
+    },
+    "/blog_posts/{postId}/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Sub-collection of comments for a specific blog post"
+    }
+  }
+}
