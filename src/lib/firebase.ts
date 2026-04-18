@@ -18,12 +18,9 @@ import firebaseConfig from '../../firebase-applet-config.json';
 
 const app = initializeApp(firebaseConfig);
 
-// Force long-polling and disable fetch streams to overcome "client is offline" errors 
-// in restrictive preview environments/iframes.
+// Use experimentalAutoDetectLongPolling for stability in preview environments.
 export const db = initializeFirestore(app, {
   experimentalAutoDetectLongPolling: true,
-  experimentalForceLongPolling: true,
-  useFetchStreams: false,
 }, firebaseConfig.firestoreDatabaseId);
 
 export const auth = getAuth(app);
