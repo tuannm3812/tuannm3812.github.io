@@ -1,42 +1,24 @@
-# Deployment to mike-nguyen-portfolio.web.app
+# Deployment to GitHub Pages (Option A)
 
-You already have the domain `mike-nguyen-portfolio.web.app` reserved in Firebase. Here is how to deploy this minimalist portfolio code to your project:
+You have chosen to host your portfolio at **tuannm3812.github.io**. This is a great choice for a developer portfolio!
 
-## 1. Firebase Config Applied
-I have already updated your `firebase-applet-config.json` with the credentials for your **mike-nguyen-portfolio** project. The application is now ready to use your real database.
+## 1. Prepare your GitHub Repository
+1. Create a new repository on GitHub named exactly **`tuannm3812.github.io`**.
+2. Download this project as a ZIP (Settings > Download ZIP) and push the content to your new repository's `main` branch.
 
-## 2. Authorized Domains
-To ensure Google Login and Firebase functions work on your production domain:
-1.  In the Firebase Console, go to **Authentication** > **Settings** > **Authorized Domains**.
-2.  Ensure `mike-nguyen-portfolio.web.app` and `mike-nguyen-portfolio.firebaseapp.com` are listed.
+## 2. GitHub Actions Setup
+I have already created `.github/workflows/deploy.yml` in this project. GitHub will automatically:
+*   Install dependencies
+*   Build your Vite site
+*   Deploy it to your domain
 
-## 3. Deployment Steps
-You will need the `firebase-tools` CLI installed on your local machine to deploy.
+## 3. Enable Deployment on GitHub
+1. Go to your repository on GitHub.com.
+2. Click **Settings** > **Pages**.
+3. Under **Build and deployment** > **Source**, select **GitHub Actions** from the dropdown menu.
+4. Your site will be live at `https://tuannm3812.github.io` within a few minutes!
 
-1.  **Build the project**:
-    ```bash
-    npm run build
-    ```
-2.  **Login to Firebase**:
-    ```bash
-    firebase login
-    ```
-3.  **Initialize (if not already)**:
-    ```bash
-    firebase init hosting
-    ```
-    *   Select your existing project.
-    *   When asked for public directory, enter `dist`.
-    *   Configure as a single-page app? **Yes**.
-4.  **Deploy**:
-    ```bash
-    firebase deploy
-    ```
-
-## 4. Why use the `firebase.json` provided?
-I have already added a `firebase.json` and `firestore.indexes.json` to this repository. These are configured for:
-*   **SPA Rewrites**: Ensures that if you refresh the page on `/blog` or `/projects`, it correctly loads the React app.
-*   **Firestore Rules**: Links correctly to the `firestore.rules` file in this directory.
-
----
-**Minimalist Design Note**: This site is using the "Clean Minimalism" style with the **Outfit** font and **Vibrant Blue** accents to match your professional brand.
+## 4. Firebase Configuration
+Your portfolio still uses Firebase for the Contact messages and Blog comments. Ensure you have:
+1. Created the Firestore Database in your Firebase Console.
+2. Added `https://tuannm3812.github.io` to your **Authorized Domains** in the Firebase Authentication settings.

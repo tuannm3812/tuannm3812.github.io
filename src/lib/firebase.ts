@@ -18,10 +18,12 @@ import firebaseConfig from '../../firebase-applet-config.json';
 
 const app = initializeApp(firebaseConfig);
 
-// Using initializeFirestore with experimentalAutoDetectLongPolling: true 
-// This helps overcome "client is offline" errors in certain network environments (like iframes or proxies)
+// Force long-polling and disable fetch streams to overcome "client is offline" errors 
+// in restrictive preview environments/iframes.
 export const db = initializeFirestore(app, {
   experimentalAutoDetectLongPolling: true,
+  experimentalForceLongPolling: true,
+  useFetchStreams: false,
 }, firebaseConfig.firestoreDatabaseId);
 
 export const auth = getAuth(app);
@@ -30,19 +32,19 @@ export const googleProvider = new GoogleAuthProvider();
 // Track connection status globally
 export let isFirebaseOffline = false;
 
-// Connection test with more descriptive error handling
+// Connection test with Mike-specific troubleshooting
 async function testConnection() {
   try {
     // Attempting a shallow fetch to verify connectivity
     await getDocFromServer(doc(db, '_connection_test_', 'init'));
     isFirebaseOffline = false;
-    console.log("Firebase connection initialized successfully.");
+    console.log("Firebase connection initialized successfully for Mike Nguyen Portfolio.");
   } catch (error: any) {
     console.group("Firebase Connectivity Check");
-    if (error?.message?.includes('the client is offline')) {
+    if (error?.message?.includes('the client is offline') || error?.code === 'unavailable') {
       isFirebaseOffline = true;
       console.error("Connectivity issue: The Firestore client is offline.");
-      console.info("CRITICAL FIXES NEEDED: \n1. Go to Firebase Console > Firestore Database and click 'Create Database' if you haven't yet. \n2. Go to Authentication > Settings > Authorized Domains and add this current URL. \n3. Check if your database ID is really '(default)'. \n4. Try disabling your browser's ad-blocker.");
+      console.info("CHECKLIST FOR MIKE: \n1. Open Firebase Console: https://console.firebase.google.com/project/mike-nguyen-portfolio/firestore \n2. Click 'Create Database' (if not already done). \n3. Ensure your rules allow reads (e.g. 'allow read: if true;' for testing). \n4. Add this URL to Authorized Domains in Auth settings.");
     } else {
       console.error("Firestore initialization error:", error?.message || error);
     }
