@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { 
   getFirestore, 
+  initializeFirestore,
   collection, 
   addDoc, 
   query, 
@@ -16,18 +17,36 @@ import {
 import firebaseConfig from '../../firebase-applet-config.json';
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+
+// Using initializeFirestore with experimentalAutoDetectLongPolling: true 
+// This helps overcome "client is offline" errors in certain network environments (like iframes or proxies)
+export const db = initializeFirestore(app, {
+  experimentalAutoDetectLongPolling: true,
+}, firebaseConfig.firestoreDatabaseId);
+
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
-// Connection test as required by instructions
+// Track connection status globally
+export let isFirebaseOffline = false;
+
+// Connection test with more descriptive error handling
 async function testConnection() {
   try {
-    await getDocFromServer(doc(db, 'test', 'connection'));
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.error("Please check your Firebase configuration. The client is offline.");
+    // Attempting a shallow fetch to verify connectivity
+    await getDocFromServer(doc(db, '_connection_test_', 'init'));
+    isFirebaseOffline = false;
+    console.log("Firebase connection initialized successfully.");
+  } catch (error: any) {
+    console.group("Firebase Connectivity Check");
+    if (error?.message?.includes('the client is offline')) {
+      isFirebaseOffline = true;
+      console.error("Connectivity issue: The Firestore client is offline.");
+      console.info("CRITICAL FIXES NEEDED: \n1. Go to Firebase Console > Firestore Database and click 'Create Database' if you haven't yet. \n2. Go to Authentication > Settings > Authorized Domains and add this current URL. \n3. Check if your database ID is really '(default)'. \n4. Try disabling your browser's ad-blocker.");
+    } else {
+      console.error("Firestore initialization error:", error?.message || error);
     }
+    console.groupEnd();
   }
 }
 testConnection();

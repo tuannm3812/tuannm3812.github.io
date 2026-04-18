@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Sun, Moon, Github, Linkedin, Mail, AlertTriangle, ExternalLink } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
+import { isFirebaseOffline } from '../lib/firebase';
 
 import ErrorBoundary from './ErrorBoundary';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showStatus, setShowStatus] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+
+  useEffect(() => {
+    // Small delay to allow connectivity check to complete
+    const timer = setTimeout(() => {
+      if (isFirebaseOffline) {
+        setShowStatus(true);
+      }
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -23,6 +35,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
+      {/* Firebase Status Banner (Preview Only) */}
+      <AnimatePresence>
+        {showStatus && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="bg-brand text-white overflow-hidden"
+          >
+            <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-medium">
+              <div className="flex items-center gap-2">
+                <AlertTriangle size={18} className="animate-pulse" />
+                <span>Notice: Firebase is currently offline in this preview.</span>
+              </div>
+              <div className="flex gap-4">
+                <a 
+                  href="https://console.firebase.google.com/project/mike-nguyen-portfolio/firestore" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="underline flex items-center gap-1 hover:text-white/80"
+                >
+                  Create Firestore DB <ExternalLink size={14} />
+                </a>
+                <button 
+                  onClick={() => setShowStatus(false)}
+                  className="bg-white/20 hover:bg-white/30 px-2 py-1 rounded transition-colors"
+                >
+                  Dismiss
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
