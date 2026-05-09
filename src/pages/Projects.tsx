@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
-import { ExternalLink, Github, Layers } from 'lucide-react';
+import { ExternalLink, Github, Layers, Target } from 'lucide-react';
 
 export default function Projects() {
   return (
@@ -9,7 +9,7 @@ export default function Projects() {
       <div className="max-w-3xl space-y-4">
         <h2 className="text-4xl md:text-5xl font-black tracking-tight">Technical Projects</h2>
         <p className="text-xl text-slate-500 dark:text-slate-400">
-          A selection of projects ranging from Edge ML to Production-Grade Data Engineering.
+          Selected work across computer vision, data engineering, time-series modelling, and AI agents.
         </p>
       </div>
 
@@ -21,7 +21,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative h-full flex flex-col p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand/50 transition-all shadow-sm hover:shadow-xl hover:shadow-brand/5"
+            className="group relative h-full flex flex-col p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand/50 transition-all shadow-sm hover:shadow-xl hover:shadow-brand/5"
           >
             <div className="flex-1 space-y-6">
               <div className="space-y-2">
@@ -32,6 +32,12 @@ export default function Projects() {
                 <h3 className="text-2xl font-bold group-hover:text-brand transition-colors">
                   {project.title}
                 </h3>
+                {project.impact && (
+                  <p className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
+                    <Target size={15} className="text-brand" />
+                    {project.impact}
+                  </p>
+                )}
               </div>
 
               <ul className="space-y-4">
@@ -42,6 +48,17 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-400"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex gap-4">
@@ -56,10 +73,8 @@ export default function Projects() {
                   Source Code
                 </a>
               )}
-              {/* @ts-ignore */}
               {project.demo && (
                 <a 
-                  /* @ts-ignore */
                   href={project.demo}
                   target="_blank"
                   rel="noreferrer"

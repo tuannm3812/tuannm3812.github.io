@@ -12,13 +12,19 @@ export default function Contact() {
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.email) {
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name) newErrors.name = 'Name is required';
+    if (!email) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'Email is invalid';
     }
-    if (!formData.message) newErrors.message = 'Message is required';
+    if (!message) newErrors.message = 'Message is required';
+    if (message.length > 5000) newErrors.message = 'Message must be under 5,000 characters';
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -30,7 +36,9 @@ export default function Contact() {
     setStatus('submitting');
     try {
       await addDoc(collection(db, 'contacts'), {
-        ...formData,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim(),
         createdAt: serverTimestamp()
       });
       setStatus('success');
@@ -52,7 +60,7 @@ export default function Contact() {
         <div className="space-y-4">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h2>
           <p className="text-xl text-slate-500 dark:text-slate-400">
-            Have a project in mind or just want to chat about AI? Feel free to reach out.
+            Have a role, project, or collaboration in mind? Send a note and I will get back to you.
           </p>
         </div>
 
@@ -74,8 +82,10 @@ export default function Contact() {
               <Phone size={24} />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Call Me</p>
-              <p className="text-lg font-bold">{resumeData.phone}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Phone</p>
+              <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} className="text-lg font-bold hover:text-brand transition-colors">
+                {resumeData.phone}
+              </a>
             </div>
           </div>
 
@@ -113,9 +123,12 @@ export default function Contact() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+              <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-slate-500">Full Name</label>
               <input
+                id="name"
                 type="text"
+                autoComplete="name"
+                maxLength={120}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className={cn(
@@ -128,9 +141,11 @@ export default function Contact() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Email Address</label>
+              <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-slate-500">Email Address</label>
               <input
+                id="email"
                 type="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className={cn(
@@ -143,11 +158,13 @@ export default function Contact() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Your Message</label>
+              <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-slate-500">Your Message</label>
               <textarea
+                id="message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={5}
+                maxLength={5000}
                 className={cn(
                   "w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all resize-none",
                   errors.message && "border-red-500"
