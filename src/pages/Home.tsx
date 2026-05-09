@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
-import { ArrowRight, Code, Database, Brain, Globe, Sparkles } from 'lucide-react';
+import { ArrowRight, Brain, CloudCog, Database, Globe, MapPin, Sparkles, TerminalSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -20,46 +20,107 @@ export default function Home() {
     show: { opacity: 1, y: 0 }
   };
 
+  const expertise = [
+    {
+      icon: <Database />,
+      label: "Data Foundation",
+      title: "Pipelines that can be trusted",
+      desc: "BigQuery, Airflow, dbt, warehouse modelling, and self-service analytics."
+    },
+    {
+      icon: <Brain />,
+      label: "Modeling",
+      title: "Models shaped by the problem",
+      desc: "Forecasting, computer vision, clustering, NLP, and practical evaluation."
+    },
+    {
+      icon: <CloudCog />,
+      label: "Production",
+      title: "MLOps beyond the notebook",
+      desc: "Docker, FastAPI, CI/CD, monitoring, and reproducible model workflows."
+    },
+    {
+      icon: <Globe />,
+      label: "Decision Layer",
+      title: "Business context in the loop",
+      desc: "Dashboards, stakeholder translation, ROI framing, and adoption."
+    }
+  ];
+
   return (
     <div className="space-y-24">
       {/* Hero Section */}
-      <section className="min-h-[70vh] flex flex-col justify-center gap-8 py-12">
+      <section className="min-h-[76vh] grid lg:grid-cols-[1.08fr_0.92fr] items-center gap-12 py-12">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="space-y-4"
+          className="space-y-6"
         >
-          <span className="text-brand font-mono font-medium uppercase tracking-widest text-sm">
-            Available for new opportunities
-          </span>
-          <h1 className="text-5xl md:text-8xl font-black leading-none tracking-tight">
-            Building the future of <br />
-            <span className="text-brand">Intelligent Data.</span>
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <span className="text-brand font-mono font-medium uppercase tracking-widest">
+              Open to ML and data engineering roles
+            </span>
+            <span className="hidden sm:block h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700" />
+            <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
+              <MapPin size={16} />
+              {resumeData.location}
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight">
+            Building reliable ML systems from messy data.
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-            I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> specializing in scalable ML systems and MLOps.
+            I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> focused on practical machine learning, analytics engineering, and production data workflows.
           </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/projects"
+              className="px-8 py-4 bg-brand text-white font-bold rounded-lg hover:bg-brand-light transition-all flex items-center gap-2 group"
+            >
+              View Projects
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/contact"
+              className="px-8 py-4 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
+            >
+              Get in Touch
+            </Link>
+          </div>
         </motion.div>
 
         <motion.div
            initial={{ opacity: 0 }}
            animate={{ opacity: 1 }}
            transition={{ delay: 0.5 }}
-           className="flex flex-wrap gap-4"
+           className="space-y-4"
         >
-          <Link
-            to="/projects"
-            className="px-8 py-4 bg-brand text-white font-bold rounded-lg hover:bg-brand-light transition-all flex items-center gap-2 group"
-          >
-            View Projects
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            to="/contact"
-            className="px-8 py-4 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
-          >
-            Get in Touch
-          </Link>
+          <div className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl shadow-slate-300/50 dark:shadow-black/40">
+            <img
+              src="/assets/tuan-profile.jpg"
+              alt="Tuan Nguyen looking across the water toward a city skyline"
+              className="h-[420px] w-full object-cover object-[42%_72%] md:h-[520px]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-sky-200">Sydney-based data builder</p>
+              <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-200">
+                I like work that moves from ambiguous data to systems people can actually use.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {resumeData.highlights.map((highlight) => (
+              <div
+                key={highlight.label}
+                className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-900/70 backdrop-blur shadow-sm"
+              >
+                <span className="block text-3xl font-black text-brand">{highlight.value}</span>
+                <span className="mt-2 block text-sm leading-snug text-slate-600 dark:text-slate-400">{highlight.label}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -72,16 +133,6 @@ export default function Home() {
         </h2>
         <div className="space-y-8 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
           <p>{resumeData.summary}</p>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
-              <span className="block text-2xl font-bold text-brand">50+</span>
-              <span className="text-sm">ML Projects Delivered</span>
-            </div>
-             <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
-              <span className="block text-2xl font-bold text-brand">40+</span>
-              <span className="text-sm">Scalable Pipelines</span>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -95,7 +146,6 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* @ts-ignore */}
           {resumeData.reflections.map((reflection, index) => (
             <motion.div
               key={index}
@@ -134,7 +184,7 @@ export default function Home() {
       <section className="py-24 space-y-12">
         <div className="text-center space-y-4">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">My Expertise</h2>
-          <p className="text-slate-500 dark:text-slate-400">Leveraging cutting-edge technologies to solve complex problems.</p>
+          <p className="text-slate-500 dark:text-slate-400">A practical stack for moving from raw data to deployed decisions.</p>
         </div>
 
         <div className="space-y-12">
@@ -143,24 +193,24 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid md:grid-cols-4 gap-6"
+            className="grid md:grid-cols-2 gap-6"
           >
-            {[
-              { icon: <Database />, title: "Data Engineering", desc: "Scalable pipelines & Medallion architecture." },
-              { icon: <Brain />, title: "Machine Learning", desc: "Predictive modeling & Computer Vision." },
-              { icon: <Globe />, title: "NLP", desc: "Sentiment analysis & Text processing." },
-              { icon: <Code />, title: "MLOps", desc: "Containerization & Deployment at scale." }
-            ].map((skill, index) => (
+            {expertise.map((skill) => (
               <motion.div
-                key={index}
+                key={skill.label}
                 variants={item}
-                className="p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all hover:shadow-lg hover:shadow-brand/5 space-y-3 group"
+                className="expertise-band p-6 rounded-xl bg-white/90 dark:bg-slate-900/85 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all hover:shadow-lg hover:shadow-brand/5 group"
               >
-                <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
-                  {skill.icon}
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-slate-950 text-brand border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                    {skill.icon}
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-mono text-xs uppercase tracking-[0.22em] text-brand">{skill.label}</p>
+                    <h3 className="text-xl font-bold group-hover:text-brand transition-colors">{skill.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{skill.desc}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold group-hover:text-brand transition-colors">{skill.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{skill.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -169,17 +219,45 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="pt-12 border-t border-slate-200 dark:border-slate-800"
+            className="pt-12 border-t border-slate-200 dark:border-slate-800 space-y-8"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 text-center mb-8">Core Technology Stack</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {["Python", "PyTorch", "GCP", "BigQuery", "SQL", "Airflow", "dbt", "Docker", "FastAPI", "Spark", "Databricks"].map((tech) => (
-                <span 
-                  key={tech}
-                  className="px-4 py-2 text-xs font-mono border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg text-slate-600 dark:text-slate-400 shadow-sm hover:border-brand hover:text-brand transition-all cursor-default"
+            <div className="text-center space-y-3">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Core Technology Stack</p>
+              <h3 className="text-2xl md:text-3xl font-black tracking-tight">Tools I use across the ML lifecycle</h3>
+              <p className="mx-auto max-w-2xl text-sm md:text-base text-slate-500 dark:text-slate-400">
+                Grouped by how they show up in my work: from data foundations and modelling to deployment, analytics, and AI interfaces.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+              {resumeData.technologyStack.map((group) => (
+                <div
+                  key={group.title}
+                  className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-5 shadow-sm hover:border-brand/60 hover:shadow-lg hover:shadow-brand/5 transition-all"
                 >
-                  {tech}
-                </span>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                      <TerminalSquare size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">{group.title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                        {group.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {group.tools.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 text-[11px] font-mono border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 rounded-md text-slate-600 dark:text-slate-400 hover:border-brand hover:text-brand transition-all cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </motion.div>

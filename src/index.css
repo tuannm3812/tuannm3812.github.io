@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
@@ -13,5 +15,36 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+  }
+}
+
+@layer utilities {
+  .site-backdrop {
+    background:
+      linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(5, 64, 242, 0.06), transparent 34%),
+      #f8fafc;
+    background-size: 48px 48px, 48px 48px, 100% 100%, auto;
+  }
+
+  .dark .site-backdrop {
+    background:
+      linear-gradient(rgba(148, 163, 184, 0.075) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.075) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(5, 64, 242, 0.12), transparent 36%),
+      #020617;
+    background-size: 48px 48px, 48px 48px, 100% 100%, auto;
+  }
+
+  .expertise-band {
+    background:
+      linear-gradient(90deg, rgba(5, 64, 242, 0.11), rgba(20, 184, 166, 0.08)),
+      linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    background-size: auto, 100% 12px;
   }
 }
