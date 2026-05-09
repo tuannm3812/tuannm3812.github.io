@@ -9,19 +9,19 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "1",
-    title: "The Future of MLOps in 2026",
-    excerpt: "Exploring the evolution of machine learning operations and how it bridges the gap between research and production.",
+    id: "mlops-feedback-loops",
+    title: "MLOps Starts With Feedback Loops",
+    excerpt: "A practical note on why production ML is less about one perfect model and more about monitoring, retraining, and ownership.",
     date: "2026-04-10",
-    content: "Machine Learning Operations (MLOps) has come a long way. In 2026, we see a complete shift towards automated, self-healing pipelines that manage everything from data drift detection to automatic model retraining...",
+    content: "The most useful MLOps systems I have worked on are not built around a single heroic model. They are built around feedback loops: data quality checks, performance monitoring, retraining triggers, deployment gates, and clear ownership when something drifts. A model can look strong in a notebook and still fail quietly in production if the surrounding system does not explain what changed, who should respond, and how to recover safely.",
     author: "Tuan Nguyen"
   },
   {
-    id: "2",
-    title: "Scaling Data Pipelines with BigQuery",
-    excerpt: "How we managed to process terabytes of e-commerce data efficiently at Shopee.",
+    id: "analytics-that-ships",
+    title: "Analytics That Ships",
+    excerpt: "What e-commerce analytics taught me about moving from dashboards to decisions.",
     date: "2026-03-25",
-    content: "When dealing with high-volume e-commerce data, scalability isn't just a requirement; it's a survival mechanism. This post dives deep into our BigQuery architecture at Shopee...",
+    content: "In high-volume e-commerce work, a dashboard is only valuable when it changes the next decision. That means the metric has to be trusted, refreshed at the right cadence, and connected to an action someone can actually take. The best analytics products reduce translation work: they make the trade-off visible, show the expected impact, and give business teams enough context to move without waiting for another ad-hoc analysis.",
     author: "Tuan Nguyen"
   }
 ];

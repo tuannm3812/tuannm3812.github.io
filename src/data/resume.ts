@@ -1,20 +1,74 @@
-export const resumeData = {
+export interface Project {
+  title: string;
+  category: string;
+  github?: string;
+  demo?: string;
+  impact?: string;
+  stack: string[];
+  points: string[];
+}
+
+export interface ResumeData {
+  name: string;
+  title: string;
+  email: string;
+  phone: string;
+  location: string;
+  linkedin: string;
+  github: string;
+  summary: string;
+  highlights: { value: string; label: string }[];
+  education: {
+    institution: string;
+    location: string;
+    degree: string;
+    period: string;
+    points: string[];
+  }[];
+  experience: {
+    company: string;
+    location: string;
+    role: string;
+    period: string;
+    points: string[];
+  }[];
+  projects: Project[];
+  reflections: {
+    title: string;
+    category: string;
+    points: string[];
+  }[];
+  technologyStack: {
+    title: string;
+    description: string;
+    tools: string[];
+  }[];
+  skills: Record<string, string[]>;
+}
+
+export const resumeData: ResumeData = {
   name: "Tuan Nguyen (Mike)",
-  title: "Senior ML Engineer & Data Strategist",
+  title: "Machine Learning Engineer & Data Professional",
   email: "tuannm3812@gmail.com",
   phone: "+61 433 466 749",
   location: "Sydney, NSW",
   linkedin: "https://linkedin.com/in/tuan-m-nguyen",
   github: "https://github.com/tuannm3812",
-  summary: "Data Scientist and Machine Learning Engineer with 7+ years of experience delivering high-impact analytics solutions, predictive models, and data-driven insights across diverse industries. Expert in building scalable machine learning systems, cloud-native data pipelines, and end-to-end MLOps workflows using modern engineering best practices to bridge the gap between complex data and strategic business value. Strong technical foundation in distributed computing, advanced data orchestration, and production-grade deployment for sophisticated AI architectures.",
+  summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
+  highlights: [
+    { value: "7+", label: "Years across analytics, consulting, and ML" },
+    { value: "15%", label: "ROI uplift from seller investment analytics" },
+    { value: "40+", label: "Banking and capital markets audit datasets analyzed" },
+    { value: "5", label: "Cross-functional analysts led at Shopee" }
+  ],
   education: [
     {
       institution: "University of Technology Sydney",
       location: "Sydney, Australia",
       degree: "Master of Data Science and Innovation (High Distinction)",
-      period: "Feb 2025 – Feb 2027 (expected)",
+      period: "Feb 2025 - Feb 2027 (expected)",
       points: [
-        "Courseworks include Machine Learning, Big Data Engineering, Statistical Modelling, Deep Learning, Computer Vision and Natural Language Processing.",
+        "Coursework includes machine learning, big data engineering, statistical modelling, deep learning, computer vision, and natural language processing.",
         "Completed academic projects in full-stack ML systems, cloud data engineering, MLOps pipelines, predictive modelling, statistical analysis, and AI-driven decision support."
       ]
     },
@@ -22,9 +76,9 @@ export const resumeData = {
       institution: "Foreign Trade University",
       location: "Hanoi, Vietnam",
       degree: "Bachelor of International Economics and Business (Distinction)",
-      period: "Aug 2013 – Jun 2017",
+      period: "Aug 2013 - Jun 2017",
       points: [
-        "Completed a high-quality program emphasised Analytical Thinking, Applied Economics, and Professional Communication, providing a strong foundation in Econometrics, International Trade, Finance, and Strategic Management."
+        "Completed a selective program emphasizing analytical thinking, applied economics, and professional communication, with foundations in econometrics, international trade, finance, and strategic management."
       ]
     }
   ],
@@ -33,34 +87,34 @@ export const resumeData = {
       company: "Shopee Vietnam",
       location: "HCMC, Vietnam",
       role: "Data Optimization | Seller Investment",
-      period: "Dec 2021 – Jan 2025",
+      period: "Dec 2021 - Jan 2025",
       points: [
-        "Engineered End-to-End Data Pipelines: Architected and maintained automated data pipelines in Google BigQuery, processing high-volume e-commerce data to power real-time tracking and commercial strategy.",
-        "Deployed Predictive ML Models: Developed and deployed machine learning models (including customer churn prediction and K-means seller clustering) to personalize user support and optimize resource allocation.",
-        "Driven Data-Informed ROI: Led a cross-functional analytics team of 5, translating complex predictive insights into actionable investment strategies that achieved a 15% uplift in ROI.",
-        "Built Scalable Analytics Products: Designed interactive dashboards in Google Data Studio, enabling self-service analytics and reducing ad-hoc data requests from non-technical stakeholders."
+        "Architected automated BigQuery pipelines for high-volume e-commerce data, powering investment tracking and commercial decision-making.",
+        "Developed predictive models including churn prediction and K-means seller clustering to personalize seller support and allocate resources more effectively.",
+        "Led a cross-functional analytics team of 5, translating model outputs into investment actions that improved ROI by 15%.",
+        "Designed self-service dashboards in Looker Studio, reducing ad-hoc reporting load and improving stakeholder visibility."
       ]
     },
     {
       company: "FPT Software",
       location: "Hanoi, Vietnam",
       role: "Senior Digital Transformation Consultant",
-      period: "Dec 2020 – Dec 2021",
+      period: "Dec 2020 - Dec 2021",
       points: [
-        "Spearheaded Predictive CRM Integration: Led the technical implementation of enterprise CRM systems, specifically engineering predictive analytics modules for automated lead scoring and pipeline forecasting.",
-        "Orchestrated Enterprise AI Adoption: Acted as the technical bridge for client teams, coaching them on leveraging AI tools and data-driven workflows, resulting in a 50% boost in operational productivity.",
-        "Translated Strategy to Architecture: Partnered with business leaders to map operational bottlenecks, designing Agile digital transformation strategies underpinned by scalable data architecture."
+        "Led CRM implementation workstreams and delivered predictive analytics modules for lead scoring and pipeline forecasting.",
+        "Coached client teams on AI-enabled workflows and data-driven operating models, contributing to measurable productivity gains.",
+        "Translated operational bottlenecks into implementation roadmaps, agile delivery plans, and scalable data architecture recommendations."
       ]
     },
     {
       company: "PwC Vietnam",
       location: "Hanoi, Vietnam",
       role: "Senior Assurance Associate",
-      period: "Aug 2017 – Dec 2020",
+      period: "Aug 2017 - Dec 2020",
       points: [
-        "Automated Anomaly Detection: Programmed custom Python and SQL scripts to automate fraud detection and anomaly testing, significantly reducing manual effort and increasing the accuracy of risk assessments.",
-        "Executed Large-Scale Data Audits: Extracted, cleaned, and analyzed massive financial datasets across 40+ Banking and Capital Markets clients, ensuring strict data integrity and regulatory compliance.",
-        "Pioneered Technical Upskilling: Stood out within the assurance practice by applying advanced data manipulation techniques to traditional financial audits, paving the way for more rigorous, code-based risk management."
+        "Built Python and SQL scripts to automate anomaly testing and improve the repeatability of fraud and risk assessments.",
+        "Extracted, cleaned, and analyzed financial datasets across 40+ banking and capital markets clients.",
+        "Introduced code-based data manipulation techniques into traditional audit workflows, improving analytical rigor and reviewability."
       ]
     }
   ],
@@ -69,56 +123,68 @@ export const resumeData = {
       title: "Bioacoustic Species Classification",
       category: "Edge ML & Deep Learning",
       github: "https://github.com/tuannm3812/birdclef-2026",
+      impact: "Kaggle-ready audio classification workspace",
+      stack: ["PyTorch", "EfficientNet", "Perch", "PCEN", "SpecAugment"],
       points: [
         "Architected a deep learning workspace for Kaggle BirdCLEF+ 2026, implementing EfficientNet-B0 baselines and Google Perch v2 probe models.",
         "Integrated PCEN preprocessing and SpecAugment for robust classification of 206 species in noisy forest environments.",
-        "Developed reusable training utilities and curated exploratory data analysis (EDA) notebooks for bioacoustic signal processing."
+        "Developed reusable training utilities and exploratory notebooks for bioacoustic signal processing."
       ]
     },
     {
       title: "VisionVoice: Image Captioning",
       category: "Computer Vision & Deep Learning",
       github: "https://github.com/tuannm3812/VisionVoice",
+      impact: "Accessibility-focused image captioning system",
+      stack: ["PyTorch", "ResNet", "LSTM", "Attention", "Beam Search"],
       points: [
-        "Built a VizWiz image captioning system using PyTorch, featuring a ResNet-LSTM baseline and an attention-based encoder-decoder model.",
-        "Executed comprehensive EDA on accessibility-focused vision data and optimized caption generation with beam search and attention visualization."
+        "Built a VizWiz image captioning system using PyTorch with a ResNet-LSTM baseline and attention-based encoder-decoder model.",
+        "Ran exploratory analysis on accessibility-focused vision data and improved caption generation with beam search and attention visualization."
       ]
     },
     {
       title: "Production-Grade ELT Pipeline",
       category: "Data Engineering",
       github: "https://github.com/tuannm3812/airbnb-ELT-warehouse",
+      impact: "Cloud warehouse with historical modelling",
+      stack: ["GCP", "Airflow", "dbt", "BigQuery", "Medallion"],
       points: [
-        "Implemented a cloud-native ELT framework in GCP using Apache Airflow and dbt Cloud, adhering to the Medallion (Bronze-Silver-Gold) architecture.",
-        "Automated SCD Type 2 dimension snapshots to track historical pricing trends and host metadata changes with full data lineage."
+        "Implemented a cloud-native ELT framework in GCP with Apache Airflow and dbt Cloud using a Bronze-Silver-Gold architecture.",
+        "Automated SCD Type 2 snapshots to track historical pricing trends and host metadata changes with full lineage."
       ]
     },
     {
       title: "Flickr8k Image Captioning",
       category: "Computer Vision & PyTorch",
       github: "https://github.com/tuannm3812/flickr-image-captioning",
+      impact: "Attention-based captioning with tracked artifacts",
+      stack: ["PyTorch", "ResNet50", "CNN-LSTM", "Kaggle", "BLEU"],
       points: [
-        "Architected a CNN-LSTM captioning model with Attention using ResNet50 as the feature extractor and custom PyTorch data loading pipelines.",
-        "Systematized a structured Kaggle-to-GitHub workflow for automated model artifact synchronization and metadata tracking.",
-        "Achieved competitive BLEU-4 scores through systematic hyperparameter optimization and advanced sequence decoding techniques."
+        "Built a CNN-LSTM captioning model with attention using ResNet50 features and custom PyTorch data loading pipelines.",
+        "Systematized a Kaggle-to-GitHub workflow for model artifact synchronization and metadata tracking.",
+        "Improved BLEU-4 scores through systematic hyperparameter tuning and sequence decoding experiments."
       ]
     },
     {
       title: "Solana Price Forecasting",
       category: "Time-Series & MLOps",
       github: "https://github.com/tuannm3812/solana-price-prediction",
+      impact: "Real-time forecasting and Streamlit dashboard",
+      stack: ["CNN-LSTM", "Streamlit", "APIs", "RSI", "MACD"],
       points: [
-        "Developed a time-series forecasting system for Solana (SOL) prices using CNN-LSTM architectures and technical indicators (RSI, MACD).",
-        "Orchestrated a data collection pipeline from exchange APIs to feed real-time model inference and interactive Streamlit visualizations."
+        "Developed a time-series forecasting system for Solana prices using CNN-LSTM architectures and technical indicators.",
+        "Orchestrated an API-based data collection pipeline for model inference and interactive Streamlit visualizations."
       ]
     },
     {
       title: "AIPA: Text-to-SQL Agent",
       category: "Generative AI",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
+      impact: "Natural-language interface for structured data",
+      stack: ["LLMs", "SQL", "Prompt Engineering", "Agents", "Schema Mapping"],
       points: [
-        "Engineered an autonomous AI agent that transforms natural language into executable SQL, bridging the gap between non-technical users and structured data.",
-        "Utilized prompt engineering and semantic schema mapping to handle complex joins and aggregations across disparate database tables."
+        "Engineered an AI agent that transforms natural language into executable SQL for non-technical data users.",
+        "Used prompt engineering and semantic schema mapping to handle joins and aggregations across database tables."
       ]
     }
   ],
@@ -127,33 +193,65 @@ export const resumeData = {
       title: "Bridging the Gap",
       category: "Career Evolution",
       points: [
-        "Transitioning from professional services at PwC to Data Optimization at Shopee taught me that the most valuable models are those derived from deep domain understanding.",
-        "Engineering solutions that speak both 'Business ROI' and 'Technical Scalability' is the key to driving real organizational value."
+        "Moving from professional services at PwC to data optimization at Shopee taught me that strong models start with strong domain understanding.",
+        "The work that matters usually speaks two languages: business ROI and technical scalability."
       ]
     },
     {
       title: "Product-Centric ML",
       category: "Philosophy",
       points: [
-        "Model accuracy is a proxy, but production performance and user adoption are the final truth. I focus on end-to-end reliability and system robustness.",
-        "Choosing the right tool (e.g., EfficientNet for Edge vs. Transformer for Cloud) requires balancing latency, cost, and maintainability."
+        "Model accuracy is a proxy; production reliability and user adoption are the final tests.",
+        "Choosing the right tool means balancing latency, cost, maintainability, and the shape of the user problem."
       ]
     },
     {
       title: "The Lifelong Beta",
       category: "Mindset",
       points: [
-        "The shift from traditional Batch Processing to Real-time ML and GenAI Agents requires a persistent curiosity and structured experimentation mindset.",
-        "Active participation in global competitions like Kaggle and contributing to open-source remains my primary engine for staying ahead of the tech curve."
+        "The shift from batch analytics to real-time ML and AI agents rewards structured experimentation.",
+        "Competitions, academic projects, and open-source work keep my practice sharp and honest."
       ]
     }
   ],
+  technologyStack: [
+    {
+      title: "Languages & Engineering",
+      description: "Daily tools for analysis, modelling, automation, and maintainable project structure.",
+      tools: ["Python", "SQL", "PySpark", "OOP", "Unit Testing", "Package Development"]
+    },
+    {
+      title: "Data Platforms",
+      description: "Cloud warehouse and lakehouse patterns for reliable analytics and historical modelling.",
+      tools: ["BigQuery", "GCP", "Snowflake", "Databricks", "Delta Lake", "Medallion Architecture"]
+    },
+    {
+      title: "Orchestration & Analytics",
+      description: "Pipelines, transformation layers, and stakeholder-facing reporting workflows.",
+      tools: ["Apache Airflow", "dbt Cloud", "ETL/ELT", "Looker Studio", "Dashboarding", "Data Quality"]
+    },
+    {
+      title: "Machine Learning",
+      description: "Classical ML, deep learning, computer vision, and time-series experimentation.",
+      tools: ["PyTorch", "CNN/LSTM", "Transfer Learning", "XGBoost", "LightGBM", "SMOTE"]
+    },
+    {
+      title: "Production & MLOps",
+      description: "Deployment patterns for moving models and data products beyond notebooks.",
+      tools: ["Docker", "FastAPI", "Streamlit", "CI/CD", "Model Versioning", "GPU/TPU Optimization"]
+    },
+    {
+      title: "AI, NLP & Agents",
+      description: "Applied language systems for text understanding, schema reasoning, and natural-language interfaces.",
+      tools: ["LLMs", "Prompt Engineering", "Text-to-SQL", "Sentiment Analysis", "Stance Detection", "Schema Mapping"]
+    }
+  ],
   skills: {
-    programming: ["Python (Expert)", "SQL (Advanced)", "PySpark", "OOP", "Unit Testing", "Package Development"],
-    dataEngineering: ["Medallion Architecture", "Bronze-Silver-Gold", "dbt Cloud", "Apache Airflow", "Snowflake", "Databricks", "Delta Lake", "ETL/ELT Orchestration"],
-    machineLearning: ["Supervised/Unsupervised Learning", "Deep Learning (CNN, LSTM, DNN)", "Transfer Learning", "XGBoost", "LightGBM", "SMOTE"],
-    nlp: ["Sentiment Analysis (VADER, TextBlob)", "Stance Detection", "Social Media Analytics", "Data Cleaning", "Feature Engineering"],
-    mlops: ["Docker", "FastAPI", "Streamlit", "CI/CD", "Model Versioning", "TPU/GPU strategy optimization", "Sliding-Window Inference"],
+    programming: ["Python", "SQL", "PySpark", "OOP", "Unit Testing", "Package Development"],
+    dataEngineering: ["Medallion Architecture", "dbt Cloud", "Apache Airflow", "Snowflake", "Databricks", "Delta Lake", "ETL/ELT Orchestration"],
+    machineLearning: ["Supervised Learning", "Unsupervised Learning", "Deep Learning", "Transfer Learning", "XGBoost", "LightGBM", "SMOTE"],
+    nlp: ["Sentiment Analysis", "Stance Detection", "Social Media Analytics", "Data Cleaning", "Feature Engineering"],
+    mlops: ["Docker", "FastAPI", "Streamlit", "CI/CD", "Model Versioning", "GPU/TPU Optimization", "Sliding-Window Inference"],
     languages: ["English (Professional)", "Vietnamese (Native)"]
   }
 };
