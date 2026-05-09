@@ -45,14 +45,30 @@ export default function Projects() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex gap-4">
-              <button className="flex items-center gap-2 text-sm font-bold hover:text-brand transition-colors">
-                <Github size={18} />
-                Source Content
-              </button>
-              <button className="flex items-center gap-2 text-sm font-bold hover:text-brand transition-colors">
-                <ExternalLink size={18} />
-                Live Demo
-              </button>
+              {project.github && (
+                <a 
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 dark:bg-brand text-white text-xs font-bold uppercase tracking-wider hover:bg-brand dark:hover:bg-brand-light transition-all shadow-sm hover:shadow-brand/20"
+                >
+                  <Github size={14} />
+                  Source Code
+                </a>
+              )}
+              {/* @ts-ignore */}
+              {project.demo && (
+                <a 
+                  /* @ts-ignore */
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold uppercase tracking-wider hover:border-brand hover:text-brand transition-all"
+                >
+                  <ExternalLink size={14} />
+                  Live Demo
+                </a>
+              )}
             </div>
           </motion.div>
         ))}

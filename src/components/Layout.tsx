@@ -175,13 +175,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </p>
           </div>
           <div className="flex gap-6 items-center">
-            <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">
+            <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="LinkedIn">
               <Linkedin size={24} />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">
+            <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="GitHub">
               <Github size={24} />
             </a>
-            <a href={`mailto:${resumeData.email}`} className="hover:text-brand transition-colors">
+            <a href={`mailto:${resumeData.email}`} className="hover:text-brand transition-colors" aria-label="Email">
               <Mail size={24} />
             </a>
           </div>

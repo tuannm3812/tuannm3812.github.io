@@ -1,10 +1,11 @@
 export const resumeData = {
   name: "Tuan Nguyen (Mike)",
-  title: "Senior Data Professional | Machine Learning & Engineering",
+  title: "Senior ML Engineer & Data Strategist",
   email: "tuannm3812@gmail.com",
   phone: "+61 433 466 749",
   location: "Sydney, NSW",
   linkedin: "https://linkedin.com/in/tuan-m-nguyen",
+  github: "https://github.com/tuannm3812",
   summary: "Data Scientist and Machine Learning Engineer with 7+ years of experience delivering high-impact analytics solutions, predictive models, and data-driven insights across diverse industries. Expert in building scalable machine learning systems, cloud-native data pipelines, and end-to-end MLOps workflows using modern engineering best practices to bridge the gap between complex data and strategic business value. Strong technical foundation in distributed computing, advanced data orchestration, and production-grade deployment for sophisticated AI architectures.",
   education: [
     {
@@ -31,7 +32,7 @@ export const resumeData = {
     {
       company: "Shopee Vietnam",
       location: "HCMC, Vietnam",
-      role: "Data Optimization Manager | Seller Investment Analytics Lead",
+      role: "Data Optimization | Seller Investment",
       period: "Dec 2021 – Jan 2025",
       points: [
         "Engineered End-to-End Data Pipelines: Architected and maintained automated data pipelines in Google BigQuery, processing high-volume e-commerce data to power real-time tracking and commercial strategy.",
@@ -67,33 +68,83 @@ export const resumeData = {
     {
       title: "Bioacoustic Species Classification",
       category: "Edge ML & Deep Learning",
+      github: "https://github.com/tuannm3812/birdclef-2026",
       points: [
-        "Architected a robust deep learning pipeline utilizing EfficientNet-B0 and Google Perch_v2 to classify 206 species, applying PCEN and SpecAugment to isolate audio signals in high-noise environments.",
-        "Engineered a Stratified Group K-Fold validation framework to eliminate data leakage and optimized a sliding-window inference engine for deployment on low-power edge hardware."
+        "Architected a deep learning workspace for Kaggle BirdCLEF+ 2026, implementing EfficientNet-B0 baselines and Google Perch v2 probe models.",
+        "Integrated PCEN preprocessing and SpecAugment for robust classification of 206 species in noisy forest environments.",
+        "Developed reusable training utilities and curated exploratory data analysis (EDA) notebooks for bioacoustic signal processing."
       ]
     },
     {
-      title: "High-Performance CNN Workflow",
-      category: "Computer Vision",
+      title: "VisionVoice: Image Captioning",
+      category: "Computer Vision & Deep Learning",
+      github: "https://github.com/tuannm3812/VisionVoice",
       points: [
-        "Developed a custom two-phase transfer learning protocol using MobileNetV3 and a 3-layer MLP head, leveraging warm-started weights to prevent catastrophic forgetting during fine-tuning.",
-        "Optimized image ingestion pipelines with smart resizing (bicubic + aspect ratio preservation) and built a diagnostic evaluation suite for per-category F1-score analysis to debug model performance on visually similar classes."
+        "Built a VizWiz image captioning system using PyTorch, featuring a ResNet-LSTM baseline and an attention-based encoder-decoder model.",
+        "Executed comprehensive EDA on accessibility-focused vision data and optimized caption generation with beam search and attention visualization."
       ]
     },
     {
-      title: "Production-Grade ELT Pipeline – Airbnb",
+      title: "Production-Grade ELT Pipeline",
       category: "Data Engineering",
+      github: "https://github.com/tuannm3812/airbnb-ELT-warehouse",
       points: [
-        "Designed a cloud-native ELT workflow in GCP implementing the Medallion Architecture (Bronze-Silver-Gold), utilizing Apache Airflow and dbt Cloud to transform raw data into scalable analytical marts.",
-        "Automated Slowly Changing Dimensions (SCD Type 2) snapshots to maintain historical state, enabling longitudinal pricing analysis with 100% data lineage and integrity."
+        "Implemented a cloud-native ELT framework in GCP using Apache Airflow and dbt Cloud, adhering to the Medallion (Bronze-Silver-Gold) architecture.",
+        "Automated SCD Type 2 dimension snapshots to track historical pricing trends and host metadata changes with full data lineage."
       ]
     },
     {
-      title: "Cryptocurrency Price Forecasting System",
-      category: "Time-Series & MLOps",
+      title: "Flickr8k Image Captioning",
+      category: "Computer Vision & PyTorch",
+      github: "https://github.com/tuannm3812/flickr-image-captioning",
       points: [
-        "Engineered a real-time forecasting engine integrating XGBoost and CNN-LSTM architectures for real-time BTC, ETH, and SOL prediction.",
-        "Deployed a containerized FastAPI backend and an interactive Streamlit dashboard featuring live decision-support analytics and dynamic model interpretability charts."
+        "Architected a CNN-LSTM captioning model with Attention using ResNet50 as the feature extractor and custom PyTorch data loading pipelines.",
+        "Systematized a structured Kaggle-to-GitHub workflow for automated model artifact synchronization and metadata tracking.",
+        "Achieved competitive BLEU-4 scores through systematic hyperparameter optimization and advanced sequence decoding techniques."
+      ]
+    },
+    {
+      title: "Solana Price Forecasting",
+      category: "Time-Series & MLOps",
+      github: "https://github.com/tuannm3812/solana-price-prediction",
+      points: [
+        "Developed a time-series forecasting system for Solana (SOL) prices using CNN-LSTM architectures and technical indicators (RSI, MACD).",
+        "Orchestrated a data collection pipeline from exchange APIs to feed real-time model inference and interactive Streamlit visualizations."
+      ]
+    },
+    {
+      title: "AIPA: Text-to-SQL Agent",
+      category: "Generative AI",
+      github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
+      points: [
+        "Engineered an autonomous AI agent that transforms natural language into executable SQL, bridging the gap between non-technical users and structured data.",
+        "Utilized prompt engineering and semantic schema mapping to handle complex joins and aggregations across disparate database tables."
+      ]
+    }
+  ],
+  reflections: [
+    {
+      title: "Bridging the Gap",
+      category: "Career Evolution",
+      points: [
+        "Transitioning from professional services at PwC to Data Optimization at Shopee taught me that the most valuable models are those derived from deep domain understanding.",
+        "Engineering solutions that speak both 'Business ROI' and 'Technical Scalability' is the key to driving real organizational value."
+      ]
+    },
+    {
+      title: "Product-Centric ML",
+      category: "Philosophy",
+      points: [
+        "Model accuracy is a proxy, but production performance and user adoption are the final truth. I focus on end-to-end reliability and system robustness.",
+        "Choosing the right tool (e.g., EfficientNet for Edge vs. Transformer for Cloud) requires balancing latency, cost, and maintainability."
+      ]
+    },
+    {
+      title: "The Lifelong Beta",
+      category: "Mindset",
+      points: [
+        "The shift from traditional Batch Processing to Real-time ML and GenAI Agents requires a persistent curiosity and structured experimentation mindset.",
+        "Active participation in global competitions like Kaggle and contributing to open-source remains my primary engine for staying ahead of the tech curve."
       ]
     }
   ],
