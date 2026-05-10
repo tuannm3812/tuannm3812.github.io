@@ -16,6 +16,7 @@ export interface ResumeData {
   location: string;
   linkedin: string;
   github: string;
+  kaggle: string;
   summary: string;
   highlights: { value: string; label: string }[];
   education: {
@@ -54,6 +55,7 @@ export const resumeData: ResumeData = {
   location: "Sydney, NSW",
   linkedin: "https://linkedin.com/in/tuan-m-nguyen",
   github: "https://github.com/tuannm3812",
+  kaggle: "https://www.kaggle.com/tuannm3812",
   summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
   highlights: [
     { value: "7+", label: "Years building analytics and ML workflows" },

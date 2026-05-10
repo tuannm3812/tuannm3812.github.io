@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import { AlertTriangle, ExternalLink, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react';
+import { AlertTriangle, BarChart3, ExternalLink, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
@@ -176,6 +176,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </a>
             <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="GitHub">
               <Github size={24} />
+            </a>
+            <a href={resumeData.kaggle} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="Kaggle">
+              <BarChart3 size={24} />
             </a>
             <a href={`mailto:${resumeData.email}`} className="hover:text-brand transition-colors" aria-label="Email">
               <Mail size={24} />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, BarChart3 } from 'lucide-react';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { db, collection, addDoc, serverTimestamp, handleFirestoreError, OperationType } from '../lib/firebase';
@@ -96,6 +96,18 @@ export default function Contact() {
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Location</p>
               <p className="font-bold">{resumeData.location}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
+            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+              <BarChart3 size={20} />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Kaggle</p>
+              <a href={resumeData.kaggle} target="_blank" rel="noreferrer" className="font-bold hover:text-brand transition-colors">
+                kaggle.com/tuannm3812
+              </a>
             </div>
           </div>
         </div>
