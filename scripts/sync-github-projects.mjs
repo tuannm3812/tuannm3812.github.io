@@ -139,6 +139,7 @@ const projects = repos
   .filter((repo) => !repo.fork)
   .filter((repo) => !repo.archived)
   .filter((repo) => !repo.disabled)
+  .filter((repo) => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
   .filter((repo) => !IGNORED_REPOS.has(repo.name))
   .filter((repo) => !curatedGithubLinks.has(repo.html_url.replace(/\/$/, '')))
   .map(buildProject)
