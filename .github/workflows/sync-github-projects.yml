@@ -1,0 +1,49 @@
+name: Sync GitHub Projects
+
+on:
+  schedule:
+    - cron: '0 20 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync generated project data
+        run: npm run sync:github-projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: tuannm3812
+          GITHUB_PROJECT_IGNORE: adv_mla_lab_2,adv_mla_lab_3
+
+      - name: Type check
+        run: npm run lint
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: sync github projects'
+          branch: automated/github-project-sync
+          delete-branch: true
+          title: 'chore: sync GitHub projects'
+          body: |
+            Automated update from the GitHub project sync workflow.
+
+            This PR refreshes `src/data/githubProjects.ts` from public GitHub repository metadata. Curated entries in `src/data/resume.ts` still take priority when a GitHub URL appears in both files.

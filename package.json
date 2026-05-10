@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview --host=0.0.0.0",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "sync:github-projects": "node scripts/sync-github-projects.mjs"
   },
   "engines": {
     "node": ">=20"

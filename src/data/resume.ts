@@ -121,7 +121,7 @@ export const resumeData: ResumeData = {
   projects: [
     {
       title: "Bioacoustic Species Classification",
-      category: "Edge ML & Deep Learning",
+      category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/birdclef-2026",
       impact: "Kaggle-ready audio classification workspace",
       stack: ["PyTorch", "EfficientNet", "Perch", "PCEN", "SpecAugment"],
@@ -133,7 +133,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "VisionVoice: Image Captioning",
-      category: "Computer Vision & Deep Learning",
+      category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/VisionVoice",
       impact: "Accessibility-focused image captioning system",
       stack: ["PyTorch", "ResNet", "LSTM", "Attention", "Beam Search"],
@@ -143,19 +143,8 @@ export const resumeData: ResumeData = {
       ]
     },
     {
-      title: "Production-Grade ELT Pipeline",
-      category: "Data Engineering",
-      github: "https://github.com/tuannm3812/airbnb-ELT-warehouse",
-      impact: "Cloud warehouse with historical modelling",
-      stack: ["GCP", "Airflow", "dbt", "BigQuery", "Medallion"],
-      points: [
-        "Implemented a cloud-native ELT framework in GCP with Apache Airflow and dbt Cloud using a Bronze-Silver-Gold architecture.",
-        "Automated SCD Type 2 snapshots to track historical pricing trends and host metadata changes with full lineage."
-      ]
-    },
-    {
       title: "Flickr8k Image Captioning",
-      category: "Computer Vision & PyTorch",
+      category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/flickr-image-captioning",
       impact: "Attention-based captioning with tracked artifacts",
       stack: ["PyTorch", "ResNet50", "CNN-LSTM", "Kaggle", "BLEU"],
@@ -166,25 +155,112 @@ export const resumeData: ResumeData = {
       ]
     },
     {
+      title: "Production-Grade ELT Pipeline",
+      category: "Data Engineering & Analytics",
+      github: "https://github.com/tuannm3812/airbnb-ELT-warehouse",
+      impact: "Cloud warehouse with historical modelling",
+      stack: ["GCP", "Airflow", "dbt", "BigQuery", "Medallion"],
+      points: [
+        "Implemented a cloud-native ELT framework in GCP with Apache Airflow and dbt Cloud using a Bronze-Silver-Gold architecture.",
+        "Automated SCD Type 2 snapshots to track historical pricing trends and host metadata changes with full lineage."
+      ]
+    },
+    {
+      title: "FAOSTAT Food Price Shock Dashboard",
+      category: "Data Engineering & Analytics",
+      github: "https://github.com/tuannm3812/assignment3-faostat-viz",
+      demo: "https://assignment3-faostat-viz.streamlit.app/",
+      impact: "Live Streamlit dashboard for global food-price risk",
+      stack: ["Streamlit", "Pandas", "Plotly", "FAOSTAT", "World Bank"],
+      points: [
+        "Built an interactive dashboard connecting Australia and New Zealand producer prices with global hunger and import-dependency indicators.",
+        "Prepared cleaned analytical tables from FAOSTAT, FAO Food Price Index, Global Hunger Index, and World Bank datasets.",
+        "Added what-if shock scenarios and vulnerability views for exploring countries exposed to commodity price pressure."
+      ]
+    },
+    {
       title: "Solana Price Forecasting",
       category: "Time-Series & MLOps",
       github: "https://github.com/tuannm3812/solana-price-prediction",
+      demo: "https://solana-price-prediction-tuannm3812.streamlit.app/",
       impact: "Real-time forecasting and Streamlit dashboard",
-      stack: ["CNN-LSTM", "Streamlit", "APIs", "RSI", "MACD"],
+      stack: ["Streamlit", "FastAPI", "Kraken API", "Scikit-learn", "Pytest"],
       points: [
-        "Developed a time-series forecasting system for Solana prices using CNN-LSTM architectures and technical indicators.",
-        "Orchestrated an API-based data collection pipeline for model inference and interactive Streamlit visualizations."
+        "Developed a production-ready Solana forecasting project with live Kraken OHLCV data, an anchored residual model, and bundled model inference.",
+        "Packaged data loading, feature engineering, training, and prediction code with tests and a deployable Streamlit dashboard.",
+        "Documented optional FastAPI serving for separating the dashboard from the prediction service."
+      ]
+    },
+    {
+      title: "Gender Equality Policy NLP",
+      category: "NLP & Generative AI",
+      github: "https://github.com/tuannm3812/gender-equality-policy-nlp",
+      impact: "Policy discourse analysis from parliamentary submissions",
+      stack: ["NLP", "TF-IDF", "LDA", "K-Means", "Python"],
+      points: [
+        "Analyzed Australian parliamentary submissions on workplace gender equality reform using cleaning, TF-IDF, topic modelling, and clustering.",
+        "Compared stakeholder language across unions, industry groups, government bodies, advocacy organisations, and academics.",
+        "Produced reusable package modules, plots, notebooks, and a written analytical report."
+      ]
+    },
+    {
+      title: "AfriWeave",
+      category: "NLP & Generative AI",
+      github: "https://github.com/tuannm3812/AfriWeave",
+      impact: "Culturally focused Streamlit NLP prototype",
+      stack: ["Streamlit", "Keras", "JAX", "BPE", "Transformers"],
+      points: [
+        "Built an interactive NLP prototype for corpus exploration, N-gram phrase analysis, and culturally focused text generation.",
+        "Implemented a transparent N-gram baseline, Byte Pair Encoding tokenizer, and transformer architecture scaffold.",
+        "Added tests and fallback sample data so the app remains usable during demos when remote data is unavailable."
       ]
     },
     {
       title: "AIPA: Text-to-SQL Agent",
-      category: "Generative AI",
+      category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
       impact: "Natural-language interface for structured data",
       stack: ["LLMs", "SQL", "Prompt Engineering", "Agents", "Schema Mapping"],
       points: [
         "Engineered an AI agent that transforms natural language into executable SQL for non-technical data users.",
         "Used prompt engineering and semantic schema mapping to handle joins and aggregations across database tables."
+      ]
+    },
+    {
+      title: "Apple Foundation Agent",
+      category: "Applied AI Products",
+      github: "https://github.com/tuannm3812/apple-foundation-agent",
+      impact: "Interactive Streamlit diagnostic for developer workflows",
+      stack: ["Streamlit", "Python", "UX", "Scoring Logic", "Deployment"],
+      points: [
+        "Designed a five-step diagnostic experience that maps recovery and delivery choices to developer workflow profiles.",
+        "Built dynamic scoring, local image assets, and a polished Streamlit interface suitable for portfolio review.",
+        "Documented a lightweight deployment path for Streamlit Community Cloud or similar Python app hosts."
+      ]
+    },
+    {
+      title: "AI Meal Planner",
+      category: "Applied AI Products",
+      github: "https://github.com/tuannm3812/ai-meal-planner",
+      impact: "Multi-agent meal planning product prototype",
+      stack: ["FastAPI", "React", "Gemini", "Tailwind", "Pydantic"],
+      points: [
+        "Built a multi-agent meal-planning app that turns a craving into a meal plan, nutrition summary, and supermarket shopping list.",
+        "Implemented FastAPI endpoints, deterministic fallbacks, file-backed user profiles, and meal history storage.",
+        "Created a React dashboard for submitting meal requests and reviewing generated nutrition and shopping results."
+      ]
+    },
+    {
+      title: "Personal Portfolio",
+      category: "Applied AI Products",
+      github: "https://github.com/tuannm3812/tuannm3812.github.io",
+      demo: "https://tuannm3812.github.io",
+      impact: "React portfolio deployed with GitHub Pages",
+      stack: ["React", "TypeScript", "Tailwind", "Firebase", "GitHub Actions"],
+      points: [
+        "Maintained a personal portfolio for machine learning, data engineering, MLOps, and selected project work.",
+        "Integrated Firebase-backed contact and comment features with GitHub Pages deployment through GitHub Actions.",
+        "Structured the site around resume content, project evidence, writing, and accessible contact paths."
       ]
     }
   ],
