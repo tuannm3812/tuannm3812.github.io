@@ -56,10 +56,10 @@ export const resumeData: ResumeData = {
   github: "https://github.com/tuannm3812",
   summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
   highlights: [
-    { value: "7+", label: "Years across analytics, consulting, and ML" },
-    { value: "15%", label: "ROI uplift from seller investment analytics" },
-    { value: "40+", label: "Banking and capital markets audit datasets analyzed" },
-    { value: "5", label: "Cross-functional analysts led at Shopee" }
+    { value: "7+", label: "Years building analytics and ML workflows" },
+    { value: "12", label: "Technical projects across ML, data, and AI" },
+    { value: "5+", label: "Core domains from CV to MLOps" },
+    { value: "Full-stack", label: "From data pipelines to deployed apps" }
   ],
   education: [
     {
