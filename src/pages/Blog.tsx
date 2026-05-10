@@ -95,12 +95,12 @@ export default function Blog() {
   };
 
   return (
-    <div className="space-y-12 pb-24">
-      <div className="max-w-3xl space-y-4">
+    <div className="space-y-8 pb-24">
+      <div className="max-w-3xl space-y-3">
         <h2 className="text-4xl md:text-5xl font-black tracking-tight">
           Reflections <span className="text-brand">&</span> Insights
         </h2>
-        <p className="text-xl text-slate-500 dark:text-slate-400">
+        <p className="text-lg text-slate-500 dark:text-slate-400">
           Short notes on MLOps, data engineering, and applied AI from projects and practice.
         </p>
       </div>
@@ -112,7 +112,7 @@ export default function Blog() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid gap-8"
+            className="grid gap-4 md:grid-cols-2"
           >
             {blogPosts.map((post, index) => (
               <motion.article
@@ -121,10 +121,10 @@ export default function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedPost(post)}
-                className="group cursor-pointer p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all flex flex-col md:flex-row gap-8 items-start md:items-center"
+                className="group cursor-pointer p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all flex gap-5 items-start"
               >
-                <div className="flex-1 space-y-4">
-                  <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <div className="flex-1 space-y-3">
+                  <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
                     <span className="flex items-center gap-1">
                       <Calendar size={14} />
                       {post.date}
@@ -134,15 +134,15 @@ export default function Blog() {
                       {post.author}
                     </span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold group-hover:text-brand transition-colors">
+                  <h3 className="text-xl font-bold group-hover:text-brand transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all shrink-0">
-                  <ArrowRight size={24} />
+                <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all shrink-0">
+                  <ArrowRight size={20} />
                 </div>
               </motion.article>
             ))}
@@ -153,7 +153,7 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="max-w-4xl mx-auto space-y-12"
+            className="max-w-4xl mx-auto space-y-8"
           >
             <button
               onClick={() => setSelectedPost(null)}
@@ -163,7 +163,7 @@ export default function Blog() {
               Back to all posts
             </button>
 
-            <article className="space-y-8">
+            <article className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
                   <span className="flex items-center gap-1">
@@ -175,24 +175,24 @@ export default function Blog() {
                     {selectedPost.author}
                   </span>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-black tracking-tight">
+                <h1 className="text-4xl md:text-5xl font-black tracking-tight">
                   {selectedPost.title}
                 </h1>
               </div>
 
-              <div className="prose prose-slate dark:prose-invert max-w-none text-lg text-slate-600 dark:text-slate-400 leading-loose">
+              <div className="prose prose-slate dark:prose-invert max-w-none text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                 {selectedPost.content}
               </div>
             </article>
 
-            <div className="border-t border-slate-200 dark:border-slate-800 pt-12 space-y-8">
+            <div className="border-t border-slate-200 dark:border-slate-800 pt-8 space-y-6">
               <h3 className="text-2xl font-bold flex items-center gap-3">
                 <MessageSquare className="text-brand" />
                 Comments ({comments.length})
               </h3>
 
               {!user ? (
-                <div className="p-8 rounded-xl bg-brand/5 border border-brand/20 text-center space-y-4">
+                <div className="p-6 rounded-xl bg-brand/5 border border-brand/20 text-center space-y-4">
                   <p className="font-medium text-slate-600 dark:text-slate-400">
                     Join the discussion by signing in with Google.
                   </p>
@@ -205,7 +205,7 @@ export default function Blog() {
                   </button>
                 </div>
               ) : (
-                <div className="p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+                <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
                   <div className="flex items-center gap-3">
                     {user.photoURL && <img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" />}
                     <p className="font-bold">{user.displayName}</p>
@@ -230,7 +230,7 @@ export default function Blog() {
                 </div>
               )}
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {comments.length === 0 ? (
                   <p className="text-center text-slate-500 italic py-4">No comments yet. Be the first to start the conversation.</p>
                 ) : (
@@ -239,7 +239,7 @@ export default function Blog() {
                       key={comment.id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="p-6 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-2"
+                      className="p-4 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-2"
                     >
                       <div className="flex justify-between items-center">
                         <span className="font-bold text-brand">{comment.authorName}</span>

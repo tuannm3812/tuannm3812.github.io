@@ -55,53 +55,53 @@ export default function Contact() {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-16 py-12">
-      <div className="space-y-12">
-        <div className="space-y-4">
+    <div className="grid md:grid-cols-2 gap-10 py-8">
+      <div className="space-y-8">
+        <div className="space-y-3">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h2>
-          <p className="text-xl text-slate-500 dark:text-slate-400">
+          <p className="text-lg text-slate-500 dark:text-slate-400">
             Have a role, project, or collaboration in mind? Send a note and I will get back to you.
           </p>
         </div>
 
-        <div className="space-y-6">
-          <div className="flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
-              <Mail size={24} />
+        <div className="space-y-4">
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
+            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+              <Mail size={20} />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Email Me</p>
-              <a href={`mailto:${resumeData.email}`} className="text-lg font-bold hover:text-brand transition-colors">
+              <a href={`mailto:${resumeData.email}`} className="font-bold hover:text-brand transition-colors">
                 {resumeData.email}
               </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
-              <Phone size={24} />
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
+            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+              <Phone size={20} />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Phone</p>
-              <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} className="text-lg font-bold hover:text-brand transition-colors">
+              <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} className="font-bold hover:text-brand transition-colors">
                 {resumeData.phone}
               </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
-              <MapPin size={24} />
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
+            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+              <MapPin size={20} />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Location</p>
-              <p className="text-lg font-bold">{resumeData.location}</p>
+              <p className="font-bold">{resumeData.location}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900/50 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200 dark:shadow-none relative overflow-hidden">
+      <div className="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200 dark:shadow-none relative overflow-hidden">
         {status === 'success' ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -121,7 +121,7 @@ export default function Contact() {
             </button>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-slate-500">Full Name</label>
               <input
@@ -132,7 +132,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all",
+                  "w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all",
                   errors.name && "border-red-500"
                 )}
                 placeholder="John Doe"
@@ -149,7 +149,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all",
+                  "w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all",
                   errors.email && "border-red-500"
                 )}
                 placeholder="john@example.com"
@@ -163,10 +163,10 @@ export default function Contact() {
                 id="message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={5}
+                rows={4}
                 maxLength={5000}
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all resize-none",
+                  "w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all resize-none",
                   errors.message && "border-red-500"
                 )}
                 placeholder="How can I help you?"
@@ -176,7 +176,7 @@ export default function Contact() {
 
             <button
               disabled={status === 'submitting'}
-              className="w-full py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-light disabled:opacity-50 transition-all flex items-center justify-center gap-2 group"
+              className="w-full py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-light disabled:opacity-50 transition-all flex items-center justify-center gap-2 group"
             >
               {status === 'submitting' ? 'Sending...' : 'Send Message'}
               <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

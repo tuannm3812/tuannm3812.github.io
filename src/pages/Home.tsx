@@ -48,13 +48,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-24">
+    <div className="space-y-16">
       {/* Hero Section */}
-      <section className="min-h-[76vh] grid lg:grid-cols-[1.08fr_0.92fr] items-center gap-12 py-12">
+      <section className="grid min-h-[66vh] items-center gap-10 py-8 lg:grid-cols-[1.08fr_0.92fr]">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="space-y-6"
+          className="space-y-5"
         >
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <span className="text-brand font-mono font-medium uppercase tracking-widest">
@@ -66,23 +66,23 @@ export default function Home() {
               {resumeData.location}
             </span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight">
+          <h1 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight">
             Building reliable ML systems from messy data.
           </h1>
-          <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
             I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> focused on practical machine learning, analytics engineering, and production data workflows.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/projects"
-              className="px-8 py-4 bg-brand text-white font-bold rounded-lg hover:bg-brand-light transition-all flex items-center gap-2 group"
+              className="px-6 py-3 bg-brand text-white font-bold rounded-lg hover:bg-brand-light transition-all flex items-center gap-2 group"
             >
               View Projects
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="px-8 py-4 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
+              className="px-6 py-3 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
             >
               Get in Touch
             </Link>
@@ -99,7 +99,7 @@ export default function Home() {
             <img
               src="/assets/tuan-profile.jpg"
               alt="Tuan Nguyen looking across the water toward a city skyline"
-              className="h-[420px] w-full object-cover object-[42%_72%] md:h-[520px]"
+              className="h-[360px] w-full object-cover object-[42%_72%] md:h-[440px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -114,10 +114,10 @@ export default function Home() {
             {resumeData.highlights.map((highlight) => (
               <div
                 key={highlight.label}
-                className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-900/70 backdrop-blur shadow-sm"
+            className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-900/70 backdrop-blur shadow-sm"
               >
-                <span className="block text-3xl font-black text-brand">{highlight.value}</span>
-                <span className="mt-2 block text-sm leading-snug text-slate-600 dark:text-slate-400">{highlight.label}</span>
+                <span className="block text-2xl font-black text-brand">{highlight.value}</span>
+                <span className="mt-1 block text-xs leading-snug text-slate-600 dark:text-slate-400">{highlight.label}</span>
               </div>
             ))}
           </div>
@@ -125,27 +125,27 @@ export default function Home() {
       </section>
 
       {/* Quick Summary */}
-      <section className="grid md:grid-cols-2 gap-12 items-center border-y border-slate-200 dark:border-slate-800 py-24">
+      <section className="grid md:grid-cols-2 gap-10 items-center border-y border-slate-200 dark:border-slate-800 py-14">
         <h2 className="text-3xl md:text-5xl font-black tracking-tight">
           7+ Years of <br />
           Experience in <br />
           <span className="text-brand">Data Science & ML.</span>
         </h2>
-        <div className="space-y-8 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        <div className="space-y-6 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
           <p>{resumeData.summary}</p>
         </div>
       </section>
 
       {/* Reflections & Insights */}
-      <section className="space-y-12">
-        <div className="space-y-4">
+      <section className="space-y-8">
+        <div className="space-y-3">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Reflections & Insights</h2>
-          <p className="text-xl text-slate-500 dark:text-slate-400 max-w-2xl">
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
             Thoughts on the intersection of business strategy, data engineering, and artificial intelligence.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5">
           {resumeData.reflections.map((reflection, index) => (
             <motion.div
               key={index}
@@ -153,9 +153,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand/50 transition-all shadow-sm hover:shadow-xl hover:shadow-brand/5"
+              className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand/50 transition-all shadow-sm hover:shadow-lg hover:shadow-brand/5"
             >
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="space-y-2">
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-bold uppercase tracking-wider">
                     <Sparkles size={14} />
@@ -166,9 +166,9 @@ export default function Home() {
                   </h3>
                 </div>
 
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {reflection.points.map((point: string, i: number) => (
-                    <li key={i} className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm flex gap-3">
+                    <li key={i} className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs flex gap-2">
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
                       {point}
                     </li>
@@ -181,25 +181,25 @@ export default function Home() {
       </section>
 
       {/* Expertise */}
-      <section className="py-24 space-y-12">
-        <div className="text-center space-y-4">
+      <section className="py-14 space-y-8">
+        <div className="text-center space-y-3">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">My Expertise</h2>
           <p className="text-slate-500 dark:text-slate-400">A practical stack for moving from raw data to deployed decisions.</p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           <motion.div
             variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-6"
+            className="grid md:grid-cols-2 gap-4"
           >
             {expertise.map((skill) => (
               <motion.div
                 key={skill.label}
                 variants={item}
-                className="expertise-band p-6 rounded-xl bg-white/90 dark:bg-slate-900/85 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all hover:shadow-lg hover:shadow-brand/5 group"
+                className="expertise-band p-5 rounded-xl bg-white/90 dark:bg-slate-900/85 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all hover:shadow-lg hover:shadow-brand/5 group"
               >
                 <div className="flex items-start gap-5">
                   <div className="w-12 h-12 rounded-lg bg-white dark:bg-slate-950 text-brand border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
@@ -229,11 +229,11 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
               {resumeData.technologyStack.map((group) => (
                 <div
                   key={group.title}
-                  className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-5 shadow-sm hover:border-brand/60 hover:shadow-lg hover:shadow-brand/5 transition-all"
+                  className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-4 shadow-sm hover:border-brand/60 hover:shadow-lg hover:shadow-brand/5 transition-all"
                 >
                   <div className="flex items-start gap-3">
                     <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
@@ -247,11 +247,11 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-1.5">
                     {group.tools.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-[11px] font-mono border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 rounded-md text-slate-600 dark:text-slate-400 hover:border-brand hover:text-brand transition-all cursor-default"
+                        className="px-2.5 py-1 text-[10px] font-mono border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 rounded-md text-slate-600 dark:text-slate-400 hover:border-brand hover:text-brand transition-all cursor-default"
                       >
                         {tech}
                       </span>
