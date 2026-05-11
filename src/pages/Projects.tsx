@@ -86,20 +86,15 @@ export default function Projects() {
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.stack.slice(0, 4).map((tech) => (
+                    <div className="flex flex-wrap gap-1">
+                      {project.stack.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md bg-slate-100 px-2 py-1 font-mono text-[10px] text-slate-600 dark:bg-slate-800 dark:text-slate-400"
+                          className="rounded-md bg-slate-100 px-1.5 py-1 font-mono text-[10px] text-slate-600 dark:bg-slate-800 dark:text-slate-400"
                         >
                           {tech}
                         </span>
                       ))}
-                      {project.stack.length > 4 && (
-                        <span className="rounded-md bg-slate-100 px-2 py-1 font-mono text-[10px] text-slate-500 dark:bg-slate-800 dark:text-slate-500">
-                          +{project.stack.length - 4}
-                        </span>
-                      )}
                     </div>
                   </div>
 

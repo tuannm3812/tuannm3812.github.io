@@ -76,18 +76,25 @@ function inferStack(repo) {
   const text = `${repo.name} ${repo.description || ''} ${repo.homepage || ''}`.toLowerCase();
   const stack = [];
 
-  if (repo.language) stack.push(repo.language);
+  if (/pyspark|spark/.test(text)) stack.push('PySpark');
+  if (/databricks/.test(text)) stack.push('Databricks');
+  if (/delta lake|delta/.test(text)) stack.push('Delta Lake');
+  if (/snowflake/.test(text)) stack.push('Snowflake');
   if (/streamlit/.test(text)) stack.push('Streamlit');
   if (/fastapi/.test(text)) stack.push('FastAPI');
   if (/react|vite/.test(text)) stack.push('React');
+  if (/scikit-learn|sklearn/.test(text)) stack.push('Scikit-learn');
+  if (/joblib/.test(text)) stack.push('joblib');
   if (/pytorch|torch/.test(text)) stack.push('PyTorch');
   if (/keras|jax/.test(text)) stack.push('Keras/JAX');
   if (/airflow/.test(text)) stack.push('Airflow');
   if (/dbt/.test(text)) stack.push('dbt');
   if (/bigquery|gcp|google cloud/.test(text)) stack.push('GCP');
+  if (/api/.test(text)) stack.push('API');
   if (/plotly/.test(text)) stack.push('Plotly');
   if (/llm|agent|gemini|prompt/.test(text)) stack.push('LLMs');
   if (/nlp|text|token|transformer/.test(text)) stack.push('NLP');
+  if (repo.language) stack.push(repo.language);
 
   return [...new Set(stack)].slice(0, 6);
 }
@@ -98,26 +105,52 @@ function getDemoUrl(repo) {
   return /^https?:\/\//.test(homepage) ? homepage : `https://${homepage}`;
 }
 
+const PROJECT_COPY_OVERRIDES = {
+  'NYC-Taxi-Databricks': {
+    impact: 'Databricks lakehouse analytics for NYC taxi trips',
+    points: [
+      'Built a PySpark and Delta Lake workflow for NYC green and yellow taxi trip analytics.',
+      'Auto-discovered from the public GitHub profile for portfolio review.'
+    ]
+  },
+  'sydney-rainfall-forecasting': {
+    impact: 'Live Streamlit dashboard for Sydney rainfall forecasts',
+    points: [
+      'Built a rainfall forecasting app with Open-Meteo data, scikit-learn models, and joblib artifacts.',
+      'Includes a live project link from the repository homepage metadata.'
+    ]
+  },
+  'youtube-trending-snowflake-lakehouse': {
+    impact: 'Snowflake pipeline for multi-country YouTube trends',
+    points: [
+      'Built a Snowflake workflow for ingesting, cleaning, and analyzing YouTube Trending data.',
+      'Auto-discovered from the public GitHub profile for portfolio review.'
+    ]
+  }
+};
+
 function buildProject(repo) {
   const stack = inferStack(repo);
   const description = repo.description?.trim();
   const demo = getDemoUrl(repo);
+  const copy = PROJECT_COPY_OVERRIDES[repo.name];
 
   return {
     title: toTitle(repo.name),
     category: inferCategory(repo),
     github: repo.html_url,
     ...(demo ? { demo } : {}),
-    impact: description || `Public ${repo.language || 'technical'} project from GitHub`,
+    impact: copy?.impact || description || `Public ${repo.language || 'technical'} project from GitHub`,
     stack: stack.length ? stack : ['GitHub', 'Project'],
-    points: [
-      description
-        ? description.replace(/\s+/g, ' ')
-        : `Public repository for ${toTitle(repo.name)}, maintained on GitHub.`,
-      demo
-        ? 'Includes a live project link from the repository homepage metadata.'
-        : 'Auto-discovered from the public GitHub profile for portfolio review.'
-    ]
+    points:
+      copy?.points || [
+        description
+          ? description.replace(/\s+/g, ' ')
+          : `Public repository for ${toTitle(repo.name)}, maintained on GitHub.`,
+        demo
+          ? 'Includes a live project link from the repository homepage metadata.'
+          : 'Auto-discovered from the public GitHub profile for portfolio review.'
+      ]
   };
 }
 
