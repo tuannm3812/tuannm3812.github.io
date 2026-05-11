@@ -137,22 +137,22 @@ export const resumeData: ResumeData = {
       title: "VisionVoice: Image Captioning",
       category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/VisionVoice",
-      impact: "Attention model improved BLEU-4 to 0.1552",
+      impact: "Accessible VizWiz captioning with visual attention",
       stack: ["PyTorch", "ResNet-LSTM", "Bahdanau Attention", "Beam Search", "VizWiz"],
       points: [
         "Built a VizWiz image captioning system with rerunnable EDA and modelling notebooks for leakage-free internal train/validation/test splits.",
-        "Compared ResNet-LSTM and attention-based captioning models, improving BLEU-4 from 0.0670 to 0.1552 on sampled internal test images."
+        "Compared ResNet-LSTM and attention-based captioning models with qualitative review and reproducible internal evaluation."
       ]
     },
     {
       title: "Flickr8k Image Captioning",
       category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/flickr-image-captioning",
-      impact: "ResNet50 attention model reached BLEU-4 of 0.1955",
-      stack: ["PyTorch", "VGG16", "ResNet50", "Attention", "BLEU"],
+      impact: "Reproducible Flickr8k captioning workflow",
+      stack: ["PyTorch", "VGG16", "ResNet50", "Attention", "Beam Search"],
       points: [
         "Compared baseline CNN-LSTM, attention CNN-LSTM, and ResNet50 attention captioning systems with tracked Kaggle artifacts.",
-        "Improved BLEU-4 to 0.1955 using ResNet50 spatial features, additive attention, mixed precision, scheduling, and beam-search decoding."
+        "Refined caption quality using ResNet50 spatial features, additive attention, mixed precision, scheduling, and beam-search decoding."
       ]
     },
     {
@@ -296,40 +296,40 @@ export const resumeData: ResumeData = {
     {
       title: "Languages & Engineering",
       description: "Daily tools for analysis, modelling, automation, and maintainable project structure.",
-      tools: ["Python", "SQL", "PySpark", "OOP", "Unit Testing", "Package Development"]
+      tools: ["Python", "SQL", "PySpark", "TypeScript", "OOP", "Testing"]
     },
     {
       title: "Data Platforms",
-      description: "Cloud warehouse and lakehouse patterns for reliable analytics and historical modelling.",
-      tools: ["BigQuery", "GCP", "Snowflake", "Databricks", "Delta Lake", "Medallion Architecture"]
+      description: "Cloud warehouse and lakehouse patterns for reliable analytics, ingestion, and historical modelling.",
+      tools: ["BigQuery", "Snowflake", "Databricks", "Delta Lake", "PostgreSQL", "Medallion"]
     },
     {
       title: "Orchestration & Analytics",
       description: "Pipelines, transformation layers, and stakeholder-facing reporting workflows.",
-      tools: ["Apache Airflow", "dbt Cloud", "ETL/ELT", "Looker Studio", "Dashboarding", "Data Quality"]
+      tools: ["Apache Airflow", "dbt", "ETL/ELT", "API Ingestion", "Looker Studio", "Data Quality"]
     },
     {
       title: "Machine Learning",
       description: "Classical ML, deep learning, computer vision, and time-series experimentation.",
-      tools: ["PyTorch", "CNN/LSTM", "Transfer Learning", "XGBoost", "LightGBM", "SMOTE"]
+      tools: ["PyTorch", "scikit-learn", "CNN/LSTM", "Transfer Learning", "Forecasting", "Model Evaluation"]
     },
     {
       title: "Production & MLOps",
-      description: "Deployment patterns for moving models and data products beyond notebooks.",
-      tools: ["Docker", "FastAPI", "Streamlit", "CI/CD", "Model Versioning", "GPU/TPU Optimization"]
+      description: "Deployment patterns for moving models, agents, and data products beyond notebooks.",
+      tools: ["FastAPI", "Streamlit", "Docker", "GitHub Actions", "pytest", "Reproducible Artifacts"]
     },
     {
       title: "AI, NLP & Agents",
       description: "Applied language systems for text understanding, schema reasoning, and natural-language interfaces.",
-      tools: ["LLMs", "Prompt Engineering", "Text-to-SQL", "Sentiment Analysis", "Stance Detection", "Schema Mapping"]
+      tools: ["LLMs", "Schema RAG", "Text-to-SQL", "SQLGlot", "BPE Tokenization", "Topic Modelling"]
     }
   ],
   skills: {
-    programming: ["Python", "SQL", "PySpark", "OOP", "Unit Testing", "Package Development"],
-    dataEngineering: ["Medallion Architecture", "dbt Cloud", "Apache Airflow", "Snowflake", "Databricks", "Delta Lake", "ETL/ELT Orchestration"],
-    machineLearning: ["Supervised Learning", "Unsupervised Learning", "Deep Learning", "Transfer Learning", "XGBoost", "LightGBM", "SMOTE"],
-    nlp: ["Sentiment Analysis", "Stance Detection", "Social Media Analytics", "Data Cleaning", "Feature Engineering"],
-    mlops: ["Docker", "FastAPI", "Streamlit", "CI/CD", "Model Versioning", "GPU/TPU Optimization", "Sliding-Window Inference"],
+    programming: ["Python", "SQL", "PySpark", "TypeScript", "OOP", "Unit Testing", "Package Development"],
+    dataEngineering: ["Medallion Architecture", "dbt", "Apache Airflow", "Snowflake", "Databricks", "Delta Lake", "API Ingestion"],
+    machineLearning: ["Supervised Learning", "Unsupervised Learning", "Deep Learning", "Transfer Learning", "Forecasting", "Model Evaluation", "Feature Engineering"],
+    nlp: ["Text-to-SQL", "Schema RAG", "Topic Modelling", "Sentiment Analysis", "Stance Detection", "BPE Tokenization", "SQL Safety"],
+    mlops: ["Docker", "FastAPI", "Streamlit", "GitHub Actions", "pytest", "Model Versioning", "Reproducible Artifacts"],
     languages: ["English (Professional)", "Vietnamese (Native)"]
   }
 };

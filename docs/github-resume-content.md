@@ -8,6 +8,7 @@ Sources checked:
 - Portfolio: https://tuannm3812.github.io
 - Kaggle: https://www.kaggle.com/tuannm3812
 - AIPA default branch README: https://github.com/tuannm3812/aipa-text-to-sql-agent/tree/tuannm3812/main-refinement
+- Current public GitHub repository descriptions, languages, and README summaries for all listed projects
 
 Last refreshed: 2026-05-11
 
@@ -40,21 +41,21 @@ AI Agent, Text-to-SQL, Gemini, Ollama, Schema RAG, Hybrid Retrieval, Prompt Engi
 
 ### Option A: ML Engineer / Data Professional
 
-Machine Learning Engineer and Data Professional with 7+ years of experience building analytics workflows, predictive models, data pipelines, and deployable ML applications. Skilled across Python, SQL, cloud data platforms, computer vision, NLP, time-series modelling, MLOps, and stakeholder-facing analytics. Public project portfolio includes deep learning systems, Streamlit dashboards, FastAPI services, ELT pipelines, and AI agent prototypes.
+Machine Learning Engineer and Data Professional with 7+ years of experience building analytics workflows, predictive models, data pipelines, and deployable ML applications. Skilled across Python, SQL, cloud data platforms, computer vision, NLP, time-series modelling, MLOps, and stakeholder-facing analytics. Public project portfolio includes deep learning systems, Streamlit dashboards, FastAPI services, ELT/lakehouse pipelines, and AI agent prototypes.
 
 ### Option B: Engineering-Focused
 
-Machine Learning Engineer focused on turning messy data into reliable ML systems, analytics products, and production-ready workflows. Experienced in Python, SQL, PyTorch, scikit-learn, Airflow, dbt, BigQuery, FastAPI, Streamlit, and CI/CD. Built public projects across bioacoustic classification, image captioning, time-series forecasting, cloud ELT, NLP analysis, and AI agents.
+Machine Learning Engineer focused on turning messy data into reliable ML systems, analytics products, and production-ready workflows. Experienced in Python, SQL, PyTorch, scikit-learn, Airflow, dbt, Snowflake, Databricks, FastAPI, Streamlit, and CI/CD. Built public projects across bioacoustic classification, image captioning, time-series forecasting, lakehouse analytics, NLP analysis, and AI agents.
 
 ### Option C: Short Profile Header
 
-Machine Learning Engineer and Data Professional building practical ML systems, data pipelines, MLOps workflows, NLP tools, computer vision models, and AI product prototypes.
+Machine Learning Engineer and Data Professional building practical ML systems, lakehouse pipelines, MLOps workflows, NLP tools, computer vision models, and AI product prototypes.
 
 ## Resume Headline Options
 
 - Machine Learning Engineer | Data Engineering | MLOps | NLP and AI Agents
-- Machine Learning Engineer and Data Professional | Python, SQL, PyTorch, GCP, MLOps
-- Data and ML Engineer | Production ML, Analytics Engineering, AI Applications
+- Machine Learning Engineer and Data Professional | Python, SQL, PyTorch, Snowflake, MLOps
+- Data and ML Engineer | Production ML, Lakehouse Analytics, AI Applications
 - Machine Learning Engineer | Computer Vision, NLP, Time-Series, Data Engineering
 
 ## Paste-Ready Project Section
@@ -80,10 +81,10 @@ Recommended for:
 Computer Vision, Deep Learning, Accessibility AI, PyTorch, Image Captioning, Applied ML
 
 Tags:
-PyTorch, ResNet-LSTM, Bahdanau Attention, Beam Search, VizWiz, BLEU, Image Captioning
+PyTorch, ResNet-LSTM, Bahdanau Attention, Beam Search, VizWiz, Image Captioning
 
 - Built an **accessibility-focused VizWiz** image captioning system with rerunnable EDA and modelling notebooks for **leakage-free** internal train/validation/test splits.
-- Compared **ResNet-LSTM** and **Bahdanau-style attention** models, improving **BLEU-4** from 0.0670 to 0.1552 on sampled internal test images.
+- Compared **ResNet-LSTM** and **Bahdanau-style attention** models through reproducible evaluation and qualitative caption review.
 
 GitHub: https://github.com/tuannm3812/VisionVoice
 
@@ -93,10 +94,10 @@ Recommended for:
 Computer Vision, Deep Learning, Sequence Modelling, Kaggle, PyTorch
 
 Tags:
-PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, BLEU, Kaggle, Model Artifacts
+PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, Kaggle, Model Artifacts
 
 - Compared baseline **CNN-LSTM**, attention CNN-LSTM, and **ResNet50 attention** captioning systems with tracked Kaggle artifacts and qualitative inference examples.
-- Improved **BLEU-4 to 0.1955** using **ResNet50 spatial features**, additive attention, mixed precision, scheduling, and beam-search decoding.
+- Refined caption quality using **ResNet50 spatial features**, additive attention, mixed precision, scheduling, and beam-search decoding.
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
@@ -293,10 +294,10 @@ Recommended for:
 Time-Series, Forecasting, Energy Analytics, Predictive Modelling
 
 Tags:
-HistGradientBoosting, Hyperopt, Weather Features, SILO Data, RMSE Reduction, Energy Demand
+HistGradientBoosting, Hyperopt, Weather Features, SILO Data, Forecasting, Energy Demand
 
 - Built an **ML pipeline** using HistGradientBoosting and Hyperopt to forecast **day-ahead electricity demand** with meteorological feature integration.
-- Engineered **seasonal and weather-dependent features** that reduced **RMSE by 60%** compared with baseline forecasting approaches.
+- Engineered **seasonal and weather-dependent features** to strengthen forecasting performance compared with baseline approaches.
 
 ### NBA Draft Probability Modeling
 
@@ -304,16 +305,16 @@ Recommended for:
 Classification, Sports Analytics, Imbalanced Learning, Model Interpretation
 
 Tags:
-XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Analytics
+XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 
-- Developed **high-precision classification models** on 14,000+ NCAA player records to predict professional draft success.
-- Achieved **AUROC above 0.99** using SMOTE oversampling, cost-sensitive class weighting, and **feature-importance analysis** for interpretable talent evaluation.
+- Developed **high-precision classification models** on NCAA player records to predict professional draft success.
+- Applied **SMOTE oversampling**, cost-sensitive class weighting, and **feature-importance analysis** for interpretable talent evaluation.
 
 ## Compact One-Line Bullet Bank
 
 - Built a BirdCLEF+ 2026 bioacoustic classification workspace using PyTorch, EfficientNet-B0, Google Perch v2, PCEN, and SpecAugment for noisy multi-species audio modelling.
-- Developed VisionVoice, a PyTorch image-captioning system that improved BLEU-4 from 0.0670 to 0.1552 using Bahdanau-style attention on VizWiz data.
-- Implemented a Flickr8k captioning workflow that improved BLEU-4 to 0.1955 with ResNet50 spatial features, additive attention, and beam-search decoding.
+- Developed VisionVoice, a PyTorch image-captioning system using Bahdanau-style attention and leakage-free VizWiz data splits.
+- Implemented a Flickr8k captioning workflow with ResNet50 spatial features, additive attention, and beam-search decoding.
 - Designed an ELT analytics warehouse using Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modelling, and SCD Type 2 snapshots for Sydney Airbnb and Census analysis.
 - Deployed a Streamlit Solana forecasting dashboard using live Kraken OHLCV data, engineered technical indicators, anchored residual modelling, and optional FastAPI inference.
 - Built a Gemini/Ollama text-to-SQL agent with hybrid schema RAG, SQLGlot-assisted read-only validation, local SQLite execution, Streamlit delivery, and evaluation workflows.
@@ -332,15 +333,15 @@ XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Anal
 ### Compact Resume Version
 
 Programming: Python, SQL, PySpark, TypeScript, OOP, unit testing, package development  
-Data Engineering: Airflow, dbt, BigQuery, PostgreSQL, Snowflake, Databricks, Delta Lake, ELT/ETL, Medallion Architecture  
-Machine Learning: scikit-learn, PyTorch, CNN/LSTM, transfer learning, XGBoost, LightGBM, SMOTE, model evaluation  
-NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini/Ollama, schema RAG  
-MLOps and Deployment: FastAPI, Streamlit, Docker, CI/CD, model versioning, pytest, reproducible project structure  
-Visualization and Analytics: Plotly, Looker Studio, dashboards, A/B testing, stakeholder reporting
+Data Engineering: Airflow, dbt, BigQuery, PostgreSQL, Snowflake, Databricks, Delta Lake, ELT/ETL, Medallion Architecture, API ingestion  
+Machine Learning: scikit-learn, PyTorch, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation  
+NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini/Ollama, schema RAG, SQL safety  
+MLOps and Deployment: FastAPI, Streamlit, Docker, GitHub Actions, model versioning, pytest, joblib artifacts, reproducible project structure  
+Visualization and Analytics: Plotly, Looker Studio, Streamlit dashboards, vulnerability mapping, what-if scenarios, stakeholder reporting
 
 ### ATS-Friendly Keyword Bank
 
-Python, SQL, PySpark, PyTorch, scikit-learn, XGBoost, LightGBM, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, CI/CD, MLOps, pytest, data pipelines, ELT, ETL, dashboarding, time-series forecasting, API integration, feature engineering, model evaluation, stakeholder communication.
+Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BPE tokenization, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, GitHub Actions, pytest, joblib, data pipelines, ELT, ETL, lakehouse analytics, dashboarding, time-series forecasting, API ingestion, feature engineering, model evaluation, stakeholder communication.
 
 ## Refined Experience Add-On Bullets
 
