@@ -23,18 +23,18 @@ For a resume, keep the bullet text normal rather than bolding keywords inside ev
 
 ### Recommended GitHub Repo Description
 
-Secure enterprise text-to-SQL agent using Gemini, schema-grounded prompting, read-only SQL validation, local SQLite execution, and a Streamlit UI.
+Secure enterprise text-to-SQL agent using Gemini, static schema injection, read-only SQL validation, local SQLite execution, Streamlit UI, and a documented RAG extension path for larger schemas.
 
 ### Short Version
 
-Enterprise Text-to-SQL Agent using Gemini, Streamlit, SQLite, schema injection, and deterministic SQL safety validation for local data execution.
+Enterprise Text-to-SQL Agent using Gemini, Streamlit, SQLite, static schema injection, deterministic SQL safety validation, and a RAG-ready architecture path for local data execution.
 
 ### Portfolio / Resume Positioning
 
-AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives schema context but never receives the actual database records, while Python validates generated SQL before local execution.
+AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives schema context but never receives the actual database records, while Python validates generated SQL before local execution. The current implementation uses static schema injection rather than RAG; the README documents RAG as the intended scaling path for larger enterprise schemas.
 
 Recommended tags:
-AI Agent, Text-to-SQL, Gemini, Prompt Engineering, SQL Safety, Streamlit, SQLite, Local Execution, Data Privacy, Applied AI
+AI Agent, Text-to-SQL, Gemini, Prompt Engineering, Static Schema Injection, RAG-ready, SQL Safety, Streamlit, SQLite, Local Execution, Data Privacy, Applied AI
 
 ## Short Resume Summary Options
 
@@ -80,10 +80,10 @@ Recommended for:
 Computer Vision, Deep Learning, Accessibility AI, PyTorch, Image Captioning, Applied ML
 
 Tags:
-PyTorch, ResNet, LSTM, Attention, Beam Search, VizWiz, Image Captioning
+PyTorch, ResNet-LSTM, Bahdanau Attention, Beam Search, VizWiz, BLEU, Image Captioning
 
-- Developed an accessibility-focused image captioning system using PyTorch, ResNet-LSTM baselines, attention-based encoder-decoder modelling, and beam search.
-- Built exploratory analysis and model experimentation workflows on VizWiz data to improve caption generation quality for real-world image understanding.
+- Built an accessibility-focused VizWiz image captioning system with rerunnable EDA and modelling notebooks for leakage-free internal train/validation/test splits.
+- Compared ResNet-LSTM and Bahdanau-style attention models, improving BLEU-4 from 0.0670 to 0.1552 on sampled internal test images.
 
 GitHub: https://github.com/tuannm3812/VisionVoice
 
@@ -93,10 +93,10 @@ Recommended for:
 Computer Vision, Deep Learning, Sequence Modelling, Kaggle, PyTorch
 
 Tags:
-PyTorch, ResNet50, CNN-LSTM, Attention, BLEU, Kaggle, Model Artifacts
+PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, BLEU, Kaggle, Model Artifacts
 
-- Built a CNN-LSTM image captioning model with attention using ResNet50 feature extraction, custom PyTorch data loading, and BLEU-based evaluation.
-- Systematized a Kaggle-to-GitHub workflow for experiment tracking, saved model artifacts, metadata synchronization, and reproducible notebook development.
+- Compared baseline CNN-LSTM, attention CNN-LSTM, and ResNet50 attention captioning systems with tracked Kaggle artifacts and qualitative inference examples.
+- Improved BLEU-4 to 0.1955 using ResNet50 spatial features, additive attention, mixed precision, scheduling, and beam-search decoding.
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
@@ -108,8 +108,8 @@ Data Engineer, Analytics Engineer, Cloud Data, ELT, dbt, Airflow, Warehouse Mode
 Tags:
 Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD Type 2
 
-- Designed an end-to-end ELT analytics warehouse for Sydney Airbnb and Census data using Apache Airflow, dbt, PostgreSQL, and Bronze-Silver-Gold modelling.
-- Automated transformation workflows and historical modelling patterns to support pricing analysis, longitudinal market trends, and reproducible analytical marts.
+- Designed an end-to-end ELT analytics warehouse combining Sydney Airbnb listings, ABS Census data, and NSW LGA mapping using Airflow, dbt, PostgreSQL, and Bronze-Silver-Gold modelling.
+- Automated sequential monthly processing and SCD Type 2 snapshots to preserve historical host, property, neighbourhood, and LGA state for longitudinal market analysis.
 
 GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
 
@@ -133,10 +133,10 @@ Recommended for:
 AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure Analytics
 
 Tags:
-Gemini, Text-to-SQL, Streamlit, SQLite, Schema Injection, SQL Safety, Prompt Engineering, Local Execution
+Gemini, Text-to-SQL, Streamlit, SQLite, Static Schema Injection, RAG-ready, SQL Safety, Prompt Engineering, Local Execution
 
 - Built a secure text-to-SQL agent that translates natural-language questions into SQLite queries using Gemini while keeping database records in the local execution environment.
-- Implemented schema-grounded prompting and deterministic read-only SQL validation to reduce hallucination risk and block destructive commands before query execution.
+- Implemented static schema injection and deterministic read-only SQL validation, with a documented RAG extension path for scaling schema retrieval beyond small-to-medium databases.
 
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
@@ -283,11 +283,11 @@ XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Anal
 ## Compact One-Line Bullet Bank
 
 - Built a BirdCLEF+ 2026 bioacoustic classification workspace using PyTorch, EfficientNet-B0, Google Perch v2, PCEN, and SpecAugment for noisy multi-species audio modelling.
-- Developed VisionVoice, a PyTorch image-captioning system using ResNet-LSTM baselines, attention mechanisms, beam search, and accessibility-focused VizWiz data.
-- Implemented a CNN-LSTM Flickr8k captioning workflow with ResNet50 features, attention, BLEU evaluation, Kaggle notebooks, and saved model artifacts.
-- Designed an ELT analytics warehouse using Airflow, dbt, PostgreSQL, and Bronze-Silver-Gold modelling for Sydney Airbnb market analysis.
+- Developed VisionVoice, a PyTorch image-captioning system that improved BLEU-4 from 0.0670 to 0.1552 using Bahdanau-style attention on VizWiz data.
+- Implemented a Flickr8k captioning workflow that improved BLEU-4 to 0.1955 with ResNet50 spatial features, additive attention, and beam-search decoding.
+- Designed an ELT analytics warehouse using Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modelling, and SCD Type 2 snapshots for Sydney Airbnb and Census analysis.
 - Deployed a Streamlit Solana forecasting dashboard using live Kraken OHLCV data, engineered technical indicators, anchored residual modelling, and optional FastAPI inference.
-- Built a Gemini-powered text-to-SQL agent with schema-grounded prompting, deterministic read-only SQL validation, local SQLite execution, and Streamlit delivery.
+- Built a Gemini-powered text-to-SQL agent with static schema injection, deterministic read-only SQL validation, local SQLite execution, Streamlit delivery, and a RAG-ready scaling path.
 - Analyzed workplace gender equality policy submissions using NLP, TF-IDF, topic modelling, clustering, and stakeholder language comparison.
 - Created AfriWeave, a Streamlit NLP prototype for culturally focused text generation using N-gram baselines, BPE tokenization, and transformer components.
 - Built a FAOSTAT food-price shock dashboard combining producer prices, global hunger indicators, import dependency, and interactive what-if analysis.
@@ -302,13 +302,13 @@ XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Anal
 Programming: Python, SQL, PySpark, TypeScript, OOP, unit testing, package development  
 Data Engineering: Airflow, dbt, BigQuery, PostgreSQL, Snowflake, Databricks, Delta Lake, ELT/ETL, Medallion Architecture  
 Machine Learning: scikit-learn, PyTorch, CNN/LSTM, transfer learning, XGBoost, LightGBM, SMOTE, model evaluation  
-NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini  
+NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini, RAG-ready design  
 MLOps and Deployment: FastAPI, Streamlit, Docker, CI/CD, model versioning, pytest, reproducible project structure  
 Visualization and Analytics: Plotly, Looker Studio, dashboards, A/B testing, stakeholder reporting
 
 ### ATS-Friendly Keyword Bank
 
-Python, SQL, PySpark, PyTorch, scikit-learn, XGBoost, LightGBM, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, schema injection, SQL safety, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, CI/CD, MLOps, pytest, data pipelines, ELT, ETL, dashboarding, time-series forecasting, API integration, feature engineering, model evaluation, stakeholder communication.
+Python, SQL, PySpark, PyTorch, scikit-learn, XGBoost, LightGBM, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, static schema injection, RAG-ready design, SQL safety, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, CI/CD, MLOps, pytest, data pipelines, ELT, ETL, dashboarding, time-series forecasting, API integration, feature engineering, model evaluation, stakeholder communication.
 
 ## Refined Experience Add-On Bullets
 
@@ -355,7 +355,7 @@ Prioritize:
 - Gender Equality Policy NLP
 
 Positioning:
-Emphasize natural-language interfaces, agents, prompt engineering, local execution, safety validation, user workflows, and structured outputs.
+Emphasize natural-language interfaces, agents, prompt engineering, local execution, safety validation, RAG-ready architecture, user workflows, and structured outputs.
 
 ### NLP / Text Analytics Resume
 

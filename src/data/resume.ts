@@ -137,34 +137,33 @@ export const resumeData: ResumeData = {
       title: "VisionVoice: Image Captioning",
       category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/VisionVoice",
-      impact: "Accessibility-focused image captioning system",
-      stack: ["PyTorch", "ResNet", "LSTM", "Attention", "Beam Search"],
+      impact: "Attention model improved BLEU-4 to 0.1552",
+      stack: ["PyTorch", "ResNet-LSTM", "Bahdanau Attention", "Beam Search", "VizWiz"],
       points: [
-        "Built a VizWiz image captioning system using PyTorch with a ResNet-LSTM baseline and attention-based encoder-decoder model.",
-        "Ran exploratory analysis on accessibility-focused vision data and improved caption generation with beam search and attention visualization."
+        "Built a VizWiz image captioning system with rerunnable EDA and modelling notebooks for leakage-free internal train/validation/test splits.",
+        "Compared ResNet-LSTM and attention-based captioning models, improving BLEU-4 from 0.0670 to 0.1552 on sampled internal test images."
       ]
     },
     {
       title: "Flickr8k Image Captioning",
       category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/flickr-image-captioning",
-      impact: "Attention-based captioning with tracked artifacts",
-      stack: ["PyTorch", "ResNet50", "CNN-LSTM", "Kaggle", "BLEU"],
+      impact: "ResNet50 attention model reached BLEU-4 of 0.1955",
+      stack: ["PyTorch", "VGG16", "ResNet50", "Attention", "BLEU"],
       points: [
-        "Built a CNN-LSTM captioning model with attention using ResNet50 features and custom PyTorch data loading pipelines.",
-        "Systematized a Kaggle-to-GitHub workflow for model artifact synchronization and metadata tracking.",
-        "Improved BLEU-4 scores through systematic hyperparameter tuning and sequence decoding experiments."
+        "Compared baseline CNN-LSTM, attention CNN-LSTM, and ResNet50 attention captioning systems with tracked Kaggle artifacts.",
+        "Improved BLEU-4 to 0.1955 using ResNet50 spatial features, additive attention, mixed precision, scheduling, and beam-search decoding."
       ]
     },
     {
       title: "Production-Grade ELT Pipeline",
       category: "Data Engineering & Analytics",
       github: "https://github.com/tuannm3812/airbnb-ELT-warehouse",
-      impact: "Cloud warehouse with historical modelling",
-      stack: ["GCP", "Airflow", "dbt", "BigQuery", "Medallion"],
+      impact: "Airbnb and Census warehouse with dimensional marts",
+      stack: ["Airflow", "dbt", "PostgreSQL", "Medallion", "SCD Type 2"],
       points: [
-        "Implemented a cloud-native ELT framework in GCP with Apache Airflow and dbt Cloud using a Bronze-Silver-Gold architecture.",
-        "Automated SCD Type 2 snapshots to track historical pricing trends and host metadata changes with full lineage."
+        "Implemented an ELT warehouse combining monthly Sydney Airbnb listing extracts, ABS Census data, and NSW LGA mapping files.",
+        "Orchestrated Bronze, Silver, and Gold transformations with Airflow and dbt, including SCD Type 2 snapshots for historical host, property, neighbourhood, and LGA modelling."
       ]
     },
     {
@@ -223,10 +222,10 @@ export const resumeData: ResumeData = {
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
       demo: "https://aipa-text-to-sql-agent.streamlit.app/",
       impact: "Secure local-execution text-to-SQL agent",
-      stack: ["Gemini", "Streamlit", "SQLite", "SQL Safety", "Schema Injection"],
+      stack: ["Gemini", "Streamlit", "SQLite", "SQL Safety", "RAG-ready"],
       points: [
         "Built a text-to-SQL agent that translates natural-language questions into SQLite queries using Gemini while keeping database records local.",
-        "Implemented schema-grounded prompting and deterministic read-only SQL validation to reduce hallucination and block destructive commands."
+        "Implemented static schema injection, deterministic read-only SQL validation, and a documented RAG extension path for larger enterprise schemas."
       ]
     },
     {
