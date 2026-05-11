@@ -13,11 +13,11 @@ Last refreshed: 2026-05-11
 
 ## Formatting Recommendation
 
-For a resume, keep the bullet text normal rather than bolding keywords inside every bullet. Bold can look good in a designed PDF, but it may become noisy and can be inconsistent after ATS parsing. Better pattern:
+For a designed PDF resume, use selective bolding inside project bullets to guide the reader's eye. Keep the emphasis restrained so the bullets stay professional and ATS-readable:
 
-- Keep bullets plain and action-oriented.
+- Highlight only 2-4 high-signal terms per bullet.
 - Put keywords in project titles, tag lines, skills sections, and stack lines.
-- Use bold only for section headers or role titles if the resume template already supports it.
+- Avoid bolding full clauses or entire sentences.
 
 ## AIPA Repository Update
 
@@ -69,8 +69,8 @@ ML Engineer, Deep Learning, Audio ML, Computer Vision-adjacent ML, Edge ML, Kagg
 Tags:
 PyTorch, EfficientNet, Google Perch, PCEN, SpecAugment, Bioacoustics, Audio Classification, Edge Inference
 
-- Architected a BirdCLEF+ 2026 bioacoustic classification workspace using EfficientNet-B0, Google Perch v2, PCEN preprocessing, and SpecAugment to model noisy multi-species ecological audio.
-- Developed reusable training utilities, exploratory notebooks, and validation workflows for robust species classification across high-noise environmental recordings.
+- Architected a **BirdCLEF+ 2026** bioacoustic classification workspace using **EfficientNet-B0**, **Google Perch v2**, PCEN preprocessing, and SpecAugment to model noisy multi-species ecological audio.
+- Developed **reusable training utilities**, exploratory notebooks, and **validation workflows** for robust species classification across high-noise environmental recordings.
 
 GitHub: https://github.com/tuannm3812/birdclef-2026
 
@@ -82,8 +82,8 @@ Computer Vision, Deep Learning, Accessibility AI, PyTorch, Image Captioning, App
 Tags:
 PyTorch, ResNet-LSTM, Bahdanau Attention, Beam Search, VizWiz, BLEU, Image Captioning
 
-- Built an accessibility-focused VizWiz image captioning system with rerunnable EDA and modelling notebooks for leakage-free internal train/validation/test splits.
-- Compared ResNet-LSTM and Bahdanau-style attention models, improving BLEU-4 from 0.0670 to 0.1552 on sampled internal test images.
+- Built an **accessibility-focused VizWiz** image captioning system with rerunnable EDA and modelling notebooks for **leakage-free** internal train/validation/test splits.
+- Compared **ResNet-LSTM** and **Bahdanau-style attention** models, improving **BLEU-4** from 0.0670 to 0.1552 on sampled internal test images.
 
 GitHub: https://github.com/tuannm3812/VisionVoice
 
@@ -95,8 +95,8 @@ Computer Vision, Deep Learning, Sequence Modelling, Kaggle, PyTorch
 Tags:
 PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, BLEU, Kaggle, Model Artifacts
 
-- Compared baseline CNN-LSTM, attention CNN-LSTM, and ResNet50 attention captioning systems with tracked Kaggle artifacts and qualitative inference examples.
-- Improved BLEU-4 to 0.1955 using ResNet50 spatial features, additive attention, mixed precision, scheduling, and beam-search decoding.
+- Compared baseline **CNN-LSTM**, attention CNN-LSTM, and **ResNet50 attention** captioning systems with tracked Kaggle artifacts and qualitative inference examples.
+- Improved **BLEU-4 to 0.1955** using **ResNet50 spatial features**, additive attention, mixed precision, scheduling, and beam-search decoding.
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
@@ -108,8 +108,8 @@ Data Engineer, Analytics Engineer, Cloud Data, ELT, dbt, Airflow, Warehouse Mode
 Tags:
 Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD Type 2
 
-- Designed an end-to-end ELT analytics warehouse combining Sydney Airbnb listings, ABS Census data, and NSW LGA mapping using Airflow, dbt, PostgreSQL, and Bronze-Silver-Gold modelling.
-- Automated sequential monthly processing and SCD Type 2 snapshots to preserve historical host, property, neighbourhood, and LGA state for longitudinal market analysis.
+- Designed an **end-to-end ELT analytics warehouse** combining Sydney Airbnb listings, ABS Census data, and NSW LGA mapping using **Airflow**, **dbt**, PostgreSQL, and Bronze-Silver-Gold modelling.
+- Automated **sequential monthly processing** and **SCD Type 2 snapshots** to preserve historical host, property, neighbourhood, and LGA state for longitudinal market analysis.
 
 GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
 
@@ -121,8 +121,8 @@ ML Engineer, Time-Series, MLOps, Data Apps, Streamlit, FastAPI, Financial Analyt
 Tags:
 Python, Streamlit, FastAPI, scikit-learn, Kraken API, Time-Series, Technical Indicators, pytest
 
-- Built a live Solana next-day high prediction system using Kraken OHLCV data, feature engineering, anchored residual modelling, and Streamlit dashboarding.
-- Packaged data loading, training, inference, testing, and optional FastAPI serving components for reproducible time-series forecasting workflows.
+- Built a **live Solana forecasting** system using **Kraken OHLCV data**, feature engineering, anchored residual modelling, and Streamlit dashboarding.
+- Packaged **data loading**, training, inference, testing, and optional **FastAPI serving** components for reproducible time-series forecasting workflows.
 
 GitHub: https://github.com/tuannm3812/solana-price-prediction  
 Live demo: https://solana-price-prediction-tuannm3812.streamlit.app/
@@ -135,8 +135,8 @@ AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure An
 Tags:
 Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety, Local Execution, Evaluation
 
-- Built a text-to-SQL agent that retrieves relevant schema chunks using hybrid lexical, semantic, low-cardinality value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
-- Implemented local SQLite execution with SQLGlot-assisted read-only validation, SQLite authorizer controls, result caps, query repair, Streamlit delivery, tests, and an evaluation harness.
+- Built a **text-to-SQL agent** that retrieves relevant schema chunks using **hybrid retrieval**, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
+- Implemented **local SQLite execution** with **SQLGlot-assisted validation**, SQLite authorizer controls, query repair, Streamlit delivery, tests, and an evaluation harness.
 
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
@@ -149,8 +149,8 @@ NLP, Policy Analytics, Text Mining, Unstructured Data, Social Impact Analytics
 Tags:
 Python, NLP, TF-IDF, LDA, K-Means, Clustering, Topic Modelling, Policy Analysis
 
-- Analyzed Australian parliamentary submissions on workplace gender equality policy using text cleaning, TF-IDF feature extraction, topic modelling, clustering, and visualization.
-- Compared stakeholder language across unions, industry groups, advocacy bodies, academics, and government sources to identify policy framing patterns.
+- Analyzed **Australian parliamentary submissions** on workplace gender equality policy using text cleaning, **TF-IDF**, topic modelling, clustering, and visualization.
+- Compared **stakeholder language** across unions, industry groups, advocacy bodies, academics, and government sources to identify **policy framing patterns**.
 
 GitHub: https://github.com/tuannm3812/gender-equality-policy-nlp
 
@@ -162,8 +162,8 @@ NLP, Generative AI, Streamlit Prototype, Tokenization, Cultural Data Products
 Tags:
 Streamlit, Keras, JAX, BPE, N-gram Models, Transformers, Text Generation, NLP Prototype
 
-- Created an interactive NLP prototype for culturally focused text generation with corpus exploration, N-gram phrase analysis, BPE tokenization, and transformer components.
-- Built a lightweight Streamlit interface with deterministic fallback data and testable modules to support demos, portfolio review, and iterative experimentation.
+- Created an **interactive NLP prototype** for culturally focused text generation with corpus exploration, **BPE tokenization**, and transformer components.
+- Built a lightweight **Streamlit interface** with deterministic fallback data and **testable modules** to support demos, portfolio review, and iterative experimentation.
 
 GitHub: https://github.com/tuannm3812/AfriWeave
 
@@ -175,11 +175,51 @@ Data Analytics, Dashboarding, Data Visualization, Food Security, Public Data, St
 Tags:
 Streamlit, Pandas, Plotly, FAOSTAT, World Bank, Food Price Index, Scenario Analysis
 
-- Built a Streamlit dashboard analyzing global food price shocks and import-dependency risk using FAOSTAT producer prices, FAO Food Price Index, Global Hunger Index, and World Bank indicators.
-- Added interactive views for commodity trends, volatility, vulnerability mapping, and what-if shock scenarios to support food security risk exploration.
+- Built a **Streamlit dashboard** analyzing global food price shocks and **import-dependency risk** using FAOSTAT, FAO, Global Hunger Index, and World Bank indicators.
+- Added **interactive views** for commodity trends, volatility, vulnerability mapping, and **what-if shock scenarios** to support food security risk exploration.
 
 GitHub: https://github.com/tuannm3812/assignment3-faostat-viz  
 Live demo: https://assignment3-faostat-viz.streamlit.app/
+
+### NYC Taxi Databricks
+
+Recommended for:
+Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
+
+Tags:
+PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
+
+- Built a **PySpark and Delta Lake** workflow for NYC green and yellow taxi trip analytics in **Databricks**.
+- Developed **lakehouse-ready ingestion** and analytical processing for scalable urban mobility data exploration.
+
+GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
+
+### Sydney Rainfall Forecasting
+
+Recommended for:
+ML Engineer, Time-Series, Forecasting, Streamlit, Weather Analytics
+
+Tags:
+Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
+
+- Built a **rainfall forecasting app** with Open-Meteo data, **scikit-learn** models, and joblib artifacts.
+- Deployed a **Streamlit dashboard** for reviewing Sydney rainfall forecasts through a simple portfolio-ready interface.
+
+GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
+Live demo: https://sydney-rainfall-forecasting.streamlit.app/
+
+### YouTube Trending Snowflake Lakehouse
+
+Recommended for:
+Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analytics
+
+Tags:
+Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
+
+- Built a **Snowflake workflow** for ingesting, cleaning, and analyzing multi-country **YouTube Trending** data.
+- Supported optional **YouTube Data API** refreshes for repeatable trend analysis across country-level datasets.
+
+GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
 
 ### Apple Foundation Agent
 
@@ -189,8 +229,8 @@ Applied AI, Streamlit App, Human-Centered AI, Product Prototype, UX for AI
 Tags:
 Streamlit, Python, AI Agent, Diagnostic Flow, Scoring Logic, Product Prototype
 
-- Built an interactive Streamlit diagnostic that maps user decisions across recovery, iteration, deployment, legacy systems, and delivery pressure into developer workflow profiles.
-- Designed dynamic scoring logic and a polished portfolio-ready interface to demonstrate resilience, creative problem-solving, and applied AI product thinking.
+- Built an **interactive Streamlit diagnostic** that maps user decisions across recovery, iteration, deployment, legacy systems, and delivery pressure into developer workflow profiles.
+- Designed **dynamic scoring logic** and a polished portfolio-ready interface to demonstrate resilience, creative problem-solving, and **applied AI product thinking**.
 
 GitHub: https://github.com/tuannm3812/apple-foundation-agent
 
@@ -202,8 +242,8 @@ Applied AI, Full-Stack AI, FastAPI, React, Agentic Workflow, Product Engineering
 Tags:
 FastAPI, React, Gemini, Pydantic, Nutrition Estimation, Agent Workflow, Tailwind
 
-- Built a multi-agent meal-planning prototype that converts a user craving into a structured meal plan, nutrition summary, and supermarket shopping list.
-- Implemented FastAPI endpoints, deterministic fallback logic, file-backed user profiles, meal history storage, and a React dashboard for reviewing generated plans.
+- Built a **multi-agent meal-planning** prototype that converts a user craving into a structured meal plan, **nutrition summary**, and supermarket shopping list.
+- Implemented **FastAPI endpoints**, deterministic fallback logic, file-backed user profiles, meal history storage, and a **React dashboard** for reviewing generated plans.
 
 GitHub: https://github.com/tuannm3812/ai-meal-planner
 
@@ -215,8 +255,8 @@ Frontend, Personal Branding, React, TypeScript, GitHub Pages, Portfolio Automati
 Tags:
 React, TypeScript, Tailwind, Firebase, GitHub Actions, Portfolio, Automation
 
-- Built and maintained a React and TypeScript portfolio showcasing machine learning, data engineering, MLOps, applied AI projects, and profile links.
-- Added Firebase-backed contact/comment features, GitHub Pages deployment, and a scheduled GitHub Actions workflow to sync public project metadata.
+- Built and maintained a **React and TypeScript portfolio** showcasing machine learning, data engineering, **MLOps**, applied AI projects, and profile links.
+- Added **Firebase-backed contact/comment** features, GitHub Pages deployment, and a scheduled **GitHub Actions** workflow to sync public project metadata.
 
 GitHub: https://github.com/tuannm3812/tuannm3812.github.io  
 Live demo: https://tuannm3812.github.io
@@ -233,8 +273,8 @@ Computer Vision, Deep Learning, Transfer Learning, Model Evaluation
 Tags:
 MobileNetV3, Transfer Learning, MLP Head, Smart Resizing, F1 Analysis, Image Augmentation
 
-- Developed a two-phase transfer learning workflow using MobileNetV3 and a custom MLP head to reduce catastrophic forgetting during fine-tuning.
-- Optimized image ingestion with aspect-ratio-preserving resizing and built per-category F1 diagnostics to debug performance across visually similar classes.
+- Developed a two-phase **transfer learning workflow** using MobileNetV3 and a custom MLP head to reduce **catastrophic forgetting** during fine-tuning.
+- Optimized **image ingestion** with aspect-ratio-preserving resizing and built per-category **F1 diagnostics** to debug performance across visually similar classes.
 
 ### TikTok Sentiment and Stance Analysis
 
@@ -244,19 +284,8 @@ NLP, Social Media Analytics, Sentiment Analysis, Classification, Climate Analyti
 Tags:
 TextBlob, VADER, Sentiment Analysis, Stance Detection, Social Media Text, Classification
 
-- Engineered an NLP pipeline to process high-velocity social media captions and comments, classifying sentiment and stance toward climate change narratives.
-- Trained custom classifiers to distinguish awareness-driven support from climate skepticism and extract actionable insights from unstructured youth-demographic data.
-
-### Big Data Lakehouse Pipeline: NYC Taxi
-
-Recommended for:
-Big Data, Data Engineering, Distributed ML, Databricks, PySpark
-
-Tags:
-PySpark, Databricks, Delta Lake, Feature Engineering, Data Leakage Control, Ridge Regression, Decision Trees
-
-- Developed distributed PySpark workflows in Databricks for ingestion and feature engineering across multi-gigabyte NYC taxi datasets.
-- Applied Winsorization, leakage controls, Delta Lake versioning, and supervised models to improve scalable fare prediction workflows.
+- Engineered an **NLP pipeline** to process high-velocity social media captions and comments, classifying **sentiment and stance** toward climate change narratives.
+- Trained **custom classifiers** to distinguish awareness-driven support from climate skepticism and extract actionable insights from unstructured youth-demographic data.
 
 ### Electricity Demand Forecasting
 
@@ -266,8 +295,8 @@ Time-Series, Forecasting, Energy Analytics, Predictive Modelling
 Tags:
 HistGradientBoosting, Hyperopt, Weather Features, SILO Data, RMSE Reduction, Energy Demand
 
-- Built an ML pipeline using HistGradientBoosting and Hyperopt to forecast day-ahead electricity demand with meteorological feature integration.
-- Engineered seasonal and weather-dependent features that reduced RMSE by 60% compared with baseline forecasting approaches.
+- Built an **ML pipeline** using HistGradientBoosting and Hyperopt to forecast **day-ahead electricity demand** with meteorological feature integration.
+- Engineered **seasonal and weather-dependent features** that reduced **RMSE by 60%** compared with baseline forecasting approaches.
 
 ### NBA Draft Probability Modeling
 
@@ -277,8 +306,8 @@ Classification, Sports Analytics, Imbalanced Learning, Model Interpretation
 Tags:
 XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Analytics
 
-- Developed high-precision classification models on 14,000+ NCAA player records to predict professional draft success.
-- Achieved AUROC above 0.99 using SMOTE oversampling, cost-sensitive class weighting, and feature-importance analysis for interpretable talent evaluation.
+- Developed **high-precision classification models** on 14,000+ NCAA player records to predict professional draft success.
+- Achieved **AUROC above 0.99** using SMOTE oversampling, cost-sensitive class weighting, and **feature-importance analysis** for interpretable talent evaluation.
 
 ## Compact One-Line Bullet Bank
 
@@ -294,6 +323,9 @@ XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Anal
 - Created an Apple Foundation Streamlit diagnostic agent with multi-step scoring logic and polished product-style interaction flows.
 - Built an AI meal planner prototype with FastAPI, React, Gemini, structured meal generation, nutrition estimation, and supermarket shopping-list logic.
 - Built a React and TypeScript portfolio with Firebase contact/comment features, GitHub Pages deployment, and automated GitHub project sync.
+- Built a NYC Taxi Databricks workflow with PySpark, Delta Lake processing, and scalable trip analytics.
+- Deployed a Sydney rainfall forecasting dashboard using Open-Meteo data, scikit-learn models, joblib artifacts, and Streamlit.
+- Built a Snowflake lakehouse workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.
 
 ## Technical Skills Section
 
@@ -337,7 +369,8 @@ Emphasize modelling choices, feature engineering, validation, evaluation, leakag
 
 Prioritize:
 - Production-Grade ELT Pipeline: Airbnb Market Analytics
-- Big Data Lakehouse Pipeline: NYC Taxi
+- NYC Taxi Databricks
+- YouTube Trending Snowflake Lakehouse
 - FAOSTAT Food Price Shock Dashboard
 - Personal Portfolio automation
 - Solana data pipeline and inference workflow
@@ -383,6 +416,9 @@ Current public project inventory, including AIPA even though GitHub marks it as 
 | gender-equality-policy-nlp | NLP / Policy Analytics | Strong NLP project |
 | AfriWeave | NLP / Generative Prototype | Applied AI project |
 | assignment3-faostat-viz | Data Visualization | Dashboard and analytics project |
+| NYC-Taxi-Databricks | Data Engineering / Databricks | Big data lakehouse project |
+| sydney-rainfall-forecasting | Time-Series / Weather Analytics | Supporting forecasting project |
+| youtube-trending-snowflake-lakehouse | Data Engineering / Snowflake | Supporting analytics engineering project |
 | apple-foundation-agent | AI / Streamlit Prototype | Product prototype |
 | ai-meal-planner | AI Product / Full Stack | Product prototype |
 | tuannm3812.github.io | Portfolio / Frontend | Supporting portfolio evidence |
@@ -401,5 +437,5 @@ LinkedIn: https://linkedin.com/in/tuan-m-nguyen
 - For ML roles, lead with modelling, validation, evaluation, and reproducibility.
 - For data engineering roles, lead with ELT, orchestration, warehousing/lakehouse, and dashboards.
 - For applied AI roles, lead with AIPA, AI Meal Planner, AfriWeave, and agent-style user workflows.
-- Keep bullets normal in the resume body; use project titles, tags, and stack lines for keyword emphasis.
+- Use selective bolding for high-signal project keywords, but avoid bolding full clauses or entire bullets.
 - Use live demo links only when the app is stable and publicly accessible.
