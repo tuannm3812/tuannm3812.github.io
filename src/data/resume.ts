@@ -221,11 +221,12 @@ export const resumeData: ResumeData = {
       title: "AIPA: Text-to-SQL Agent",
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
-      impact: "Natural-language interface for structured data",
-      stack: ["LLMs", "SQL", "Prompt Engineering", "Agents", "Schema Mapping"],
+      demo: "https://aipa-text-to-sql-agent.streamlit.app/",
+      impact: "Secure local-execution text-to-SQL agent",
+      stack: ["Gemini", "Streamlit", "SQLite", "SQL Safety", "Schema Injection"],
       points: [
-        "Engineered an AI agent that transforms natural language into executable SQL for non-technical data users.",
-        "Used prompt engineering and semantic schema mapping to handle joins and aggregations across database tables."
+        "Built a text-to-SQL agent that translates natural-language questions into SQLite queries using Gemini while keeping database records local.",
+        "Implemented schema-grounded prompting and deterministic read-only SQL validation to reduce hallucination and block destructive commands."
       ]
     },
     {
