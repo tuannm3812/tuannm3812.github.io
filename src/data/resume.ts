@@ -221,11 +221,11 @@ export const resumeData: ResumeData = {
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
       demo: "https://aipa-text-to-sql-agent.streamlit.app/",
-      impact: "Secure local-execution text-to-SQL agent",
-      stack: ["Gemini", "Streamlit", "SQLite", "SQL Safety", "RAG-ready"],
+      impact: "Schema RAG text-to-SQL agent with local execution",
+      stack: ["Gemini/Ollama", "Schema RAG", "Streamlit", "SQLite", "SQLGlot"],
       points: [
-        "Built a text-to-SQL agent that translates natural-language questions into SQLite queries using Gemini while keeping database records local.",
-        "Implemented static schema injection, deterministic read-only SQL validation, and a documented RAG extension path for larger enterprise schemas."
+        "Built a text-to-SQL agent that retrieves relevant schema chunks with hybrid lexical, semantic, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.",
+        "Implemented local SQLite execution with SQLGlot-backed read-only validation, SQLite authorizer controls, result caps, query repair, tests, and an evaluation harness."
       ]
     },
     {

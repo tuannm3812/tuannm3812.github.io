@@ -7,7 +7,7 @@ Sources checked:
 - GitHub profile: https://github.com/tuannm3812
 - Portfolio: https://tuannm3812.github.io
 - Kaggle: https://www.kaggle.com/tuannm3812
-- AIPA README: https://github.com/tuannm3812/aipa-text-to-sql-agent
+- AIPA default branch README: https://github.com/tuannm3812/aipa-text-to-sql-agent/tree/tuannm3812/main-refinement
 
 Last refreshed: 2026-05-11
 
@@ -23,18 +23,18 @@ For a resume, keep the bullet text normal rather than bolding keywords inside ev
 
 ### Recommended GitHub Repo Description
 
-Secure enterprise text-to-SQL agent using Gemini, static schema injection, read-only SQL validation, local SQLite execution, Streamlit UI, and a documented RAG extension path for larger schemas.
+Enterprise text-to-SQL agent using hybrid schema RAG, Gemini/Ollama backends, SQLGlot-assisted read-only validation, local SQLite execution, Streamlit UI, and evaluation tests.
 
 ### Short Version
 
-Enterprise Text-to-SQL Agent using Gemini, Streamlit, SQLite, static schema injection, deterministic SQL safety validation, and a RAG-ready architecture path for local data execution.
+Enterprise Text-to-SQL Agent using Gemini/Ollama, hybrid schema RAG, Streamlit, SQLite, SQLGlot-assisted safety validation, local execution, tests, and evaluation workflows.
 
 ### Portfolio / Resume Positioning
 
-AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives schema context but never receives the actual database records, while Python validates generated SQL before local execution. The current implementation uses static schema injection rather than RAG; the README documents RAG as the intended scaling path for larger enterprise schemas.
+AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives only retrieved schema metadata, never raw database rows, while Python validates generated SQL before local read-only execution. The default branch implements hybrid schema RAG using lexical, semantic, value-hint, and foreign-key graph signals.
 
 Recommended tags:
-AI Agent, Text-to-SQL, Gemini, Prompt Engineering, Static Schema Injection, RAG-ready, SQL Safety, Streamlit, SQLite, Local Execution, Data Privacy, Applied AI
+AI Agent, Text-to-SQL, Gemini, Ollama, Schema RAG, Hybrid Retrieval, Prompt Engineering, SQLGlot, SQL Safety, Streamlit, SQLite, Local Execution, Data Privacy, Applied AI
 
 ## Short Resume Summary Options
 
@@ -133,10 +133,10 @@ Recommended for:
 AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure Analytics
 
 Tags:
-Gemini, Text-to-SQL, Streamlit, SQLite, Static Schema Injection, RAG-ready, SQL Safety, Prompt Engineering, Local Execution
+Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety, Local Execution, Evaluation
 
-- Built a secure text-to-SQL agent that translates natural-language questions into SQLite queries using Gemini while keeping database records in the local execution environment.
-- Implemented static schema injection and deterministic read-only SQL validation, with a documented RAG extension path for scaling schema retrieval beyond small-to-medium databases.
+- Built a text-to-SQL agent that retrieves relevant schema chunks using hybrid lexical, semantic, low-cardinality value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
+- Implemented local SQLite execution with SQLGlot-assisted read-only validation, SQLite authorizer controls, result caps, query repair, Streamlit delivery, tests, and an evaluation harness.
 
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
@@ -287,7 +287,7 @@ XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Anal
 - Implemented a Flickr8k captioning workflow that improved BLEU-4 to 0.1955 with ResNet50 spatial features, additive attention, and beam-search decoding.
 - Designed an ELT analytics warehouse using Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modelling, and SCD Type 2 snapshots for Sydney Airbnb and Census analysis.
 - Deployed a Streamlit Solana forecasting dashboard using live Kraken OHLCV data, engineered technical indicators, anchored residual modelling, and optional FastAPI inference.
-- Built a Gemini-powered text-to-SQL agent with static schema injection, deterministic read-only SQL validation, local SQLite execution, Streamlit delivery, and a RAG-ready scaling path.
+- Built a Gemini/Ollama text-to-SQL agent with hybrid schema RAG, SQLGlot-assisted read-only validation, local SQLite execution, Streamlit delivery, and evaluation workflows.
 - Analyzed workplace gender equality policy submissions using NLP, TF-IDF, topic modelling, clustering, and stakeholder language comparison.
 - Created AfriWeave, a Streamlit NLP prototype for culturally focused text generation using N-gram baselines, BPE tokenization, and transformer components.
 - Built a FAOSTAT food-price shock dashboard combining producer prices, global hunger indicators, import dependency, and interactive what-if analysis.
@@ -302,13 +302,13 @@ XGBoost, LightGBM, SMOTE, AUROC, Feature Importance, Classification, Sports Anal
 Programming: Python, SQL, PySpark, TypeScript, OOP, unit testing, package development  
 Data Engineering: Airflow, dbt, BigQuery, PostgreSQL, Snowflake, Databricks, Delta Lake, ELT/ETL, Medallion Architecture  
 Machine Learning: scikit-learn, PyTorch, CNN/LSTM, transfer learning, XGBoost, LightGBM, SMOTE, model evaluation  
-NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini, RAG-ready design  
+NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini/Ollama, schema RAG  
 MLOps and Deployment: FastAPI, Streamlit, Docker, CI/CD, model versioning, pytest, reproducible project structure  
 Visualization and Analytics: Plotly, Looker Studio, dashboards, A/B testing, stakeholder reporting
 
 ### ATS-Friendly Keyword Bank
 
-Python, SQL, PySpark, PyTorch, scikit-learn, XGBoost, LightGBM, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, static schema injection, RAG-ready design, SQL safety, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, CI/CD, MLOps, pytest, data pipelines, ELT, ETL, dashboarding, time-series forecasting, API integration, feature engineering, model evaluation, stakeholder communication.
+Python, SQL, PySpark, PyTorch, scikit-learn, XGBoost, LightGBM, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, CI/CD, MLOps, pytest, data pipelines, ELT, ETL, dashboarding, time-series forecasting, API integration, feature engineering, model evaluation, stakeholder communication.
 
 ## Refined Experience Add-On Bullets
 
@@ -355,7 +355,7 @@ Prioritize:
 - Gender Equality Policy NLP
 
 Positioning:
-Emphasize natural-language interfaces, agents, prompt engineering, local execution, safety validation, RAG-ready architecture, user workflows, and structured outputs.
+Emphasize natural-language interfaces, agents, prompt engineering, schema RAG, local execution, SQL safety validation, user workflows, and structured outputs.
 
 ### NLP / Text Analytics Resume
 
