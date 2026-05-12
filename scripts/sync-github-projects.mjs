@@ -109,8 +109,8 @@ const PROJECT_COPY_OVERRIDES = {
   'NYC-Taxi-Databricks': {
     impact: 'Databricks lakehouse analytics for NYC taxi trips',
     points: [
-      'Built a PySpark and Delta Lake workflow for NYC green and yellow taxi trip analytics.',
-      'Auto-discovered from the public GitHub profile for portfolio review.'
+      'Built a Databricks lakehouse workflow with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.',
+      'Preparing refreshed notebooks and outputs to document ingestion, transformation, and scalable trip analysis patterns.'
     ]
   },
   'sydney-rainfall-forecasting': {
@@ -123,8 +123,8 @@ const PROJECT_COPY_OVERRIDES = {
   'youtube-trending-snowflake-lakehouse': {
     impact: 'Snowflake pipeline for multi-country YouTube trends',
     points: [
-      'Built a Snowflake workflow for ingesting, cleaning, and analyzing YouTube Trending data.',
-      'Auto-discovered from the public GitHub profile for portfolio review.'
+      'Built a Snowflake analytics workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.',
+      'Preparing updated outputs to document repeatable trend analysis across country-level media datasets.'
     ]
   }
 };
@@ -149,7 +149,7 @@ function buildProject(repo) {
           : `Public repository for ${toTitle(repo.name)}, maintained on GitHub.`,
         demo
           ? 'Includes a live project link from the repository homepage metadata.'
-          : 'Auto-discovered from the public GitHub profile for portfolio review.'
+          : 'Maintained as a public GitHub project and ready for deeper portfolio documentation.'
       ]
   };
 }

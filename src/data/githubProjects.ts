@@ -15,8 +15,8 @@ export const githubProjects: Project[] = [
       "HTML"
     ],
     "points": [
-      "Built a PySpark and Delta Lake workflow for NYC green and yellow taxi trip analytics.",
-      "Auto-discovered from the public GitHub profile for portfolio review."
+      "Built a Databricks lakehouse workflow with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.",
+      "Preparing refreshed notebooks and outputs to document ingestion, transformation, and scalable trip analysis patterns."
     ]
   },
   {
@@ -30,8 +30,8 @@ export const githubProjects: Project[] = [
       "Python"
     ],
     "points": [
-      "Built a Snowflake workflow for ingesting, cleaning, and analyzing YouTube Trending data.",
-      "Auto-discovered from the public GitHub profile for portfolio review."
+      "Built a Snowflake analytics workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.",
+      "Preparing updated outputs to document repeatable trend analysis across country-level media datasets."
     ]
   }
 ];
