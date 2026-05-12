@@ -60,7 +60,7 @@ Machine Learning Engineer and Data Professional building practical ML systems, l
 
 ## Paste-Ready Project Section
 
-Each project below has two resume-ready bullets and recommended tags. Pick 4-6 projects based on the job post.
+Each project below has two resume-ready bullets and recommended tags. Use bullet 1 for project overview plus core tools, and bullet 2 for key takeaway, achievement, or professional evidence without forcing specific evaluation metrics.
 
 ### Tier 1: Flagship And Most Complex Projects
 
@@ -74,8 +74,8 @@ AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure An
 Tags:
 Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety, Local Execution, Evaluation
 
-- Built a **text-to-SQL agent** that retrieves relevant schema chunks using **hybrid retrieval**, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
-- Implemented **local SQLite execution** with **SQLGlot-assisted validation**, SQLite authorizer controls, query repair, Streamlit delivery, tests, benchmark evaluation outputs, and architecture/report documentation.
+- Built an **enterprise text-to-SQL agent** with Gemini/Ollama, Streamlit, SQLite, hybrid schema RAG, and SQLGlot-assisted safety validation.
+- Demonstrated a privacy-aware natural-language analytics workflow by sending only schema metadata to the LLM, enforcing read-only local execution, and documenting architecture, deployment, and evaluation evidence.
 
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
@@ -88,8 +88,8 @@ Data Engineer, Analytics Engineer, Cloud Data, ELT, dbt, Airflow, Warehouse Mode
 Tags:
 Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD Type 2
 
-- Designed an **end-to-end ELT analytics warehouse** combining Sydney Airbnb listings, ABS Census data, and NSW LGA mapping using **Airflow**, **dbt**, PostgreSQL, and Bronze-Silver-Gold modelling.
-- Automated **sequential monthly processing** and **SCD Type 2 snapshots** to preserve historical host, property, neighbourhood, and LGA state for longitudinal market analysis.
+- Designed an **end-to-end ELT analytics warehouse** with Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modelling, and Sydney Airbnb, Census, and LGA datasets.
+- Preserved longitudinal market history through sequential monthly processing and SCD Type 2 snapshots across host, property, neighbourhood, and LGA dimensions.
 
 GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
 
@@ -101,8 +101,8 @@ Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
 Tags:
 PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
 
-- Built a **PySpark and Delta Lake** workflow for NYC green and yellow taxi trip analytics in **Databricks**.
-- Developed **lakehouse-ready ingestion** and analytical processing for scalable urban mobility data exploration.
+- Built a **Databricks lakehouse workflow** with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.
+- Produced scalable urban mobility analysis patterns by structuring ingestion, transformation, and feature-ready trip processing.
 
 GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
 
@@ -114,8 +114,8 @@ ML Engineer, Time-Series, MLOps, Data Apps, Streamlit, FastAPI, Financial Analyt
 Tags:
 Python, Streamlit, FastAPI, scikit-learn, Kraken API, Time-Series, Technical Indicators, pytest
 
-- Built a **live Solana forecasting** system using **Kraken OHLCV data**, feature engineering, anchored residual modelling, and Streamlit dashboarding.
-- Packaged **data loading**, training, inference, testing, and optional **FastAPI serving** components for reproducible time-series forecasting workflows.
+- Built a **live Solana forecasting system** with Kraken OHLCV data, scikit-learn, engineered technical indicators, Streamlit, and optional FastAPI serving.
+- Packaged data loading, training, inference, testing, and dashboard delivery into a reproducible time-series workflow suitable for portfolio review and iteration.
 
 GitHub: https://github.com/tuannm3812/solana-price-prediction  
 Live demo: https://solana-price-prediction-tuannm3812.streamlit.app/
@@ -128,8 +128,8 @@ ML Engineer, Deep Learning, Audio ML, Computer Vision-adjacent ML, Edge ML, Kagg
 Tags:
 PyTorch, EfficientNet, Google Perch, PCEN, SpecAugment, Bioacoustics, Audio Classification, Edge Inference
 
-- Architected a **BirdCLEF+ 2026** bioacoustic classification workspace using **EfficientNet-B0**, **Google Perch v2**, PCEN preprocessing, and SpecAugment to model noisy multi-species ecological audio.
-- Developed **reusable training utilities**, exploratory notebooks, and **validation workflows** for robust species classification across high-noise environmental recordings.
+- Architected a **BirdCLEF+ 2026 bioacoustic classification workspace** with PyTorch, EfficientNet-B0, Google Perch v2, PCEN preprocessing, and SpecAugment.
+- Created reusable training utilities, exploratory notebooks, and validation workflows for modelling noisy ecological audio across multi-species recordings.
 
 GitHub: https://github.com/tuannm3812/birdclef-2026
 
@@ -145,8 +145,8 @@ Computer Vision, Deep Learning, Accessibility AI, PyTorch, Image Captioning, App
 Tags:
 PyTorch, ResNet-LSTM, Bahdanau Attention, Beam Search, VizWiz, Image Captioning
 
-- Built an **accessibility-focused VizWiz** image captioning system with rerunnable EDA and modelling notebooks for **leakage-free** internal train/validation/test splits.
-- Compared **ResNet-LSTM** and **Bahdanau-style attention** models through reproducible evaluation and qualitative caption review.
+- Built an **accessibility-focused VizWiz image captioning system** with PyTorch, ResNet-LSTM baselines, Bahdanau-style attention, and beam-search decoding.
+- Maintained rerunnable EDA, leakage-aware data splits, qualitative review, and reproducible experiments to compare captioning approaches.
 
 GitHub: https://github.com/tuannm3812/VisionVoice
 
@@ -158,8 +158,8 @@ Computer Vision, Deep Learning, Sequence Modelling, Kaggle, PyTorch
 Tags:
 PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, Kaggle, Model Artifacts
 
-- Compared baseline **CNN-LSTM**, attention CNN-LSTM, and **ResNet50 attention** captioning systems with tracked Kaggle artifacts and qualitative inference examples.
-- Refined caption quality using **ResNet50 spatial features**, additive attention, mixed precision, scheduling, and beam-search decoding.
+- Built a **Flickr8k captioning workflow** with PyTorch, VGG16/ResNet50 visual encoders, CNN-LSTM models, additive attention, and beam-search decoding.
+- Improved the modelling workflow with tracked Kaggle artifacts, qualitative inference examples, mixed precision, scheduling, and reusable experiment structure.
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
@@ -171,8 +171,8 @@ Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analyti
 Tags:
 Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
 
-- Built a **Snowflake workflow** for ingesting, cleaning, and analyzing multi-country **YouTube Trending** data.
-- Supported optional **YouTube Data API** refreshes for repeatable trend analysis across country-level datasets.
+- Built a **Snowflake analytics workflow** with Python and YouTube Data API support for ingesting, cleaning, and analyzing multi-country trending video data.
+- Enabled repeatable country-level media trend analysis through structured lakehouse-style tables and refreshable data preparation logic.
 
 GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
 
@@ -184,8 +184,8 @@ NLP, Policy Analytics, Text Mining, Unstructured Data, Social Impact Analytics
 Tags:
 Python, NLP, TF-IDF, LDA, K-Means, Clustering, Topic Modelling, Policy Analysis
 
-- Analyzed **Australian parliamentary submissions** on workplace gender equality policy using text cleaning, **TF-IDF**, topic modelling, clustering, and visualization.
-- Compared **stakeholder language** across unions, industry groups, advocacy bodies, academics, and government sources to identify **policy framing patterns**.
+- Analyzed **Australian parliamentary submissions** with Python, TF-IDF, LDA, K-Means clustering, and visualization to study workplace gender equality policy discourse.
+- Identified stakeholder framing patterns across unions, industry groups, advocacy bodies, academics, and government sources for social-impact text analytics.
 
 GitHub: https://github.com/tuannm3812/gender-equality-policy-nlp
 
@@ -197,8 +197,8 @@ NLP, Marketing Analytics, Social Media Analytics, Semantic Analysis, Climate Com
 Tags:
 Python, Pandas, scikit-learn, NetworkX, Semantic Clustering, Sentiment, Creator Graphs
 
-- Built a **semantic marketing analytics pipeline** for climate-action TikTok data, normalizing nested post, author, comment, hashtag, and multimodal summary objects.
-- Generated **competition-ready insight tables** for theme performance, message recommendations, comment intent, sentiment/emotion, and creator bridge metrics.
+- Built a **semantic marketing analytics pipeline** with Python, Pandas, scikit-learn, NetworkX, and TikTok post, creator, comment, hashtag, and multimodal summary data.
+- Produced competition-ready insight tables for climate-action messaging, including themes, recommendations, comment intent, sentiment/emotion, and creator bridge metrics.
 
 GitHub: https://github.com/tuannm3812/tiktok-semantic
 
@@ -210,8 +210,8 @@ Applied AI, Full-Stack AI, FastAPI, React, Agentic Workflow, Product Engineering
 Tags:
 FastAPI, React, Gemini, Pydantic, Nutrition Estimation, Agent Workflow, Tailwind
 
-- Built a **multi-agent meal-planning** prototype that converts a user craving into a structured meal plan, **nutrition summary**, and supermarket shopping list.
-- Implemented **FastAPI endpoints**, deterministic fallback logic, file-backed user profiles, meal history storage, and a **React dashboard** for reviewing generated plans.
+- Built a **multi-agent meal-planning prototype** with FastAPI, React, Gemini, Pydantic, and Tailwind to convert a craving into a structured meal plan.
+- Delivered a fuller product workflow with nutrition summaries, supermarket shopping lists, deterministic fallbacks, file-backed profiles, and meal history storage.
 
 GitHub: https://github.com/tuannm3812/ai-meal-planner
 
@@ -223,8 +223,8 @@ Data Analytics, Dashboarding, Data Visualization, Food Security, Public Data, St
 Tags:
 Streamlit, Pandas, Plotly, FAOSTAT, World Bank, Food Price Index, Scenario Analysis
 
-- Built a **Streamlit dashboard** analyzing global food price shocks and **import-dependency risk** using FAOSTAT, FAO, Global Hunger Index, and World Bank indicators.
-- Added **interactive views** for commodity trends, volatility, vulnerability mapping, and **what-if shock scenarios** to support food security risk exploration.
+- Built a **Streamlit and Plotly dashboard** using FAOSTAT, FAO, Global Hunger Index, and World Bank data to analyze global food-price shocks.
+- Supported food-security risk exploration with commodity trends, volatility views, import-dependency mapping, and interactive what-if shock scenarios.
 
 GitHub: https://github.com/tuannm3812/assignment3-faostat-viz  
 Live demo: https://assignment3-faostat-viz.streamlit.app/
@@ -239,8 +239,8 @@ ML Engineer, Time-Series, Forecasting, Streamlit, Weather Analytics
 Tags:
 Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
 
-- Built an **end-to-end Sydney rainfall forecasting pipeline** using Open-Meteo observations, supervised feature engineering, separate classification/regression models, and reproducible **joblib** artifacts.
-- Deployed a **Streamlit dashboard** with refreshed model metadata and added tests for future-weather targets and feature ordering.
+- Built an **end-to-end Sydney rainfall forecasting pipeline** with Open-Meteo observations, scikit-learn classification/regression models, joblib artifacts, and Streamlit.
+- Strengthened reliability through refreshed model metadata and tests covering future-weather targets, feature ordering, and dashboard-ready inference assets.
 
 GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
 Live demo: https://sydney-rainfall-forecasting.streamlit.app/
@@ -253,8 +253,8 @@ NLP, Generative AI, Streamlit Prototype, Tokenization, Cultural Data Products
 Tags:
 Streamlit, Keras, JAX, BPE, N-gram Models, Transformers, Text Generation, NLP Prototype
 
-- Created an **interactive NLP prototype** for culturally focused text generation with corpus exploration, **BPE tokenization**, and transformer components.
-- Built a lightweight **Streamlit interface** with deterministic fallback data and **testable modules** to support demos, portfolio review, and iterative experimentation.
+- Created an **interactive NLP prototype** with Streamlit, Keras/JAX, BPE tokenization, N-gram baselines, and transformer components for culturally focused text generation.
+- Supported demo reliability and iteration with corpus exploration, deterministic fallback data, testable modules, and a lightweight user interface.
 
 GitHub: https://github.com/tuannm3812/AfriWeave
 
@@ -266,8 +266,8 @@ Applied AI, Streamlit App, Human-Centered AI, Product Prototype, UX for AI
 Tags:
 Streamlit, Python, AI Agent, Diagnostic Flow, Scoring Logic, Product Prototype
 
-- Built an **interactive Streamlit diagnostic** that maps user decisions across recovery, iteration, deployment, legacy systems, and delivery pressure into developer workflow profiles.
-- Designed **dynamic scoring logic** and a polished portfolio-ready interface to demonstrate resilience, creative problem-solving, and **applied AI product thinking**.
+- Built an **interactive Streamlit diagnostic app** with Python, scoring logic, and product-style UX for mapping developer workflow decisions into profile outcomes.
+- Demonstrated applied AI product thinking through a polished decision flow covering recovery, iteration, deployment, legacy systems, and delivery pressure.
 
 GitHub: https://github.com/tuannm3812/apple-foundation-agent
 
@@ -351,16 +351,16 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 
 ### Compact Resume Version
 
-Programming: Python, SQL, PySpark, TypeScript, OOP, unit testing, package development  
-Data Engineering: Airflow, dbt, BigQuery, PostgreSQL, Snowflake, Databricks, Delta Lake, ELT/ETL, Medallion Architecture, API ingestion  
-Machine Learning: scikit-learn, PyTorch, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation  
-NLP and AI: text classification, TF-IDF, topic modelling, clustering, text-to-SQL, prompt engineering, AI agents, Gemini/Ollama, schema RAG, SQL safety  
-MLOps and Deployment: FastAPI, Streamlit, Docker, GitHub Actions, model versioning, pytest, joblib artifacts, reproducible project structure  
-Visualization and Analytics: Plotly, Looker Studio, Streamlit dashboards, vulnerability mapping, what-if scenarios, stakeholder reporting
+Programming and Engineering: Python, SQL, PySpark, TypeScript, OOP, package development, unit testing, reusable project structure  
+Data Engineering and Warehousing: Airflow, dbt, PostgreSQL, BigQuery, Snowflake, Databricks, Delta Lake, Medallion Architecture, ELT/ETL, API ingestion  
+Machine Learning and Forecasting: scikit-learn, PyTorch, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation, joblib artifacts  
+NLP, LLMs, and AI Agents: text-to-SQL, schema RAG, hybrid retrieval, prompt engineering, Gemini/Ollama, SQLGlot, SQL safety, TF-IDF, topic modelling, clustering, sentiment analysis  
+MLOps and Productization: FastAPI, Streamlit, Docker, GitHub Actions, pytest, model metadata, reproducible artifacts, deployment documentation  
+Analytics and Visualization: Pandas, Plotly, NetworkX, Looker Studio, Streamlit dashboards, semantic analytics, vulnerability mapping, what-if scenarios, stakeholder reporting
 
 ### ATS-Friendly Keyword Bank
 
-Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BPE tokenization, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, GitHub Actions, pytest, joblib, data pipelines, ELT, ETL, lakehouse analytics, dashboarding, time-series forecasting, API ingestion, feature engineering, model evaluation, stakeholder communication.
+Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, Pandas, NetworkX, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, semantic clustering, sentiment analysis, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BPE tokenization, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, GitHub Actions, pytest, joblib, data pipelines, ELT, ETL, lakehouse analytics, dashboarding, time-series forecasting, API ingestion, feature engineering, model evaluation, stakeholder communication.
 
 ## Refined Experience Add-On Bullets
 
