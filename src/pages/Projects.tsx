@@ -2,20 +2,48 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
 import { githubProjects } from '../data/githubProjects';
-import { ChevronDown, ExternalLink, Github, Layers, Target } from 'lucide-react';
+import { ChevronDown, ExternalLink, Github, Layers, Star, Target } from 'lucide-react';
+
+const projectPriority: Record<string, { score: number; stars: number }> = {
+  'AIPA: Text-to-SQL Agent': { score: 100, stars: 3 },
+  'Production-Grade ELT Pipeline': { score: 96, stars: 3 },
+  'NYC Taxi Databricks': { score: 94, stars: 3 },
+  'Solana Price Forecasting': { score: 91, stars: 3 },
+  'Bioacoustic Species Classification': { score: 89, stars: 3 },
+  'VisionVoice: Image Captioning': { score: 84, stars: 2 },
+  'Flickr8k Image Captioning': { score: 80, stars: 2 },
+  'Youtube Trending Snowflake Lakehouse': { score: 78, stars: 2 },
+  'Gender Equality Policy NLP': { score: 76, stars: 2 },
+  'AI Meal Planner': { score: 73, stars: 2 },
+  'FAOSTAT Food Price Shock Dashboard': { score: 70, stars: 2 },
+  'Sydney Rainfall Forecasting': { score: 64, stars: 1 },
+  'AfriWeave': { score: 60, stars: 1 },
+  'Apple Foundation Agent': { score: 55, stars: 1 },
+  'Personal Portfolio': { score: 45, stars: 1 }
+};
+
+function getProjectRank(title: string) {
+  return projectPriority[title] || { score: 0, stars: 0 };
+}
 
 export default function Projects() {
   const curatedGithubLinks = new Set(resumeData.projects.map((project) => project.github).filter(Boolean));
   const projects = [
     ...resumeData.projects,
     ...githubProjects.filter((project) => !curatedGithubLinks.has(project.github))
-  ];
+  ].sort((a, b) => getProjectRank(b.title).score - getProjectRank(a.title).score || a.title.localeCompare(b.title));
 
   const groupedProjects = projects.reduce<Record<string, typeof projects>>((groups, project) => {
     groups[project.category] = groups[project.category] || [];
     groups[project.category].push(project);
     return groups;
   }, {});
+
+  const sortedProjectGroups = Object.entries(groupedProjects).sort(
+    ([, aProjects], [, bProjects]) =>
+      Math.max(...bProjects.map((project) => getProjectRank(project.title).score)) -
+      Math.max(...aProjects.map((project) => getProjectRank(project.title).score))
+  );
 
   return (
     <div className="space-y-8 pb-24">
@@ -29,7 +57,7 @@ export default function Projects() {
       </div>
 
       <div className="space-y-4">
-        {Object.entries(groupedProjects).map(([category, projects], categoryIndex) => (
+        {sortedProjectGroups.map(([category, projects], categoryIndex) => (
           <details
             key={category}
             className="group/category rounded-xl border border-slate-200 bg-white/70 dark:border-slate-800 dark:bg-slate-900/70"
@@ -63,9 +91,22 @@ export default function Projects() {
                 >
                   <div className="flex-1 space-y-4">
                     <div className="space-y-2">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
-                        {project.stack[0]}
-                      </span>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
+                          {project.stack[0]}
+                        </span>
+                        {getProjectRank(project.title).stars > 0 && (
+                          <span
+                            className="flex items-center gap-0.5 text-amber-400"
+                            aria-label={`${getProjectRank(project.title).stars} star project`}
+                            title={`${getProjectRank(project.title).stars} star project`}
+                          >
+                            {Array.from({ length: getProjectRank(project.title).stars }).map((_, starIndex) => (
+                              <Star key={starIndex} size={13} fill="currentColor" strokeWidth={1.5} />
+                            ))}
+                          </span>
+                        )}
+                      </div>
                       <h4 className="text-lg font-bold leading-tight transition-colors group-hover:text-brand">
                         {project.title}
                       </h4>
