@@ -242,15 +242,16 @@ export const resumeData: ResumeData = {
       ]
     },
     {
-      title: "AIPA: Text-to-SQL Agent",
+      title: "AIPA: Enterprise Text-to-SQL Agent",
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
       demo: "https://aipa-text-to-sql-agent.streamlit.app/",
-      impact: "Schema RAG text-to-SQL agent with local execution",
-      stack: ["Gemini/Ollama", "Schema RAG", "Streamlit", "SQLite", "SQLGlot"],
+      impact: "Enterprise-style schema RAG agent with safe local SQL execution",
+      stack: ["Gemini/Ollama", "Hybrid Schema RAG", "Streamlit", "SQLite", "SQLGlot"],
       points: [
-        "Built a text-to-SQL agent that retrieves relevant schema chunks with hybrid lexical, semantic, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.",
-        "Implemented local SQLite execution with SQLGlot-backed read-only validation, SQLite authorizer controls, result caps, query repair, tests, and an evaluation harness."
+        "Built an enterprise-style text-to-SQL agent that sends only retrieved schema metadata to Gemini or Ollama, using hybrid lexical, semantic, value-hint, and foreign-key graph retrieval.",
+        "Implemented read-only local SQLite execution with SQLGlot-backed validation, SQLite authorizer controls, result caps, query repair, automated tests, and benchmark evaluation outputs.",
+        "Documented the system with architecture diagrams, deployment notes, report evidence, and presentation materials from the main-refinement branch."
       ]
     },
     {

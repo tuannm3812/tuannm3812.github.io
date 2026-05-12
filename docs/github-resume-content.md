@@ -10,7 +10,7 @@ Sources checked:
 - AIPA default branch README: https://github.com/tuannm3812/aipa-text-to-sql-agent/tree/tuannm3812/main-refinement
 - Current public GitHub repository descriptions, languages, and README summaries for all listed projects
 
-Last refreshed: 2026-05-11
+Last refreshed: 2026-05-12
 
 ## Formatting Recommendation
 
@@ -32,7 +32,7 @@ Enterprise Text-to-SQL Agent using Gemini/Ollama, hybrid schema RAG, Streamlit, 
 
 ### Portfolio / Resume Positioning
 
-AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives only retrieved schema metadata, never raw database rows, while Python validates generated SQL before local read-only execution. The default branch implements hybrid schema RAG using lexical, semantic, value-hint, and foreign-key graph signals.
+AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives only retrieved schema metadata, never raw database rows, while Python validates generated SQL before local read-only execution. The working `tuannm3812/main-refinement` branch implements hybrid schema RAG using lexical, hashed embedding, character n-gram semantic, value-hint, and foreign-key graph signals, with architecture diagrams, deployment notes, report evidence, and evaluation workflows.
 
 Recommended tags:
 AI Agent, Text-to-SQL, Gemini, Ollama, Schema RAG, Hybrid Retrieval, Prompt Engineering, SQLGlot, SQL Safety, Streamlit, SQLite, Local Execution, Data Privacy, Applied AI
@@ -75,7 +75,7 @@ Tags:
 Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety, Local Execution, Evaluation
 
 - Built a **text-to-SQL agent** that retrieves relevant schema chunks using **hybrid retrieval**, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
-- Implemented **local SQLite execution** with **SQLGlot-assisted validation**, SQLite authorizer controls, query repair, Streamlit delivery, tests, and an evaluation harness.
+- Implemented **local SQLite execution** with **SQLGlot-assisted validation**, SQLite authorizer controls, query repair, Streamlit delivery, tests, benchmark evaluation outputs, and architecture/report documentation.
 
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
@@ -300,16 +300,11 @@ MobileNetV3, Transfer Learning, MLP Head, Smart Resizing, F1 Analysis, Image Aug
 - Developed a two-phase **transfer learning workflow** using MobileNetV3 and a custom MLP head to reduce **catastrophic forgetting** during fine-tuning.
 - Optimized **image ingestion** with aspect-ratio-preserving resizing and built per-category **F1 diagnostics** to debug performance across visually similar classes.
 
-### TikTok Sentiment and Stance Analysis
+### Replaced By Public Project: TikTok Semantic
 
-Recommended for:
-NLP, Social Media Analytics, Sentiment Analysis, Classification, Climate Analytics
+The previous non-public TikTok sentiment/stance resume item should now be replaced by **TikTok Semantic** because the public repository covers the same climate/social-media analytics direction with stronger evidence: reusable scripts, documented sample findings, semantic clusters, comment sentiment/emotion tables, creator bridge metrics, and GitHub-backed project history.
 
-Tags:
-TextBlob, VADER, Sentiment Analysis, Stance Detection, Social Media Text, Classification
-
-- Engineered an **NLP pipeline** to process high-velocity social media captions and comments, classifying **sentiment and stance** toward climate change narratives.
-- Trained **custom classifiers** to distinguish awareness-driven support from climate skepticism and extract actionable insights from unstructured youth-demographic data.
+Use the TikTok Semantic project entry above for current resumes and portfolio links.
 
 ### Electricity Demand Forecasting
 
