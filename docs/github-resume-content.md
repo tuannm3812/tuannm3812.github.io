@@ -62,9 +62,9 @@ Machine Learning Engineer and Data Professional building practical ML systems, l
 
 Each project below has two resume-ready bullets and recommended tags. Use bullet 1 for project overview plus core tools, and bullet 2 for key takeaway, achievement, or professional evidence without forcing specific evaluation metrics.
 
-### Tier 1: Flagship And Most Complex Projects
+### Tier 1: Flagship / Highest-Complexity Projects
 
-Use these first when a resume needs the strongest technical evidence.
+Use these first when a resume needs the strongest technical evidence: multi-component systems, production-style architecture, model or data workflow depth, tests, deployment paths, and clear product/storytelling evidence.
 
 ### AIPA: Enterprise Text-to-SQL Agent
 
@@ -80,6 +80,19 @@ Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQL
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
 
+### AI Meal Planner
+
+Recommended for:
+Applied AI, Backend AI Product, FastAPI, Streamlit, RAG, Product Engineering
+
+Tags:
+FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, Nutrition Verification, Feedback Loop, CI
+
+- Built a **backend-first AI meal planner** with FastAPI, Streamlit demo modes, Pydantic schemas, scikit-learn calorie prediction, and local vector RAG meal retrieval.
+- Delivered a more reliable product workflow with allergy/health filtering, nutrition verification, supermarket estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts.
+
+GitHub: https://github.com/tuannm3812/ai-meal-planner
+
 ### Production-Grade ELT Pipeline: Airbnb Market Analytics
 
 Recommended for:
@@ -92,19 +105,6 @@ Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD
 - Preserved longitudinal market history through sequential monthly processing and SCD Type 2 snapshots across host, property, neighbourhood, and LGA dimensions.
 
 GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
-
-### NYC Taxi Databricks
-
-Recommended for:
-Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
-
-Tags:
-PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
-
-- Built a **Databricks lakehouse workflow** with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.
-- Produced scalable urban mobility analysis patterns by structuring ingestion, transformation, and feature-ready trip processing.
-
-GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
 
 ### Solana Price Forecasting Dashboard
 
@@ -133,9 +133,48 @@ PyTorch, EfficientNet, Google Perch, PCEN, SpecAugment, Bioacoustics, Audio Clas
 
 GitHub: https://github.com/tuannm3812/birdclef-2026
 
-### Tier 2: Strong Applied ML, Data, And AI Projects
+### Tier 2: Strong Applied / Resume-Tailoring Projects
 
-Use these to tailor toward ML, analytics, dashboarding, or applied AI roles.
+Use these to tailor toward ML, NLP, analytics, dashboarding, or data engineering roles. These are strong projects, but either narrower in scope or still waiting on refreshed outputs/notebooks before being treated as flagship evidence.
+
+### TikTok Semantic
+
+Recommended for:
+NLP, Marketing Analytics, Social Media Analytics, Semantic Analysis, Climate Communication
+
+Tags:
+Python, Pandas, scikit-learn, NetworkX, Semantic Clustering, Sentiment, Creator Graphs
+
+- Built a **semantic marketing analytics pipeline** with Python, Pandas, scikit-learn, NetworkX, and TikTok post, creator, comment, hashtag, and multimodal summary data.
+- Produced competition-ready insight tables for climate-action messaging, including themes, recommendations, comment intent, sentiment/emotion, and creator bridge metrics.
+
+GitHub: https://github.com/tuannm3812/tiktok-semantic
+
+### NYC Taxi Databricks
+
+Recommended for:
+Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
+
+Tags:
+PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
+
+- Built a **Databricks lakehouse workflow** with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.
+- Produced scalable urban mobility analysis patterns by structuring ingestion, transformation, and feature-ready trip processing.
+
+GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
+
+### YouTube Trending Snowflake Lakehouse
+
+Recommended for:
+Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analytics
+
+Tags:
+Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
+
+- Built a **Snowflake analytics workflow** with Python and YouTube Data API support for ingesting, cleaning, and analyzing multi-country trending video data.
+- Enabled repeatable country-level media trend analysis through structured lakehouse-style tables and refreshable data preparation logic.
+
+GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
 
 ### VisionVoice: Image Captioning
 
@@ -163,18 +202,19 @@ PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, Kaggle, Mod
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
-### YouTube Trending Snowflake Lakehouse
+### Sydney Rainfall Forecasting
 
 Recommended for:
-Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analytics
+ML Engineer, Time-Series, Forecasting, Streamlit, Weather Analytics
 
 Tags:
-Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
+Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
 
-- Built a **Snowflake analytics workflow** with Python and YouTube Data API support for ingesting, cleaning, and analyzing multi-country trending video data.
-- Enabled repeatable country-level media trend analysis through structured lakehouse-style tables and refreshable data preparation logic.
+- Built an **end-to-end Sydney rainfall forecasting pipeline** with Open-Meteo observations, scikit-learn classification/regression models, joblib artifacts, and Streamlit.
+- Strengthened reliability through refreshed model metadata and tests covering future-weather targets, feature ordering, and dashboard-ready inference assets.
 
-GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
+GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
+Live demo: https://sydney-rainfall-forecasting.streamlit.app/
 
 ### Gender Equality Policy NLP
 
@@ -188,32 +228,6 @@ Python, NLP, TF-IDF, LDA, K-Means, Clustering, Topic Modelling, Policy Analysis
 - Identified stakeholder framing patterns across unions, industry groups, advocacy bodies, academics, and government sources for social-impact text analytics.
 
 GitHub: https://github.com/tuannm3812/gender-equality-policy-nlp
-
-### TikTok Semantic
-
-Recommended for:
-NLP, Marketing Analytics, Social Media Analytics, Semantic Analysis, Climate Communication
-
-Tags:
-Python, Pandas, scikit-learn, NetworkX, Semantic Clustering, Sentiment, Creator Graphs
-
-- Built a **semantic marketing analytics pipeline** with Python, Pandas, scikit-learn, NetworkX, and TikTok post, creator, comment, hashtag, and multimodal summary data.
-- Produced competition-ready insight tables for climate-action messaging, including themes, recommendations, comment intent, sentiment/emotion, and creator bridge metrics.
-
-GitHub: https://github.com/tuannm3812/tiktok-semantic
-
-### AI Meal Planner
-
-Recommended for:
-Applied AI, Backend AI Product, FastAPI, Streamlit, RAG, Product Engineering
-
-Tags:
-FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, Nutrition Verification, Feedback Loop, CI
-
-- Built a **backend-first AI meal planner** with FastAPI, Streamlit demo modes, Pydantic schemas, scikit-learn calorie prediction, and local vector RAG meal retrieval.
-- Delivered a more reliable product workflow with allergy/health filtering, nutrition verification, supermarket estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts.
-
-GitHub: https://github.com/tuannm3812/ai-meal-planner
 
 ### FAOSTAT Food Price Shock Dashboard
 
@@ -229,21 +243,9 @@ Streamlit, Pandas, Plotly, FAOSTAT, World Bank, Food Price Index, Scenario Analy
 GitHub: https://github.com/tuannm3812/assignment3-faostat-viz  
 Live demo: https://assignment3-faostat-viz.streamlit.app/
 
-### Tier 3: Focused Supporting Projects
+### Tier 3: Focused Supporting / Prototype Projects
 
-### Sydney Rainfall Forecasting
-
-Recommended for:
-ML Engineer, Time-Series, Forecasting, Streamlit, Weather Analytics
-
-Tags:
-Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
-
-- Built an **end-to-end Sydney rainfall forecasting pipeline** with Open-Meteo observations, scikit-learn classification/regression models, joblib artifacts, and Streamlit.
-- Strengthened reliability through refreshed model metadata and tests covering future-weather targets, feature ordering, and dashboard-ready inference assets.
-
-GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
-Live demo: https://sydney-rainfall-forecasting.streamlit.app/
+Use these when the role values breadth, prototyping, frontend delivery, or personal brand evidence. They are useful supporting signals but usually should not replace Tier 1 or Tier 2 projects on a short resume.
 
 ### AfriWeave
 
