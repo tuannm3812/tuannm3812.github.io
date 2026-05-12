@@ -261,11 +261,11 @@ export const resumeData: ResumeData = {
       title: "AI Meal Planner",
       category: "Applied AI Products",
       github: "https://github.com/tuannm3812/ai-meal-planner",
-      impact: "Multi-agent meal planning product prototype",
-      stack: ["FastAPI", "React", "Gemini", "Tailwind", "Pydantic"],
+      impact: "Backend-first meal planning API with Streamlit demo modes",
+      stack: ["FastAPI", "Streamlit", "scikit-learn", "Local RAG", "Pydantic"],
       points: [
-        "Built a multi-agent meal-planning prototype with FastAPI, React, Gemini, Pydantic, and Tailwind to convert a craving into a structured meal plan.",
-        "Delivered a fuller product workflow with nutrition summaries, supermarket shopping lists, deterministic fallbacks, profiles, and meal history storage."
+        "Built a backend-first AI meal planner with FastAPI, Streamlit demo modes, Pydantic schemas, scikit-learn calorie prediction, and local vector RAG meal retrieval.",
+        "Delivered a more reliable product workflow with allergy/health filtering, nutrition verification, supermarket estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts."
       ]
     },
     {

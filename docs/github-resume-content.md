@@ -205,13 +205,13 @@ GitHub: https://github.com/tuannm3812/tiktok-semantic
 ### AI Meal Planner
 
 Recommended for:
-Applied AI, Full-Stack AI, FastAPI, React, Agentic Workflow, Product Engineering
+Applied AI, Backend AI Product, FastAPI, Streamlit, RAG, Product Engineering
 
 Tags:
-FastAPI, React, Gemini, Pydantic, Nutrition Estimation, Agent Workflow, Tailwind
+FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, Nutrition Verification, Feedback Loop, CI
 
-- Built a **multi-agent meal-planning prototype** with FastAPI, React, Gemini, Pydantic, and Tailwind to convert a craving into a structured meal plan.
-- Delivered a fuller product workflow with nutrition summaries, supermarket shopping lists, deterministic fallbacks, file-backed profiles, and meal history storage.
+- Built a **backend-first AI meal planner** with FastAPI, Streamlit demo modes, Pydantic schemas, scikit-learn calorie prediction, and local vector RAG meal retrieval.
+- Delivered a more reliable product workflow with allergy/health filtering, nutrition verification, supermarket estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts.
 
 GitHub: https://github.com/tuannm3812/ai-meal-planner
 
@@ -341,7 +341,7 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 - Created AfriWeave, a Streamlit NLP prototype for culturally focused text generation using N-gram baselines, BPE tokenization, and transformer components.
 - Built a FAOSTAT food-price shock dashboard combining producer prices, global hunger indicators, import dependency, and interactive what-if analysis.
 - Created an Apple Foundation Streamlit diagnostic agent with multi-step scoring logic and polished product-style interaction flows.
-- Built an AI meal planner prototype with FastAPI, React, Gemini, structured meal generation, nutrition estimation, and supermarket shopping-list logic.
+- Built a backend-first AI meal planner with FastAPI, Streamlit demo modes, scikit-learn calorie prediction, local meal RAG, nutrition verification, feedback storage, and CI-tested API contracts.
 - Built a React and TypeScript portfolio with Firebase contact/comment features, GitHub Pages deployment, and automated GitHub project sync.
 - Built a NYC Taxi Databricks workflow with PySpark, Delta Lake processing, and scalable trip analytics.
 - Built a Sydney rainfall forecasting pipeline with Open-Meteo data, scikit-learn classification/regression models, joblib artifacts, Streamlit delivery, and pytest coverage for target and feature logic.
