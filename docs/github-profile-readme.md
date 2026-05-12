@@ -23,6 +23,7 @@ I care a lot about the unglamorous parts of machine learning: **clean data contr
 - **Time-series forecasting** with live data APIs and Streamlit dashboards
 - **Cloud-style ELT pipelines** with orchestration, transformation layers, and historical modelling
 - **NLP projects** for policy discourse, culturally focused text generation, and natural-language data access
+- **Semantic social-media analytics** for climate-action TikTok messaging, comment intent, sentiment, and creator networks
 - **AI product prototypes** that combine backend services, frontend dashboards, and agent-style reasoning
 
 ## 💡 How I Think About Good Data Work
@@ -50,4 +51,4 @@ When I’m learning something new, I usually build with it. Small prototypes, [K
 - 🧑‍💻 GitHub: [github.com/tuannm3812](https://github.com/tuannm3812)
 - 📊 Kaggle: [kaggle.com/tuannm3812](https://www.kaggle.com/tuannm3812)
 
-Always happy to connect about machine learning, data engineering, MLOps, AI agents, portfolio projects, or why the hardest bug is sometimes a column name with one extra space.
+Always happy to connect about machine learning, data engineering, MLOps, AI agents, semantic analytics, portfolio projects, or why the hardest bug is sometimes a column name with one extra space.

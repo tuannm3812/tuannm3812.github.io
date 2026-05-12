@@ -189,6 +189,19 @@ Python, NLP, TF-IDF, LDA, K-Means, Clustering, Topic Modelling, Policy Analysis
 
 GitHub: https://github.com/tuannm3812/gender-equality-policy-nlp
 
+### TikTok Semantic
+
+Recommended for:
+NLP, Marketing Analytics, Social Media Analytics, Semantic Analysis, Climate Communication
+
+Tags:
+Python, Pandas, scikit-learn, NetworkX, Semantic Clustering, Sentiment, Creator Graphs
+
+- Built a **semantic marketing analytics pipeline** for climate-action TikTok data, normalizing nested post, author, comment, hashtag, and multimodal summary objects.
+- Generated **competition-ready insight tables** for theme performance, message recommendations, comment intent, sentiment/emotion, and creator bridge metrics.
+
+GitHub: https://github.com/tuannm3812/tiktok-semantic
+
 ### AI Meal Planner
 
 Recommended for:
@@ -329,6 +342,7 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 - Deployed a Streamlit Solana forecasting dashboard using live Kraken OHLCV data, engineered technical indicators, anchored residual modelling, and optional FastAPI inference.
 - Built a Gemini/Ollama text-to-SQL agent with hybrid schema RAG, SQLGlot-assisted read-only validation, local SQLite execution, Streamlit delivery, and evaluation workflows.
 - Analyzed workplace gender equality policy submissions using NLP, TF-IDF, topic modelling, clustering, and stakeholder language comparison.
+- Built TikTok Semantic, a marketing analytics pipeline that turns climate-action TikTok data into semantic performance, sentiment, comment intent, and creator graph insight tables.
 - Created AfriWeave, a Streamlit NLP prototype for culturally focused text generation using N-gram baselines, BPE tokenization, and transformer components.
 - Built a FAOSTAT food-price shock dashboard combining producer prices, global hunger indicators, import dependency, and interactive what-if analysis.
 - Created an Apple Foundation Streamlit diagnostic agent with multi-step scoring logic and polished product-style interaction flows.
@@ -396,6 +410,7 @@ Prioritize:
 - AI Meal Planner
 - AfriWeave
 - Apple Foundation Agent
+- TikTok Semantic
 - Gender Equality Policy NLP
 
 Positioning:
@@ -405,9 +420,9 @@ Emphasize natural-language interfaces, agents, prompt engineering, schema RAG, l
 
 Prioritize:
 - AIPA: Enterprise Text-to-SQL Agent
+- TikTok Semantic
 - Gender Equality Policy NLP
 - AfriWeave
-- TikTok Sentiment and Stance Analysis
 
 Positioning:
 Emphasize text processing, schema grounding, sentiment/stance detection, topic modelling, clustering, and applied language systems.
@@ -425,6 +440,7 @@ Current public project inventory, including AIPA even though GitHub marks it as 
 | solana-price-prediction | Time-Series / MLOps | Strong deployed ML project |
 | aipa-text-to-sql-agent | Applied AI / Text-to-SQL | Strong AI agent project |
 | gender-equality-policy-nlp | NLP / Policy Analytics | Strong NLP project |
+| tiktok-semantic | NLP / Marketing Analytics | Strong semantic analytics project |
 | AfriWeave | NLP / Generative Prototype | Applied AI project |
 | assignment3-faostat-viz | Data Visualization | Dashboard and analytics project |
 | NYC-Taxi-Databricks | Data Engineering / Databricks | Big data lakehouse project |

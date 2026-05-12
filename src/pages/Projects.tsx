@@ -14,6 +14,7 @@ const projectPriority: Record<string, { score: number; stars: number }> = {
   'Flickr8k Image Captioning': { score: 80, stars: 2 },
   'Youtube Trending Snowflake Lakehouse': { score: 78, stars: 2 },
   'Gender Equality Policy NLP': { score: 76, stars: 2 },
+  'TikTok Semantic': { score: 75, stars: 2 },
   'AI Meal Planner': { score: 73, stars: 2 },
   'FAOSTAT Food Price Shock Dashboard': { score: 70, stars: 2 },
   'Sydney Rainfall Forecasting': { score: 64, stars: 1 },

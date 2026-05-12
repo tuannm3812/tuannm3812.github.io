@@ -59,7 +59,7 @@ export const resumeData: ResumeData = {
   summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
   highlights: [
     { value: "7+", label: "Years building analytics and ML workflows" },
-    { value: "15", label: "Technical projects across ML, data, and AI" },
+    { value: "16", label: "Technical projects across ML, data, and AI" },
     { value: "5+", label: "Core domains from CV to MLOps" },
     { value: "Full-stack", label: "From data pipelines to deployed apps" }
   ],
@@ -202,6 +202,18 @@ export const resumeData: ResumeData = {
         "Analyzed Australian parliamentary submissions on workplace gender equality reform using cleaning, TF-IDF, topic modelling, and clustering.",
         "Compared stakeholder language across unions, industry groups, government bodies, advocacy organisations, and academics.",
         "Produced reusable package modules, plots, notebooks, and a written analytical report."
+      ]
+    },
+    {
+      title: "TikTok Semantic",
+      category: "NLP & Generative AI",
+      github: "https://github.com/tuannm3812/tiktok-semantic",
+      impact: "Semantic marketing analytics for climate-action TikToks",
+      stack: ["Python", "Pandas", "scikit-learn", "NetworkX", "NLP"],
+      points: [
+        "Built a reusable analytics pipeline for UNSW Marketing Analytics Hackathon TikTok data, normalizing nested post, author, comment, hashtag, and multimodal summary objects.",
+        "Generated semantic performance tables for climate-action messaging, including theme performance, message recommendations, comment intent, sentiment, and creator bridge metrics.",
+        "Packaged scripts, reusable modules, notebooks, and insight documentation so the sample workflow can rerun when the full dataset is available locally."
       ]
     },
     {
