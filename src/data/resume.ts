@@ -193,6 +193,19 @@ export const resumeData: ResumeData = {
       ]
     },
     {
+      title: "Sydney Rainfall Forecasting",
+      category: "Time-Series & MLOps",
+      github: "https://github.com/tuannm3812/sydney-rainfall-forecasting",
+      demo: "https://sydney-rainfall-forecasting.streamlit.app/",
+      impact: "Sydney rainfall forecasting pipeline with Streamlit delivery",
+      stack: ["Streamlit", "Scikit-learn", "Open-Meteo", "joblib", "pytest"],
+      points: [
+        "Built an end-to-end forecasting pipeline that refreshes Sydney weather observations, creates supervised features, and trains separate rainfall classification and precipitation regression models.",
+        "Saved reproducible joblib model bundles with metadata, feature ordering, validation metrics, and a Streamlit dashboard for reviewing local predictions.",
+        "Expanded feature and target tests to cover future-weather labels and model matrix ordering."
+      ]
+    },
+    {
       title: "Gender Equality Policy NLP",
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/gender-equality-policy-nlp",

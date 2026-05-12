@@ -20,23 +20,6 @@ export const githubProjects: Project[] = [
     ]
   },
   {
-    "title": "Sydney Rainfall Forecasting",
-    "category": "Time-Series & MLOps",
-    "github": "https://github.com/tuannm3812/sydney-rainfall-forecasting",
-    "demo": "https://sydney-rainfall-forecasting.streamlit.app/",
-    "impact": "Live Streamlit dashboard for Sydney rainfall forecasts",
-    "stack": [
-      "Streamlit",
-      "Scikit-learn",
-      "joblib",
-      "Python"
-    ],
-    "points": [
-      "Built a rainfall forecasting app with Open-Meteo data, scikit-learn models, and joblib artifacts.",
-      "Includes a live project link from the repository homepage metadata."
-    ]
-  },
-  {
     "title": "Youtube Trending Snowflake Lakehouse",
     "category": "Data Engineering & Analytics",
     "github": "https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse",

@@ -17,7 +17,7 @@ const projectPriority: Record<string, { score: number; stars: number }> = {
   'TikTok Semantic': { score: 75, stars: 2 },
   'AI Meal Planner': { score: 73, stars: 2 },
   'FAOSTAT Food Price Shock Dashboard': { score: 70, stars: 2 },
-  'Sydney Rainfall Forecasting': { score: 64, stars: 1 },
+  'Sydney Rainfall Forecasting': { score: 68, stars: 2 },
   'AfriWeave': { score: 60, stars: 1 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
   'Personal Portfolio': { score: 45, stars: 1 }

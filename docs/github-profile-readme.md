@@ -20,7 +20,7 @@ I care a lot about the unglamorous parts of machine learning: **clean data contr
 
 - **Bioacoustic species classification** for BirdCLEF-style competition workflows
 - **Image captioning systems** with ResNet, LSTM, attention, and accessibility-focused datasets
-- **Time-series forecasting** with live data APIs and Streamlit dashboards
+- **Time-series forecasting** with live data APIs, reproducible model artifacts, tests, and Streamlit dashboards
 - **Cloud-style ELT pipelines** with orchestration, transformation layers, and historical modelling
 - **NLP projects** for policy discourse, culturally focused text generation, and natural-language data access
 - **Semantic social-media analytics** for climate-action TikTok messaging, comment intent, sentiment, and creator networks

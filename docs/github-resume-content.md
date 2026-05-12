@@ -239,8 +239,8 @@ ML Engineer, Time-Series, Forecasting, Streamlit, Weather Analytics
 Tags:
 Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
 
-- Built a **rainfall forecasting app** with Open-Meteo data, **scikit-learn** models, and joblib artifacts.
-- Deployed a **Streamlit dashboard** for reviewing Sydney rainfall forecasts through a simple portfolio-ready interface.
+- Built an **end-to-end Sydney rainfall forecasting pipeline** using Open-Meteo observations, supervised feature engineering, separate classification/regression models, and reproducible **joblib** artifacts.
+- Deployed a **Streamlit dashboard** with refreshed model metadata and added tests for future-weather targets and feature ordering.
 
 GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
 Live demo: https://sydney-rainfall-forecasting.streamlit.app/
@@ -349,7 +349,7 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 - Built an AI meal planner prototype with FastAPI, React, Gemini, structured meal generation, nutrition estimation, and supermarket shopping-list logic.
 - Built a React and TypeScript portfolio with Firebase contact/comment features, GitHub Pages deployment, and automated GitHub project sync.
 - Built a NYC Taxi Databricks workflow with PySpark, Delta Lake processing, and scalable trip analytics.
-- Deployed a Sydney rainfall forecasting dashboard using Open-Meteo data, scikit-learn models, joblib artifacts, and Streamlit.
+- Built a Sydney rainfall forecasting pipeline with Open-Meteo data, scikit-learn classification/regression models, joblib artifacts, Streamlit delivery, and pytest coverage for target and feature logic.
 - Built a Snowflake lakehouse workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.
 
 ## Technical Skills Section
