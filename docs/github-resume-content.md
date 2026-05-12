@@ -62,6 +62,64 @@ Machine Learning Engineer and Data Professional building practical ML systems, l
 
 Each project below has two resume-ready bullets and recommended tags. Pick 4-6 projects based on the job post.
 
+### Tier 1: Flagship And Most Complex Projects
+
+Use these first when a resume needs the strongest technical evidence.
+
+### AIPA: Enterprise Text-to-SQL Agent
+
+Recommended for:
+AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure Analytics
+
+Tags:
+Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety, Local Execution, Evaluation
+
+- Built a **text-to-SQL agent** that retrieves relevant schema chunks using **hybrid retrieval**, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
+- Implemented **local SQLite execution** with **SQLGlot-assisted validation**, SQLite authorizer controls, query repair, Streamlit delivery, tests, and an evaluation harness.
+
+GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
+Live demo: https://aipa-text-to-sql-agent.streamlit.app/
+
+### Production-Grade ELT Pipeline: Airbnb Market Analytics
+
+Recommended for:
+Data Engineer, Analytics Engineer, Cloud Data, ELT, dbt, Airflow, Warehouse Modelling
+
+Tags:
+Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD Type 2
+
+- Designed an **end-to-end ELT analytics warehouse** combining Sydney Airbnb listings, ABS Census data, and NSW LGA mapping using **Airflow**, **dbt**, PostgreSQL, and Bronze-Silver-Gold modelling.
+- Automated **sequential monthly processing** and **SCD Type 2 snapshots** to preserve historical host, property, neighbourhood, and LGA state for longitudinal market analysis.
+
+GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
+
+### NYC Taxi Databricks
+
+Recommended for:
+Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
+
+Tags:
+PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
+
+- Built a **PySpark and Delta Lake** workflow for NYC green and yellow taxi trip analytics in **Databricks**.
+- Developed **lakehouse-ready ingestion** and analytical processing for scalable urban mobility data exploration.
+
+GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
+
+### Solana Price Forecasting Dashboard
+
+Recommended for:
+ML Engineer, Time-Series, MLOps, Data Apps, Streamlit, FastAPI, Financial Analytics
+
+Tags:
+Python, Streamlit, FastAPI, scikit-learn, Kraken API, Time-Series, Technical Indicators, pytest
+
+- Built a **live Solana forecasting** system using **Kraken OHLCV data**, feature engineering, anchored residual modelling, and Streamlit dashboarding.
+- Packaged **data loading**, training, inference, testing, and optional **FastAPI serving** components for reproducible time-series forecasting workflows.
+
+GitHub: https://github.com/tuannm3812/solana-price-prediction  
+Live demo: https://solana-price-prediction-tuannm3812.streamlit.app/
+
 ### Bioacoustic Species Classification
 
 Recommended for:
@@ -74,6 +132,10 @@ PyTorch, EfficientNet, Google Perch, PCEN, SpecAugment, Bioacoustics, Audio Clas
 - Developed **reusable training utilities**, exploratory notebooks, and **validation workflows** for robust species classification across high-noise environmental recordings.
 
 GitHub: https://github.com/tuannm3812/birdclef-2026
+
+### Tier 2: Strong Applied ML, Data, And AI Projects
+
+Use these to tailor toward ML, analytics, dashboarding, or applied AI roles.
 
 ### VisionVoice: Image Captioning
 
@@ -101,46 +163,18 @@ PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, Kaggle, Mod
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
-### Production-Grade ELT Pipeline: Airbnb Market Analytics
+### YouTube Trending Snowflake Lakehouse
 
 Recommended for:
-Data Engineer, Analytics Engineer, Cloud Data, ELT, dbt, Airflow, Warehouse Modelling
+Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analytics
 
 Tags:
-Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD Type 2
+Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
 
-- Designed an **end-to-end ELT analytics warehouse** combining Sydney Airbnb listings, ABS Census data, and NSW LGA mapping using **Airflow**, **dbt**, PostgreSQL, and Bronze-Silver-Gold modelling.
-- Automated **sequential monthly processing** and **SCD Type 2 snapshots** to preserve historical host, property, neighbourhood, and LGA state for longitudinal market analysis.
+- Built a **Snowflake workflow** for ingesting, cleaning, and analyzing multi-country **YouTube Trending** data.
+- Supported optional **YouTube Data API** refreshes for repeatable trend analysis across country-level datasets.
 
-GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
-
-### Solana Price Forecasting Dashboard
-
-Recommended for:
-ML Engineer, Time-Series, MLOps, Data Apps, Streamlit, FastAPI, Financial Analytics
-
-Tags:
-Python, Streamlit, FastAPI, scikit-learn, Kraken API, Time-Series, Technical Indicators, pytest
-
-- Built a **live Solana forecasting** system using **Kraken OHLCV data**, feature engineering, anchored residual modelling, and Streamlit dashboarding.
-- Packaged **data loading**, training, inference, testing, and optional **FastAPI serving** components for reproducible time-series forecasting workflows.
-
-GitHub: https://github.com/tuannm3812/solana-price-prediction  
-Live demo: https://solana-price-prediction-tuannm3812.streamlit.app/
-
-### AIPA: Enterprise Text-to-SQL Agent
-
-Recommended for:
-AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure Analytics
-
-Tags:
-Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety, Local Execution, Evaluation
-
-- Built a **text-to-SQL agent** that retrieves relevant schema chunks using **hybrid retrieval**, value-hint, and foreign-key graph signals before prompting Gemini or Ollama.
-- Implemented **local SQLite execution** with **SQLGlot-assisted validation**, SQLite authorizer controls, query repair, Streamlit delivery, tests, and an evaluation harness.
-
-GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
-Live demo: https://aipa-text-to-sql-agent.streamlit.app/
+GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
 
 ### Gender Equality Policy NLP
 
@@ -155,18 +189,18 @@ Python, NLP, TF-IDF, LDA, K-Means, Clustering, Topic Modelling, Policy Analysis
 
 GitHub: https://github.com/tuannm3812/gender-equality-policy-nlp
 
-### AfriWeave
+### AI Meal Planner
 
 Recommended for:
-NLP, Generative AI, Streamlit Prototype, Tokenization, Cultural Data Products
+Applied AI, Full-Stack AI, FastAPI, React, Agentic Workflow, Product Engineering
 
 Tags:
-Streamlit, Keras, JAX, BPE, N-gram Models, Transformers, Text Generation, NLP Prototype
+FastAPI, React, Gemini, Pydantic, Nutrition Estimation, Agent Workflow, Tailwind
 
-- Created an **interactive NLP prototype** for culturally focused text generation with corpus exploration, **BPE tokenization**, and transformer components.
-- Built a lightweight **Streamlit interface** with deterministic fallback data and **testable modules** to support demos, portfolio review, and iterative experimentation.
+- Built a **multi-agent meal-planning** prototype that converts a user craving into a structured meal plan, **nutrition summary**, and supermarket shopping list.
+- Implemented **FastAPI endpoints**, deterministic fallback logic, file-backed user profiles, meal history storage, and a **React dashboard** for reviewing generated plans.
 
-GitHub: https://github.com/tuannm3812/AfriWeave
+GitHub: https://github.com/tuannm3812/ai-meal-planner
 
 ### FAOSTAT Food Price Shock Dashboard
 
@@ -182,18 +216,7 @@ Streamlit, Pandas, Plotly, FAOSTAT, World Bank, Food Price Index, Scenario Analy
 GitHub: https://github.com/tuannm3812/assignment3-faostat-viz  
 Live demo: https://assignment3-faostat-viz.streamlit.app/
 
-### NYC Taxi Databricks
-
-Recommended for:
-Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
-
-Tags:
-PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
-
-- Built a **PySpark and Delta Lake** workflow for NYC green and yellow taxi trip analytics in **Databricks**.
-- Developed **lakehouse-ready ingestion** and analytical processing for scalable urban mobility data exploration.
-
-GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
+### Tier 3: Focused Supporting Projects
 
 ### Sydney Rainfall Forecasting
 
@@ -209,18 +232,18 @@ Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
 GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
 Live demo: https://sydney-rainfall-forecasting.streamlit.app/
 
-### YouTube Trending Snowflake Lakehouse
+### AfriWeave
 
 Recommended for:
-Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analytics
+NLP, Generative AI, Streamlit Prototype, Tokenization, Cultural Data Products
 
 Tags:
-Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
+Streamlit, Keras, JAX, BPE, N-gram Models, Transformers, Text Generation, NLP Prototype
 
-- Built a **Snowflake workflow** for ingesting, cleaning, and analyzing multi-country **YouTube Trending** data.
-- Supported optional **YouTube Data API** refreshes for repeatable trend analysis across country-level datasets.
+- Created an **interactive NLP prototype** for culturally focused text generation with corpus exploration, **BPE tokenization**, and transformer components.
+- Built a lightweight **Streamlit interface** with deterministic fallback data and **testable modules** to support demos, portfolio review, and iterative experimentation.
 
-GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
+GitHub: https://github.com/tuannm3812/AfriWeave
 
 ### Apple Foundation Agent
 
@@ -234,19 +257,6 @@ Streamlit, Python, AI Agent, Diagnostic Flow, Scoring Logic, Product Prototype
 - Designed **dynamic scoring logic** and a polished portfolio-ready interface to demonstrate resilience, creative problem-solving, and **applied AI product thinking**.
 
 GitHub: https://github.com/tuannm3812/apple-foundation-agent
-
-### AI Meal Planner
-
-Recommended for:
-Applied AI, Full-Stack AI, FastAPI, React, Agentic Workflow, Product Engineering
-
-Tags:
-FastAPI, React, Gemini, Pydantic, Nutrition Estimation, Agent Workflow, Tailwind
-
-- Built a **multi-agent meal-planning** prototype that converts a user craving into a structured meal plan, **nutrition summary**, and supermarket shopping list.
-- Implemented **FastAPI endpoints**, deterministic fallback logic, file-backed user profiles, meal history storage, and a **React dashboard** for reviewing generated plans.
-
-GitHub: https://github.com/tuannm3812/ai-meal-planner
 
 ### Personal Portfolio
 
