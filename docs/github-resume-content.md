@@ -7,7 +7,6 @@ Sources checked:
 - GitHub profile: https://github.com/tuannm3812
 - Portfolio: https://tuannm3812.github.io
 - Kaggle: https://www.kaggle.com/tuannm3812
-- AIPA default branch README: https://github.com/tuannm3812/aipa-text-to-sql-agent/tree/tuannm3812/main-refinement
 - Current public GitHub repository descriptions, languages, and README summaries for all listed projects
 
 Last refreshed: 2026-05-12
@@ -20,36 +19,19 @@ For a designed PDF resume, use selective bolding inside project bullets to guide
 - Put keywords in project titles, tag lines, skills sections, and stack lines.
 - Avoid bolding full clauses or entire sentences.
 
-## AIPA Repository Update
-
-### Recommended GitHub Repo Description
-
-Enterprise text-to-SQL agent using hybrid schema RAG, Gemini/Ollama backends, SQLGlot-assisted read-only validation, local SQLite execution, Streamlit UI, and evaluation tests.
-
-### Short Version
-
-Enterprise Text-to-SQL Agent using Gemini/Ollama, hybrid schema RAG, Streamlit, SQLite, SQLGlot-assisted safety validation, local execution, tests, and evaluation workflows.
-
-### Portfolio / Resume Positioning
-
-AIPA is strongest for Applied AI, AI Agent, NLP, and Data Product roles. Its strongest differentiator is not simply "LLM converts text to SQL"; it is the architecture: the LLM receives only retrieved schema metadata, never raw database rows, while Python validates generated SQL before local read-only execution. The working `tuannm3812/main-refinement` branch implements hybrid schema RAG using lexical, hashed embedding, character n-gram semantic, value-hint, and foreign-key graph signals, with architecture diagrams, deployment notes, report evidence, and evaluation workflows.
-
-Recommended tags:
-AI Agent, Text-to-SQL, Gemini, Ollama, Schema RAG, Hybrid Retrieval, Prompt Engineering, SQLGlot, SQL Safety, Streamlit, SQLite, Local Execution, Data Privacy, Applied AI
-
 ## Short Resume Summary Options
 
 ### Option A: ML Engineer / Data Professional
 
-Machine Learning Engineer and Data Professional with 7+ years of experience building analytics workflows, predictive models, data pipelines, and deployable ML applications. Skilled across Python, SQL, cloud data platforms, computer vision, NLP, time-series modelling, MLOps, and stakeholder-facing analytics. Public project portfolio includes deep learning systems, Streamlit dashboards, FastAPI services, ELT/lakehouse pipelines, and AI agent prototypes.
+Machine Learning Engineer and Data Professional with **7+ years of experience** building analytics workflows, predictive models, data pipelines, and deployable ML applications. Skilled across Python, SQL, cloud data platforms, computer vision, NLP, time-series modelling, **MLOps**, and stakeholder-facing analytics. Public project portfolio includes deep learning systems, Streamlit dashboards, FastAPI services, **ELT/lakehouse pipelines**, and AI agent prototypes.
 
 ### Option B: Engineering-Focused
 
-Machine Learning Engineer focused on turning messy data into reliable ML systems, analytics products, and production-ready workflows. Experienced in Python, SQL, PyTorch, scikit-learn, Airflow, dbt, Snowflake, Databricks, FastAPI, Streamlit, and CI/CD. Built public projects across bioacoustic classification, image captioning, time-series forecasting, lakehouse analytics, NLP analysis, and AI agents.
+Machine Learning Engineer focused on turning messy data into **reliable ML systems**, analytics products, and production-ready workflows. Experienced in Python, SQL, PyTorch, scikit-learn, Airflow, dbt, Snowflake, Databricks, FastAPI, Streamlit, and CI/CD. Built public projects across bioacoustic classification, image captioning, **time-series forecasting**, lakehouse analytics, NLP analysis, and AI agents.
 
 ### Option C: Short Profile Header
 
-Machine Learning Engineer and Data Professional building practical ML systems, lakehouse pipelines, MLOps workflows, NLP tools, computer vision models, and AI product prototypes.
+Machine Learning Engineer and Data Professional building **practical ML systems**, lakehouse pipelines, MLOps workflows, NLP tools, computer vision models, and AI product prototypes.
 
 ## Resume Headline Options
 
@@ -66,7 +48,7 @@ Each project below has two resume-ready bullets and recommended tags. Use bullet
 
 Use these first when a resume needs the strongest technical evidence: multi-component systems, production-style architecture, model or data workflow depth, tests, deployment paths, and clear product/storytelling evidence.
 
-### AIPA: Enterprise Text-to-SQL Agent
+### AIPA: Enterprise Text-to-SQL Agent (Applied AI / Text-to-SQL)
 
 Recommended for:
 AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure Analytics
@@ -80,7 +62,7 @@ Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQL
 GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
 
-### AI Meal Planner
+### AI Meal Planner (AI Product / Backend)
 
 Recommended for:
 Applied AI, Backend AI Product, FastAPI, Streamlit, RAG, Product Engineering
@@ -93,7 +75,7 @@ FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, Nutrition Verification, F
 
 GitHub: https://github.com/tuannm3812/ai-meal-planner
 
-### Production-Grade ELT Pipeline: Airbnb Market Analytics
+### Production-Grade ELT Pipeline: Airbnb Market Analytics (Data Engineering / ELT)
 
 Recommended for:
 Data Engineer, Analytics Engineer, Cloud Data, ELT, dbt, Airflow, Warehouse Modelling
@@ -106,7 +88,7 @@ Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD
 
 GitHub: https://github.com/tuannm3812/airbnb-ELT-warehouse
 
-### Solana Price Forecasting Dashboard
+### Solana Price Forecasting Dashboard (Time-Series / MLOps)
 
 Recommended for:
 ML Engineer, Time-Series, MLOps, Data Apps, Streamlit, FastAPI, Financial Analytics
@@ -120,7 +102,7 @@ Python, Streamlit, FastAPI, scikit-learn, Kraken API, Time-Series, Technical Ind
 GitHub: https://github.com/tuannm3812/solana-price-prediction  
 Live demo: https://solana-price-prediction-tuannm3812.streamlit.app/
 
-### Bioacoustic Species Classification
+### Bioacoustic Species Classification (Deep Learning / Audio ML)
 
 Recommended for:
 ML Engineer, Deep Learning, Audio ML, Computer Vision-adjacent ML, Edge ML, Kaggle, Research Engineering
@@ -137,7 +119,7 @@ GitHub: https://github.com/tuannm3812/birdclef-2026
 
 Use these to tailor toward ML, NLP, analytics, dashboarding, or data engineering roles. These are strong projects, but either narrower in scope or still waiting on refreshed outputs/notebooks before being treated as flagship evidence.
 
-### TikTok Semantic
+### TikTok Semantic (NLP / Marketing Analytics)
 
 Recommended for:
 NLP, Marketing Analytics, Social Media Analytics, Semantic Analysis, Climate Communication
@@ -150,7 +132,7 @@ Python, Pandas, scikit-learn, NetworkX, Semantic Clustering, Sentiment, Creator 
 
 GitHub: https://github.com/tuannm3812/tiktok-semantic
 
-### NYC Taxi Databricks
+### NYC Taxi Databricks (Data Engineering / Databricks)
 
 Recommended for:
 Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
@@ -163,7 +145,7 @@ PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
 
 GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
 
-### YouTube Trending Snowflake Lakehouse
+### YouTube Trending Snowflake Lakehouse (Data Engineering / Snowflake)
 
 Recommended for:
 Data Engineering, Snowflake, Analytics Engineering, API Ingestion, Media Analytics
@@ -176,7 +158,7 @@ Python, Snowflake, YouTube Data API, Lakehouse, Data Cleaning, Analytics
 
 GitHub: https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse
 
-### VisionVoice: Image Captioning
+### VisionVoice: Image Captioning (Computer Vision / Accessibility AI)
 
 Recommended for:
 Computer Vision, Deep Learning, Accessibility AI, PyTorch, Image Captioning, Applied ML
@@ -189,7 +171,7 @@ PyTorch, ResNet-LSTM, Bahdanau Attention, Beam Search, VizWiz, Image Captioning
 
 GitHub: https://github.com/tuannm3812/VisionVoice
 
-### Flickr8k Image Captioning
+### Flickr8k Image Captioning (Computer Vision / Image Captioning)
 
 Recommended for:
 Computer Vision, Deep Learning, Sequence Modelling, Kaggle, PyTorch
@@ -202,7 +184,7 @@ PyTorch, VGG16, ResNet50, CNN-LSTM, Additive Attention, Beam Search, Kaggle, Mod
 
 GitHub: https://github.com/tuannm3812/flickr-image-captioning
 
-### Sydney Rainfall Forecasting
+### Sydney Rainfall Forecasting (Time-Series / Weather Analytics)
 
 Recommended for:
 ML Engineer, Time-Series, Forecasting, Streamlit, Weather Analytics
@@ -216,7 +198,7 @@ Python, Streamlit, scikit-learn, joblib, Open-Meteo, Forecasting
 GitHub: https://github.com/tuannm3812/sydney-rainfall-forecasting  
 Live demo: https://sydney-rainfall-forecasting.streamlit.app/
 
-### Gender Equality Policy NLP
+### Gender Equality Policy NLP (NLP / Policy Analytics)
 
 Recommended for:
 NLP, Policy Analytics, Text Mining, Unstructured Data, Social Impact Analytics
@@ -229,7 +211,7 @@ Python, NLP, TF-IDF, LDA, K-Means, Clustering, Topic Modelling, Policy Analysis
 
 GitHub: https://github.com/tuannm3812/gender-equality-policy-nlp
 
-### FAOSTAT Food Price Shock Dashboard
+### FAOSTAT Food Price Shock Dashboard (Data Visualization / Food Security)
 
 Recommended for:
 Data Analytics, Dashboarding, Data Visualization, Food Security, Public Data, Streamlit
@@ -247,7 +229,7 @@ Live demo: https://assignment3-faostat-viz.streamlit.app/
 
 Use these when the role values breadth, prototyping, frontend delivery, or personal brand evidence. They are useful supporting signals but usually should not replace Tier 1 or Tier 2 projects on a short resume.
 
-### AfriWeave
+### AfriWeave (NLP / Generative Prototype)
 
 Recommended for:
 NLP, Generative AI, Streamlit Prototype, Tokenization, Cultural Data Products
@@ -260,7 +242,7 @@ Streamlit, Keras, JAX, BPE, N-gram Models, Transformers, Text Generation, NLP Pr
 
 GitHub: https://github.com/tuannm3812/AfriWeave
 
-### Apple Foundation Agent
+### Apple Foundation Agent (Applied AI / Product Prototype)
 
 Recommended for:
 Applied AI, Streamlit App, Human-Centered AI, Product Prototype, UX for AI
@@ -273,7 +255,7 @@ Streamlit, Python, AI Agent, Diagnostic Flow, Scoring Logic, Product Prototype
 
 GitHub: https://github.com/tuannm3812/apple-foundation-agent
 
-### Personal Portfolio
+### Personal Portfolio (Frontend / Portfolio Automation)
 
 Recommended for:
 Frontend, Personal Branding, React, TypeScript, GitHub Pages, Portfolio Automation
@@ -291,7 +273,7 @@ Live demo: https://tuannm3812.github.io
 
 These appear in the latest resume PPTX but were not found as current public GitHub repositories. Keep them if they are strong for a target role, but use GitHub-backed projects first when employers may click through.
 
-### High-Performance CNN Workflow
+### High-Performance CNN Workflow (Computer Vision / Transfer Learning)
 
 Recommended for:
 Computer Vision, Deep Learning, Transfer Learning, Model Evaluation
@@ -308,7 +290,7 @@ The previous non-public TikTok sentiment/stance resume item should now be replac
 
 Use the TikTok Semantic project entry above for current resumes and portfolio links.
 
-### Electricity Demand Forecasting
+### Electricity Demand Forecasting (Time-Series / Energy Analytics)
 
 Recommended for:
 Time-Series, Forecasting, Energy Analytics, Predictive Modelling
@@ -319,7 +301,7 @@ HistGradientBoosting, Hyperopt, Weather Features, SILO Data, Forecasting, Energy
 - Built an **ML pipeline** using HistGradientBoosting and Hyperopt to forecast **day-ahead electricity demand** with meteorological feature integration.
 - Engineered **seasonal and weather-dependent features** to strengthen forecasting performance compared with baseline approaches.
 
-### NBA Draft Probability Modeling
+### NBA Draft Probability Modeling (Classification / Sports Analytics)
 
 Recommended for:
 Classification, Sports Analytics, Imbalanced Learning, Model Interpretation
@@ -353,12 +335,12 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 
 ### Compact Resume Version
 
-Programming and Engineering: Python, SQL, PySpark, TypeScript, OOP, package development, unit testing, reusable project structure  
-Data Engineering and Warehousing: Airflow, dbt, PostgreSQL, BigQuery, Snowflake, Databricks, Delta Lake, Medallion Architecture, ELT/ETL, API ingestion  
-Machine Learning and Forecasting: scikit-learn, PyTorch, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation, joblib artifacts  
-NLP, LLMs, and AI Agents: text-to-SQL, schema RAG, hybrid retrieval, prompt engineering, Gemini/Ollama, SQLGlot, SQL safety, TF-IDF, topic modelling, clustering, sentiment analysis  
-MLOps and Productization: FastAPI, Streamlit, Docker, GitHub Actions, pytest, model metadata, reproducible artifacts, deployment documentation  
-Analytics and Visualization: Pandas, Plotly, NetworkX, Looker Studio, Streamlit dashboards, semantic analytics, vulnerability mapping, what-if scenarios, stakeholder reporting
+**Programming and Engineering:** Python, SQL, PySpark, TypeScript, OOP, package development, unit testing, reusable project structure  
+**Data Engineering and Warehousing:** Airflow, dbt, PostgreSQL, BigQuery, Snowflake, Databricks, Delta Lake, Medallion Architecture, ELT/ETL, API ingestion  
+**Machine Learning and Forecasting:** scikit-learn, PyTorch, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation, joblib artifacts  
+**NLP, LLMs, and AI Agents:** text-to-SQL, schema RAG, hybrid retrieval, prompt engineering, Gemini/Ollama, SQLGlot, SQL safety, TF-IDF, topic modelling, clustering, sentiment analysis  
+**MLOps and Productization:** FastAPI, Streamlit, Docker, GitHub Actions, pytest, model metadata, reproducible artifacts, deployment documentation  
+**Analytics and Visualization:** Pandas, Plotly, NetworkX, Looker Studio, Streamlit dashboards, semantic analytics, vulnerability mapping, what-if scenarios, stakeholder reporting
 
 ### ATS-Friendly Keyword Bank
 
