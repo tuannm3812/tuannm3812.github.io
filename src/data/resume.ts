@@ -261,11 +261,12 @@ export const resumeData: ResumeData = {
       title: "AI Meal Planner",
       category: "Applied AI Products",
       github: "https://github.com/tuannm3812/ai-meal-planner",
-      impact: "Backend-first meal planning API with Streamlit demo modes",
-      stack: ["FastAPI", "Streamlit", "scikit-learn", "Local RAG", "Pydantic"],
+      demo: "https://tuannm3812-ai-meal-planner.streamlit.app/",
+      impact: "Multi-agent meal planning app with live Streamlit demo",
+      stack: ["FastAPI", "Streamlit", "scikit-learn", "Local RAG", "USDA API"],
       points: [
-        "Built a backend-first AI meal planner with FastAPI, Streamlit demo modes, Pydantic schemas, scikit-learn calorie prediction, and local vector RAG meal retrieval.",
-        "Delivered a more reliable product workflow with allergy/health filtering, nutrition verification, supermarket estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts."
+        "Built a multi-agent AI meal planner with FastAPI, Streamlit, Pydantic schemas, scikit-learn calorie expenditure prediction, and retrieval-first meal recommendations.",
+        "Delivered a practical product workflow with allergy and health-condition filtering, USDA/FatSecret nutrition verification, shopping-list cost estimates, meal history, feedback capture, and CI-tested backend contracts."
       ]
     },
     {

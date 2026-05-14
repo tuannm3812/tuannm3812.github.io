@@ -68,12 +68,13 @@ Recommended for:
 Applied AI, Backend AI Product, FastAPI, Streamlit, RAG, Product Engineering
 
 Tags:
-FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, Nutrition Verification, Feedback Loop, CI
+FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, USDA, Nutrition Verification, Feedback Loop, Shopping Estimates, CI
 
-- Built a **backend-first AI meal planner** with FastAPI, Streamlit demo modes, Pydantic schemas, scikit-learn calorie prediction, and local vector RAG meal retrieval.
-- Delivered a more reliable product workflow with allergy/health filtering, nutrition verification, supermarket estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts.
+- Built a **multi-agent AI meal planner** with FastAPI, Streamlit, Pydantic schemas, scikit-learn calorie expenditure prediction, and retrieval-first meal recommendations.
+- Delivered a practical product workflow with allergy and health-condition filtering, USDA/FatSecret nutrition verification, shopping-list cost estimates, meal history, feedback capture, deployment config, and CI-tested backend contracts.
 
 GitHub: https://github.com/tuannm3812/ai-meal-planner
+Live demo: https://tuannm3812-ai-meal-planner.streamlit.app/
 
 ### Production-Grade ELT Pipeline: Airbnb Market Analytics (Data Engineering / ELT)
 
@@ -325,7 +326,7 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 - Created AfriWeave, a Streamlit NLP prototype for culturally focused text generation using N-gram baselines, BPE tokenization, and transformer components.
 - Built a FAOSTAT food-price shock dashboard combining producer prices, global hunger indicators, import dependency, and interactive what-if analysis.
 - Created an Apple Foundation Streamlit diagnostic agent with multi-step scoring logic and polished product-style interaction flows.
-- Built a backend-first AI meal planner with FastAPI, Streamlit demo modes, scikit-learn calorie prediction, local meal RAG, nutrition verification, feedback storage, and CI-tested API contracts.
+- Built a multi-agent AI meal planner with FastAPI, Streamlit, scikit-learn calorie expenditure prediction, local meal RAG, nutrition verification, shopping estimates, feedback storage, and CI-tested API contracts.
 - Built a React and TypeScript portfolio with Firebase contact/comment features, GitHub Pages deployment, and automated GitHub project sync.
 - Built a NYC Taxi Databricks workflow with PySpark, Delta Lake processing, and scalable trip analytics.
 - Built a Sydney rainfall forecasting pipeline with Open-Meteo data, scikit-learn classification/regression models, joblib artifacts, Streamlit delivery, and pytest coverage for target and feature logic.

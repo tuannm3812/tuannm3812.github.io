@@ -24,7 +24,7 @@ I care a lot about the unglamorous parts of machine learning: **clean data contr
 - **Cloud-style ELT pipelines** with orchestration, transformation layers, and historical modelling
 - **NLP projects** for policy discourse, culturally focused text generation, and natural-language data access
 - **Semantic social-media analytics** for climate-action TikTok messaging, comment intent, sentiment, and creator networks
-- **AI product prototypes** that combine backend services, frontend dashboards, and agent-style reasoning
+- **AI product prototypes** like a retrieval-first meal planner with FastAPI, Streamlit, calorie prediction, nutrition verification, and shopping estimates
 
 ## 💡 How I Think About Good Data Work
 
