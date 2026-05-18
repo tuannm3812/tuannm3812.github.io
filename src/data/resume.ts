@@ -59,8 +59,8 @@ export const resumeData: ResumeData = {
   summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
   highlights: [
     { value: "7+", label: "Years building analytics and ML workflows" },
-    { value: "16", label: "Technical projects across ML, data, and AI" },
-    { value: "5+", label: "Core domains from CV to MLOps" },
+    { value: "21", label: "Technical projects across ML, data, and AI" },
+    { value: "6", label: "Core domains from CV to Kaggle ML and MLOps" },
     { value: "Full-stack", label: "From data pipelines to deployed apps" }
   ],
   education: [
@@ -71,7 +71,7 @@ export const resumeData: ResumeData = {
       period: "Feb 2025 - Feb 2027 (expected)",
       points: [
         "Coursework includes machine learning, big data engineering, statistical modelling, deep learning, computer vision, and natural language processing.",
-        "Completed academic projects in full-stack ML systems, cloud data engineering, MLOps pipelines, predictive modelling, statistical analysis, and AI-driven decision support."
+        "Completed academic projects in full-stack ML systems, cloud data engineering, MLOps pipelines, predictive modelling, statistical analysis, Kaggle-style experimentation, and AI-driven decision support."
       ]
     },
     {
@@ -124,12 +124,12 @@ export const resumeData: ResumeData = {
     {
       title: "Bioacoustic Species Classification",
       category: "Deep Learning & Computer Vision",
-      github: "https://github.com/tuannm3812/birdclef-2026",
-      impact: "Kaggle-ready audio classification workspace",
-      stack: ["PyTorch", "EfficientNet", "Perch", "PCEN", "SpecAugment"],
+      github: "https://github.com/tuannm3812/kaggle-birdclef-2026",
+      impact: "Active BirdCLEF+ 2026 bioacoustic classification workspace",
+      stack: ["PyTorch", "EfficientNet-B0", "Perch v2", "Kaggle", "Audio ML"],
       points: [
-        "Architected a Kaggle-ready bioacoustic classification workspace with PyTorch, EfficientNet-B0, Google Perch v2, PCEN preprocessing, and SpecAugment.",
-        "Developed reusable training utilities, exploratory notebooks, and validation workflows for noisy multi-species ecological audio."
+        "Architected a Kaggle-ready BirdCLEF+ 2026 workspace with curated EDA, EfficientNet-B0 baselines, Google Perch v2 probes, reusable modules, and submission notebooks.",
+        "Documented the project with report artifacts, lightweight trained model outputs, and repeatable scripts for noisy multi-species ecological audio experiments."
       ]
     },
     {
@@ -327,7 +327,7 @@ export const resumeData: ResumeData = {
     {
       title: "Machine Learning",
       description: "Classical ML, deep learning, computer vision, and time-series experimentation.",
-      tools: ["PyTorch", "scikit-learn", "CNN/LSTM", "Transfer Learning", "Forecasting", "Model Evaluation"]
+      tools: ["PyTorch", "scikit-learn", "CatBoost", "LightGBM", "Transfer Learning", "Model Evaluation"]
     },
     {
       title: "Production & MLOps",
@@ -343,7 +343,7 @@ export const resumeData: ResumeData = {
   skills: {
     programming: ["Python", "SQL", "PySpark", "TypeScript", "OOP", "Unit Testing", "Package Development", "Reusable Project Structure"],
     dataEngineering: ["Medallion Architecture", "dbt", "Apache Airflow", "PostgreSQL", "Snowflake", "Databricks", "Delta Lake", "API Ingestion"],
-    machineLearning: ["Supervised Learning", "Deep Learning", "Transfer Learning", "Forecasting", "Feature Engineering", "Model Evaluation", "joblib Artifacts"],
+    machineLearning: ["Supervised Learning", "Deep Learning", "Transfer Learning", "Forecasting", "Feature Engineering", "CatBoost", "LightGBM", "Model Evaluation", "joblib Artifacts"],
     nlp: ["Text-to-SQL", "Hybrid Schema RAG", "Topic Modelling", "Semantic Clustering", "Sentiment Analysis", "BPE Tokenization", "SQL Safety"],
     mlops: ["Docker", "FastAPI", "Streamlit", "GitHub Actions", "pytest", "Model Metadata", "Reproducible Artifacts", "Deployment Documentation"],
     languages: ["English (Professional)", "Vietnamese (Native)"]

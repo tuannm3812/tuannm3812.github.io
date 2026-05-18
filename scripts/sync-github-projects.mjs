@@ -47,21 +47,29 @@ function toTitle(name) {
     .replace(/\bAi\b/g, 'AI')
     .replace(/\bNlp\b/g, 'NLP')
     .replace(/\bElt\b/g, 'ELT')
+    .replace(/\bCsiro\b/g, 'CSIRO')
+    .replace(/\bS6e4\b/g, 'S6E4')
+    .replace(/\bS6e5\b/g, 'S6E5')
+    .replace(/\bF1\b/g, 'F1')
     .replace(/\bFaostat\b/g, 'FAOSTAT');
 }
 
 function inferCategory(repo) {
   const text = `${repo.name} ${repo.description || ''}`.toLowerCase();
 
+  if (/kaggle|playground|competition|catboost|lightgbm|biomass|irrigation|pit-stop|pit stop/.test(text)) {
+    return 'Machine Learning & Kaggle';
+  }
+
   if (/(bird|vision|image|caption|computer vision|deep learning|pytorch|cnn|lstm)/.test(text)) {
     return 'Deep Learning & Computer Vision';
   }
 
-  if (/(solana|forecast|price|time-series|time series|mlops|fastapi|prediction)/.test(text)) {
+  if (/(solana|forecast|price|time-series|time series|mlops|fastapi)/.test(text)) {
     return 'Time-Series & MLOps';
   }
 
-  if (/(nlp|text|sql|agent|llm|generative|prompt|transformer|token)/.test(text)) {
+  if (/(nlp|text|sql|agent|llm|generative|prompt|transformer|token|transcript)/.test(text)) {
     return 'NLP & Generative AI';
   }
 
@@ -83,7 +91,11 @@ function inferStack(repo) {
   if (/streamlit/.test(text)) stack.push('Streamlit');
   if (/fastapi/.test(text)) stack.push('FastAPI');
   if (/react|vite/.test(text)) stack.push('React');
+  if (/typescript/.test(text)) stack.push('TypeScript');
+  if (/tailwind/.test(text)) stack.push('Tailwind CSS');
   if (/scikit-learn|sklearn/.test(text)) stack.push('Scikit-learn');
+  if (/catboost/.test(text)) stack.push('CatBoost');
+  if (/lightgbm/.test(text)) stack.push('LightGBM');
   if (/joblib/.test(text)) stack.push('joblib');
   if (/pytorch|torch/.test(text)) stack.push('PyTorch');
   if (/keras|jax/.test(text)) stack.push('Keras/JAX');
@@ -93,6 +105,7 @@ function inferStack(repo) {
   if (/api/.test(text)) stack.push('API');
   if (/plotly/.test(text)) stack.push('Plotly');
   if (/llm|agent|gemini|prompt/.test(text)) stack.push('LLMs');
+  if (/gemini/.test(text)) stack.push('Gemini API');
   if (/nlp|text|token|transformer/.test(text)) stack.push('NLP');
   if (repo.language) stack.push(repo.language);
 
@@ -111,6 +124,48 @@ const PROJECT_COPY_OVERRIDES = {
     points: [
       'Built a Databricks lakehouse workflow with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.',
       'Preparing refreshed notebooks and outputs to document ingestion, transformation, and scalable trip analysis patterns.'
+    ]
+  },
+  'Deep-Learning-Group-10': {
+    impact: 'Deep learning notebook workspace for group experimentation',
+    points: [
+      'Maintained a Jupyter-based deep learning project workspace for collaborative model experimentation and analysis.',
+      'Kept as supporting academic evidence while higher-signal portfolio cards focus on documented, reproducible repos.'
+    ]
+  },
+  'kaggle-csiro-image2biomass': {
+    impact: 'Active Kaggle workflow for pasture biomass prediction',
+    points: [
+      'Built an active CSIRO Image2Biomass Kaggle workflow with EDA, grouped validation, tabular/color baselines, embedding experiments, and model tuning.',
+      'Added biomass constraint checks and a decision-support product concept for submission-ready pasture biomass prediction.'
+    ]
+  },
+  'kaggle-maze-crawler': {
+    impact: 'Small Kaggle notebook project for maze-navigation experimentation',
+    points: [
+      'Maintained a compact Kaggle notebook project for maze-crawler experimentation and iterative problem solving.',
+      'Kept as a lightweight supporting signal for competition practice and notebook-based exploration.'
+    ]
+  },
+  'kaggle-s6e4-predict-irrigation-need': {
+    impact: 'Kaggle Playground S6E4 irrigation-need prediction workflow',
+    points: [
+      'Built a Kaggle Playground S6E4 workflow for predicting irrigation need with EDA, CatBoost baselines, tuning, and reusable submission steps.',
+      'Packaged the notebook process around repeatable feature review, model comparison, and competition-ready prediction outputs.'
+    ]
+  },
+  'kaggle-s6e5-predict-f1-pit-stops': {
+    impact: 'Kaggle F1 pit-stop prediction with model diagnostics',
+    points: [
+      'Built a Kaggle F1 pit-stop prediction workflow with EDA, feature engineering, LightGBM tuning, and model diagnostics.',
+      'Structured the project as a reusable competition notebook for analysing race-context features and submission-ready predictions.'
+    ]
+  },
+  'ScriptClean-AI': {
+    impact: 'Transcript-to-study-guide app powered by Gemini',
+    points: [
+      'Built a React, TypeScript, Tailwind, and Gemini app that converts raw YouTube transcripts into high-fidelity study guides and lecture notes.',
+      'Added speaker structure, topic headers, bilingual vocabulary support, and formatted rich-text export for Google Docs or Microsoft Word workflows.'
     ]
   },
   'sydney-rainfall-forecasting': {
@@ -172,6 +227,7 @@ const projects = repos
   .filter((repo) => !repo.fork)
   .filter((repo) => !repo.archived)
   .filter((repo) => !repo.disabled)
+  .filter((repo) => repo.size > 0)
   .filter((repo) => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
   .filter((repo) => !IGNORED_REPOS.has(repo.name))
   .filter((repo) => !curatedGithubLinks.has(repo.html_url.replace(/\/$/, '')))

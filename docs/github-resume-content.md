@@ -9,7 +9,7 @@ Sources checked:
 - Kaggle: https://www.kaggle.com/tuannm3812
 - Current public GitHub repository descriptions, languages, and README summaries for all listed projects
 
-Last refreshed: 2026-05-12
+Last refreshed: 2026-05-18
 
 ## Formatting Recommendation
 
@@ -23,15 +23,15 @@ For a designed PDF resume, use selective bolding inside project bullets to guide
 
 ### Option A: ML Engineer / Data Professional
 
-Machine Learning Engineer and Data Professional with **7+ years of experience** building analytics workflows, predictive models, data pipelines, and deployable ML applications. Skilled across Python, SQL, cloud data platforms, computer vision, NLP, time-series modelling, **MLOps**, and stakeholder-facing analytics. Public project portfolio includes deep learning systems, Streamlit dashboards, FastAPI services, **ELT/lakehouse pipelines**, and AI agent prototypes.
+Machine Learning Engineer and Data Professional with **7+ years of experience** building analytics workflows, predictive models, data pipelines, and deployable ML applications. Skilled across Python, SQL, cloud data platforms, computer vision, NLP, time-series modelling, **MLOps**, Kaggle-style experimentation, and stakeholder-facing analytics. Public project portfolio includes deep learning systems, Streamlit dashboards, FastAPI services, **ELT/lakehouse pipelines**, AI agent prototypes, and competition notebooks.
 
 ### Option B: Engineering-Focused
 
-Machine Learning Engineer focused on turning messy data into **reliable ML systems**, analytics products, and production-ready workflows. Experienced in Python, SQL, PyTorch, scikit-learn, Airflow, dbt, Snowflake, Databricks, FastAPI, Streamlit, and CI/CD. Built public projects across bioacoustic classification, image captioning, **time-series forecasting**, lakehouse analytics, NLP analysis, and AI agents.
+Machine Learning Engineer focused on turning messy data into **reliable ML systems**, analytics products, and production-ready workflows. Experienced in Python, SQL, PyTorch, scikit-learn, CatBoost, LightGBM, Airflow, dbt, Snowflake, Databricks, FastAPI, Streamlit, and CI/CD. Built public projects across bioacoustic classification, image captioning, **time-series forecasting**, Kaggle competition workflows, lakehouse analytics, NLP analysis, and AI agents.
 
 ### Option C: Short Profile Header
 
-Machine Learning Engineer and Data Professional building **practical ML systems**, lakehouse pipelines, MLOps workflows, NLP tools, computer vision models, and AI product prototypes.
+Machine Learning Engineer and Data Professional building **practical ML systems**, Kaggle competition workflows, lakehouse pipelines, MLOps workflows, NLP tools, computer vision models, and AI product prototypes.
 
 ## Resume Headline Options
 
@@ -109,16 +109,55 @@ Recommended for:
 ML Engineer, Deep Learning, Audio ML, Computer Vision-adjacent ML, Edge ML, Kaggle, Research Engineering
 
 Tags:
-PyTorch, EfficientNet, Google Perch, PCEN, SpecAugment, Bioacoustics, Audio Classification, Edge Inference
+PyTorch, EfficientNet-B0, Google Perch v2, Kaggle, Bioacoustics, Audio Classification, Research Engineering
 
-- Architected a **BirdCLEF+ 2026 bioacoustic classification workspace** with PyTorch, EfficientNet-B0, Google Perch v2, PCEN preprocessing, and SpecAugment.
-- Created reusable training utilities, exploratory notebooks, and validation workflows for modelling noisy ecological audio across multi-species recordings.
+- Architected a **BirdCLEF+ 2026 bioacoustic classification workspace** with curated EDA, PyTorch EfficientNet-B0 baselines, Google Perch v2 probes, reusable modules, and submission notebooks.
+- Documented the project with report artifacts, lightweight trained model outputs, and repeatable scripts for noisy multi-species ecological audio experiments.
 
-GitHub: https://github.com/tuannm3812/birdclef-2026
+GitHub: https://github.com/tuannm3812/kaggle-birdclef-2026
 
 ### Tier 2: Strong Applied / Resume-Tailoring Projects
 
 Use these to tailor toward ML, NLP, analytics, dashboarding, or data engineering roles. These are strong projects, but either narrower in scope or still waiting on refreshed outputs/notebooks before being treated as flagship evidence.
+
+### CSIRO Image2Biomass (Kaggle / Computer Vision-Adjacent ML)
+
+Recommended for:
+ML Engineer, Kaggle, Applied Modelling, Computer Vision-Adjacent ML, Agritech Analytics
+
+Tags:
+Jupyter, Kaggle, EDA, Grouped Validation, Feature Engineering, Model Tuning, Biomass Prediction
+
+- Built an **active CSIRO Image2Biomass Kaggle workflow** with EDA, grouped validation, tabular/color baselines, embedding experiments, and model tuning.
+- Added biomass constraint checks and a decision-support product concept for submission-ready pasture biomass prediction.
+
+GitHub: https://github.com/tuannm3812/kaggle-csiro-image2biomass
+
+### Kaggle Playground S6E4: Predict Irrigation Need (Kaggle / Tabular ML)
+
+Recommended for:
+ML Engineer, Tabular Modelling, Kaggle, Feature Engineering, CatBoost
+
+Tags:
+Jupyter, Kaggle, CatBoost, EDA, Hyperparameter Tuning, Submission Workflow
+
+- Built a **Kaggle Playground S6E4 irrigation-need prediction workflow** with EDA, CatBoost baselines, tuning, and reusable submission steps.
+- Packaged the notebook process around repeatable feature review, model comparison, and competition-ready prediction outputs.
+
+GitHub: https://github.com/tuannm3812/kaggle-s6e4-predict-irrigation-need
+
+### Kaggle Playground S6E5: Predict F1 Pit Stops (Kaggle / Sports ML)
+
+Recommended for:
+ML Engineer, Kaggle, Sports Analytics, Feature Engineering, LightGBM
+
+Tags:
+Jupyter, Kaggle, LightGBM, EDA, Feature Engineering, Model Diagnostics
+
+- Built a **Kaggle F1 pit-stop prediction workflow** with EDA, feature engineering, LightGBM tuning, and model diagnostics.
+- Structured the project as a reusable competition notebook for analysing race-context features and submission-ready predictions.
+
+GitHub: https://github.com/tuannm3812/kaggle-s6e5-predict-f1-pit-stops
 
 ### TikTok Semantic (NLP / Marketing Analytics)
 
@@ -230,6 +269,32 @@ Live demo: https://assignment3-faostat-viz.streamlit.app/
 
 Use these when the role values breadth, prototyping, frontend delivery, or personal brand evidence. They are useful supporting signals but usually should not replace Tier 1 or Tier 2 projects on a short resume.
 
+### ScriptClean AI (AI Product / Frontend)
+
+Recommended for:
+Applied AI, Frontend AI Product, Gemini, Study Tools, TypeScript
+
+Tags:
+React, TypeScript, Tailwind, Gemini API, Transcript Processing, Rich Text Export
+
+- Built a **React, TypeScript, Tailwind, and Gemini** app that converts raw YouTube transcripts into high-fidelity study guides and lecture notes.
+- Added speaker structure, topic headers, bilingual vocabulary support, and formatted rich-text export for Google Docs or Microsoft Word workflows.
+
+GitHub: https://github.com/tuannm3812/ScriptClean-AI
+
+### Kaggle Maze Crawler (Kaggle / Notebook Prototype)
+
+Recommended for:
+Kaggle, Notebook Experimentation, Problem Solving, Supporting Portfolio Evidence
+
+Tags:
+Jupyter, Kaggle, Notebook Prototype, Iterative Experimentation
+
+- Maintained a compact **Kaggle maze-crawler notebook** for experimentation and iterative problem solving.
+- Kept as a lightweight supporting signal for competition practice and notebook-based exploration.
+
+GitHub: https://github.com/tuannm3812/kaggle-maze-crawler
+
 ### AfriWeave (NLP / Generative Prototype)
 
 Recommended for:
@@ -331,6 +396,10 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 - Built a NYC Taxi Databricks workflow with PySpark, Delta Lake processing, and scalable trip analytics.
 - Built a Sydney rainfall forecasting pipeline with Open-Meteo data, scikit-learn classification/regression models, joblib artifacts, Streamlit delivery, and pytest coverage for target and feature logic.
 - Built a Snowflake lakehouse workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.
+- Built a CSIRO Image2Biomass Kaggle workflow with EDA, grouped validation, image/tabular features, model tuning, and biomass constraint checks.
+- Built a Kaggle Playground S6E4 irrigation-need prediction workflow with CatBoost baselines, tuning, and reusable submission steps.
+- Built a Kaggle S6E5 F1 pit-stop prediction workflow with EDA, feature engineering, LightGBM tuning, and model diagnostics.
+- Built ScriptClean AI, a React and TypeScript Gemini app that turns raw transcripts into structured study guides with formatted export.
 
 ## Technical Skills Section
 
@@ -338,14 +407,14 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 
 **Programming and Engineering:** Python, SQL, PySpark, TypeScript, OOP, package development, unit testing, reusable project structure  
 **Data Engineering and Warehousing:** Airflow, dbt, PostgreSQL, BigQuery, Snowflake, Databricks, Delta Lake, Medallion Architecture, ELT/ETL, API ingestion  
-**Machine Learning and Forecasting:** scikit-learn, PyTorch, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation, joblib artifacts  
+**Machine Learning and Forecasting:** scikit-learn, PyTorch, CatBoost, LightGBM, CNN/LSTM, transfer learning, time-series forecasting, feature engineering, model evaluation, joblib artifacts  
 **NLP, LLMs, and AI Agents:** text-to-SQL, schema RAG, hybrid retrieval, prompt engineering, Gemini/Ollama, SQLGlot, SQL safety, TF-IDF, topic modelling, clustering, sentiment analysis  
 **MLOps and Productization:** FastAPI, Streamlit, Docker, GitHub Actions, pytest, model metadata, reproducible artifacts, deployment documentation  
 **Analytics and Visualization:** Pandas, Plotly, NetworkX, Looker Studio, Streamlit dashboards, semantic analytics, vulnerability mapping, what-if scenarios, stakeholder reporting
 
 ### ATS-Friendly Keyword Bank
 
-Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, Pandas, NetworkX, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, NLP, TF-IDF, LDA, K-Means, semantic clustering, sentiment analysis, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BPE tokenization, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, GitHub Actions, pytest, joblib, data pipelines, ELT, ETL, lakehouse analytics, dashboarding, time-series forecasting, API ingestion, feature engineering, model evaluation, stakeholder communication.
+Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, CatBoost, LightGBM, Pandas, NetworkX, CNN, LSTM, transfer learning, computer vision, image captioning, bioacoustics, Kaggle, NLP, TF-IDF, LDA, K-Means, semantic clustering, sentiment analysis, text-to-SQL, prompt engineering, AI agents, Gemini, Ollama, schema RAG, hybrid retrieval, SQLGlot, SQL safety, BPE tokenization, BigQuery, Airflow, dbt, PostgreSQL, Snowflake, Databricks, Delta Lake, FastAPI, Streamlit, Docker, GitHub Actions, pytest, joblib, data pipelines, ELT, ETL, lakehouse analytics, dashboarding, time-series forecasting, API ingestion, feature engineering, model evaluation, stakeholder communication.
 
 ## Refined Experience Add-On Bullets
 
@@ -361,6 +430,9 @@ Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, Pandas, NetworkX, CNN, 
 
 Prioritize:
 - Bioacoustic Species Classification
+- CSIRO Image2Biomass
+- Kaggle Playground S6E4: Predict Irrigation Need
+- Kaggle Playground S6E5: Predict F1 Pit Stops
 - VisionVoice
 - Flickr8k Image Captioning
 - Solana Price Forecasting Dashboard
@@ -413,7 +485,11 @@ Current public project inventory, including AIPA even though GitHub marks it as 
 
 | Project | Category | Resume Use |
 | --- | --- | --- |
-| birdclef-2026 | Deep Learning / Audio ML | Strong ML project |
+| kaggle-birdclef-2026 | Deep Learning / Audio ML | Strong ML project |
+| kaggle-csiro-image2biomass | Machine Learning / Kaggle | Strong ML project |
+| kaggle-s6e4-predict-irrigation-need | Machine Learning / Kaggle | Supporting tabular ML project |
+| kaggle-s6e5-predict-f1-pit-stops | Machine Learning / Kaggle | Supporting sports ML project |
+| kaggle-maze-crawler | Machine Learning / Kaggle | Lightweight supporting notebook |
 | VisionVoice | Computer Vision / Captioning | Strong ML project |
 | flickr-image-captioning | Computer Vision / Captioning | Supporting ML project |
 | airbnb-ELT-warehouse | Data Engineering | Strong data engineering project |
@@ -428,6 +504,7 @@ Current public project inventory, including AIPA even though GitHub marks it as 
 | youtube-trending-snowflake-lakehouse | Data Engineering / Snowflake | Supporting analytics engineering project |
 | apple-foundation-agent | AI / Streamlit Prototype | Product prototype |
 | ai-meal-planner | AI Product / Full Stack | Product prototype |
+| ScriptClean-AI | AI Product / Frontend | Supporting AI product project |
 | tuannm3812.github.io | Portfolio / Frontend | Supporting portfolio evidence |
 
 ## Resume Links Section

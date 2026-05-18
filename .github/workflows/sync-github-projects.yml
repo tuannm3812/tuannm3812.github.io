@@ -19,7 +19,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 20
           cache: npm
 
       - name: Install dependencies
@@ -38,9 +38,10 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PROJECT_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
           commit-message: 'chore: sync github projects'
           branch: automated/github-project-sync
+          base: main
           delete-branch: true
           title: 'chore: sync GitHub projects'
           body: |

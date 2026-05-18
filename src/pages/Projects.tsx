@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
 import { githubProjects } from '../data/githubProjects';
-import { ChevronDown, ExternalLink, Github, Layers, Star, Target } from 'lucide-react';
+import { ChevronDown, ExternalLink, Github, Layers, Star, Target, Trophy } from 'lucide-react';
 
 const projectPriority: Record<string, { score: number; stars: number }> = {
   'AIPA: Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
@@ -10,21 +10,35 @@ const projectPriority: Record<string, { score: number; stars: number }> = {
   'AI Meal Planner': { score: 94, stars: 3 },
   'Solana Price Forecasting': { score: 91, stars: 3 },
   'Bioacoustic Species Classification': { score: 89, stars: 3 },
+  'Kaggle CSIRO Image2biomass': { score: 88, stars: 2 },
   'TikTok Semantic': { score: 86, stars: 2 },
   'VisionVoice: Image Captioning': { score: 84, stars: 2 },
   'NYC Taxi Databricks': { score: 82, stars: 2 },
   'Youtube Trending Snowflake Lakehouse': { score: 81, stars: 2 },
   'Flickr8k Image Captioning': { score: 80, stars: 2 },
+  'Kaggle S6E5 Predict F1 Pit Stops': { score: 79, stars: 2 },
+  'Kaggle S6E4 Predict Irrigation Need': { score: 78, stars: 2 },
   'Sydney Rainfall Forecasting': { score: 76, stars: 2 },
   'Gender Equality Policy NLP': { score: 74, stars: 2 },
   'FAOSTAT Food Price Shock Dashboard': { score: 72, stars: 2 },
+  'ScriptClean AI': { score: 70, stars: 2 },
   'AfriWeave': { score: 60, stars: 1 },
+  'Deep Learning Group 10': { score: 58, stars: 1 },
+  'Kaggle Maze Crawler': { score: 57, stars: 1 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
   'Personal Portfolio': { score: 45, stars: 1 }
 };
 
 function getProjectRank(title: string) {
   return projectPriority[title] || { score: 0, stars: 0 };
+}
+
+function isKaggleProject(project: { title: string; category: string; stack: string[] }) {
+  return (
+    project.category.includes('Kaggle') ||
+    project.title.toLowerCase().includes('kaggle') ||
+    project.stack.some((tech) => tech.toLowerCase().includes('kaggle'))
+  );
 }
 
 export default function Projects() {
@@ -93,9 +107,20 @@ export default function Projects() {
                   <div className="flex-1 space-y-4">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-3">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
-                          {project.stack[0]}
-                        </span>
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
+                            {project.stack[0]}
+                          </span>
+                          {isKaggleProject(project) && (
+                            <span
+                              className="inline-flex items-center gap-1 rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-700 dark:border-sky-800 dark:bg-sky-950/70 dark:text-sky-300"
+                              title="Kaggle competition project"
+                            >
+                              <Trophy size={12} />
+                              Kaggle
+                            </span>
+                          )}
+                        </div>
                         {getProjectRank(project.title).stars > 0 && (
                           <span
                             className="flex items-center gap-0.5 text-amber-400"

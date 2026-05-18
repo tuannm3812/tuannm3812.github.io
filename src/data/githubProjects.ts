@@ -4,6 +4,60 @@ import type { Project } from './resume';
 // Curated projects in resume.ts take priority when GitHub URLs overlap.
 export const githubProjects: Project[] = [
   {
+    "title": "Kaggle CSIRO Image2biomass",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-csiro-image2biomass",
+    "impact": "Active Kaggle workflow for pasture biomass prediction",
+    "stack": [
+      "Jupyter Notebook"
+    ],
+    "points": [
+      "Built an active CSIRO Image2Biomass Kaggle workflow with EDA, grouped validation, tabular/color baselines, embedding experiments, and model tuning.",
+      "Added biomass constraint checks and a decision-support product concept for submission-ready pasture biomass prediction."
+    ]
+  },
+  {
+    "title": "Kaggle Maze Crawler",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-maze-crawler",
+    "impact": "Small Kaggle notebook project for maze-navigation experimentation",
+    "stack": [
+      "Jupyter Notebook"
+    ],
+    "points": [
+      "Maintained a compact Kaggle notebook project for maze-crawler experimentation and iterative problem solving.",
+      "Kept as a lightweight supporting signal for competition practice and notebook-based exploration."
+    ]
+  },
+  {
+    "title": "Kaggle S6E4 Predict Irrigation Need",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-s6e4-predict-irrigation-need",
+    "impact": "Kaggle Playground S6E4 irrigation-need prediction workflow",
+    "stack": [
+      "CatBoost",
+      "Jupyter Notebook"
+    ],
+    "points": [
+      "Built a Kaggle Playground S6E4 workflow for predicting irrigation need with EDA, CatBoost baselines, tuning, and reusable submission steps.",
+      "Packaged the notebook process around repeatable feature review, model comparison, and competition-ready prediction outputs."
+    ]
+  },
+  {
+    "title": "Kaggle S6E5 Predict F1 Pit Stops",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-s6e5-predict-f1-pit-stops",
+    "impact": "Kaggle F1 pit-stop prediction with model diagnostics",
+    "stack": [
+      "LightGBM",
+      "Jupyter Notebook"
+    ],
+    "points": [
+      "Built a Kaggle F1 pit-stop prediction workflow with EDA, feature engineering, LightGBM tuning, and model diagnostics.",
+      "Structured the project as a reusable competition notebook for analysing race-context features and submission-ready predictions."
+    ]
+  },
+  {
     "title": "NYC Taxi Databricks",
     "category": "Data Engineering & Analytics",
     "github": "https://github.com/tuannm3812/NYC-Taxi-Databricks",
@@ -17,6 +71,19 @@ export const githubProjects: Project[] = [
     "points": [
       "Built a Databricks lakehouse workflow with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.",
       "Preparing refreshed notebooks and outputs to document ingestion, transformation, and scalable trip analysis patterns."
+    ]
+  },
+  {
+    "title": "ScriptClean AI",
+    "category": "Applied AI Products",
+    "github": "https://github.com/tuannm3812/ScriptClean-AI",
+    "impact": "Transcript-to-study-guide app powered by Gemini",
+    "stack": [
+      "TypeScript"
+    ],
+    "points": [
+      "Built a React, TypeScript, Tailwind, and Gemini app that converts raw YouTube transcripts into high-fidelity study guides and lecture notes.",
+      "Added speaker structure, topic headers, bilingual vocabulary support, and formatted rich-text export for Google Docs or Microsoft Word workflows."
     ]
   },
   {
