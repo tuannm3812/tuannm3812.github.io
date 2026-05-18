@@ -135,30 +135,34 @@ const PROJECT_COPY_OVERRIDES = {
   },
   'kaggle-csiro-image2biomass': {
     impact: 'Active Kaggle workflow for pasture biomass prediction',
+    stack: ['ExtraTrees', 'HistGradientBoosting', 'GroupKFold', 'EfficientNet-B0', 'PCA', 'Weighted R2'],
     points: [
-      'Built an active CSIRO Image2Biomass Kaggle workflow with EDA, grouped validation, tabular/color baselines, embedding experiments, and model tuning.',
-      'Added biomass constraint checks and a decision-support product concept for submission-ready pasture biomass prediction.'
+      'Tuned a grouped-CV biomass regression workflow with metadata/color features, ExtraTrees and HistGradientBoosting sweeps, OOF blending, and weighted R2 diagnostics.',
+      'Tested EfficientNet-B0 image embeddings, PCA-reduced embeddings, Ridge/log-Ridge variants, and validated biomass constraint post-processing before promotion.'
     ]
   },
   'kaggle-maze-crawler': {
-    impact: 'Small Kaggle notebook project for maze-navigation experimentation',
+    impact: 'Kaggle simulation agent for maze-navigation experimentation',
+    stack: ['BFS Agent', 'Simulation/RL', 'Kaggle Environments', 'Self-Contained Agent', 'Submission Packaging'],
     points: [
-      'Maintained a compact Kaggle notebook project for maze-crawler experimentation and iterative problem solving.',
-      'Kept as a lightweight supporting signal for competition practice and notebook-based exploration.'
+      'Built a self-contained Maze Crawler agent that detects Kaggle runtime schemas, normalizes grid observations, maps legal actions, and packages submission.py artifacts.',
+      'Implemented defensive pathfinding with BFS-to-target behavior, open-cell fallback exploration, deterministic turn state, and smoke tests through kaggle_environments.'
     ]
   },
   'kaggle-s6e4-predict-irrigation-need': {
     impact: 'Kaggle Playground S6E4 irrigation-need prediction workflow',
+    stack: ['CatBoost', 'Stratified CV', 'Macro F1', 'Feature Interactions', 'Class Weighting', 'EDA Diagnostics'],
     points: [
-      'Built a Kaggle Playground S6E4 workflow for predicting irrigation need with EDA, CatBoost baselines, tuning, and reusable submission steps.',
-      'Packaged the notebook process around repeatable feature review, model comparison, and competition-ready prediction outputs.'
+      'Compared dummy, logistic regression, random forest, histogram gradient boosting, and CatBoost baselines, then selected CatBoost using holdout and stratified CV macro F1.',
+      'Ran CatBoost tuning with agronomic interaction features, threshold features, class-weight experiments, feature importance review, and reusable submission validation.'
     ]
   },
   'kaggle-s6e5-predict-f1-pit-stops': {
     impact: 'Kaggle F1 pit-stop prediction with model diagnostics',
+    stack: ['LightGBM', 'XGBoost', 'CatBoost', 'Stratified CV', 'Calibration', 'Feature Engineering'],
     points: [
-      'Built a Kaggle F1 pit-stop prediction workflow with EDA, feature engineering, LightGBM tuning, and model diagnostics.',
-      'Structured the project as a reusable competition notebook for analysing race-context features and submission-ready predictions.'
+      'Engineered race, stint, tyre-life, race-progress, lap-time, and ratio features, then benchmarked logistic, tree, LightGBM, XGBoost, and CatBoost models with stratified CV.',
+      'Promoted tuned LightGBM after feature-set validation, XGBoost/CatBoost blend checks, calibration diagnostics, top-slice precision analysis, and race-level error review.'
     ]
   },
   'ScriptClean-AI': {
@@ -196,7 +200,7 @@ function buildProject(repo) {
     github: repo.html_url,
     ...(demo ? { demo } : {}),
     impact: copy?.impact || description || `Public ${repo.language || 'technical'} project from GitHub`,
-    stack: stack.length ? stack : ['GitHub', 'Project'],
+    stack: copy?.stack || (stack.length ? stack : ['GitHub', 'Project']),
     points:
       copy?.points || [
         description
