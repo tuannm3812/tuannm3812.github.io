@@ -11,8 +11,10 @@ const projectPriority: Record<string, { score: number; stars: number }> = {
   'Solana Price Forecasting': { score: 91, stars: 3 },
   'Bioacoustic Species Classification': { score: 89, stars: 3 },
   'Kaggle CSIRO Image2biomass': { score: 88, stars: 2 },
+  'Kaggle ROGII Wellbore Geology Prediction': { score: 87, stars: 2 },
   'TikTok Semantic': { score: 86, stars: 2 },
   'VisionVoice: Image Captioning': { score: 84, stars: 2 },
+  'Kaggle NeuroGolf 2026': { score: 83, stars: 2 },
   'NYC Taxi Databricks': { score: 82, stars: 2 },
   'Youtube Trending Snowflake Lakehouse': { score: 81, stars: 2 },
   'Flickr8k Image Captioning': { score: 80, stars: 2 },
@@ -24,7 +26,7 @@ const projectPriority: Record<string, { score: number; stars: number }> = {
   'ScriptClean AI': { score: 70, stars: 2 },
   'AfriWeave': { score: 60, stars: 1 },
   'Deep Learning Group 10': { score: 58, stars: 1 },
-  'Kaggle Maze Crawler': { score: 57, stars: 1 },
+  'Kaggle Maze Crawler': { score: 77, stars: 2 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
   'Personal Portfolio': { score: 45, stars: 1 }
 };

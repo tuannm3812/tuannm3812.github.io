@@ -48,6 +48,8 @@ function toTitle(name) {
     .replace(/\bNlp\b/g, 'NLP')
     .replace(/\bElt\b/g, 'ELT')
     .replace(/\bCsiro\b/g, 'CSIRO')
+    .replace(/\bRogii\b/g, 'ROGII')
+    .replace(/\bNeurogolf\b/g, 'NeuroGolf')
     .replace(/\bS6e4\b/g, 'S6E4')
     .replace(/\bS6e5\b/g, 'S6E5')
     .replace(/\bF1\b/g, 'F1')
@@ -142,11 +144,27 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'kaggle-maze-crawler': {
-    impact: 'Kaggle simulation agent for maze-navigation experimentation',
-    stack: ['BFS Agent', 'Simulation/RL', 'Kaggle Environments', 'Self-Contained Agent', 'Submission Packaging'],
+    impact: 'Kaggle simulation agent with replay-driven BFS experiments',
+    stack: ['Jump BFS', 'Wall Memory', 'Simulation/RL', 'Replay Analysis', 'Submission Packaging'],
     points: [
-      'Built a self-contained Maze Crawler agent that detects Kaggle runtime schemas, normalizes grid observations, maps legal actions, and packages submission.py artifacts.',
-      'Implemented defensive pathfinding with BFS-to-target behavior, open-cell fallback exploration, deterministic turn state, and smoke tests through kaggle_environments.'
+      'Built starter and jump-preferred BFS agents with wall memory, mirrored-wall handling, active replacement scouting, replay diagnostics, and generated main.py/submission.py workflows.',
+      'Improved the public score from 217.0 to 1062.4, then documented scout and wall-memory ablations after a one-lifetime-scout variant regressed to 895.3.'
+    ]
+  },
+  'kaggle-ROGII-Wellbore-Geology-Prediction': {
+    impact: 'Kaggle wellbore TVT reconstruction with Beam/PF trajectory modeling',
+    stack: ['Beam Search', 'Particle Filter', 'LightGBM', 'CatBoost', 'Numba', 'Masked Validation'],
+    points: [
+      'Developed a TVT reconstruction workflow with masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, and Beam/PF trajectory candidates.',
+      'Moved public score from 15.883 to 15.049 with typewell alignment, then to 9.941 using Beam/PF reconstruction, LightGBM/CatBoost blending, and smoothing.'
+    ]
+  },
+  'kaggle-neurogolf-2026': {
+    impact: 'Kaggle NeuroGolf 2026 ARC-style solver and ONNX submission workflow',
+    stack: ['ONNX', 'ARC Solvers', 'Connected Components', 'Rule Diagnostics', 'Submission Archive'],
+    points: [
+      'Built a structured solver workflow across 400 ARC-style tasks with EDA, shape/palette diagnostics, connected-component routing, and simple same-shape/shape-changing solver buckets.',
+      'Validated a complete ONNX submission pipeline with one model per task, input-equality selectors for multi-test tasks, fallback archives, and first input-derived solver exports.'
     ]
   },
   'kaggle-s6e4-predict-irrigation-need': {
