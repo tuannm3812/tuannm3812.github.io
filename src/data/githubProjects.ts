@@ -118,11 +118,11 @@ export const githubProjects: Project[] = [
       "PySpark",
       "Databricks",
       "Delta Lake",
-      "HTML"
+      "Lakehouse Analytics"
     ],
     "points": [
-      "Built a Databricks lakehouse workflow with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.",
-      "Preparing refreshed notebooks and outputs to document ingestion, transformation, and scalable trip analysis patterns."
+      "Built a Databricks lakehouse workflow for NYC green and yellow taxi trip analytics across ingestion, transformation, and business insight layers.",
+      "Applied PySpark, Delta Lake processing, scalable notebook workflows, trip-level feature preparation, and lakehouse analytics documentation."
     ]
   },
   {
@@ -131,11 +131,15 @@ export const githubProjects: Project[] = [
     "github": "https://github.com/tuannm3812/ScriptClean-AI",
     "impact": "Transcript-to-study-guide app powered by Gemini",
     "stack": [
-      "TypeScript"
+      "React",
+      "TypeScript",
+      "Gemini API",
+      "Transcript Processing",
+      "Rich Text Export"
     ],
     "points": [
-      "Built a React, TypeScript, Tailwind, and Gemini app that converts raw YouTube transcripts into high-fidelity study guides and lecture notes.",
-      "Added speaker structure, topic headers, bilingual vocabulary support, and formatted rich-text export for Google Docs or Microsoft Word workflows."
+      "Built a transcript-to-study-guide app for converting raw YouTube lecture transcripts into structured study notes and learning materials.",
+      "Applied React, TypeScript, Tailwind, Gemini prompting, speaker structure, topic headers, bilingual vocabulary support, and rich-text export for Docs or Word workflows."
     ]
   },
   {
@@ -145,12 +149,13 @@ export const githubProjects: Project[] = [
     "impact": "Snowflake pipeline for multi-country YouTube trends",
     "stack": [
       "Snowflake",
-      "API",
-      "Python"
+      "API Ingestion",
+      "SQL Analytics",
+      "Data Modeling"
     ],
     "points": [
       "Built a Snowflake analytics workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.",
-      "Preparing updated outputs to document repeatable trend analysis across country-level media datasets."
+      "Applied API ingestion, SQL-based data modeling, repeatable trend analysis, country-level comparisons, and warehouse-ready documentation."
     ]
   }
 ];

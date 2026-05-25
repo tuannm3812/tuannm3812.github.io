@@ -126,10 +126,10 @@ export const resumeData: ResumeData = {
       category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/kaggle-birdclef-2026",
       impact: "Active BirdCLEF+ 2026 bioacoustic classification workspace",
-      stack: ["PyTorch", "EfficientNet-B0", "Perch v2", "Kaggle", "Audio ML"],
+      stack: ["PyTorch", "EfficientNet-B0", "Perch v2", "Audio ML", "Submission Notebooks"],
       points: [
-        "Architected a Kaggle-ready BirdCLEF+ 2026 workspace with curated EDA, EfficientNet-B0 baselines, Google Perch v2 probes, reusable modules, and submission notebooks.",
-        "Documented the project with report artifacts, lightweight trained model outputs, and repeatable scripts for noisy multi-species ecological audio experiments."
+        "Built a BirdCLEF+ 2026 bioacoustic classification workspace for noisy multi-species ecological audio experiments and Kaggle submission workflows.",
+        "Applied curated EDA, EfficientNet-B0 baselines, Google Perch v2 probes, reusable PyTorch modules, lightweight model artifacts, and repeatable submission notebooks."
       ]
     },
     {
@@ -139,8 +139,8 @@ export const resumeData: ResumeData = {
       impact: "Accessible VizWiz captioning with visual attention",
       stack: ["PyTorch", "ResNet-LSTM", "Bahdanau Attention", "Beam Search", "VizWiz"],
       points: [
-        "Built an accessibility-focused VizWiz image captioning system with PyTorch, ResNet-LSTM baselines, Bahdanau-style attention, and beam search.",
-        "Maintained rerunnable EDA, leakage-aware data splits, qualitative review, and reproducible experiments to compare captioning approaches."
+        "Built an accessibility-focused VizWiz image captioning system for generating captions from images captured in assistive settings.",
+        "Applied ResNet-LSTM baselines, Bahdanau-style attention, beam search, leakage-aware splits, qualitative review, and reproducible PyTorch experiments."
       ]
     },
     {
@@ -150,8 +150,8 @@ export const resumeData: ResumeData = {
       impact: "Reproducible Flickr8k captioning workflow",
       stack: ["PyTorch", "VGG16", "ResNet50", "Attention", "Beam Search"],
       points: [
-        "Built a Flickr8k captioning workflow with PyTorch, VGG16/ResNet50 encoders, CNN-LSTM models, additive attention, and beam search.",
-        "Improved the experiment workflow with tracked Kaggle artifacts, qualitative inference examples, mixed precision, and reusable training structure."
+        "Built a Flickr8k image captioning workflow for comparing CNN-LSTM caption generation approaches on a compact vision-language dataset.",
+        "Applied VGG16 and ResNet50 encoders, additive attention, beam search, mixed precision, tracked artifacts, qualitative inference examples, and reusable PyTorch training structure."
       ]
     },
     {
@@ -161,8 +161,8 @@ export const resumeData: ResumeData = {
       impact: "Airbnb and Census warehouse with dimensional marts",
       stack: ["Airflow", "dbt", "PostgreSQL", "Medallion", "SCD Type 2"],
       points: [
-        "Implemented an ELT warehouse with Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modelling, and Sydney Airbnb, Census, and LGA datasets.",
-        "Preserved longitudinal market history through sequential monthly processing and SCD Type 2 snapshots across analytical dimensions."
+        "Built an ELT warehouse for Sydney Airbnb, Census, and LGA analytics with dimensional marts for market and locality analysis.",
+        "Applied Airflow orchestration, dbt transformations, PostgreSQL modeling, Bronze-Silver-Gold layers, sequential monthly processing, and SCD Type 2 history."
       ]
     },
     {
@@ -173,8 +173,8 @@ export const resumeData: ResumeData = {
       impact: "Live Streamlit dashboard for global food-price risk",
       stack: ["Streamlit", "Pandas", "Plotly", "FAOSTAT", "World Bank"],
       points: [
-        "Built a Streamlit and Plotly dashboard using FAOSTAT, FAO, Global Hunger Index, and World Bank data to analyze global food-price shocks.",
-        "Supported food-security risk exploration with commodity trends, volatility views, import-dependency mapping, and what-if shock scenarios."
+        "Built a Streamlit dashboard for exploring global food-price shocks, import dependency, and food-security risk across countries and commodities.",
+        "Applied FAOSTAT, FAO, Global Hunger Index, and World Bank data integration with Pandas, Plotly commodity trends, volatility views, maps, and what-if scenarios."
       ]
     },
     {
@@ -185,8 +185,8 @@ export const resumeData: ResumeData = {
       impact: "Real-time forecasting and Streamlit dashboard",
       stack: ["Streamlit", "FastAPI", "Kraken API", "Scikit-learn", "Pytest"],
       points: [
-        "Developed a Solana forecasting workflow with live Kraken OHLCV data, scikit-learn, engineered technical indicators, Streamlit, and optional FastAPI serving.",
-        "Packaged data loading, training, inference, tests, and dashboard delivery into a reproducible time-series project."
+        "Built a Solana price forecasting workflow and dashboard for turning live market data into a repeatable next-day prediction experience.",
+        "Applied Kraken OHLCV ingestion, technical-indicator feature engineering, scikit-learn training, job-style inference flow, optional FastAPI serving, Streamlit delivery, and pytest checks."
       ]
     },
     {
@@ -197,8 +197,8 @@ export const resumeData: ResumeData = {
       impact: "Sydney rainfall forecasting pipeline with Streamlit delivery",
       stack: ["Streamlit", "Scikit-learn", "Open-Meteo", "joblib", "pytest"],
       points: [
-        "Built an end-to-end Sydney rainfall forecasting pipeline with Open-Meteo observations, scikit-learn classification/regression models, joblib artifacts, and Streamlit.",
-        "Strengthened reliability with refreshed model metadata and tests covering future-weather targets, feature ordering, and dashboard-ready inference assets."
+        "Built a Sydney rainfall forecasting pipeline and Streamlit app for weather-driven classification and regression workflows.",
+        "Applied Open-Meteo ingestion, scikit-learn modeling, joblib artifacts, model metadata, feature-order checks, future-weather target handling, and dashboard-ready inference tests."
       ]
     },
     {
@@ -206,10 +206,10 @@ export const resumeData: ResumeData = {
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/gender-equality-policy-nlp",
       impact: "Policy discourse analysis from parliamentary submissions",
-      stack: ["NLP", "TF-IDF", "LDA", "K-Means", "Python"],
+      stack: ["NLP", "TF-IDF", "LDA", "K-Means", "Policy Analytics"],
       points: [
-        "Analyzed Australian parliamentary submissions with Python, TF-IDF, LDA, K-Means clustering, and visualization to study workplace gender equality discourse.",
-        "Identified stakeholder framing patterns across unions, industry groups, advocacy bodies, academics, and government sources."
+        "Built an NLP workflow for analyzing Australian parliamentary submissions on workplace gender equality policy and stakeholder framing.",
+        "Applied text cleaning, TF-IDF, LDA topic modeling, K-Means clustering, visualization, and cross-stakeholder comparison across unions, industry groups, advocacy bodies, academics, and government sources."
       ]
     },
     {
@@ -217,10 +217,10 @@ export const resumeData: ResumeData = {
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/tiktok-semantic",
       impact: "Semantic marketing analytics for climate-action TikToks",
-      stack: ["Python", "Pandas", "scikit-learn", "NetworkX", "NLP"],
+      stack: ["Pandas", "scikit-learn", "NetworkX", "NLP", "Graph Analytics"],
       points: [
-        "Built a semantic marketing analytics pipeline with Python, Pandas, scikit-learn, NetworkX, and TikTok post, creator, comment, hashtag, and multimodal summary data.",
-        "Produced competition-ready insight tables for climate-action messaging, including themes, recommendations, comment intent, sentiment/emotion, and creator bridge metrics."
+        "Built a semantic marketing analytics pipeline for climate-action TikTok content across posts, creators, comments, hashtags, and multimodal summaries.",
+        "Applied Pandas, scikit-learn, NetworkX, NLP theme extraction, comment intent analysis, sentiment/emotion review, recommendation tables, and creator bridge metrics."
       ]
     },
     {
@@ -230,8 +230,8 @@ export const resumeData: ResumeData = {
       impact: "Culturally focused Streamlit NLP prototype",
       stack: ["Streamlit", "Keras", "JAX", "BPE", "Transformers"],
       points: [
-        "Created an interactive NLP prototype with Streamlit, Keras/JAX, BPE tokenization, N-gram baselines, and transformer components for culturally focused text generation.",
-        "Supported demo reliability with corpus exploration, deterministic fallback data, testable modules, and a lightweight user interface."
+        "Built an interactive NLP prototype for culturally focused text generation and corpus exploration through a lightweight Streamlit interface.",
+        "Applied Keras/JAX components, BPE tokenization, N-gram baselines, transformer-style modeling, deterministic fallback data, testable modules, and demo-oriented UX."
       ]
     },
     {
@@ -242,8 +242,8 @@ export const resumeData: ResumeData = {
       impact: "Enterprise-style schema RAG agent with safe local SQL execution",
       stack: ["Gemini/Ollama", "Hybrid Schema RAG", "Streamlit", "SQLite", "SQLGlot"],
       points: [
-        "Built an enterprise-style text-to-SQL agent that sends only retrieved schema metadata to Gemini or Ollama, using hybrid lexical, semantic, value-hint, and foreign-key graph retrieval.",
-        "Implemented read-only local SQLite execution with SQLGlot-backed validation, SQLite authorizer controls, result caps, query repair, automated tests, and benchmark evaluation outputs."
+        "Built an enterprise-style text-to-SQL agent for answering natural-language questions over local SQLite databases while keeping data execution local.",
+        "Applied hybrid lexical, semantic, value-hint, and foreign-key schema retrieval with Gemini/Ollama generation, SQLGlot validation, SQLite authorizer controls, result caps, query repair, tests, and evaluation outputs."
       ]
     },
     {
@@ -251,10 +251,10 @@ export const resumeData: ResumeData = {
       category: "Applied AI Products",
       github: "https://github.com/tuannm3812/apple-foundation-agent",
       impact: "Interactive Streamlit diagnostic for developer workflows",
-      stack: ["Streamlit", "Python", "UX", "Scoring Logic", "Deployment"],
+      stack: ["Streamlit", "Scoring Logic", "Streamlit UX", "Decision Flow", "Deployment"],
       points: [
-        "Built an interactive Streamlit diagnostic app with Python, scoring logic, and product-style UX for mapping developer workflow decisions into profile outcomes.",
-        "Demonstrated applied AI product thinking through a polished decision flow covering recovery, iteration, deployment, legacy systems, and delivery pressure."
+        "Built an interactive diagnostic app for mapping developer workflow decisions into profile outcomes across delivery and recovery scenarios.",
+        "Applied Streamlit UX, scoring logic, decision-flow design, deployment packaging, and product-style prompts covering iteration, legacy systems, deployment pressure, and recovery patterns."
       ]
     },
     {
@@ -265,8 +265,8 @@ export const resumeData: ResumeData = {
       impact: "Multi-agent meal planning app with live Streamlit demo",
       stack: ["FastAPI", "Streamlit", "scikit-learn", "Local RAG", "USDA API"],
       points: [
-        "Built a multi-agent AI meal planner with FastAPI, Streamlit, Pydantic schemas, scikit-learn calorie expenditure prediction, and retrieval-first meal recommendations.",
-        "Delivered a practical product workflow with allergy and health-condition filtering, USDA/FatSecret nutrition verification, shopping-list cost estimates, meal history, feedback capture, and CI-tested backend contracts."
+        "Built a multi-agent AI meal planner for generating nutrition-aware meal plans, shopping lists, and user-specific recommendations.",
+        "Applied FastAPI, Streamlit, Pydantic schemas, calorie expenditure prediction, local RAG, allergy and health-condition filtering, USDA/FatSecret nutrition checks, feedback capture, and CI-tested backend contracts."
       ]
     },
     {
@@ -277,8 +277,8 @@ export const resumeData: ResumeData = {
       impact: "React portfolio deployed with GitHub Pages",
       stack: ["React", "TypeScript", "Tailwind", "Firebase", "GitHub Actions"],
       points: [
-        "Maintained a React, TypeScript, Tailwind, Firebase, and GitHub Actions portfolio for machine learning, data engineering, MLOps, and applied AI projects.",
-        "Structured the site around resume content, project evidence, writing, accessible contact paths, and automated GitHub project sync."
+        "Built and maintained a React portfolio for presenting machine learning, data engineering, MLOps, and applied AI project evidence.",
+        "Applied TypeScript, Tailwind, Firebase contact/comment flows, Google Analytics tagging, GitHub Actions deployment, accessible routing, and automated GitHub project sync."
       ]
     }
   ],

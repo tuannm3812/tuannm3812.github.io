@@ -1,18 +1,19 @@
 # Portfolio Project Update Guide
 
-Use this guide when translating GitHub repository progress into portfolio cards.
-The goal is consistency: every card should show the actual engineering,
-modeling, validation, and product signal behind the work, not the repository's
-detected language.
+Use this guide when translating project work into portfolio cards and resume
+bullets. The goal is consistency: every card should quickly explain what the
+project is, then show the technical skills applied. Keep detailed results,
+metric tables, and experiment logs in repository docs.
 
 ## Source Of Truth
 
 Prefer evidence in this order:
 
 1. Repository `README.md`
-2. Repository `docs/` files, especially result summaries and instructions
+2. Repository `docs/` files, especially architecture, results, and run guides
 3. Notebook headings, imports, model definitions, validation design, and submission cells
-4. GitHub repository description and metadata
+4. App source code, tests, deployment config, and API contracts
+5. GitHub repository description and metadata
 
 Do not use GitHub language labels such as `Jupyter Notebook` as the portfolio
 stack unless the notebook environment itself is the point of the project.
@@ -28,11 +29,23 @@ Each project card should have:
 - `stack`: 4-6 high-signal techniques, libraries, model families, or systems
 - `points`: two bullets, each focused on a clear portfolio signal
 
-For Kaggle cards, the two bullets should usually follow this pattern:
+Every project card should follow this two-sentence pattern:
 
 1. Overview: what the project is, the domain/problem, and the workflow outcome.
 2. Techniques: the model families, algorithms, validation design, diagnostics,
    tooling, or skill sets applied.
+
+Examples by project type:
+
+- ML/Kaggle: overview of the prediction, agent, or solver task; then modeling,
+  validation, diagnostics, and submission workflow.
+- Data engineering: overview of the data product or warehouse; then ingestion,
+  orchestration, modeling layers, quality checks, and serving tools.
+- App/product: overview of the user workflow; then frontend, backend, APIs,
+  agent/RAG logic, testing, deployment, and data contracts.
+- NLP/analytics: overview of the corpus or decision problem; then text
+  processing, embeddings/topic models/clustering, graph analysis, and review
+  outputs.
 
 ## Stack Rules
 
@@ -51,6 +64,12 @@ Good stack labels:
 - `Artifact Replay`
 - `Feature Engineering`
 - `Model Diagnostics`
+- `Medallion`
+- `SCD Type 2`
+- `Schema RAG`
+- `Text Processing`
+- `Graph Analytics`
+- `Deployment`
 
 Weak stack labels:
 
@@ -62,6 +81,9 @@ Weak stack labels:
 - leaderboard metrics such as `Weighted R2`, `Macro F1`, `RMSE`, or `Public Score`
 
 Generic labels are acceptable only when paired with more specific techniques.
+Prefer replacing generic labels with the thing the viewer can recognize as a
+skill: `Text Processing` instead of `Python`, `Streamlit UX` instead of `UX`,
+`Lakehouse Analytics` instead of `HTML`.
 
 ## Copy Rules
 
@@ -76,6 +98,10 @@ Write cards as compact evidence, not sales copy.
 - Do not overclaim private leaderboard performance or imply a competition rank
   unless it is verified and important to the role narrative.
 - Keep each bullet short enough to scan inside a project card.
+- Use active, portfolio-friendly verbs: `Built`, `Applied`, `Designed`,
+  `Packaged`, `Implemented`, `Maintained`.
+- Avoid temporary wording such as `preparing`, `work in progress`, or
+  `refreshing` unless the status itself is important.
 
 ## Sync Script Rules
 
@@ -130,6 +156,33 @@ Use these examples as style anchors:
   and ONNX submission packaging
 - Technique signal: shape/palette diagnostics, connected-component routing,
   scorer-compatible one-hot tensors, and solved-task manifests
+
+## Current Non-Kaggle Portfolio Pattern
+
+### Production ELT / Warehouse
+
+- Overview signal: warehouse or lakehouse workflow, dataset domain, and intended
+  analytics use.
+- Technique signal: orchestration, transformation layers, dimensional modeling,
+  history handling, data quality, and deployment environment.
+
+### Forecasting / MLOps
+
+- Overview signal: forecasting or prediction app and the decision it supports.
+- Technique signal: API ingestion, feature engineering, model artifacts,
+  serving layer, tests, and dashboard delivery.
+
+### NLP / AI Agents
+
+- Overview signal: corpus, user workflow, or reasoning task.
+- Technique signal: retrieval, schema grounding, text processing, topic models,
+  clustering, validation, safety checks, and interface design.
+
+### Applied Products
+
+- Overview signal: who uses the tool and what workflow it completes.
+- Technique signal: frontend/backend structure, agent logic, APIs, data
+  contracts, filtering rules, tests, and deployment.
 
 ## Update Checklist
 
