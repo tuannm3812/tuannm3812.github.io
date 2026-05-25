@@ -29,13 +29,13 @@ export const githubProjects: Project[] = [
     "stack": [
       "Jump BFS",
       "Wall Memory",
+      "Danger Gating",
       "Simulation/RL",
-      "Replay Analysis",
-      "Submission Packaging"
+      "Replay Analysis"
     ],
     "points": [
-      "Built starter and jump-preferred BFS agents with wall memory, mirrored-wall handling, active replacement scouting, replay diagnostics, and generated main.py/submission.py workflows.",
-      "Improved the public score from 217.0 to 1062.4, then documented scout and wall-memory ablations after a one-lifetime-scout variant regressed to 895.3."
+      "Built starter and jump-preferred BFS agents with known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, replay diagnostics, and Kaggle-safe submission generation.",
+      "Improved the public score from 217.0 to 1171.5 while documenting scout-policy, wall-memory, and danger-gate experiments through notebook replays and version logs."
     ]
   },
   {
@@ -47,12 +47,12 @@ export const githubProjects: Project[] = [
       "ONNX",
       "ARC Solvers",
       "Connected Components",
-      "Rule Diagnostics",
-      "Submission Archive"
+      "One-Hot Tensors",
+      "Rule Diagnostics"
     ],
     "points": [
-      "Built a structured solver workflow across 400 ARC-style tasks with EDA, shape/palette diagnostics, connected-component routing, and simple same-shape/shape-changing solver buckets.",
-      "Validated a complete ONNX submission pipeline with one model per task, input-equality selectors for multi-test tasks, fallback archives, and first input-derived solver exports."
+      "Built a structured solver workflow across 400 ARC-style tasks with EDA, shape/palette diagnostics, connected-component routing, and same-shape/shape-changing solver queues.",
+      "Moved from packaging baselines to scorer-compatible ONNX exports using static one-hot float32 tensors, solved-task-only zip packaging, and manifests for reliable task-level promotion."
     ]
   },
   {
@@ -65,12 +65,12 @@ export const githubProjects: Project[] = [
       "Particle Filter",
       "LightGBM",
       "CatBoost",
-      "Numba",
+      "Artifact Replay",
       "Masked Validation"
     ],
     "points": [
-      "Developed a TVT reconstruction workflow with masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, and Beam/PF trajectory candidates.",
-      "Moved public score from 15.883 to 15.049 with typewell alignment, then to 9.941 using Beam/PF reconstruction, LightGBM/CatBoost blending, and smoothing."
+      "Developed a TVT reconstruction workflow with held-out-well masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, and Beam/PF trajectory candidates.",
+      "Selected Beam/PF V1 as the best public submission at 9.941 after moving from 15.883 to 15.049 with typewell alignment; later artifact reruns improved reproducibility but not score."
     ]
   },
   {
