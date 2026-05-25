@@ -137,50 +137,50 @@ const PROJECT_COPY_OVERRIDES = {
   },
   'kaggle-csiro-image2biomass': {
     impact: 'Active Kaggle workflow for pasture biomass prediction',
-    stack: ['ExtraTrees', 'HistGradientBoosting', 'GroupKFold', 'EfficientNet-B0', 'PCA', 'Weighted R2'],
+    stack: ['ExtraTrees', 'HistGradientBoosting', 'GroupKFold', 'EfficientNet-B0', 'PCA', 'Constraint Checks'],
     points: [
-      'Tuned a grouped-CV biomass regression workflow with metadata/color features, ExtraTrees and HistGradientBoosting sweeps, OOF blending, and weighted R2 diagnostics.',
-      'Tested EfficientNet-B0 image embeddings, PCA-reduced embeddings, Ridge/log-Ridge variants, and validated biomass constraint post-processing before promotion.'
+      'Built a CSIRO Image2Biomass competition workflow for pasture biomass prediction using image metadata, color features, and submission-ready post-processing.',
+      'Applied grouped validation, ExtraTrees and HistGradientBoosting sweeps, OOF blending, EfficientNet-B0 embedding probes, PCA experiments, and biomass constraint checks.'
     ]
   },
   'kaggle-maze-crawler': {
     impact: 'Kaggle simulation agent with replay-driven BFS experiments',
     stack: ['Jump BFS', 'Wall Memory', 'Danger Gating', 'Simulation/RL', 'Replay Analysis'],
     points: [
-      'Built starter and jump-preferred BFS agents with known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, replay diagnostics, and Kaggle-safe submission generation.',
-      'Improved the public score from 217.0 to 1171.5 while documenting scout-policy, wall-memory, and danger-gate experiments through notebook replays and version logs.'
+      'Built a Kaggle Maze Crawler workflow for turn-based maze navigation, simulation review, agent iteration, and Kaggle-safe submission generation.',
+      'Applied jump-preferred BFS, known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, and replay diagnostics.'
     ]
   },
   'kaggle-ROGII-Wellbore-Geology-Prediction': {
     impact: 'Kaggle wellbore TVT reconstruction with Beam/PF trajectory modeling',
     stack: ['Beam Search', 'Particle Filter', 'LightGBM', 'CatBoost', 'Artifact Replay', 'Masked Validation'],
     points: [
-      'Developed a TVT reconstruction workflow with held-out-well masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, and Beam/PF trajectory candidates.',
-      'Selected Beam/PF V1 as the best public submission at 9.941 after moving from 15.883 to 15.049 with typewell alignment; later artifact reruns improved reproducibility but not score.'
+      'Built a ROGII Wellbore Geology workflow for reconstructing hidden TVT trajectories from horizontal wells, paired typewells, and gamma-ray log signals.',
+      'Applied held-out-well masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, Beam/PF trajectory candidates, and artifact replay.'
     ]
   },
   'kaggle-neurogolf-2026': {
     impact: 'Kaggle NeuroGolf 2026 ARC-style solver and ONNX submission workflow',
     stack: ['ONNX', 'ARC Solvers', 'Connected Components', 'One-Hot Tensors', 'Rule Diagnostics'],
     points: [
-      'Built a structured solver workflow across 400 ARC-style tasks with EDA, shape/palette diagnostics, connected-component routing, and same-shape/shape-changing solver queues.',
-      'Moved from packaging baselines to scorer-compatible ONNX exports using static one-hot float32 tensors, solved-task-only zip packaging, and manifests for reliable task-level promotion.'
+      'Built a NeuroGolf 2026 workflow for ARC-style grid reasoning, task profiling, solver routing, and ONNX submission packaging.',
+      'Applied shape and palette diagnostics, connected-component analysis, same-shape and shape-changing solver queues, static one-hot tensors, and solved-task manifests.'
     ]
   },
   'kaggle-s6e4-predict-irrigation-need': {
     impact: 'Kaggle Playground S6E4 irrigation-need prediction workflow',
-    stack: ['CatBoost', 'Stratified CV', 'Macro F1', 'Feature Interactions', 'Class Weighting', 'EDA Diagnostics'],
+    stack: ['CatBoost', 'Stratified CV', 'Model Diagnostics', 'Feature Interactions', 'Class Weighting', 'EDA Diagnostics'],
     points: [
-      'Compared dummy, logistic regression, random forest, histogram gradient boosting, and CatBoost baselines, then selected CatBoost using holdout and stratified CV macro F1.',
-      'Ran CatBoost tuning with agronomic interaction features, threshold features, class-weight experiments, feature importance review, and reusable submission validation.'
+      'Built a Kaggle Playground irrigation-need prediction workflow for classifying crop water demand from agronomic and weather-style tabular features.',
+      'Applied CatBoost tuning, stratified validation, agronomic interaction features, threshold features, class-weight experiments, feature importance review, and reusable submission validation.'
     ]
   },
   'kaggle-s6e5-predict-f1-pit-stops': {
     impact: 'Kaggle F1 pit-stop prediction with model diagnostics',
     stack: ['LightGBM', 'XGBoost', 'CatBoost', 'Stratified CV', 'Calibration', 'Feature Engineering'],
     points: [
-      'Engineered race, stint, tyre-life, race-progress, lap-time, and ratio features, then benchmarked logistic, tree, LightGBM, XGBoost, and CatBoost models with stratified CV.',
-      'Promoted tuned LightGBM after feature-set validation, XGBoost/CatBoost blend checks, calibration diagnostics, top-slice precision analysis, and race-level error review.'
+      'Built a Kaggle F1 pit-stop prediction workflow for estimating next-lap pit probability from race, stint, tyre, lap-time, and position context.',
+      'Applied race-context feature engineering, stratified validation, LightGBM tuning, XGBoost and CatBoost challenger checks, calibration diagnostics, and race-level error review.'
     ]
   },
   'ScriptClean-AI': {

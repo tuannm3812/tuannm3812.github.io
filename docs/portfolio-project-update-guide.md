@@ -11,7 +11,7 @@ Prefer evidence in this order:
 
 1. Repository `README.md`
 2. Repository `docs/` files, especially result summaries and instructions
-3. Notebook headings, imports, model definitions, metrics, and submission cells
+3. Notebook headings, imports, model definitions, validation design, and submission cells
 4. GitHub repository description and metadata
 
 Do not use GitHub language labels such as `Jupyter Notebook` as the portfolio
@@ -26,14 +26,13 @@ Each project card should have:
 - `github`: public repository URL
 - `impact`: one short sentence naming the project outcome or workflow
 - `stack`: 4-6 high-signal techniques, libraries, model families, or systems
-- `points`: two bullets, each focused on evidence
+- `points`: two bullets, each focused on a clear portfolio signal
 
 For Kaggle cards, the two bullets should usually follow this pattern:
 
-1. What was built: validation design, model family, solver, feature engineering,
-   submission workflow, or artifact workflow.
-2. What improved or was learned: score movement, selected model, failed
-   experiment, diagnostic lesson, or next controlled experiment.
+1. Overview: what the project is, the domain/problem, and the workflow outcome.
+2. Techniques: the model families, algorithms, validation design, diagnostics,
+   tooling, or skill sets applied.
 
 ## Stack Rules
 
@@ -50,6 +49,8 @@ Good stack labels:
 - `Calibration`
 - `Replay Analysis`
 - `Artifact Replay`
+- `Feature Engineering`
+- `Model Diagnostics`
 
 Weak stack labels:
 
@@ -58,6 +59,7 @@ Weak stack labels:
 - `Kaggle`
 - `Data Science`
 - `Machine Learning`
+- leaderboard metrics such as `Weighted R2`, `Macro F1`, `RMSE`, or `Public Score`
 
 Generic labels are acceptable only when paired with more specific techniques.
 
@@ -65,13 +67,14 @@ Generic labels are acceptable only when paired with more specific techniques.
 
 Write cards as compact evidence, not sales copy.
 
-- Lead with the technique or workflow.
-- Include metrics only when the repo documents them.
+- Lead with the project domain, problem, or workflow.
+- Use the second bullet for techniques and skill sets.
+- Avoid leaderboard metrics and validation scores in portfolio cards by default.
+- Keep detailed scores, metric tables, and ablation history in repository
+  READMEs or docs where technical readers can inspect the context.
 - Mention negative results when they show judgment.
-- Do not overclaim private leaderboard performance.
-- Say `public score` when the number is from the public leaderboard.
-- Use `selected` when the best score is from an earlier version than the latest
-  rerun.
+- Do not overclaim private leaderboard performance or imply a competition rank
+  unless it is verified and important to the role narrative.
 - Keep each bullet short enough to scan inside a project card.
 
 ## Sync Script Rules
@@ -105,25 +108,28 @@ Use these examples as style anchors:
 ### Maze Crawler
 
 - Stack signal: `Jump BFS`, `Wall Memory`, `Danger Gating`, `Replay Analysis`
-- Evidence signal: public score moved from `217.0` to `1171.5`
-- Lesson signal: leaderboard episodes are stronger than a single local replay
+- Overview signal: turn-based maze-navigation agent workflow with replay review
+  and Kaggle-safe submission generation
+- Technique signal: graph search, map memory, scout-policy experiments, danger
+  gating, and replay diagnostics
 
 ### ROGII Wellbore Geology Prediction
 
 - Stack signal: `Beam Search`, `Particle Filter`, `LightGBM`, `CatBoost`,
   `Artifact Replay`, `Masked Validation`
-- Evidence signal: selected Beam/PF V1 public score `9.941`
-- Lesson signal: later artifact reruns improved reproducibility but did not beat
-  selected public score
+- Overview signal: geoscience workflow for reconstructing hidden wellbore `TVT`
+  trajectories from horizontal wells and paired typewells
+- Technique signal: masked-tail validation, typewell alignment, trajectory
+  candidates, gradient boosting, ensembling, and artifact replay
 
 ### NeuroGolf 2026
 
 - Stack signal: `ONNX`, `ARC Solvers`, `Connected Components`,
   `One-Hot Tensors`, `Rule Diagnostics`
-- Evidence signal: `400 / 400` tasks profiled and scorer-compatible one-hot
-  ONNX export path
-- Lesson signal: local ONNX Runtime validation is not enough; Kaggle scorer
-  interface matters
+- Overview signal: ARC-style grid-reasoning solver workflow with task profiling
+  and ONNX submission packaging
+- Technique signal: shape/palette diagnostics, connected-component routing,
+  scorer-compatible one-hot tensors, and solved-task manifests
 
 ## Update Checklist
 
@@ -132,7 +138,8 @@ Before committing:
 1. Run `git diff --check`.
 2. Search for stale `Jupyter Notebook` stack labels in generated cards.
 3. Confirm new project titles appear in `projectPriority` when needed.
-4. Confirm copied scores and metrics match repository docs.
+4. Confirm portfolio cards avoid confusing score/metric language unless there is
+   a deliberate reason to include it.
 5. Push and check the GitHub Pages deploy result.
 
 If local Node/npm is unavailable, note that local build checks were skipped and
