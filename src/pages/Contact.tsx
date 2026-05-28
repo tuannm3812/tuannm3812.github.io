@@ -60,7 +60,7 @@ export default function Contact() {
         <div className="space-y-3">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h2>
           <p className="text-lg text-slate-500 dark:text-slate-400">
-            Have a role, project, or collaboration in mind? Send a note and I will get back to you.
+            Have an ML, data engineering, analytics, or applied AI opportunity in mind? Send a note and I will get back to you.
           </p>
         </div>
 

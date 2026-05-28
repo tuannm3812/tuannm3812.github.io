@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "turning-notebooks-into-portfolio-evidence",
+    title: "Turning Notebooks Into Portfolio Evidence",
+    excerpt: "How I translate Kaggle notebooks into project cards that show algorithms, validation design, and engineering judgment instead of just notebook labels.",
+    date: "2026-05-28",
+    content: "Many strong machine learning projects begin as notebooks, especially Kaggle work. The portfolio version should not stop at the environment label. A useful project card explains the problem, the workflow outcome, and the techniques that carried the work: validation design, feature engineering, model families, diagnostics, artifacts, and submission packaging. That makes notebook-first work easier for reviewers to understand because it shows the engineering decisions behind the experiment.",
+    author: "Tuan Nguyen"
+  },
+  {
     id: "mlops-feedback-loops",
     title: "MLOps Starts With Feedback Loops",
     excerpt: "A practical note on why production ML is less about one perfect model and more about monitoring, retraining, and ownership.",

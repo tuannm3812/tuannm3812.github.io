@@ -56,7 +56,7 @@ export const resumeData: ResumeData = {
   linkedin: "https://linkedin.com/in/tuan-m-nguyen",
   github: "https://github.com/tuannm3812",
   kaggle: "https://www.kaggle.com/tuannm3812",
-  summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
+  summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, MLOps, computer vision, and Kaggle-style experimentation.",
   highlights: [
     { value: "7+", label: "Years building analytics and ML workflows" },
     { value: "25", label: "Technical projects across ML, data, and AI" },
@@ -70,8 +70,8 @@ export const resumeData: ResumeData = {
       degree: "Master of Data Science and Innovation (High Distinction)",
       period: "Feb 2025 - Feb 2027 (expected)",
       points: [
-        "Coursework includes machine learning, big data engineering, statistical modelling, deep learning, computer vision, and natural language processing.",
-        "Completed academic projects in full-stack ML systems, cloud data engineering, MLOps pipelines, predictive modelling, statistical analysis, Kaggle-style experimentation, and AI-driven decision support."
+        "Coursework includes machine learning, big data engineering, statistical modelling, deep learning, computer vision, natural language processing, and applied AI systems.",
+        "Completed academic and portfolio projects in full-stack ML systems, Databricks and Snowflake analytics, MLOps pipelines, Kaggle competition workflows, computer vision, NLP, and AI-driven decision support."
       ]
     },
     {
@@ -295,16 +295,16 @@ export const resumeData: ResumeData = {
       title: "Product-Centric ML",
       category: "Philosophy",
       points: [
-        "Model accuracy is a proxy; production reliability and user adoption are the final tests.",
-        "Choosing the right tool means balancing latency, cost, maintainability, and the shape of the user problem."
+        "Model quality only matters when the workflow around it is reproducible, inspectable, and useful to a real decision.",
+        "Choosing the right tool means balancing signal, latency, cost, maintainability, and the shape of the user problem."
       ]
     },
     {
       title: "The Lifelong Beta",
       category: "Mindset",
       points: [
-        "The shift from batch analytics to real-time ML and AI agents rewards structured experimentation.",
-        "Competitions, academic projects, and open-source work keep my practice sharp and honest."
+        "The shift from batch analytics to real-time ML, vision systems, and AI agents rewards structured experimentation.",
+        "Competitions, academic projects, and open-source work keep my practice sharp because every notebook needs a clear story, artifact, and next step."
       ]
     }
   ],
@@ -326,13 +326,13 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Machine Learning",
-      description: "Classical ML, deep learning, computer vision, and time-series experimentation.",
-      tools: ["PyTorch", "scikit-learn", "CatBoost", "LightGBM", "Transfer Learning", "Model Evaluation"]
+      description: "Classical ML, deep learning, computer vision, audio ML, and time-series experimentation.",
+      tools: ["PyTorch", "scikit-learn", "LightGBM", "CatBoost", "ResNet50", "Perch v2"]
     },
     {
       title: "Production & MLOps",
       description: "Deployment patterns for moving models, agents, and data products beyond notebooks.",
-      tools: ["FastAPI", "Streamlit", "Docker", "GitHub Actions", "pytest", "Reproducible Artifacts"]
+      tools: ["FastAPI", "Streamlit", "GitHub Actions", "pytest", "Model Artifacts", "Submission Workflows"]
     },
     {
       title: "AI, NLP & Agents",

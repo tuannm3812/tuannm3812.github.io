@@ -167,7 +167,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold">{resumeData.name}</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-sm">
-              Building practical machine learning and data engineering systems.
+              Building practical machine learning, data engineering, and applied AI workflows.
             </p>
           </div>
           <div className="flex gap-6 items-center">

@@ -25,19 +25,19 @@ export default function Home() {
       icon: <Database />,
       label: "Data Foundation",
       title: "Pipelines that can be trusted",
-      desc: "BigQuery, Airflow, dbt, warehouse modelling, and self-service analytics."
+      desc: "BigQuery, Databricks, Snowflake, Airflow, dbt, warehouse modelling, and self-service analytics."
     },
     {
       icon: <Brain />,
       label: "Modeling",
       title: "Models shaped by the problem",
-      desc: "Forecasting, computer vision, clustering, NLP, and practical evaluation."
+      desc: "Forecasting, computer vision, audio ML, Kaggle tabular modeling, NLP, and practical evaluation."
     },
     {
       icon: <CloudCog />,
       label: "Production",
       title: "MLOps beyond the notebook",
-      desc: "Docker, FastAPI, CI/CD, monitoring, and reproducible model workflows."
+      desc: "FastAPI, Streamlit, GitHub Actions, tests, reusable artifacts, and submission-ready workflows."
     },
     {
       icon: <Globe />,
@@ -67,10 +67,10 @@ export default function Home() {
             </span>
           </div>
           <h1 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight">
-            Building reliable ML systems from messy data.
+            Building reliable ML workflows from messy data.
           </h1>
           <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-            I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> focused on practical machine learning, analytics engineering, and production data workflows.
+            I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> focused on practical machine learning, analytics engineering, computer vision, and production data workflows.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -141,7 +141,7 @@ export default function Home() {
         <div className="space-y-3">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Reflections & Insights</h2>
           <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
-            Thoughts on the intersection of business strategy, data engineering, and artificial intelligence.
+            Thoughts on the intersection of business strategy, data engineering, machine learning, and applied AI.
           </p>
         </div>
 
