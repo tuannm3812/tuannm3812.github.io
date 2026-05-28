@@ -2,7 +2,7 @@
 
 Personal portfolio for Tuan Nguyen, focused on machine learning, data engineering, MLOps, and selected project work.
 
-The frontend was generated in Google AI Studio and is kept mostly intact. The surrounding project files are maintained for local development, deployment, and Firebase-backed contact/comment features.
+The site is a React/Vite portfolio with Firebase-backed contact/comment features, GitHub Pages deployment, and automated GitHub project metadata sync.
 
 ## Tech Stack
 
@@ -43,6 +43,31 @@ Run the TypeScript check:
 npm run lint
 ```
 
+Run the full local check:
+
+```bash
+npm run check
+```
+
+## Repository Structure
+
+```text
+.github/workflows/   GitHub Pages deployment and project sync workflows
+docs/                Portfolio, resume, deployment, and maintenance guides
+public/              Static assets, robots.txt, and sitemap.xml
+scripts/             Automation scripts such as GitHub project sync
+src/                 React application source
+```
+
+Key source files:
+
+- `src/data/resume.ts`: curated portfolio, resume, skills, education, and experience content.
+- `src/data/githubProjects.ts`: generated GitHub project cards.
+- `scripts/sync-github-projects.mjs`: GitHub metadata sync with curated copy overrides.
+- `docs/portfolio-project-update-guide.md`: project-card writing rules.
+- `docs/resume-content-guide.md`: resume-ready project and keyword content.
+- `docs/repository-next-steps.md`: maintenance roadmap.
+
 ## Firebase
 
 Firebase is used for contact form submissions and blog comments. The public Firebase web app config lives in `firebase-applet-config.json`; security is enforced through `firestore.rules`.
@@ -62,3 +87,5 @@ The production URL is:
 ```text
 https://tuannm3812.github.io
 ```
+
+See [docs/deployment.md](docs/deployment.md) for the deployment checklist.

@@ -18,7 +18,7 @@ import firebaseConfig from '../../firebase-applet-config.json';
 
 const app = initializeApp(firebaseConfig);
 
-// Use experimentalAutoDetectLongPolling for stability in preview environments.
+// Improves Firestore connectivity in preview and restricted network environments.
 export const db = initializeFirestore(app, {
   experimentalAutoDetectLongPolling: true,
 }, firebaseConfig.firestoreDatabaseId);
@@ -26,16 +26,13 @@ export const db = initializeFirestore(app, {
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
-// Track connection status globally
 export let isFirebaseOffline = false;
 
-// Connection test with Mike-specific troubleshooting
 async function testConnection() {
   try {
-    // Attempting a shallow fetch to verify connectivity
     await getDocFromServer(doc(db, '_connection_test_', 'init'));
     isFirebaseOffline = false;
-    console.log("Firebase connection initialized successfully for Mike Nguyen Portfolio.");
+    console.log("Firebase connection initialized successfully.");
   } catch (error: unknown) {
     const errorCode = typeof error === 'object' && error !== null && 'code' in error ? String(error.code) : undefined;
     const errorMessage = error instanceof Error ? error.message : String(error);
@@ -44,7 +41,7 @@ async function testConnection() {
     if (errorMessage.includes('the client is offline') || errorCode === 'unavailable') {
       isFirebaseOffline = true;
       console.error("Connectivity issue: The Firestore client is offline.");
-      console.info("CHECKLIST FOR MIKE: \n1. Open Firebase Console: https://console.firebase.google.com/project/mike-nguyen-portfolio/firestore \n2. Click 'Create Database' (if not already done). \n3. Ensure your rules allow reads (e.g. 'allow read: if true;' for testing). \n4. Add this URL to Authorized Domains in Auth settings.");
+      console.info("Firebase checklist: confirm Firestore is created, rules are deployed, and the deployed site is listed in Authentication authorized domains.");
     } else {
       console.error("Firestore initialization error:", errorMessage);
     }

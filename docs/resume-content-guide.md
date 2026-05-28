@@ -1,4 +1,4 @@
-# GitHub-Sourced Resume Content
+# Resume Content Guide
 
 Generated from the latest resume draft and current public GitHub project metadata.
 
