@@ -64,9 +64,10 @@ Key source files:
 - `src/data/resume.ts`: curated portfolio, resume, skills, education, and experience content.
 - `src/data/githubProjects.ts`: generated GitHub project cards.
 - `scripts/sync-github-projects.mjs`: GitHub metadata sync with curated copy overrides.
-- `docs/portfolio-project-update-guide.md`: project-card writing rules.
-- `docs/resume-content-guide.md`: resume-ready project and keyword content.
-- `docs/repository-next-steps.md`: maintenance roadmap.
+- `docs/00-documentation-index.md`: documentation index and update workflow.
+- `docs/02-portfolio-project-update-guide.md`: project-card writing rules.
+- `docs/03-resume-content-guide.md`: resume-ready project and keyword content.
+- `docs/05-repository-next-steps.md`: maintenance roadmap.
 
 ## Firebase
 
@@ -88,4 +89,4 @@ The production URL is:
 https://tuannm3812.github.io
 ```
 
-See [docs/deployment.md](docs/deployment.md) for the deployment checklist.
+See [docs/01-deployment-guide.md](docs/01-deployment-guide.md) for the deployment checklist.

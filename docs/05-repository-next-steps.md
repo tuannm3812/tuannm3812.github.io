@@ -16,7 +16,7 @@ Use this as the working checklist after each portfolio or GitHub-project refresh
 
 ## Content Improvements
 
-- Update `docs/resume-content-guide.md` whenever a new project becomes strong
+- Update `docs/03-resume-content-guide.md` whenever a new project becomes strong
   enough for resume use.
 - Keep project cards to two bullets: one overview sentence and one technical
   technique/skill sentence.
@@ -61,5 +61,5 @@ Use this as the working checklist after each portfolio or GitHub-project refresh
   YouTube Snowflake Lakehouse, FAOSTAT, and portfolio automation.
 - For applied AI roles, lead with Enterprise Text-to-SQL Agent, AI Meal Planner,
   AfriWeave, ScriptClean AI, and Apple Foundation Agent.
-- Refresh `docs/github-profile-readme.md` after major portfolio changes and
+- Refresh `docs/04-github-profile-readme.md` after major portfolio changes and
   copy the final version into the profile repository when ready.
