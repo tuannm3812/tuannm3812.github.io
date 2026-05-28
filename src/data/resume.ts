@@ -126,10 +126,10 @@ export const resumeData: ResumeData = {
       category: "Deep Learning & Computer Vision",
       github: "https://github.com/tuannm3812/kaggle-birdclef-2026",
       impact: "Active BirdCLEF+ 2026 bioacoustic classification workspace",
-      stack: ["PyTorch", "EfficientNet-B0", "Perch v2", "Audio ML", "Submission Notebooks"],
+      stack: ["Perch v2", "EfficientNet-B0", "PyTorch", "Audio ML", "CPU Inference"],
       points: [
         "Built a BirdCLEF+ 2026 bioacoustic classification workspace for noisy multi-species ecological audio experiments and Kaggle submission workflows.",
-        "Applied curated EDA, EfficientNet-B0 baselines, Google Perch v2 probes, reusable PyTorch modules, lightweight model artifacts, and repeatable submission notebooks."
+        "Applied curated EDA, EfficientNet-B0 baselines, Google Perch v2 probe training, CPU-safe inference packaging, reusable PyTorch modules, and lightweight model artifacts."
       ]
     },
     {
@@ -183,10 +183,10 @@ export const resumeData: ResumeData = {
       github: "https://github.com/tuannm3812/solana-price-prediction",
       demo: "https://solana-price-prediction-tuannm3812.streamlit.app/",
       impact: "Real-time forecasting and Streamlit dashboard",
-      stack: ["Streamlit", "FastAPI", "Kraken API", "Scikit-learn", "Pytest"],
+      stack: ["Anchored Residual ML", "Kraken API", "Scikit-learn", "FastAPI", "Streamlit"],
       points: [
         "Built a Solana price forecasting workflow and dashboard for turning live market data into a repeatable next-day prediction experience.",
-        "Applied Kraken OHLCV ingestion, technical-indicator feature engineering, scikit-learn training, job-style inference flow, optional FastAPI serving, Streamlit delivery, and pytest checks."
+        "Applied Kraken OHLCV ingestion, technical-indicator feature engineering, anchored residual modeling, scikit-learn training, optional FastAPI serving, Streamlit delivery, and pytest checks."
       ]
     },
     {
@@ -195,10 +195,10 @@ export const resumeData: ResumeData = {
       github: "https://github.com/tuannm3812/sydney-rainfall-forecasting",
       demo: "https://sydney-rainfall-forecasting.streamlit.app/",
       impact: "Sydney rainfall forecasting pipeline with Streamlit delivery",
-      stack: ["Streamlit", "Scikit-learn", "Open-Meteo", "joblib", "pytest"],
+      stack: ["HistGradientBoosting", "Open-Meteo", "Scikit-learn", "joblib", "Streamlit"],
       points: [
         "Built a Sydney rainfall forecasting pipeline and Streamlit app for weather-driven classification and regression workflows.",
-        "Applied Open-Meteo ingestion, scikit-learn modeling, joblib artifacts, model metadata, feature-order checks, future-weather target handling, and dashboard-ready inference tests."
+        "Applied Open-Meteo ingestion, histogram gradient boosting models, joblib artifacts, model metadata, feature-order checks, future-weather target handling, and dashboard-ready inference tests."
       ]
     },
     {

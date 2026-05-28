@@ -199,7 +199,7 @@ const PROJECT_COPY_OVERRIDES = {
   'multi-class-food-recognition': {
     category: 'Deep Learning & Computer Vision',
     impact: 'Food-101 image classification with transfer learning and model diagnostics',
-    stack: ['PyTorch', 'ResNet50', 'ConvNeXt-Tiny', 'EfficientNet-B0', 'Calibration'],
+    stack: ['ResNet50', 'ConvNeXt-Tiny', 'EfficientNet-B0', 'PyTorch', 'Calibration'],
     points: [
       'Built a Food-101 image classification workflow for fine-grained food recognition across visually similar dish categories and ranked prediction use cases.',
       'Applied ResNet50 fine-tuning, modern backbone comparison, stratified evaluation, augmentation, label smoothing, calibration analysis, hard-class review, and deterministic inference packaging.'

@@ -132,10 +132,10 @@ export const githubProjects: Project[] = [
     "github": "https://github.com/tuannm3812/multi-class-food-recognition",
     "impact": "Food-101 image classification with transfer learning and model diagnostics",
     "stack": [
-      "PyTorch",
       "ResNet50",
       "ConvNeXt-Tiny",
       "EfficientNet-B0",
+      "PyTorch",
       "Calibration"
     ],
     "points": [
