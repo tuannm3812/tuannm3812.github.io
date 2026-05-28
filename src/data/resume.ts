@@ -235,7 +235,7 @@ export const resumeData: ResumeData = {
       ]
     },
     {
-      title: "AIPA: Enterprise Text-to-SQL Agent",
+      title: "Enterprise Text-to-SQL Agent",
       category: "NLP & Generative AI",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
       demo: "https://aipa-text-to-sql-agent.streamlit.app/",

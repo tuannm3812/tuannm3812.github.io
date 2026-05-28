@@ -9,7 +9,7 @@ Sources checked:
 - Kaggle: https://www.kaggle.com/tuannm3812
 - Current public GitHub repository descriptions, languages, and README summaries for all listed projects
 
-Last refreshed: 2026-05-18
+Last refreshed: 2026-05-28
 
 ## Formatting Recommendation
 
@@ -48,7 +48,7 @@ Each project below has two resume-ready bullets and recommended tags. Use bullet
 
 Use these first when a resume needs the strongest technical evidence: multi-component systems, production-style architecture, model or data workflow depth, tests, deployment paths, and clear product/storytelling evidence.
 
-### AIPA: Enterprise Text-to-SQL Agent (Applied AI / Text-to-SQL)
+### Enterprise Text-to-SQL Agent (Applied AI / Text-to-SQL)
 
 Recommended for:
 AI Engineer, Applied AI, AI Agent, NLP, Data Product, LLM Application, Secure Analytics
@@ -109,10 +109,10 @@ Recommended for:
 ML Engineer, Deep Learning, Audio ML, Computer Vision-adjacent ML, Edge ML, Kaggle, Research Engineering
 
 Tags:
-PyTorch, EfficientNet-B0, Google Perch v2, Kaggle, Bioacoustics, Audio Classification, Research Engineering
+Perch v2, EfficientNet-B0, PyTorch, Bioacoustics, Audio Classification, CPU Inference, Research Engineering
 
-- Architected a **BirdCLEF+ 2026 bioacoustic classification workspace** with curated EDA, PyTorch EfficientNet-B0 baselines, Google Perch v2 probes, reusable modules, and submission notebooks.
-- Documented the project with report artifacts, lightweight trained model outputs, and repeatable scripts for noisy multi-species ecological audio experiments.
+- Architected a **BirdCLEF+ 2026 bioacoustic classification workspace** with curated EDA, PyTorch EfficientNet-B0 baselines, Google Perch v2 probe training, reusable modules, and CPU-safe inference packaging.
+- Documented the project with report artifacts, lightweight trained model outputs, and repeatable submission workflows for noisy multi-species ecological audio experiments.
 
 GitHub: https://github.com/tuannm3812/kaggle-birdclef-2026
 
@@ -120,16 +120,68 @@ GitHub: https://github.com/tuannm3812/kaggle-birdclef-2026
 
 Use these to tailor toward ML, NLP, analytics, dashboarding, or data engineering roles. These are strong projects, but either narrower in scope or still waiting on refreshed outputs/notebooks before being treated as flagship evidence.
 
+### Multi-Class Food Recognition (Computer Vision / Transfer Learning)
+
+Recommended for:
+Computer Vision, Deep Learning, Transfer Learning, PyTorch, Model Diagnostics
+
+Tags:
+ResNet50, ConvNeXt-Tiny, EfficientNet-B0, PyTorch, Calibration, Food-101, Transfer Learning
+
+- Built a **Food-101 image classification workflow** for fine-grained food recognition across visually similar dish categories and ranked prediction use cases.
+- Applied ResNet50 fine-tuning, modern backbone comparison, stratified evaluation, augmentation, label smoothing, calibration analysis, hard-class review, and deterministic inference packaging.
+
+GitHub: https://github.com/tuannm3812/multi-class-food-recognition
+
+### Kaggle NFL Player Contact Detection (Kaggle / Sports ML)
+
+Recommended for:
+ML Engineer, Sports Analytics, Player Safety, Tabular ML, Feature Engineering, Temporal Modelling
+
+Tags:
+LightGBM, Tracking Features, Helmet Features, Temporal Smoothing, Type-Specific Models, Video Feature Probes
+
+- Built an **NFL player-contact detection workflow** for identifying player-player and player-ground contact from tracking data, labels, helmet boxes, and video context.
+- Applied game-play grouped validation, distance and motion features, type-specific contact modelling, temporal smoothing, blended LightGBM models, and helmet-derived video feature probes.
+
+GitHub: https://github.com/tuannm3812/kaggle-nfl-player-contact-detection
+
+### ROGII Wellbore Geology Prediction (Kaggle / Geoscience ML)
+
+Recommended for:
+ML Engineer, Geospatial Analytics, Sequence Modelling, Tabular ML, Competition Workflows
+
+Tags:
+Beam Search, Particle Filter, LightGBM, CatBoost, Masked Validation, Artifact Replay
+
+- Built a **wellbore geology workflow** for reconstructing hidden TVT trajectories from horizontal wells, paired typewells, and gamma-ray log signals.
+- Applied held-out-well masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, Beam/PF trajectory candidates, and artifact replay.
+
+GitHub: https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction
+
+### NeuroGolf 2026 (Kaggle / ARC-Style Reasoning)
+
+Recommended for:
+ML Engineer, Reasoning Systems, ONNX, Rule-Based Solvers, Competition Workflows
+
+Tags:
+ONNX, ARC Solvers, Connected Components, One-Hot Tensors, Rule Diagnostics, Solver Routing
+
+- Built a **NeuroGolf 2026 ARC-style solver workflow** for grid reasoning, task profiling, solver routing, and ONNX submission packaging.
+- Applied shape and palette diagnostics, connected-component analysis, same-shape and shape-changing solver queues, static one-hot tensors, and solved-task manifests.
+
+GitHub: https://github.com/tuannm3812/kaggle-neurogolf-2026
+
 ### CSIRO Image2Biomass (Kaggle / Computer Vision-Adjacent ML)
 
 Recommended for:
 ML Engineer, Kaggle, Applied Modelling, Computer Vision-Adjacent ML, Agritech Analytics
 
 Tags:
-Jupyter, Kaggle, EDA, Grouped Validation, Feature Engineering, Model Tuning, Biomass Prediction
+ExtraTrees, HistGradientBoosting, GroupKFold, EfficientNet-B0, PCA, Constraint Checks, Biomass Prediction
 
-- Built an **active CSIRO Image2Biomass Kaggle workflow** with EDA, grouped validation, tabular/color baselines, embedding experiments, and model tuning.
-- Added biomass constraint checks and a decision-support product concept for submission-ready pasture biomass prediction.
+- Built a **CSIRO Image2Biomass workflow** for pasture biomass prediction using image metadata, color features, and submission-ready post-processing.
+- Applied grouped validation, ExtraTrees and HistGradientBoosting sweeps, OOF blending, EfficientNet-B0 embedding probes, PCA experiments, and biomass constraint checks.
 
 GitHub: https://github.com/tuannm3812/kaggle-csiro-image2biomass
 
@@ -139,7 +191,7 @@ Recommended for:
 ML Engineer, Tabular Modelling, Kaggle, Feature Engineering, CatBoost
 
 Tags:
-Jupyter, Kaggle, CatBoost, EDA, Hyperparameter Tuning, Submission Workflow
+CatBoost, Stratified CV, Model Diagnostics, Feature Interactions, Class Weighting, EDA Diagnostics
 
 - Built a **Kaggle Playground S6E4 irrigation-need prediction workflow** with EDA, CatBoost baselines, tuning, and reusable submission steps.
 - Packaged the notebook process around repeatable feature review, model comparison, and competition-ready prediction outputs.
@@ -152,7 +204,7 @@ Recommended for:
 ML Engineer, Kaggle, Sports Analytics, Feature Engineering, LightGBM
 
 Tags:
-Jupyter, Kaggle, LightGBM, EDA, Feature Engineering, Model Diagnostics
+LightGBM, XGBoost, CatBoost, Stratified CV, Calibration, Feature Engineering
 
 - Built a **Kaggle F1 pit-stop prediction workflow** with EDA, feature engineering, LightGBM tuning, and model diagnostics.
 - Structured the project as a reusable competition notebook for analysing race-context features and submission-ready predictions.
@@ -178,10 +230,10 @@ Recommended for:
 Data Engineering, Big Data, Databricks, PySpark, Lakehouse Analytics
 
 Tags:
-PySpark, Databricks, Delta Lake, Feature Engineering, Taxi Analytics, Lakehouse
+PySpark, Databricks, Delta Lake, Spark SQL, Ridge Regression, Trip Feature Engineering
 
-- Built a **Databricks lakehouse workflow** with PySpark and Delta Lake for NYC green and yellow taxi trip analytics.
-- Produced scalable urban mobility analysis patterns by structuring ingestion, transformation, and feature-ready trip processing.
+- Built a **Databricks lakehouse workflow** for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modelling.
+- Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts.
 
 GitHub: https://github.com/tuannm3812/NYC-Taxi-Databricks
 
@@ -282,16 +334,16 @@ React, TypeScript, Tailwind, Gemini API, Transcript Processing, Rich Text Export
 
 GitHub: https://github.com/tuannm3812/ScriptClean-AI
 
-### Kaggle Maze Crawler (Kaggle / Notebook Prototype)
+### Kaggle Maze Crawler (Kaggle / Simulation Agent)
 
 Recommended for:
-Kaggle, Notebook Experimentation, Problem Solving, Supporting Portfolio Evidence
+Kaggle, Simulation Agents, Graph Search, Problem Solving, Supporting Portfolio Evidence
 
 Tags:
-Jupyter, Kaggle, Notebook Prototype, Iterative Experimentation
+Jump BFS, Wall Memory, Danger Gating, Simulation/RL, Replay Analysis
 
-- Maintained a compact **Kaggle maze-crawler notebook** for experimentation and iterative problem solving.
-- Kept as a lightweight supporting signal for competition practice and notebook-based exploration.
+- Built a **Kaggle Maze Crawler workflow** for turn-based maze navigation, simulation review, agent iteration, and Kaggle-safe submission generation.
+- Applied jump-preferred BFS, known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, and replay diagnostics.
 
 GitHub: https://github.com/tuannm3812/kaggle-maze-crawler
 
@@ -380,7 +432,9 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 
 ## Compact One-Line Bullet Bank
 
-- Built a BirdCLEF+ 2026 bioacoustic classification workspace using PyTorch, EfficientNet-B0, Google Perch v2, PCEN, and SpecAugment for noisy multi-species audio modelling.
+- Built a BirdCLEF+ 2026 bioacoustic classification workspace using PyTorch, EfficientNet-B0, Google Perch v2, reusable artifacts, and CPU-safe inference packaging for noisy multi-species audio modelling.
+- Built a Food-101 image classification workflow with ResNet50 fine-tuning, ConvNeXt/EfficientNet challengers, calibration analysis, hard-class review, and deterministic inference packaging.
+- Built an NFL contact-detection workflow using tracking features, helmet-derived video probes, temporal smoothing, type-specific contact modelling, blended LightGBM models, and grouped validation.
 - Developed VisionVoice, a PyTorch image-captioning system using Bahdanau-style attention and leakage-free VizWiz data splits.
 - Implemented a Flickr8k captioning workflow with ResNet50 spatial features, additive attention, and beam-search decoding.
 - Designed an ELT analytics warehouse using Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modelling, and SCD Type 2 snapshots for Sydney Airbnb and Census analysis.
@@ -393,10 +447,12 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 - Created an Apple Foundation Streamlit diagnostic agent with multi-step scoring logic and polished product-style interaction flows.
 - Built a multi-agent AI meal planner with FastAPI, Streamlit, scikit-learn calorie expenditure prediction, local meal RAG, nutrition verification, shopping estimates, feedback storage, and CI-tested API contracts.
 - Built a React and TypeScript portfolio with Firebase contact/comment features, GitHub Pages deployment, and automated GitHub project sync.
-- Built a NYC Taxi Databricks workflow with PySpark, Delta Lake processing, and scalable trip analytics.
+- Built a NYC Taxi Databricks workflow with PySpark, Spark SQL, Delta Lake curation, trip feature engineering, ridge regression, and segment diagnostics.
 - Built a Sydney rainfall forecasting pipeline with Open-Meteo data, scikit-learn classification/regression models, joblib artifacts, Streamlit delivery, and pytest coverage for target and feature logic.
 - Built a Snowflake lakehouse workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.
-- Built a CSIRO Image2Biomass Kaggle workflow with EDA, grouped validation, image/tabular features, model tuning, and biomass constraint checks.
+- Built a CSIRO Image2Biomass Kaggle workflow with grouped validation, ExtraTrees/HistGradientBoosting sweeps, image/color features, OOF blending, and biomass constraint checks.
+- Built a ROGII wellbore geology workflow with masked-tail validation, typewell GR alignment, Beam/PF trajectory candidates, LightGBM/CatBoost modelling, and artifact replay.
+- Built a NeuroGolf 2026 ARC-style solver workflow with ONNX export, connected-component routing, one-hot tensors, rule diagnostics, and solved-task manifests.
 - Built a Kaggle Playground S6E4 irrigation-need prediction workflow with CatBoost baselines, tuning, and reusable submission steps.
 - Built a Kaggle S6E5 F1 pit-stop prediction workflow with EDA, feature engineering, LightGBM tuning, and model diagnostics.
 - Built ScriptClean AI, a React and TypeScript Gemini app that turns raw transcripts into structured study guides with formatted export.
@@ -430,6 +486,10 @@ Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, CatBoost, LightGBM, Pan
 
 Prioritize:
 - Bioacoustic Species Classification
+- Multi-Class Food Recognition
+- Kaggle NFL Player Contact Detection
+- ROGII Wellbore Geology Prediction
+- NeuroGolf 2026
 - CSIRO Image2Biomass
 - Kaggle Playground S6E4: Predict Irrigation Need
 - Kaggle Playground S6E5: Predict F1 Pit Stops
@@ -458,7 +518,7 @@ Emphasize orchestration, data modelling, warehouse/lakehouse architecture, API i
 ### Applied AI / AI Agent Resume
 
 Prioritize:
-- AIPA: Enterprise Text-to-SQL Agent
+- Enterprise Text-to-SQL Agent
 - AI Meal Planner
 - AfriWeave
 - Apple Foundation Agent
@@ -471,7 +531,7 @@ Emphasize natural-language interfaces, agents, prompt engineering, schema RAG, l
 ### NLP / Text Analytics Resume
 
 Prioritize:
-- AIPA: Enterprise Text-to-SQL Agent
+- Enterprise Text-to-SQL Agent
 - TikTok Semantic
 - Gender Equality Policy NLP
 - AfriWeave
@@ -481,7 +541,7 @@ Emphasize text processing, schema grounding, sentiment/stance detection, topic m
 
 ## GitHub Project Inventory
 
-Current public project inventory, including AIPA even though GitHub marks it as a fork.
+Current public project inventory, including the Text-to-SQL agent even though GitHub marks it as a fork.
 
 | Project | Category | Resume Use |
 | --- | --- | --- |
@@ -489,7 +549,11 @@ Current public project inventory, including AIPA even though GitHub marks it as 
 | kaggle-csiro-image2biomass | Machine Learning / Kaggle | Strong ML project |
 | kaggle-s6e4-predict-irrigation-need | Machine Learning / Kaggle | Supporting tabular ML project |
 | kaggle-s6e5-predict-f1-pit-stops | Machine Learning / Kaggle | Supporting sports ML project |
-| kaggle-maze-crawler | Machine Learning / Kaggle | Lightweight supporting notebook |
+| kaggle-maze-crawler | Machine Learning / Kaggle | Supporting simulation-agent project |
+| kaggle-ROGII-Wellbore-Geology-Prediction | Machine Learning / Geoscience | Strong sequence and tabular ML project |
+| kaggle-neurogolf-2026 | Machine Learning / Reasoning | Strong ONNX and solver-routing project |
+| kaggle-nfl-player-contact-detection | Machine Learning / Sports Analytics | Strong tabular and temporal ML project |
+| multi-class-food-recognition | Computer Vision / Transfer Learning | Strong CV project |
 | VisionVoice | Computer Vision / Captioning | Strong ML project |
 | flickr-image-captioning | Computer Vision / Captioning | Supporting ML project |
 | airbnb-ELT-warehouse | Data Engineering | Strong data engineering project |
@@ -520,6 +584,6 @@ LinkedIn: https://linkedin.com/in/tuan-m-nguyen
 - Match projects to the job post rather than listing every strong project.
 - For ML roles, lead with modelling, validation, evaluation, and reproducibility.
 - For data engineering roles, lead with ELT, orchestration, warehousing/lakehouse, and dashboards.
-- For applied AI roles, lead with AIPA, AI Meal Planner, AfriWeave, and agent-style user workflows.
+- For applied AI roles, lead with Enterprise Text-to-SQL Agent, AI Meal Planner, AfriWeave, and agent-style user workflows.
 - Use selective bolding for high-signal project keywords, but avoid bolding full clauses or entire bullets.
 - Use live demo links only when the app is stable and publicly accessible.

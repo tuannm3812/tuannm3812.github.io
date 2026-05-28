@@ -5,7 +5,7 @@ import { githubProjects } from '../data/githubProjects';
 import { ChevronDown, ExternalLink, Github, Layers, Star, Target, Trophy } from 'lucide-react';
 
 const projectPriority: Record<string, { score: number; stars: number }> = {
-  'AIPA: Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
+  'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
   'Production-Grade ELT Pipeline': { score: 96, stars: 3 },
   'AI Meal Planner': { score: 94, stars: 3 },
   'Solana Price Forecasting': { score: 91, stars: 3 },
