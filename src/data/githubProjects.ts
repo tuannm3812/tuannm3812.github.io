@@ -56,6 +56,23 @@ export const githubProjects: Project[] = [
     ]
   },
   {
+    "title": "Kaggle NFL Player Contact Detection",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-nfl-player-contact-detection",
+    "impact": "Kaggle NFL contact-detection workflow for player-safety analytics",
+    "stack": [
+      "LightGBM",
+      "Tracking Features",
+      "Helmet Features",
+      "Temporal Smoothing",
+      "Video Probes"
+    ],
+    "points": [
+      "Built an NFL player-contact detection workflow for identifying player-player and player-ground contact from tracking data, labels, helmet boxes, and video context.",
+      "Applied game-play grouped validation, distance and motion features, type-specific contact modeling, temporal smoothing, blended LightGBM models, and helmet-derived video feature probes."
+    ]
+  },
+  {
     "title": "Kaggle ROGII Wellbore Geology Prediction",
     "category": "Machine Learning & Kaggle",
     "github": "https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction",
@@ -110,6 +127,23 @@ export const githubProjects: Project[] = [
     ]
   },
   {
+    "title": "Multi-Class Food Recognition",
+    "category": "Deep Learning & Computer Vision",
+    "github": "https://github.com/tuannm3812/multi-class-food-recognition",
+    "impact": "Food-101 image classification with transfer learning and model diagnostics",
+    "stack": [
+      "PyTorch",
+      "ResNet50",
+      "ConvNeXt-Tiny",
+      "EfficientNet-B0",
+      "Calibration"
+    ],
+    "points": [
+      "Built a Food-101 image classification workflow for fine-grained food recognition across visually similar dish categories and ranked prediction use cases.",
+      "Applied ResNet50 fine-tuning, modern backbone comparison, stratified evaluation, augmentation, label smoothing, calibration analysis, hard-class review, and deterministic inference packaging."
+    ]
+  },
+  {
     "title": "NYC Taxi Databricks",
     "category": "Data Engineering & Analytics",
     "github": "https://github.com/tuannm3812/NYC-Taxi-Databricks",
@@ -118,11 +152,12 @@ export const githubProjects: Project[] = [
       "PySpark",
       "Databricks",
       "Delta Lake",
-      "Lakehouse Analytics"
+      "Spark SQL",
+      "Ridge Regression"
     ],
     "points": [
-      "Built a Databricks lakehouse workflow for NYC green and yellow taxi trip analytics across ingestion, transformation, and business insight layers.",
-      "Applied PySpark, Delta Lake processing, scalable notebook workflows, trip-level feature preparation, and lakehouse analytics documentation."
+      "Built a Databricks lakehouse workflow for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modeling.",
+      "Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts."
     ]
   },
   {

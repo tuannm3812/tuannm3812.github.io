@@ -13,6 +13,8 @@ const projectPriority: Record<string, { score: number; stars: number }> = {
   'Kaggle CSIRO Image2biomass': { score: 88, stars: 2 },
   'Kaggle ROGII Wellbore Geology Prediction': { score: 87, stars: 2 },
   'TikTok Semantic': { score: 86, stars: 2 },
+  'Multi-Class Food Recognition': { score: 85, stars: 2 },
+  'Kaggle NFL Player Contact Detection': { score: 85, stars: 2 },
   'VisionVoice: Image Captioning': { score: 84, stars: 2 },
   'Kaggle NeuroGolf 2026': { score: 83, stars: 2 },
   'NYC Taxi Databricks': { score: 82, stars: 2 },

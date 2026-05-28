@@ -59,7 +59,7 @@ export const resumeData: ResumeData = {
   summary: "Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, and MLOps.",
   highlights: [
     { value: "7+", label: "Years building analytics and ML workflows" },
-    { value: "24", label: "Technical projects across ML, data, and AI" },
+    { value: "25", label: "Technical projects across ML, data, and AI" },
     { value: "6", label: "Core domains from CV to Kaggle ML and MLOps" },
     { value: "Full-stack", label: "From data pipelines to deployed apps" }
   ],

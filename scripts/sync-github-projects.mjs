@@ -50,10 +50,12 @@ function toTitle(name) {
     .replace(/\bCsiro\b/g, 'CSIRO')
     .replace(/\bRogii\b/g, 'ROGII')
     .replace(/\bNeurogolf\b/g, 'NeuroGolf')
+    .replace(/\bNfl\b/g, 'NFL')
     .replace(/\bS6e4\b/g, 'S6E4')
     .replace(/\bS6e5\b/g, 'S6E5')
     .replace(/\bF1\b/g, 'F1')
-    .replace(/\bFaostat\b/g, 'FAOSTAT');
+    .replace(/\bFaostat\b/g, 'FAOSTAT')
+    .replace(/\bMulti Class\b/g, 'Multi-Class');
 }
 
 function inferCategory(repo) {
@@ -122,11 +124,12 @@ function getDemoUrl(repo) {
 
 const PROJECT_COPY_OVERRIDES = {
   'NYC-Taxi-Databricks': {
+    category: 'Data Engineering & Analytics',
     impact: 'Databricks lakehouse analytics for NYC taxi trips',
-    stack: ['PySpark', 'Databricks', 'Delta Lake', 'Lakehouse Analytics'],
+    stack: ['PySpark', 'Databricks', 'Delta Lake', 'Spark SQL', 'Ridge Regression'],
     points: [
-      'Built a Databricks lakehouse workflow for NYC green and yellow taxi trip analytics across ingestion, transformation, and business insight layers.',
-      'Applied PySpark, Delta Lake processing, scalable notebook workflows, trip-level feature preparation, and lakehouse analytics documentation.'
+      'Built a Databricks lakehouse workflow for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modeling.',
+      'Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts.'
     ]
   },
   'Deep-Learning-Group-10': {
@@ -168,6 +171,15 @@ const PROJECT_COPY_OVERRIDES = {
       'Applied shape and palette diagnostics, connected-component analysis, same-shape and shape-changing solver queues, static one-hot tensors, and solved-task manifests.'
     ]
   },
+  'kaggle-nfl-player-contact-detection': {
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle NFL contact-detection workflow for player-safety analytics',
+    stack: ['LightGBM', 'Tracking Features', 'Helmet Features', 'Temporal Smoothing', 'Video Probes'],
+    points: [
+      'Built an NFL player-contact detection workflow for identifying player-player and player-ground contact from tracking data, labels, helmet boxes, and video context.',
+      'Applied game-play grouped validation, distance and motion features, type-specific contact modeling, temporal smoothing, blended LightGBM models, and helmet-derived video feature probes.'
+    ]
+  },
   'kaggle-s6e4-predict-irrigation-need': {
     impact: 'Kaggle Playground S6E4 irrigation-need prediction workflow',
     stack: ['CatBoost', 'Stratified CV', 'Model Diagnostics', 'Feature Interactions', 'Class Weighting', 'EDA Diagnostics'],
@@ -182,6 +194,15 @@ const PROJECT_COPY_OVERRIDES = {
     points: [
       'Built a Kaggle F1 pit-stop prediction workflow for estimating next-lap pit probability from race, stint, tyre, lap-time, and position context.',
       'Applied race-context feature engineering, stratified validation, LightGBM tuning, XGBoost and CatBoost challenger checks, calibration diagnostics, and race-level error review.'
+    ]
+  },
+  'multi-class-food-recognition': {
+    category: 'Deep Learning & Computer Vision',
+    impact: 'Food-101 image classification with transfer learning and model diagnostics',
+    stack: ['PyTorch', 'ResNet50', 'ConvNeXt-Tiny', 'EfficientNet-B0', 'Calibration'],
+    points: [
+      'Built a Food-101 image classification workflow for fine-grained food recognition across visually similar dish categories and ranked prediction use cases.',
+      'Applied ResNet50 fine-tuning, modern backbone comparison, stratified evaluation, augmentation, label smoothing, calibration analysis, hard-class review, and deterministic inference packaging.'
     ]
   },
   'ScriptClean-AI': {
@@ -217,7 +238,7 @@ function buildProject(repo) {
 
   return {
     title: toTitle(repo.name),
-    category: inferCategory(repo),
+    category: copy?.category || inferCategory(repo),
     github: repo.html_url,
     ...(demo ? { demo } : {}),
     impact: copy?.impact || description || `Public ${repo.language || 'technical'} project from GitHub`,
