@@ -54,7 +54,7 @@ export default function Contact() {
 
     if (!result.ok) {
       setStatus('error');
-      setSubmitError((result as ReliabilityFailure).error);
+      setSubmitError(result.error);
       return;
     }
 

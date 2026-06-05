@@ -14,6 +14,8 @@ import {
 import { useBlogComments } from '../hooks/useBlogComments';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
+import { toDisplayMessage } from '../lib/reliability/messages';
+import { ReliabilityError } from '../lib/reliability/types';
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -21,6 +23,7 @@ export default function Blog() {
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [commentSubmitError, setCommentSubmitError] = useState<ReliabilityError | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -43,6 +46,7 @@ export default function Blog() {
     if (!comment || !user || !selectedPost) return;
 
     setIsSubmitting(true);
+    setCommentSubmitError(null);
 
     const result = await safeCreateDocument(
       collection(db, `blog_posts/${selectedPost.id}/comments`),
@@ -57,6 +61,7 @@ export default function Blog() {
 
     if (!result.ok) {
       setIsSubmitting(false);
+      setCommentSubmitError(result.error);
       return;
     }
 
@@ -188,6 +193,11 @@ export default function Blog() {
                     rows={3}
                     maxLength={2000}
                   />
+                  {commentSubmitError ? (
+                    <p className="text-xs text-red-500 font-medium py-1">
+                      Failed to post comment: {toDisplayMessage(commentSubmitError).detail}
+                    </p>
+                  ) : null}
                   <div className="flex justify-end">
                     <button
                       onClick={handlePostComment}

@@ -31,7 +31,7 @@ export function useBlogComments(postId: string | null) {
 
     const commentQuery = query(collection(db, `blog_posts/${postId}/comments`), orderBy('createdAt', 'desc'));
     const unsubscribe = safeSubscribeSnapshot<BlogComment>(
-      commentQuery as Query,
+      commentQuery,
       `blog_posts/${postId}/comments`,
       (items) => {
         setComments(items);
