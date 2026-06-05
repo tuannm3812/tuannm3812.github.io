@@ -14,6 +14,9 @@ export function useBlogComments(postId: string | null) {
   const [comments, setComments] = useState<BlogComment[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [retryTrigger, setRetryTrigger] = useState(0);
+
+  const retry = () => setRetryTrigger((prev) => prev + 1);
 
   useEffect(() => {
     if (!postId) {
@@ -43,7 +46,7 @@ export function useBlogComments(postId: string | null) {
     return () => {
       unsubscribe();
     };
-  }, [postId]);
+  }, [postId, retryTrigger]);
 
-  return { comments, loading, error, setError };
+  return { comments, loading, error, setError, retry };
 }

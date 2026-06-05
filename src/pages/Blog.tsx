@@ -17,7 +17,7 @@ import FeatureErrorPanel from '../components/FeatureErrorPanel';
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-  const { comments, loading: commentsLoading, error: commentsError } = useBlogComments(selectedPost?.id ?? null);
+  const { comments, loading: commentsLoading, error: commentsError, retry: retryComments } = useBlogComments(selectedPost?.id ?? null);
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -210,7 +210,7 @@ export default function Blog() {
                     title="Comments unavailable"
                     detail={commentsError}
                     cta="Retry"
-                    onRetry={() => setSelectedPost(selectedPost ? { ...selectedPost } : null)}
+                    onRetry={retryComments}
                   />
                 ) : null}
 
