@@ -7,7 +7,7 @@ import { db, collection, serverTimestamp } from '../lib/firebase';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
-import { ReliabilityError } from '../lib/reliability/types';
+import { ReliabilityError, ReliabilityFailure } from '../lib/reliability/types';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -54,13 +54,15 @@ export default function Contact() {
 
     if (!result.ok) {
       setStatus('error');
-      setSubmitError((result as any).error);
+      setSubmitError((result as ReliabilityFailure).error);
       return;
     }
 
     setStatus('success');
     setFormData({ name: '', email: '', message: '' });
   };
+
+  const displayError = status === 'error' && submitError ? toDisplayMessage(submitError) : null;
 
   return (
     <div className="grid md:grid-cols-2 gap-10 py-8">
@@ -140,12 +142,12 @@ export default function Contact() {
               Send another
             </button>
           </motion.div>
-        ) : status === 'error' && submitError ? (
+        ) : status === 'error' && displayError ? (
           <div className="py-12">
             <FeatureErrorPanel
-              title={toDisplayMessage(submitError).title}
-              detail={toDisplayMessage(submitError).detail}
-              cta={toDisplayMessage(submitError).cta}
+              title={displayError.title}
+              detail={displayError.detail}
+              cta={displayError.cta}
               onRetry={() => {
                 setStatus('idle');
                 setSubmitError(null);

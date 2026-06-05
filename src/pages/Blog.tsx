@@ -4,31 +4,20 @@ import { ArrowLeft, ArrowRight, Calendar, LogIn, MessageSquare, User } from 'luc
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { blogPosts, BlogPost } from '../data/blog';
 import {
-  OperationType,
-  Timestamp,
-  addDoc,
   auth,
   collection,
   db,
   googleProvider,
-  handleFirestoreError,
-  onSnapshot,
-  orderBy,
-  query,
   serverTimestamp,
   signInWithPopup,
 } from '../lib/firebase';
-
-interface Comment {
-  id: string;
-  authorName: string;
-  text: string;
-  createdAt: Timestamp;
-}
+import { useBlogComments } from '../hooks/useBlogComments';
+import { safeCreateDocument } from '../lib/reliability/firebaseOps';
+import FeatureErrorPanel from '../components/FeatureErrorPanel';
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-  const [comments, setComments] = useState<Comment[]>([]);
+  const { comments, loading: commentsLoading, error: commentsError } = useBlogComments(selectedPost?.id ?? null);
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,29 +29,6 @@ export default function Blog() {
 
     return () => unsubscribe();
   }, []);
-
-  useEffect(() => {
-    if (!selectedPost) return;
-
-    const path = `blog_posts/${selectedPost.id}/comments`;
-    const commentsQuery = query(collection(db, path), orderBy('createdAt', 'desc'));
-
-    const unsubscribe = onSnapshot(
-      commentsQuery,
-      (snapshot) => {
-        const fetchedComments = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Comment[];
-        setComments(fetchedComments);
-      },
-      (error) => {
-        handleFirestoreError(error, OperationType.LIST, path);
-      },
-    );
-
-    return () => unsubscribe();
-  }, [selectedPost]);
 
   const handleLogin = async () => {
     try {
@@ -77,21 +43,25 @@ export default function Blog() {
     if (!comment || !user || !selectedPost) return;
 
     setIsSubmitting(true);
-    const path = `blog_posts/${selectedPost.id}/comments`;
 
-    try {
-      await addDoc(collection(db, path), {
+    const result = await safeCreateDocument(
+      collection(db, `blog_posts/${selectedPost.id}/comments`),
+      {
         postId: selectedPost.id,
         authorName: user.displayName || 'Anonymous',
         text: comment,
         createdAt: serverTimestamp(),
-      });
-      setNewComment('');
-    } catch (error) {
-      handleFirestoreError(error, OperationType.CREATE, path);
-    } finally {
+      },
+      `blog_posts/${selectedPost.id}/comments`,
+    );
+
+    if (!result.ok) {
       setIsSubmitting(false);
+      return;
     }
+
+    setNewComment('');
+    setIsSubmitting(false);
   };
 
   return (
@@ -231,9 +201,26 @@ export default function Blog() {
               )}
 
               <div className="space-y-4">
-                {comments.length === 0 ? (
-                  <p className="text-center text-slate-500 italic py-4">No comments yet. Be the first to start the conversation.</p>
-                ) : (
+                {commentsLoading ? (
+                  <p className="text-sm text-slate-500 italic py-2">Loading comments…</p>
+                ) : null}
+                
+                {commentsError ? (
+                  <FeatureErrorPanel
+                    title="Comments unavailable"
+                    detail={commentsError}
+                    cta="Retry"
+                    onRetry={() => setSelectedPost(selectedPost ? { ...selectedPost } : null)}
+                  />
+                ) : null}
+
+                {!commentsLoading && !commentsError && comments.length === 0 ? (
+                  <p className="text-center text-slate-500 italic py-4">
+                    No comments yet. Be the first to start the conversation.
+                  </p>
+                ) : null}
+
+                {!commentsLoading && !commentsError && comments.length > 0 ? (
                   comments.map((comment) => (
                     <motion.div
                       key={comment.id}
@@ -244,13 +231,15 @@ export default function Blog() {
                       <div className="flex justify-between items-center">
                         <span className="font-bold text-brand">{comment.authorName}</span>
                         <span className="text-xs text-slate-500">
-                          {comment.createdAt?.toDate().toLocaleDateString()}
+                          {comment.createdAt && typeof comment.createdAt.toDate === 'function'
+                            ? comment.createdAt.toDate().toLocaleDateString()
+                            : new Date().toLocaleDateString()}
                         </span>
                       </div>
                       <p className="text-slate-600 dark:text-slate-400">{comment.text}</p>
                     </motion.div>
                   ))
-                )}
+                ) : null}
               </div>
             </div>
           </motion.div>
