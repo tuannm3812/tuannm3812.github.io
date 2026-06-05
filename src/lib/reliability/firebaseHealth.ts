@@ -1,5 +1,5 @@
 import { getDocFromServer, doc } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db, registerHealthCheck } from '../firebase';
 
 export interface FirebaseHealthState {
   isOffline: boolean;
@@ -14,6 +14,8 @@ let state: FirebaseHealthState = {
   lastCheckedAt: null,
   lastMessage: null,
 };
+
+registerHealthCheck(() => !state.isOffline);
 
 const listeners = new Set<(current: FirebaseHealthState) => void>();
 let running = false;
@@ -31,9 +33,14 @@ export function getFirebaseHealth(): FirebaseHealthState {
 
 export function subscribeFirebaseHealth(listener: (current: FirebaseHealthState) => void) {
   listeners.add(listener);
-  listener({ ...state });
+  if (listeners.size === 1) {
+    startFirebaseHealthMonitoring();
+  }
   return () => {
     listeners.delete(listener);
+    if (listeners.size === 0) {
+      stopFirebaseHealthMonitoring();
+    }
   };
 }
 
@@ -47,10 +54,12 @@ export async function refreshFirebaseHealth() {
       lastMessage: null,
     };
   } catch (error) {
+    const code = typeof error === 'object' && error !== null && 'code' in error ? String((error as { code?: unknown }).code) : undefined;
+    const isPermissionDenied = code === 'permission-denied';
     const message = error instanceof Error ? error.message : String(error);
     state = {
-      isOffline: true,
-      isReady: false,
+      isOffline: !isPermissionDenied,
+      isReady: isPermissionDenied,
       lastCheckedAt: Date.now(),
       lastMessage: message,
     };

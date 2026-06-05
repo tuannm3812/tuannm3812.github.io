@@ -6,7 +6,6 @@ import { useTheme } from '../hooks/useTheme';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { useFirebaseHealth } from '../hooks/useFirebaseHealth';
-import { startFirebaseHealthMonitoring, stopFirebaseHealthMonitoring } from '../lib/reliability/firebaseHealth';
 import ErrorBoundary from './ErrorBoundary';
 
 const navItems = [
@@ -28,11 +27,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    startFirebaseHealthMonitoring(30000);
-    return () => stopFirebaseHealthMonitoring();
-  }, []);
 
   useEffect(() => {
     if (isFirebaseOffline) {

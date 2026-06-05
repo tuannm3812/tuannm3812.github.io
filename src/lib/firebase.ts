@@ -10,8 +10,6 @@ import {
   orderBy, 
   onSnapshot, 
   serverTimestamp,
-  doc,
-  getDocFromServer,
   Timestamp
 } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
@@ -26,29 +24,10 @@ export const db = initializeFirestore(app, {
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
-export let isFirebaseOffline = false;
-
-async function testConnection() {
-  try {
-    await getDocFromServer(doc(db, '_connection_test_', 'init'));
-    isFirebaseOffline = false;
-    console.log("Firebase connection initialized successfully.");
-  } catch (error: unknown) {
-    const errorCode = typeof error === 'object' && error !== null && 'code' in error ? String(error.code) : undefined;
-    const errorMessage = error instanceof Error ? error.message : String(error);
-
-    console.group("Firebase Connectivity Check");
-    if (errorMessage.includes('the client is offline') || errorCode === 'unavailable') {
-      isFirebaseOffline = true;
-      console.error("Connectivity issue: The Firestore client is offline.");
-      console.info("Firebase checklist: confirm Firestore is created, rules are deployed, and the deployed site is listed in Authentication authorized domains.");
-    } else {
-      console.error("Firestore initialization error:", errorMessage);
-    }
-    console.groupEnd();
-  }
+let healthGetter: (() => boolean) | null = null;
+export function registerHealthCheck(getter: () => boolean) {
+  healthGetter = getter;
 }
-testConnection();
 
 export enum OperationType {
   CREATE = 'create',
@@ -93,7 +72,7 @@ export function handleFirestoreError(
 }
 
 export function isFirestoreReady() {
-  return isFirebaseOffline === false;
+  return healthGetter ? healthGetter() : true;
 }
 
 
