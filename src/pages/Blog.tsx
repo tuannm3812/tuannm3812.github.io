@@ -33,6 +33,11 @@ export default function Blog() {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    setNewComment('');
+    setCommentSubmitError(null);
+  }, [selectedPost]);
+
   const handleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider);

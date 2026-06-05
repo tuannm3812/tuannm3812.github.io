@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Query, collection, orderBy, query } from 'firebase/firestore';
+import { collection, orderBy, query } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { safeSubscribeSnapshot } from '../lib/reliability/firebaseOps';
 
