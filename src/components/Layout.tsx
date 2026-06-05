@@ -18,7 +18,7 @@ const navItems = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showStatus, setShowStatus] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const firebaseHealth = useFirebaseHealth();
@@ -29,12 +29,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (isFirebaseOffline) {
-      setShowStatus(true);
-    } else {
-      setShowStatus(false);
+    if (!isFirebaseOffline) {
+      setIsDismissed(false);
     }
   }, [isFirebaseOffline]);
+
+  const showStatus = isFirebaseOffline && !isDismissed;
 
   return (
     <div className="site-backdrop min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
@@ -61,7 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Check Firestore <ExternalLink size={14} />
                 </a>
                 <button
-                  onClick={() => setShowStatus(false)}
+                  onClick={() => setIsDismissed(true)}
                   className="bg-white/20 hover:bg-white/30 px-2 py-1 rounded transition-colors"
                 >
                   Dismiss
