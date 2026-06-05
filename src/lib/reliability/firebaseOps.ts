@@ -1,5 +1,4 @@
 import { addDoc, CollectionReference, Query, onSnapshot, DocumentData, QuerySnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
 import { OperationResult, mapErrorToResult } from './types';
 
 export async function safeCreateDocument<T>(
@@ -8,10 +7,9 @@ export async function safeCreateDocument<T>(
   path: string,
 ): Promise<OperationResult<string>> {
   try {
-    const ref = await addDoc(target, data as never);
+    const ref = await addDoc(target, data as any);
     return { ok: true, data: ref.id };
   } catch (error) {
-    void db;
     return mapErrorToResult('create', error, path);
   }
 }
