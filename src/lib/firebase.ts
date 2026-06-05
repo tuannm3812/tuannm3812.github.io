@@ -29,29 +29,7 @@ export function registerHealthCheck(getter: () => boolean) {
   healthGetter = getter;
 }
 
-export enum OperationType {
-  CREATE = 'create',
-  UPDATE = 'update',
-  DELETE = 'delete',
-  LIST = 'list',
-  GET = 'get',
-  WRITE = 'write',
-}
 
-export function handleFirestoreError(
-  error: unknown,
-  operationType: OperationType,
-  path: string | null,
-) {
-  const msg = error instanceof Error ? error.message : String(error);
-  console.error('Firestore Error', {
-    operationType,
-    path,
-    error: msg,
-    user: auth.currentUser?.email ?? null,
-  });
-  throw error;
-}
 
 export function isFirestoreReady() {
   return healthGetter ? healthGetter() : true;

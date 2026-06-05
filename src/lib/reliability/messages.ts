@@ -47,9 +47,10 @@ export function toDisplayMessage(error: ReliabilityError | null): ReliabilityDis
     };
   }
 
+  console.error('Reliability error:', error);
   return {
     title: 'Something went wrong',
-    detail: error.message || 'Please try again. If it keeps happening, retry later.',
+    detail: 'An unexpected error occurred. Please try again in a few moments.',
     cta: 'Retry',
   };
 }
