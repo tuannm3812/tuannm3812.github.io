@@ -5,7 +5,8 @@ import { AlertTriangle, BarChart3, ExternalLink, Github, Linkedin, Mail, Menu, M
 import { useTheme } from '../hooks/useTheme';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
-import { isFirebaseOffline } from '../lib/firebase';
+import { useFirebaseHealth } from '../hooks/useFirebaseHealth';
+import { startFirebaseHealthMonitoring, stopFirebaseHealthMonitoring } from '../lib/reliability/firebaseHealth';
 import ErrorBoundary from './ErrorBoundary';
 
 const navItems = [
@@ -21,20 +22,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [showStatus, setShowStatus] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const firebaseHealth = useFirebaseHealth();
+  const isFirebaseOffline = firebaseHealth.isOffline;
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (isFirebaseOffline) {
-        setShowStatus(true);
-      }
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    startFirebaseHealthMonitoring(30000);
+    return () => stopFirebaseHealthMonitoring();
   }, []);
+
+  useEffect(() => {
+    if (isFirebaseOffline) {
+      setShowStatus(true);
+    } else {
+      setShowStatus(false);
+    }
+  }, [isFirebaseOffline]);
 
   return (
     <div className="site-backdrop min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
