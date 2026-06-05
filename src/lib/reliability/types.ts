@@ -31,9 +31,11 @@ export function mapErrorToResult(operation: string, error: unknown, path?: strin
   const message =
     error instanceof Error
       ? error.message
-      : typeof error === 'string'
-        ? error
-        : 'Unknown reliability error';
+      : typeof error === 'object' && error !== null && 'message' in error
+        ? String((error as { message: unknown }).message)
+        : typeof error === 'string'
+          ? error
+          : 'Unknown reliability error';
 
   const normalizedCode = code?.toLowerCase();
   const normalizedMessage = message.toLowerCase();

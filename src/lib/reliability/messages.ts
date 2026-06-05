@@ -17,7 +17,7 @@ export function toDisplayMessage(error: ReliabilityError | null): ReliabilityDis
 
   if (error.kind === ReliabilityErrorKind.OFFLINE) {
     return {
-      title: 'Firebase is currently offline',
+      title: 'Connection lost',
       detail: 'Static pages still work. Keep your message and try again when connectivity returns.',
       cta: 'Retry',
     };
@@ -26,7 +26,7 @@ export function toDisplayMessage(error: ReliabilityError | null): ReliabilityDis
   if (error.kind === ReliabilityErrorKind.PERMISSION_DENIED) {
     return {
       title: 'Action blocked by permissions',
-      detail: 'Your Firestore rules may not allow this operation right now.',
+      detail: 'You do not have permission to perform this action.',
       cta: 'Retry',
     };
   }
