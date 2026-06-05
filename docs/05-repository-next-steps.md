@@ -63,3 +63,12 @@ Use this as the working checklist after each portfolio or GitHub-project refresh
   AfriWeave, ScriptClean AI, and Apple Foundation Agent.
 - Refresh `docs/04-github-profile-readme.md` after major portfolio changes and
   copy the final version into the profile repository when ready.
+
+## Reliability smoke checks (post-change)
+
+- Run `npm run check`.
+- Verify `/`, `/experience`, `/projects` load with no Firebase path dependency.
+- Simulate Firebase offline and confirm `/contact` shows actionable error, retains values, and allows retry.
+- Simulate Firebase offline on `/blog`, open a post, and verify post body renders while comments show fallback.
+- Confirm Google sign-in prompt path on `/blog` still works after retries.
+- Confirm layout banner appears only as informative status and does not block routing.
