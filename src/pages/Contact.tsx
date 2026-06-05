@@ -3,11 +3,16 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, BarChart3 } from 'lucide-react';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
-import { db, collection, addDoc, serverTimestamp, handleFirestoreError, OperationType } from '../lib/firebase';
+import { db, collection, serverTimestamp } from '../lib/firebase';
+import FeatureErrorPanel from '../components/FeatureErrorPanel';
+import { toDisplayMessage } from '../lib/reliability/messages';
+import { safeCreateDocument } from '../lib/reliability/firebaseOps';
+import { ReliabilityError } from '../lib/reliability/types';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [submitError, setSubmitError] = useState<ReliabilityError | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validate = () => {
@@ -34,24 +39,27 @@ export default function Contact() {
     if (!validate()) return;
 
     setStatus('submitting');
-    try {
-      await addDoc(collection(db, 'contacts'), {
+    setSubmitError(null);
+
+    const result = await safeCreateDocument(
+      collection(db, 'contacts'),
+      {
         name: formData.name.trim(),
         email: formData.email.trim(),
         message: formData.message.trim(),
-        createdAt: serverTimestamp()
-      });
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      console.error('Submit error:', error);
+        createdAt: serverTimestamp(),
+      },
+      'contacts',
+    );
+
+    if (!result.ok) {
       setStatus('error');
-      try {
-        handleFirestoreError(error, OperationType.CREATE, 'contacts');
-      } catch (err) {
-        // Error already logged by handleFirestoreError
-      }
+      setSubmitError((result as any).error);
+      return;
     }
+
+    setStatus('success');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -132,6 +140,18 @@ export default function Contact() {
               Send another
             </button>
           </motion.div>
+        ) : status === 'error' && submitError ? (
+          <div className="py-12">
+            <FeatureErrorPanel
+              title={toDisplayMessage(submitError).title}
+              detail={toDisplayMessage(submitError).detail}
+              cta={toDisplayMessage(submitError).cta}
+              onRetry={() => {
+                setStatus('idle');
+                setSubmitError(null);
+              }}
+            />
+          </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
