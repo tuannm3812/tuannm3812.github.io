@@ -17,21 +17,21 @@ let state: FirebaseHealthState = {
 
 registerHealthCheck(() => !state.isOffline);
 
-const listeners = new Set<(current: FirebaseHealthState) => void>();
+let listeners = new Set<() => void>();
 let running = false;
 let timer: ReturnType<typeof setInterval> | null = null;
 
 function notify() {
   for (const listener of listeners) {
-    listener({ ...state });
+    listener();
   }
 }
 
 export function getFirebaseHealth(): FirebaseHealthState {
-  return { ...state };
+  return state;
 }
 
-export function subscribeFirebaseHealth(listener: (current: FirebaseHealthState) => void) {
+export function subscribeFirebaseHealth(listener: () => void) {
   listeners.add(listener);
   if (listeners.size === 1) {
     startFirebaseHealthMonitoring();

@@ -69,6 +69,7 @@ export function handleFirestoreError(
     error: msg,
     user: auth.currentUser?.email ?? null,
   });
+  throw error;
 }
 
 export function isFirestoreReady() {
