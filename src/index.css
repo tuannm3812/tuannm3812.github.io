@@ -8,7 +8,7 @@
 
   --color-brand: #0540F2;
   --color-brand-light: #056CF2;
-  --color-brand-dark: #402516;
+  --color-brand-dark: #1e1b4b;
   --color-brand-bg: #F2F2F2;
 }
 
@@ -20,31 +20,34 @@
   body {
     min-width: 320px;
   }
+  
+  /* Clean outline styles for accessibility and minimal bold styling */
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--color-brand) !important;
+    box-shadow: 0 0 0 2px rgba(5, 64, 242, 0.15);
+  }
 }
 
 @layer utilities {
   .site-backdrop {
     background:
-      linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
-      linear-gradient(135deg, rgba(5, 64, 242, 0.06), transparent 34%),
-      #f8fafc;
-    background-size: 48px 48px, 48px 48px, 100% 100%, auto;
+      linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      #fafafa;
+    background-size: 40px 40px, 40px 40px;
   }
 
   .dark .site-backdrop {
     background:
-      linear-gradient(rgba(148, 163, 184, 0.075) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(148, 163, 184, 0.075) 1px, transparent 1px),
-      linear-gradient(135deg, rgba(5, 64, 242, 0.12), transparent 36%),
-      #020617;
-    background-size: 48px 48px, 48px 48px, 100% 100%, auto;
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      #0b0f19;
+    background-size: 40px 40px, 40px 40px;
   }
 
   .expertise-band {
     background:
-      linear-gradient(90deg, rgba(5, 64, 242, 0.11), rgba(20, 184, 166, 0.08)),
-      linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
-    background-size: auto, 100% 12px;
+      linear-gradient(90deg, rgba(5, 64, 242, 0.05), rgba(5, 108, 242, 0.03));
   }
 }
