@@ -55,12 +55,14 @@ Use this as the working checklist after each portfolio or GitHub-project refresh
 
 - Keep 4-6 role-specific projects in a resume version rather than listing every
   strong project.
-- For ML roles, lead with Bioacoustic Species Classification, Food Recognition,
-  NFL Contact Detection, ROGII, NeuroGolf, CSIRO, and image captioning.
-- For data engineering roles, lead with Production ELT, NYC Taxi Databricks,
-  YouTube Snowflake Lakehouse, FAOSTAT, and portfolio automation.
-- For applied AI roles, lead with Enterprise Text-to-SQL Agent, AI Meal Planner,
-  AfriWeave, ScriptClean AI, and Apple Foundation Agent.
+- For ML / deep learning roles, lead with Bioacoustic Species Classification,
+  FoodLens, NFL Contact Detection, ROGII, NeuroGolf, CSIRO, and image captioning.
+- For data engineering roles, lead with Production-Grade ELT Pipeline, NYC Taxi
+  Databricks, YouTube Snowflake Lakehouse, FAOSTAT, and TikTok Semantic.
+- For AI agent / applied AI roles, lead with Enterprise Text-to-SQL Agent,
+  AI Meal Planner, AfriWeave, ScriptClean AI, and Apple Foundation Agent.
+- For MLOps roles, lead with Solana Price Forecasting, Sydney Rainfall
+  Forecasting, and the portfolio itself as a deployed CI/CD artifact.
 - Refresh `docs/04-github-profile-readme.md` after major portfolio changes and
   copy the final version into the profile repository when ready.
 

@@ -4,21 +4,21 @@ I'm a **Machine Learning Engineer** and **Data Professional** based in Sydney. I
 
 My work sits at the intersection of:
 
-- 🤖 **Machine learning and deep learning**: PyTorch, scikit-learn, LightGBM, CatBoost, transfer learning, computer vision, audio ML, and model diagnostics
-- 🧱 **Data engineering and analytics**: Python, SQL, PySpark, Airflow, dbt, BigQuery, Snowflake, Databricks, Delta Lake, and dashboard-ready marts
-- 🧠 **Applied AI and NLP**: text-to-SQL, schema RAG, Gemini/Ollama workflows, semantic analytics, topic modelling, and product-style AI prototypes
-- 🚀 **MLOps and product delivery**: FastAPI, Streamlit, GitHub Actions, pytest, model artifacts, submission workflows, and reproducible project structure
+- 🤖 **AI agents and LLM products**: text-to-SQL, hybrid schema RAG, Gemini/Ollama workflows, multi-agent systems, and product-style AI prototypes
+- 👁️ **Deep learning and vision**: PyTorch, transfer learning, bioacoustic classification, image captioning, food recognition, audio ML, and calibration
+- 🏗️ **Data engineering and analytics**: Python, SQL, PySpark, Airflow, dbt, Snowflake, Databricks, Delta Lake, and warehouse analytics
+- 🏆 **Machine learning and Kaggle**: LightGBM, CatBoost, competition workflows, tabular modelling, grouped validation, and simulation agents
+- 🚀 **MLOps and deployment**: FastAPI, Streamlit, GitHub Actions, pytest, model artifacts, and reproducible project structure
 
 ## 🔭 Current Focus
 
-I am currently sharpening a portfolio of public projects across Kaggle-style experimentation, production-minded data apps, and analytics systems:
+I am currently sharpening a portfolio of 30+ public projects across Kaggle-style experimentation, production-minded data apps, and analytics systems:
 
-- 🎧 **Bioacoustic classification** with BirdCLEF+ workflows, EfficientNet-B0 baselines, Google Perch v2 probes, and CPU-safe inference packaging
-- 👁️ **Computer vision** projects including Food-101 recognition, Flickr8k captioning, and VizWiz accessibility-focused image captioning
-- 🏆 **Kaggle competition systems** for NFL player contact detection, CSIRO biomass prediction, ROGII wellbore geology, NeuroGolf ARC-style reasoning, F1 pit stops, irrigation need, and maze-navigation agents
-- 🏗️ **Lakehouse and warehouse analytics** with Airbnb/Census ELT, NYC Taxi Databricks, and YouTube Trending Snowflake workflows
-- 📈 **Forecasting and MLOps** with live Solana market prediction and Sydney rainfall forecasting dashboards
-- 🛠️ **Applied AI products** including an enterprise-style Text-to-SQL agent, an AI meal planner, ScriptClean AI, AfriWeave, and Streamlit diagnostic prototypes
+- 🤖 **AI agents and LLM products** including an enterprise text-to-SQL agent with hybrid schema RAG, a multi-agent AI meal planner, ScriptClean AI (Gemini-powered study notes), and AfriWeave (transformer NLP prototype)
+- 👁️ **Deep learning and vision** projects including FoodLens (calibrated Food-101 recognition with FastAPI + React), BirdCLEF+ 2026 bioacoustic classification, VizWiz image captioning, and Flickr8k captioning
+- 🏆 **Kaggle competition systems** for NFL player contact detection, CSIRO biomass prediction, ROGII wellbore geology, NeuroGolf ARC-style reasoning, Orbit Wars simulation, stellar class prediction, F1 pit stops, irrigation need, and maze-navigation agents
+- 🏗️ **Lakehouse and warehouse analytics** with Airbnb/Census ELT (Airflow + dbt), NYC Taxi Databricks, YouTube Trending Snowflake, FAOSTAT food price dashboard, and TikTok semantic analytics
+- 📈 **MLOps and forecasting** with live Solana market prediction and Sydney rainfall forecasting dashboards
 
 ## ✨ Selected Projects
 
@@ -26,11 +26,11 @@ I am currently sharpening a portfolio of public projects across Kaggle-style exp
 | --- | --- |
 | [Enterprise Text-to-SQL Agent](https://github.com/tuannm3812/aipa-text-to-sql-agent) | Hybrid schema RAG, Gemini/Ollama generation, SQLGlot validation, local SQLite execution, and Streamlit delivery |
 | [AI Meal Planner](https://github.com/tuannm3812/ai-meal-planner) | FastAPI, Streamlit, calorie prediction, local meal RAG, nutrition checks, feedback capture, and CI-tested contracts |
+| [FoodLens: Calibrated Food Recognition](https://github.com/tuannm3812/foodlens-calibrated-food-recognition) | ResNet50 calibration, confidence routing, multi-food crop detection, and FastAPI + React full-stack prototype |
 | [Airbnb ELT Warehouse](https://github.com/tuannm3812/airbnb-ELT-warehouse) | Airflow, dbt, PostgreSQL, medallion modelling, SCD Type 2 snapshots, and Sydney Airbnb/Census analytics |
 | [NYC Taxi Databricks](https://github.com/tuannm3812/NYC-Taxi-Databricks) | PySpark, Spark SQL, Delta Lake curation, trip feature engineering, ridge regression, and segment diagnostics |
-| [Multi-Class Food Recognition](https://github.com/tuannm3812/multi-class-food-recognition) | Food-101 transfer learning with ResNet50, ConvNeXt/EfficientNet challengers, calibration, and hard-class review |
-| [NFL Player Contact Detection](https://github.com/tuannm3812/kaggle-nfl-player-contact-detection) | Tracking features, helmet-derived video probes, temporal smoothing, type-specific contact modelling, and LightGBM blending |
 | [Bioacoustic Species Classification](https://github.com/tuannm3812/kaggle-birdclef-2026) | BirdCLEF+ audio ML with EfficientNet-B0, Perch v2, reusable artifacts, and submission-ready inference workflows |
+| [NFL Player Contact Detection](https://github.com/tuannm3812/kaggle-nfl-player-contact-detection) | Tracking features, helmet-derived video probes, temporal smoothing, type-specific contact modelling, and LightGBM blending |
 | [Solana Price Forecasting](https://github.com/tuannm3812/solana-price-prediction) | Kraken OHLCV ingestion, technical indicators, anchored residual modelling, FastAPI option, and Streamlit delivery |
 
 ## 🧭 How I Think About Good Data Work

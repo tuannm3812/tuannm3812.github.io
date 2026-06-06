@@ -9,7 +9,7 @@ Sources checked:
 - Kaggle: https://www.kaggle.com/tuannm3812
 - Current public GitHub repository descriptions, languages, and README summaries for all listed projects
 
-Last refreshed: 2026-05-28
+Last refreshed: 2026-06-06
 
 ## Formatting Recommendation
 
@@ -120,18 +120,18 @@ GitHub: https://github.com/tuannm3812/kaggle-birdclef-2026
 
 Use these to tailor toward ML, NLP, analytics, dashboarding, or data engineering roles. These are strong projects, but either narrower in scope or still waiting on refreshed outputs/notebooks before being treated as flagship evidence.
 
-### Multi-Class Food Recognition (Computer Vision / Transfer Learning)
+### FoodLens: Calibrated Food Recognition (Computer Vision / Deployed App)
 
 Recommended for:
-Computer Vision, Deep Learning, Transfer Learning, PyTorch, Model Diagnostics
+Computer Vision, Deep Learning, Transfer Learning, PyTorch, Full-Stack ML, FastAPI, React
 
 Tags:
-ResNet50, ConvNeXt-Tiny, EfficientNet-B0, PyTorch, Calibration, Food-101, Transfer Learning
+ResNet50, PyTorch, FastAPI, React, Calibration, Multi-food Detection, Confidence Routing, Food-101
 
-- Built a **Food-101 image classification workflow** for fine-grained food recognition across visually similar dish categories and ranked prediction use cases.
-- Applied ResNet50 fine-tuning, modern backbone comparison, stratified evaluation, augmentation, label smoothing, calibration analysis, hard-class review, and deterministic inference packaging.
+- Built **FoodLens**, a calibrated Food-101 recognition system featuring confidence-based decision routing, multi-food crop detection, and a full-stack FastAPI + React prototype.
+- Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, image/video/URL ingestion pipelines, and confidence-gated routing for reliable multi-class food identification.
 
-GitHub: https://github.com/tuannm3812/multi-class-food-recognition
+GitHub: https://github.com/tuannm3812/foodlens-calibrated-food-recognition
 
 ### Kaggle NFL Player Contact Detection (Kaggle / Sports ML)
 
@@ -210,6 +210,32 @@ LightGBM, XGBoost, CatBoost, Stratified CV, Calibration, Feature Engineering
 - Structured the project as a reusable competition notebook for analysing race-context features and submission-ready predictions.
 
 GitHub: https://github.com/tuannm3812/kaggle-s6e5-predict-f1-pit-stops
+
+### Kaggle S6E6: Predicting Stellar Class (Kaggle / Astronomical ML)
+
+Recommended for:
+ML Engineer, Tabular Modelling, Kaggle, Multi-class Classification, Astronomical Data
+
+Tags:
+LightGBM, XGBoost, CatBoost, Stratified CV, Feature Engineering, Astronomical Data
+
+- Built a **Kaggle Playground S6E6 stellar class prediction workflow** for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.
+- Applied gradient boosting sweeps, stratified cross-validation, astronomical feature engineering, class-balance diagnostics, and reusable submission validation.
+
+GitHub: https://github.com/tuannm3812/kaggle-s6e6-predicting-stellar-class
+
+### Kaggle Orbit Wars (Kaggle / Simulation Agent)
+
+Recommended for:
+ML Engineer, Simulation, Reinforcement Learning, Agent Design, Competition Workflows
+
+Tags:
+Simulation/RL, Orbital Mechanics, BFS, Strategy Agents, Replay Analysis
+
+- Built a **Kaggle Orbit Wars simulation agent** for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.
+- Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows.
+
+GitHub: https://github.com/tuannm3812/kaggle-orbit-wars
 
 ### TikTok Semantic (NLP / Marketing Analytics)
 
@@ -433,7 +459,7 @@ XGBoost, LightGBM, SMOTE, Feature Importance, Classification, Sports Analytics
 ## Compact One-Line Bullet Bank
 
 - Built a BirdCLEF+ 2026 bioacoustic classification workspace using PyTorch, EfficientNet-B0, Google Perch v2, reusable artifacts, and CPU-safe inference packaging for noisy multi-species audio modelling.
-- Built a Food-101 image classification workflow with ResNet50 fine-tuning, ConvNeXt/EfficientNet challengers, calibration analysis, hard-class review, and deterministic inference packaging.
+- Built a FoodLens calibrated recognition system with ResNet50 fine-tuning, temperature-scaled calibration, confidence-based decision routing, and full-stack FastAPI+React delivery.
 - Built an NFL contact-detection workflow using tracking features, helmet-derived video probes, temporal smoothing, type-specific contact modelling, blended LightGBM models, and grouped validation.
 - Developed VisionVoice, a PyTorch image-captioning system using Bahdanau-style attention and leakage-free VizWiz data splits.
 - Implemented a Flickr8k captioning workflow with ResNet50 spatial features, additive attention, and beam-search decoding.
@@ -486,13 +512,15 @@ Python, SQL, PySpark, TypeScript, PyTorch, scikit-learn, CatBoost, LightGBM, Pan
 
 Prioritize:
 - Bioacoustic Species Classification
-- Multi-Class Food Recognition
+- FoodLens: Calibrated Food Recognition
 - Kaggle NFL Player Contact Detection
 - ROGII Wellbore Geology Prediction
 - NeuroGolf 2026
 - CSIRO Image2Biomass
 - Kaggle Playground S6E4: Predict Irrigation Need
 - Kaggle Playground S6E5: Predict F1 Pit Stops
+- Kaggle S6E6: Predicting Stellar Class
+- Kaggle Orbit Wars
 - VisionVoice
 - Flickr8k Image Captioning
 - Solana Price Forecasting Dashboard

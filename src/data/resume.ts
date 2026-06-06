@@ -60,8 +60,8 @@ export const resumeData: ResumeData = {
   highlights: [
     { value: "7+", label: "Years building analytics and ML workflows" },
     { value: "30", label: "Technical projects across ML, data, and AI" },
-    { value: "6", label: "Core domains from CV to Kaggle ML and MLOps" },
-    { value: "Full-stack", label: "From data pipelines to deployed apps" }
+    { value: "5", label: "Domains: agents, vision, data eng, Kaggle, MLOps" },
+    { value: "Full-stack", label: "From data pipelines to deployed AI apps" }
   ],
   education: [
     {

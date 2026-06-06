@@ -23,7 +23,7 @@ stack unless the notebook environment itself is the point of the project.
 Each project card should have:
 
 - `title`: readable project name, with acronyms corrected
-- `category`: one of the portfolio categories already used by the site
+- `category`: one of the 5 portfolio categories: `AI Agents & LLM Products`, `Deep Learning & Vision`, `Data Engineering & Analytics`, `Machine Learning & Kaggle`, `MLOps & Forecasting`
 - `github`: public repository URL
 - `impact`: one short sentence naming the project outcome or workflow
 - `stack`: 4-6 high-signal techniques, libraries, model families, or systems
@@ -159,30 +159,25 @@ Use these examples as style anchors:
 
 ## Current Non-Kaggle Portfolio Pattern
 
-### Production ELT / Warehouse
+### AI Agents & LLM Products
 
-- Overview signal: warehouse or lakehouse workflow, dataset domain, and intended
-  analytics use.
-- Technique signal: orchestration, transformation layers, dimensional modeling,
-  history handling, data quality, and deployment environment.
+- Overview signal: the user workflow the agent or LLM product enables.
+- Technique signal: LLM/RAG architecture, prompt design, retrieval strategy, safety controls, API contracts, tests, and deployment.
 
-### Forecasting / MLOps
+### Deep Learning & Vision
 
-- Overview signal: forecasting or prediction app and the decision it supports.
-- Technique signal: API ingestion, feature engineering, model artifacts,
-  serving layer, tests, and dashboard delivery.
+- Overview signal: the visual or audio task, dataset domain, and workflow goal.
+- Technique signal: model family, encoder/decoder design, training strategy, calibration, hard-class diagnostics, and artifact packaging.
 
-### NLP / AI Agents
+### Data Engineering & Analytics
 
-- Overview signal: corpus, user workflow, or reasoning task.
-- Technique signal: retrieval, schema grounding, text processing, topic models,
-  clustering, validation, safety checks, and interface design.
+- Overview signal: the warehouse, lakehouse, or analytics pipeline and the data domain.
+- Technique signal: orchestration, transformation layers, dimensional modeling, quality checks, and serving.
 
-### Applied Products
+### MLOps & Forecasting
 
-- Overview signal: who uses the tool and what workflow it completes.
-- Technique signal: frontend/backend structure, agent logic, APIs, data
-  contracts, filtering rules, tests, and deployment.
+- Overview signal: the forecasting or prediction app and the decision it supports.
+- Technique signal: API ingestion, feature engineering, model artifacts, serving layer, tests, and dashboard delivery.
 
 ## Update Checklist
 
@@ -190,7 +185,7 @@ Before committing:
 
 1. Run `git diff --check`.
 2. Search for stale `Jupyter Notebook` stack labels in generated cards.
-3. Confirm new project titles appear in `projectPriority` when needed.
+3. Confirm new project titles appear in `projectPriority` in `src/pages/Projects.tsx` and that the category matches one of the 5 valid categories.
 4. Confirm portfolio cards avoid confusing score/metric language unless there is
    a deliberate reason to include it.
 5. Push and check the GitHub Pages deploy result.

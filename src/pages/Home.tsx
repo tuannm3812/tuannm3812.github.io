@@ -22,28 +22,28 @@ export default function Home() {
 
   const expertise = [
     {
-      icon: <Database />,
-      label: "Data Foundation",
-      title: "Pipelines that can be trusted",
-      desc: "BigQuery, Databricks, Snowflake, Airflow, dbt, warehouse modelling, and self-service analytics."
+      icon: <Brain />,
+      label: "AI Agents & Deep Learning",
+      title: "Models that reason and act",
+      desc: "LLM agents, text-to-SQL, RAG, computer vision, audio ML, image captioning, and competition-grade ML systems."
     },
     {
-      icon: <Brain />,
-      label: "Modeling",
-      title: "Models shaped by the problem",
-      desc: "Forecasting, computer vision, audio ML, Kaggle tabular modeling, NLP, and practical evaluation."
+      icon: <Database />,
+      label: "Data Engineering",
+      title: "Pipelines that can be trusted",
+      desc: "Airflow, dbt, Snowflake, Databricks, Delta Lake, medallion architecture, and warehouse-ready analytics marts."
     },
     {
       icon: <CloudCog />,
-      label: "Production",
-      title: "MLOps beyond the notebook",
-      desc: "FastAPI, Streamlit, GitHub Actions, tests, reusable artifacts, and submission-ready workflows."
+      label: "MLOps & Deployment",
+      title: "From notebook to production",
+      desc: "FastAPI, Streamlit, GitHub Actions, pytest, model artifacts, reproducible workflows, and live dashboards."
     },
     {
       icon: <Globe />,
-      label: "Decision Layer",
-      title: "Business context in the loop",
-      desc: "Dashboards, stakeholder translation, ROI framing, and adoption."
+      label: "Kaggle & Experimentation",
+      title: "Systematic ML experimentation",
+      desc: "Grouped validation, gradient boosting sweeps, OOF blending, bioacoustic ML, tabular modeling, and simulation agents."
     }
   ];
 
@@ -70,7 +70,7 @@ export default function Home() {
             Building reliable ML workflows from messy data.
           </h1>
           <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-            I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> focused on practical machine learning, analytics engineering, computer vision, and production data workflows.
+            I'm a <span className="text-slate-900 dark:text-slate-100 font-semibold">{resumeData.title}</span> focused on AI agents, deep learning, data engineering, Kaggle competition ML, and deployed data workflows.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
