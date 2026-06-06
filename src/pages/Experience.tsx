@@ -13,7 +13,7 @@ export default function Experience() {
           Professional Experience
         </h2>
 
-        <div className="space-y-10 border-l-2 border-slate-200 dark:border-slate-800 ml-4 pl-8 md:pl-10">
+        <div className="space-y-10 border-l-2 border-slate-200/80 dark:border-slate-800/80 ml-4 pl-8 md:pl-10">
           {resumeData.experience.map((exp, index) => (
             <motion.div
               key={index}
@@ -24,12 +24,12 @@ export default function Experience() {
               className="relative"
             >
               {/* Timeline Dot */}
-              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-50 dark:border-slate-950" />
+              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-100 dark:border-slate-950" />
 
-              <div className="space-y-3 rounded-xl border border-slate-200 bg-white/80 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+              <div className="space-y-3 rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/70 hover:border-brand/40 transition-colors">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                   <h3 className="text-xl font-bold">{exp.role}</h3>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-400">
                     <Calendar size={14} />
                     {exp.period}
                   </span>
@@ -72,7 +72,7 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-sm"
+              className="p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 space-y-3 shadow-sm hover:border-brand/40 transition-colors"
             >
               <div className="space-y-1">
                 <h3 className="text-lg font-bold">{edu.institution}</h3>
