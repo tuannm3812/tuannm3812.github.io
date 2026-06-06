@@ -69,7 +69,8 @@ refresh.
   Forecasting, and the portfolio itself as a deployed CI/CD artifact.
 - Refresh `docs/04-github-profile-readme.md` after major portfolio changes,
   keeping it focused on narrative, strongest evidence, and clear contact links.
-  Copy the final version into the profile repository when ready.
+- Keep the `PROFILE_README_TOKEN` repository secret configured so the profile
+  README workflow can publish that source into `tuannm3812/tuannm3812`.
 
 ## Reliability smoke checks (post-change)
 

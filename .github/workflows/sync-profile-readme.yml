@@ -1,0 +1,62 @@
+name: Sync Profile README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/04-github-profile-readme.md'
+      - 'scripts/sync-profile-readme.mjs'
+      - '.github/workflows/sync-profile-readme.yml'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync_profile_readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout portfolio repo
+        uses: actions/checkout@v4
+        with:
+          path: portfolio
+
+      - name: Checkout profile repo
+        uses: actions/checkout@v4
+        with:
+          repository: tuannm3812/tuannm3812
+          token: ${{ secrets.PROFILE_README_TOKEN }}
+          path: profile
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - name: Install dependencies
+        working-directory: portfolio
+        run: npm ci
+
+      - name: Sync README source
+        working-directory: portfolio
+        run: npm run sync:profile-readme
+        env:
+          PROFILE_README_OUTPUT: ../profile/README.md
+
+      - name: Commit profile README update
+        working-directory: profile
+        run: |
+          if git diff --quiet README.md; then
+            echo "Profile README already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: sync profile readme"
+          git push

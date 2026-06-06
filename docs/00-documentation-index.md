@@ -24,4 +24,6 @@ and maintenance priorities.
 3. Review generated cards in `src/data/githubProjects.ts`.
 4. Keep curated cards in `src/data/resume.ts` aligned with the project guide.
 5. Refresh the profile README source when the portfolio narrative changes.
-6. Run `npm run check` before committing meaningful changes.
+6. Run `npm run sync:profile-readme` to copy the profile source locally, or let
+   the profile README workflow publish it after the change lands on `main`.
+7. Run `npm run check` before committing meaningful changes.
