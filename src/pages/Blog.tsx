@@ -77,6 +77,7 @@ export default function Blog() {
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
+        <p className="section-eyebrow">Writing</p>
         <h2 className="text-4xl md:text-5xl font-black tracking-tight">
           Reflections <span className="text-brand">&</span> Insights
         </h2>
@@ -101,7 +102,7 @@ export default function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedPost(post)}
-                className="group cursor-pointer p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all flex gap-5 items-start"
+                className="surface-card surface-card-hover group flex cursor-pointer items-start gap-5 p-5"
               >
                 <div className="flex-1 space-y-3">
                   <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
@@ -121,7 +122,7 @@ export default function Blog() {
                     {post.excerpt}
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all shrink-0">
+                <div className="icon-tile rounded-full group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all">
                   <ArrowRight size={20} />
                 </div>
               </motion.article>
@@ -172,20 +173,20 @@ export default function Blog() {
               </h3>
 
               {!user ? (
-                <div className="p-6 rounded-xl bg-brand/5 border border-brand/20 text-center space-y-4">
+                <div className="soft-panel space-y-4 border-brand/20 bg-brand/5 p-6 text-center">
                   <p className="font-medium text-slate-600 dark:text-slate-400">
                     Join the discussion by signing in with Google.
                   </p>
                   <button
                     onClick={handleLogin}
-                    className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold flex items-center gap-2 mx-auto hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm"
+                    className="btn-secondary mx-auto"
                   >
                     <LogIn size={20} className="text-brand" />
                     Sign in with Google
                   </button>
                 </div>
               ) : (
-                <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+                <div className="surface-card space-y-4 p-5">
                   <div className="flex items-center gap-3">
                     {user.photoURL && <img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" />}
                     <p className="font-bold">{user.displayName}</p>
@@ -193,7 +194,7 @@ export default function Blog() {
                   <textarea
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
-                    className="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-brand resize-none"
+                    className="w-full resize-none rounded-lg border border-slate-100 bg-slate-50 p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-slate-800 dark:bg-slate-950"
                     placeholder="Share your thoughts..."
                     rows={3}
                     maxLength={2000}
@@ -207,7 +208,7 @@ export default function Blog() {
                     <button
                       onClick={handlePostComment}
                       disabled={isSubmitting || !newComment.trim()}
-                      className="px-6 py-2 bg-brand text-white font-bold rounded-lg hover:bg-brand-light disabled:opacity-50 transition-colors"
+                      className="btn-primary bg-brand px-6 py-2 text-white hover:bg-brand-light disabled:opacity-50"
                     >
                       {isSubmitting ? 'Posting...' : 'Post Comment'}
                     </button>
@@ -241,7 +242,7 @@ export default function Blog() {
                       key={comment.id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="p-4 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-2"
+                      className="surface-card space-y-2 p-4"
                     >
                       <div className="flex justify-between items-center">
                         <span className="font-bold text-brand">{comment.authorName}</span>

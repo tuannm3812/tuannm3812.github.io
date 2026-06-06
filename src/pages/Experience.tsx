@@ -8,6 +8,7 @@ export default function Experience() {
     <div className="max-w-5xl mx-auto space-y-16">
       {/* Work Experience */}
       <section className="space-y-8">
+        <p className="section-eyebrow">Professional path</p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
           <Briefcase className="text-brand" />
           Professional Experience
@@ -26,10 +27,10 @@ export default function Experience() {
               {/* Timeline Dot */}
               <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-100 dark:border-slate-950" />
 
-              <div className="space-y-3 rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/70 hover:border-brand/40 transition-colors">
+              <div className="surface-card surface-card-hover space-y-3 p-5">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                   <h3 className="text-xl font-bold">{exp.role}</h3>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-400">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-400">
                     <Calendar size={14} />
                     {exp.period}
                   </span>
@@ -60,6 +61,7 @@ export default function Experience() {
 
       {/* Education */}
       <section className="space-y-8 pb-24">
+        <p className="section-eyebrow">Academic foundation</p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
           <GraduationCap className="text-brand" />
           Education
@@ -72,7 +74,7 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 space-y-3 shadow-sm hover:border-brand/40 transition-colors"
+              className="surface-card surface-card-hover space-y-3 p-6"
             >
               <div className="space-y-1">
                 <h3 className="text-lg font-bold">{edu.institution}</h3>

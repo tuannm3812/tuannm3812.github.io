@@ -37,7 +37,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const showStatus = isFirebaseOffline && !isDismissed;
 
   return (
-    <div className="site-backdrop min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
+    <div className="site-backdrop min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
       <AnimatePresence>
         {showStatus && (
           <motion.div
@@ -72,14 +72,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-950/85 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-white/80 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/80 dark:shadow-black/20">
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="text-xl font-black tracking-tighter hover:text-brand transition-colors flex items-center gap-1">
-            <span>{resumeData.name}</span>
+          <Link to="/" className="flex min-w-0 items-center gap-1 text-xl font-black tracking-tighter transition-colors hover:text-brand">
+            <span className="truncate">{resumeData.name}</span>
             <span className="text-brand">.</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/70 p-1 shadow-sm dark:border-slate-800/70 dark:bg-slate-900/70">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
               return (
@@ -87,8 +87,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    'text-sm font-bold transition-all hover:text-brand',
-                    isActive ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
+                    'rounded-full px-3 py-2 text-sm font-bold transition-all hover:text-brand',
+                    isActive
+                      ? 'bg-slate-950 text-white shadow-sm dark:bg-white dark:text-slate-950'
+                      : 'text-slate-600 dark:text-slate-400',
                   )}
                 >
                   {item.name}
@@ -97,24 +99,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             })}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="ml-1 rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-800"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
           </div>
 
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex shrink-0 items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-colors"
+              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900"
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen}
             >
@@ -129,7 +131,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4"
+              className="md:hidden border-b border-slate-200 bg-white/95 px-4 py-4 shadow-sm backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/95"
             >
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => {
@@ -139,8 +141,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       key={item.path}
                       to={item.path}
                       className={cn(
-                        'text-lg font-bold tracking-tight py-2 transition-all hover:text-brand',
-                        isActive ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
+                        'rounded-lg px-3 py-2 text-lg font-bold tracking-tight transition-all hover:text-brand',
+                        isActive ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950' : 'text-slate-600 dark:text-slate-400',
                       )}
                     >
                       {item.name}
@@ -161,14 +163,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="max-w-7xl mx-auto px-4"
+            className="mx-auto max-w-7xl min-w-0 px-4"
           >
             <ErrorBoundary>{children}</ErrorBoundary>
           </motion.div>
         </AnimatePresence>
       </main>
 
-      <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-950 py-12 transition-colors">
+      <footer className="border-t border-slate-200/80 bg-white/85 py-12 transition-colors dark:border-slate-800/80 dark:bg-slate-950/85">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold">{resumeData.name}</h3>
@@ -176,17 +178,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Building practical machine learning, data engineering, and applied AI workflows.
             </p>
           </div>
-          <div className="flex gap-6 items-center">
-            <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="LinkedIn">
+          <div className="flex gap-3 items-center">
+            <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="LinkedIn">
               <Linkedin size={24} />
             </a>
-            <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="GitHub">
+            <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="GitHub">
               <Github size={24} />
             </a>
-            <a href={resumeData.kaggle} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors" aria-label="Kaggle">
+            <a href={resumeData.kaggle} target="_blank" rel="noopener noreferrer" className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="Kaggle">
               <BarChart3 size={24} />
             </a>
-            <a href={`mailto:${resumeData.email}`} className="hover:text-brand transition-colors" aria-label="Email">
+            <a href={`mailto:${resumeData.email}`} className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="Email">
               <Mail size={24} />
             </a>
           </div>

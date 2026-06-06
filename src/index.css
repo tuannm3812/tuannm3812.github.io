@@ -10,6 +10,8 @@
   --color-brand-light: #056CF2;
   --color-brand-dark: #1e1b4b;
   --color-brand-bg: #F2F2F2;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
 }
 
 @layer base {
@@ -46,6 +48,40 @@
   }
 
   .expertise-band {
-    background-image: linear-gradient(90deg, rgba(5, 64, 242, 0.05), rgba(5, 108, 242, 0.03));
+    background-image: linear-gradient(90deg, rgba(5, 64, 242, 0.055), rgba(5, 108, 242, 0.025));
+  }
+}
+
+@layer components {
+  .section-eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-brand;
+  }
+
+  .surface-card {
+    @apply rounded-lg border border-slate-200/80 bg-white/95 shadow-sm shadow-slate-200/60 transition-all dark:border-slate-800/80 dark:bg-slate-900/90 dark:shadow-black/10;
+  }
+
+  .surface-card-hover {
+    @apply hover:-translate-y-0.5 hover:border-brand/50 hover:shadow-md hover:shadow-slate-300/40 dark:hover:shadow-black/25;
+  }
+
+  .soft-panel {
+    @apply rounded-lg border border-slate-200/70 bg-slate-50/80 dark:border-slate-800/70 dark:bg-slate-950/45;
+  }
+
+  .icon-tile {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-white text-brand shadow-sm dark:border-slate-800 dark:bg-slate-950;
+  }
+
+  .brand-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand/15 bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/50 hover:text-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200;
   }
 }

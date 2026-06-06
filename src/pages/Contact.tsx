@@ -65,57 +65,58 @@ export default function Contact() {
   const displayError = status === 'error' && submitError ? toDisplayMessage(submitError) : null;
 
   return (
-    <div className="grid md:grid-cols-2 gap-10 py-8">
-      <div className="space-y-8">
+    <div className="grid min-w-0 gap-10 py-8 md:grid-cols-2">
+      <div className="min-w-0 space-y-8">
         <div className="space-y-3">
+          <p className="section-eyebrow">Contact</p>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h2>
-          <p className="text-lg text-slate-500 dark:text-slate-400">
-            Have an ML, data engineering, analytics, or applied AI opportunity in mind? Send a note and I will get back to you.
+          <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg">
+            Have an ML, data, or applied AI opportunity in mind? Send a note and I will get back to you.
           </p>
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
+            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
               <Mail size={20} />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Email Me</p>
-              <a href={`mailto:${resumeData.email}`} className="font-bold hover:text-brand transition-colors">
+              <a href={`mailto:${resumeData.email}`} className="break-all font-bold transition-colors hover:text-brand">
                 {resumeData.email}
               </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
+            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
               <Phone size={20} />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Phone</p>
-              <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} className="font-bold hover:text-brand transition-colors">
+              <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} className="break-words font-bold transition-colors hover:text-brand">
                 {resumeData.phone}
               </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
+            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
               <MapPin size={20} />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Location</p>
               <p className="font-bold">{resumeData.location}</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand transition-colors group">
-            <div className="w-10 h-10 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-all">
+          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
+            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
               <BarChart3 size={20} />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Kaggle</p>
-              <a href={resumeData.kaggle} target="_blank" rel="noreferrer" className="font-bold hover:text-brand transition-colors">
+              <a href={resumeData.kaggle} target="_blank" rel="noreferrer" className="break-all font-bold transition-colors hover:text-brand">
                 kaggle.com/tuannm3812
               </a>
             </div>
@@ -123,7 +124,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200 dark:shadow-none relative overflow-hidden">
+      <div className="surface-card relative min-w-0 overflow-hidden p-6 shadow-xl shadow-slate-200/70 dark:shadow-black/20">
         {status === 'success' ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -137,7 +138,7 @@ export default function Contact() {
             <p className="text-slate-500 dark:text-slate-400">Thanks for reaching out, Tuan will get back to you soon.</p>
             <button
               onClick={() => setStatus('idle')}
-              className="mt-4 px-6 py-2 border border-slate-200 dark:border-slate-800 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="btn-secondary mt-4 px-6 py-2"
             >
               Send another
             </button>
@@ -166,7 +167,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className={cn(
-                  "w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all",
+                  "w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800",
                   errors.name && "border-red-500"
                 )}
                 placeholder="John Doe"
@@ -183,7 +184,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className={cn(
-                  "w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all",
+                  "w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800",
                   errors.email && "border-red-500"
                 )}
                 placeholder="john@example.com"
@@ -200,7 +201,7 @@ export default function Contact() {
                 rows={4}
                 maxLength={5000}
                 className={cn(
-                  "w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all resize-none",
+                  "w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800",
                   errors.message && "border-red-500"
                 )}
                 placeholder="How can I help you?"
@@ -210,7 +211,7 @@ export default function Contact() {
 
             <button
               disabled={status === 'submitting'}
-              className="w-full py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-light disabled:opacity-50 transition-all flex items-center justify-center gap-2 group"
+              className="btn-primary w-full bg-brand py-3 text-white hover:bg-brand-light disabled:opacity-50 group"
             >
               {status === 'submitting' ? 'Sending...' : 'Send Message'}
               <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
