@@ -74,8 +74,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-950/85 backdrop-blur-md">
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold tracking-tighter hover:text-brand transition-colors">
-            {resumeData.name}
+          <Link to="/" className="text-xl font-black tracking-tighter hover:text-brand transition-colors flex items-center gap-1">
+            <span>{resumeData.name}</span>
             <span className="text-brand">.</span>
           </Link>
 
@@ -85,7 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-brand',
+                  'text-sm font-bold tracking-tight transition-all hover:text-brand',
                   location.pathname === item.path ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
                 )}
               >
@@ -134,7 +134,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     key={item.path}
                     to={item.path}
                     className={cn(
-                      'text-lg font-medium py-2',
+                      'text-lg font-bold tracking-tight py-2 transition-all hover:text-brand',
                       location.pathname === item.path ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
                     )}
                   >
@@ -162,7 +162,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </main>
 
-      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-12">
+      <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-950/50 py-12 transition-colors">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold">{resumeData.name}</h3>
