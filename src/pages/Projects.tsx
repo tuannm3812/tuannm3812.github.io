@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
 import { githubProjects } from '../data/githubProjects';
-import { ChevronDown, ExternalLink, Github, Layers, Star, Target, Trophy } from 'lucide-react';
+import { ChevronDown, ExternalLink, Github, Layers, Star, Trophy } from 'lucide-react';
 
 const projectPriority: Record<string, { score: number; stars: number }> = {
   'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
@@ -147,8 +147,8 @@ export default function Projects() {
                         {project.title}
                       </h4>
                       {project.impact && (
-                        <p className="soft-panel flex items-start gap-2 p-3 text-xs font-medium leading-relaxed text-slate-600 dark:text-slate-400">
-                          <Target size={14} className="mt-0.5 flex-shrink-0 text-brand" />
+                        <p className="relative pl-3 text-xs font-semibold leading-relaxed text-slate-500 dark:text-slate-400">
+                          <span className="absolute left-0 top-1 h-[calc(100%-0.5rem)] w-0.5 rounded-full bg-brand/60" />
                           {project.impact}
                         </p>
                       )}

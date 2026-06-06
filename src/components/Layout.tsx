@@ -79,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <span className="text-brand">.</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/70 p-1 shadow-sm dark:border-slate-800/70 dark:bg-slate-900/70">
+          <div className="hidden md:flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/85 p-1 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/75 dark:shadow-black/20">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
               return (
@@ -87,10 +87,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    'rounded-full px-3 py-2 text-sm font-bold transition-all hover:text-brand',
+                    'rounded-full px-3.5 py-2 text-sm font-bold transition-all',
                     isActive
-                      ? 'bg-slate-950 text-white shadow-sm dark:bg-white dark:text-slate-950'
-                      : 'text-slate-600 dark:text-slate-400',
+                      ? 'bg-slate-950 text-white shadow-sm shadow-slate-950/10 dark:bg-white dark:text-slate-950 dark:shadow-white/10'
+                      : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-white',
                   )}
                 >
                   {item.name}
@@ -141,8 +141,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       key={item.path}
                       to={item.path}
                       className={cn(
-                        'rounded-lg px-3 py-2 text-lg font-bold tracking-tight transition-all hover:text-brand',
-                        isActive ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950' : 'text-slate-600 dark:text-slate-400',
+                        'rounded-lg px-3 py-2 text-lg font-bold tracking-tight transition-all',
+                        isActive
+                          ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950'
+                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white',
                       )}
                     >
                       {item.name}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
-import { ArrowRight, Brain, CloudCog, Database, ExternalLink, Globe, MapPin, Sparkles, TerminalSquare } from 'lucide-react';
+import { ArrowRight, Bot, Brain, Camera, CloudCog, Database, ExternalLink, MapPin, PackageCheck, SearchCheck, Trophy, Warehouse } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const container = {
@@ -21,39 +21,49 @@ const item = {
 
 const expertise = [
   {
-    icon: <Brain />,
+    icon: <Brain size={20} />,
     label: "AI Agents & Deep Learning",
     title: "Models that reason and act",
     desc: "Text-to-SQL, RAG, vision, audio ML, captioning, and competition-grade modelling systems."
   },
   {
-    icon: <Database />,
+    icon: <Database size={20} />,
     label: "Data Engineering",
     title: "Pipelines that can be trusted",
     desc: "Airflow, dbt, Snowflake, Databricks, Delta Lake, medallion layers, and analytics marts."
   },
   {
-    icon: <CloudCog />,
+    icon: <CloudCog size={20} />,
     label: "MLOps & Deployment",
     title: "From notebook to production",
     desc: "FastAPI, Streamlit, GitHub Actions, pytest, model artifacts, and live dashboards."
   },
   {
-    icon: <Globe />,
+    icon: <Trophy size={20} />,
     label: "Kaggle & Experimentation",
     title: "Systematic ML experimentation",
     desc: "Grouped validation, boosting sweeps, OOF blending, bioacoustics, tabular ML, and simulation agents."
   }
 ];
 
-const heroSignals = [
-  { value: "30", label: "public projects" },
-  { value: "5", label: "technical focus areas" },
-  { value: "Live", label: "demos and workflows" }
+const focusAreas = [
+  {
+    title: "Data Engineering",
+    desc: "Reliable data foundations for analytics and ML."
+  },
+  {
+    title: "Machine Learning",
+    desc: "Models with validation, diagnostics, and repeatable workflows."
+  },
+  {
+    title: "Applied AI",
+    desc: "AI workflows with retrieval, safeguards, and usable interfaces."
+  }
 ];
 
 const featuredBuilds = [
   {
+    icon: <Bot size={20} />,
     title: "Enterprise Text-to-SQL Agent",
     category: "Applied AI",
     outcome: "Natural-language analytics over local SQLite with schema RAG, SQL validation, and privacy-aware execution.",
@@ -61,19 +71,54 @@ const featuredBuilds = [
     href: "https://github.com/tuannm3812/aipa-text-to-sql-agent"
   },
   {
+    icon: <Camera size={20} />,
     title: "FoodLens",
     category: "Deployable ML",
-    outcome: "Calibrated Food-101 recognition with confidence routing, multi-food detection, and full-stack delivery.",
+    outcome: "Calibrated food recognition with confidence routing, multi-food detection, and full-stack delivery.",
     stack: ["PyTorch", "ResNet50", "FastAPI", "React"],
     href: "https://github.com/tuannm3812/foodlens-calibrated-food-recognition"
   },
   {
+    icon: <Warehouse size={20} />,
     title: "Airbnb ELT Warehouse",
     category: "Data Engineering",
     outcome: "Sydney Airbnb and Census warehouse with orchestration, dimensional marts, and SCD Type 2 history.",
     stack: ["Airflow", "dbt", "PostgreSQL", "Medallion"],
     href: "https://github.com/tuannm3812/airbnb-ELT-warehouse"
   }
+];
+
+const lifecycleStack = [
+  {
+    icon: <Database size={18} />,
+    step: "Prepare",
+    desc: "Clean, model, and organize data so downstream work starts from a trusted base.",
+    tools: ["Python", "SQL", "PySpark", "Airflow", "dbt", "Snowflake"]
+  },
+  {
+    icon: <Brain size={18} />,
+    step: "Model",
+    desc: "Build experiments with clear validation, diagnostics, and repeatable training logic.",
+    tools: ["PyTorch", "scikit-learn", "LightGBM", "CatBoost", "Validation", "Diagnostics"]
+  },
+  {
+    icon: <PackageCheck size={18} />,
+    step: "Ship",
+    desc: "Package outputs into APIs, apps, artifacts, and automated checks people can use.",
+    tools: ["FastAPI", "Streamlit", "GitHub Actions", "pytest", "Artifacts", "APIs"]
+  },
+  {
+    icon: <SearchCheck size={18} />,
+    step: "Explain",
+    desc: "Add retrieval, monitoring, documentation, and diagnostics so decisions are traceable.",
+    tools: ["SQLGlot", "Retrieval", "Dashboards", "Docs", "Evaluation", "Monitoring"]
+  }
+];
+
+const reflectionIcons = [
+  <SearchCheck size={20} />,
+  <Database size={20} />,
+  <PackageCheck size={20} />
 ];
 
 export default function Home() {
@@ -120,11 +165,11 @@ export default function Home() {
           </div>
 
           <div className="soft-panel grid gap-3 p-3 sm:grid-cols-3">
-            {heroSignals.map((signal) => (
-              <div key={signal.label} className="rounded-md bg-white/80 px-3 py-2 dark:bg-slate-900/70">
-                <span className="block text-lg font-black text-brand">{signal.value}</span>
-                <span className="block text-[11px] font-semibold leading-snug text-slate-600 dark:text-slate-400">
-                  {signal.label}
+            {focusAreas.map((area) => (
+              <div key={area.title} className="rounded-md bg-white/80 px-3 py-3 dark:bg-slate-900/70">
+                <span className="block text-sm font-black text-slate-950 dark:text-white">{area.title}</span>
+                <span className="mt-1 block text-[11px] font-semibold leading-snug text-slate-600 dark:text-slate-400">
+                  {area.desc}
                 </span>
               </div>
             ))}
@@ -151,18 +196,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-          <div className="grid min-w-0 gap-4 sm:grid-cols-2">
-            {resumeData.highlights.map((highlight) => (
-              <div
-                key={highlight.label}
-                className="surface-card surface-card-hover p-4"
-              >
-                <span className="block text-2xl font-black text-brand">{highlight.value}</span>
-                <span className="mt-1 block text-xs leading-snug text-slate-600 dark:text-slate-400">{highlight.label}</span>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </section>
 
@@ -171,11 +204,11 @@ export default function Home() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl space-y-3">
             <p className="section-eyebrow">Featured builds</p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight">
               Work that goes beyond the notebook.
             </h2>
             <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400 md:text-lg">
-              Selected projects that show how I package ML, AI, and data work into usable systems.
+              Three examples of data, ML, and AI work built for review, reuse, and deployment.
             </p>
           </div>
           <Link to="/projects" className="btn-secondary w-fit">
@@ -199,7 +232,12 @@ export default function Home() {
             >
               <div className="space-y-5">
                 <div className="flex items-start justify-between gap-4">
-                  <span className="brand-pill">{project.category}</span>
+                  <div className="flex min-w-0 flex-wrap items-center gap-3">
+                    <span className="icon-tile h-10 w-10 transition-all group-hover:border-brand/50 group-hover:bg-brand group-hover:text-white">
+                      {project.icon}
+                    </span>
+                    <span className="brand-pill">{project.category}</span>
+                  </div>
                   <ExternalLink size={18} className="text-slate-400 transition-colors group-hover:text-brand" />
                 </div>
                 <div className="space-y-3">
@@ -228,24 +266,26 @@ export default function Home() {
       </section>
 
       {/* Quick Summary */}
-      <section className="soft-panel grid md:grid-cols-2 gap-10 items-center p-6 md:p-8">
-        <h2 className="text-3xl md:text-5xl font-black tracking-tight">
-          Business context, <br />
-          engineering depth, <br />
-          <span className="text-brand">usable ML outputs.</span>
+      <section className="soft-panel grid md:grid-cols-[0.9fr_1.1fr] gap-10 items-center p-6 md:p-8">
+        <h2 className="text-3xl md:text-4xl font-black tracking-tight">
+          Business context <br />
+          meets engineering <br />
+          <span className="text-brand">execution.</span>
         </h2>
-        <div className="space-y-6 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-          <p>{resumeData.summary}</p>
+        <div className="space-y-4 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p>
+            My background spans consulting, audit, and e-commerce analytics. That shapes how I build: clear business framing, reliable data foundations, and outputs people can act on.
+          </p>
         </div>
       </section>
 
       {/* Reflections & Insights */}
       <section className="space-y-8">
         <div className="space-y-3">
-          <p className="section-eyebrow">Career signal</p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">How I Think About the Work</h2>
+          <p className="section-eyebrow">Working style</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight">How I Think About the Work</h2>
           <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
-            Practical principles from moving between analytics, consulting, machine learning, and applied AI.
+            Practical principles from moving between business problems, data systems, and ML delivery.
           </p>
         </div>
 
@@ -261,10 +301,10 @@ export default function Home() {
             >
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <span className="brand-pill">
-                    <Sparkles size={14} />
-                    {reflection.category}
-                  </span>
+                  <div className="icon-tile h-10 w-10">
+                    {reflectionIcons[index % reflectionIcons.length]}
+                  </div>
+                  <span className="brand-pill">{reflection.category}</span>
                   <h3 className="text-xl font-bold">
                     {reflection.title}
                   </h3>
@@ -286,10 +326,10 @@ export default function Home() {
 
       {/* Expertise */}
       <section className="py-14 space-y-8">
-        <div className="text-center space-y-3">
+        <div className="max-w-3xl space-y-3">
           <p className="section-eyebrow">Modern data stack</p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">What I Build With</h2>
-          <p className="text-slate-500 dark:text-slate-400">Tools and patterns I use to move from raw data to reliable decisions.</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight">Core Toolkit</h2>
+          <p className="text-lg text-slate-500 dark:text-slate-400">Tools and patterns I use to move from raw data to reliable outputs.</p>
         </div>
 
         <div className="space-y-8">
@@ -307,7 +347,7 @@ export default function Home() {
                 className="surface-card surface-card-hover expertise-band p-6 group"
               >
                 <div className="flex items-start gap-5">
-                  <div className="icon-tile h-12 w-12 group-hover:scale-105 transition-transform">
+                  <div className="icon-tile h-10 w-10 group-hover:scale-105 transition-transform">
                     {skill.icon}
                   </div>
                   <div className="space-y-2">
@@ -326,28 +366,28 @@ export default function Home() {
             viewport={{ once: true }}
             className="pt-12 border-t border-slate-200 dark:border-slate-800 space-y-8"
           >
-            <div className="text-center space-y-3">
-              <p className="section-eyebrow">Core Technology Stack</p>
-              <h3 className="text-2xl md:text-3xl font-black tracking-tight">Tools across the ML lifecycle</h3>
-              <p className="mx-auto max-w-2xl text-sm md:text-base text-slate-500 dark:text-slate-400">
-                Grouped by how they show up in my work: data foundations, modelling, deployment, analytics, and AI interfaces.
+            <div className="max-w-3xl space-y-3">
+              <p className="section-eyebrow">Workflow</p>
+              <h3 className="text-3xl md:text-4xl font-black tracking-tight">From raw data to systems people can trust.</h3>
+              <p className="text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+                The stack is organized around delivery: prepare reliable data, model with evidence, ship usable interfaces, and make every output easy to review.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-              {resumeData.technologyStack.map((group) => (
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {lifecycleStack.map((group) => (
                 <div
-                  key={group.title}
+                  key={group.step}
                   className="surface-card surface-card-hover p-5"
                 >
                   <div className="flex items-start gap-3">
                     <div className="icon-tile mt-1 h-9 w-9">
-                      <TerminalSquare size={18} />
+                      {group.icon}
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg">{group.title}</h4>
+                      <h4 className="font-bold text-lg">{group.step}</h4>
                       <p className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                        {group.description}
+                        {group.desc}
                       </p>
                     </div>
                   </div>
