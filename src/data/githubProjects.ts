@@ -7,96 +7,25 @@ export const githubProjects: Project[] = [
     "title": "FoodLens: Calibrated Food Recognition",
     "category": "Deep Learning & Vision",
     "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
-    "impact": "Full-stack food recognition app with confidence-based routing and FastAPI + React prototype",
+    "impact": "Full-stack food recognition app with confidence-based routing and FastAPI + React delivery",
     "stack": [
       "ResNet50",
       "PyTorch",
       "FastAPI",
       "React",
       "Calibration",
-      "Multi-food Crop Detection"
+      "Multi-food Detection"
     ],
     "points": [
-      "Built FoodLens: a calibrated Food-101 recognition system featuring confidence-based decision routing, multi-food crop detection, and an end-to-end FastAPI + React prototype.",
-      "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, image/video/URL ingestion, and confidence-gated routing for reliable multi-class food identification."
+      "Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.",
+      "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery."
     ]
   },
   {
-    "title": "Kaggle BirdCLEF+ 2026",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-birdclef-2026",
-    "impact": "Bioacoustic bird species classification with EfficientNet-B0 and Google Perch v2",
-    "stack": [
-      "EfficientNet-B0",
-      "Google Perch v2",
-      "Mel Spectrogram",
-      "PyTorch",
-      "Bioacoustics",
-      "Transfer Learning"
-    ],
-    "points": [
-      "Built a BirdCLEF+ 2026 competition workflow for fine-grained bird species identification from audio recordings using spectrogram representations and foundation model probes.",
-      "Applied EfficientNet-B0 baseline training, Google Perch v2 embedding extraction, curated EDA on class-imbalanced audio datasets, and reusable training utilities for rapid experimentation."
-    ]
-  },
-  {
-    "title": "Airbnb ELT Warehouse",
-    "category": "Data Engineering & Analytics",
-    "github": "https://github.com/tuannm3812/airbnb-ELT-warehouse",
-    "impact": "End-to-end ELT warehouse for Sydney Airbnb & Census data with Airflow, dbt, and Bronze-Silver-Gold layers",
-    "stack": [
-      "Airflow",
-      "dbt",
-      "PostgreSQL",
-      "Bronze-Silver-Gold",
-      "ELT",
-      "Data Modeling"
-    ],
-    "points": [
-      "Built a production-style ELT data warehouse ingesting Sydney Airbnb listings and ABS Census data into a Bronze-Silver-Gold lakehouse architecture on PostgreSQL.",
-      "Applied Apache Airflow orchestration, dbt transformations, incremental loading strategies, and analytical models enabling neighbourhood-level pricing, occupancy, and demographic insights."
-    ]
-  },
-  {
-    "title": "Kaggle S6E6 Predicting Stellar Class",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-s6e6-predicting-stellar-class",
-    "impact": "Kaggle Playground S6E6 stellar object classification workflow",
-    "stack": [
-      "LightGBM",
-      "XGBoost",
-      "CatBoost",
-      "Stratified CV",
-      "Feature Engineering",
-      "Astronomical Data"
-    ],
-    "points": [
-      "Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.",
-      "Applied stratified cross-validation, gradient boosting model sweeps, astronomical feature engineering, class-balance analysis, and reusable submission validation."
-    ]
-  },
-  {
-    "title": "Kaggle Orbit Wars",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-orbit-wars",
-    "impact": "Kaggle simulation competition agent for orbital mechanics strategy",
-    "stack": [
-      "Simulation/RL",
-      "Orbital Mechanics",
-      "Strategy Agents",
-      "BFS",
-      "Replay Analysis"
-    ],
-    "points": [
-      "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
-      "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
-    ]
-  },
-  {
-    "title": "Kaggle CSIRO Image2biomass",
+    "title": "Kaggle CSIRO Image2Biomass",
     "category": "Machine Learning & Kaggle",
     "github": "https://github.com/tuannm3812/kaggle-csiro-image2biomass",
-    "impact": "AI-assisted pasture biomass prediction with grouped CV and embedding experiments",
+    "impact": "Pasture biomass prediction workflow with grouped validation and embedding experiments",
     "stack": [
       "ExtraTrees",
       "HistGradientBoosting",
@@ -162,6 +91,23 @@ export const githubProjects: Project[] = [
     ]
   },
   {
+    "title": "Kaggle Orbit Wars",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-orbit-wars",
+    "impact": "Kaggle simulation agent for orbital strategy and replay-driven iteration",
+    "stack": [
+      "Simulation/RL",
+      "Orbital Mechanics",
+      "Strategy Agents",
+      "BFS",
+      "Replay Analysis"
+    ],
+    "points": [
+      "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
+      "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
+    ]
+  },
+  {
     "title": "Kaggle ROGII Wellbore Geology Prediction",
     "category": "Machine Learning & Kaggle",
     "github": "https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction",
@@ -216,6 +162,23 @@ export const githubProjects: Project[] = [
     ]
   },
   {
+    "title": "Kaggle S6E6 Predicting Stellar Class",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-s6e6-predicting-stellar-class",
+    "impact": "Kaggle stellar-object classification with probability stacking and threshold calibration",
+    "stack": [
+      "Probability Stacking",
+      "Threshold Calibration",
+      "Nelder-Mead",
+      "Ensembling",
+      "Astronomical Data"
+    ],
+    "points": [
+      "Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.",
+      "Applied multi-model probability stacking, Nelder-Mead threshold calibration, public-consensus hybrid blending, astronomical feature review, and reusable submission validation."
+    ]
+  },
+  {
     "title": "NYC Taxi Databricks",
     "category": "Data Engineering & Analytics",
     "github": "https://github.com/tuannm3812/NYC-Taxi-Databricks",
@@ -250,7 +213,7 @@ export const githubProjects: Project[] = [
     ]
   },
   {
-    "title": "Youtube Trending Snowflake Lakehouse",
+    "title": "YouTube Trending Snowflake Lakehouse",
     "category": "Data Engineering & Analytics",
     "github": "https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse",
     "impact": "Snowflake pipeline for multi-country YouTube trends",

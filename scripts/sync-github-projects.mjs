@@ -53,8 +53,12 @@ function toTitle(name) {
     .replace(/\bNfl\b/g, 'NFL')
     .replace(/\bS6e4\b/g, 'S6E4')
     .replace(/\bS6e5\b/g, 'S6E5')
+    .replace(/\bS6e6\b/g, 'S6E6')
     .replace(/\bF1\b/g, 'F1')
     .replace(/\bFaostat\b/g, 'FAOSTAT')
+    .replace(/\bYoutube\b/g, 'YouTube')
+    .replace(/\bFoodlens\b/g, 'FoodLens')
+    .replace(/\bImage2biomass\b/g, 'Image2Biomass')
     .replace(/\bMulti Class\b/g, 'Multi-Class');
 }
 
@@ -66,22 +70,22 @@ function inferCategory(repo) {
   }
 
   if (/(bird|vision|image|caption|computer vision|deep learning|pytorch|cnn|lstm)/.test(text)) {
-    return 'Deep Learning & Computer Vision';
+    return 'Deep Learning & Vision';
   }
 
   if (/(solana|forecast|price|time-series|time series|mlops|fastapi)/.test(text)) {
-    return 'Time-Series & MLOps';
+    return 'MLOps & Forecasting';
   }
 
   if (/(nlp|text|sql|agent|llm|generative|prompt|transformer|token|transcript)/.test(text)) {
-    return 'NLP & Generative AI';
+    return 'AI Agents & LLM Products';
   }
 
   if (/(elt|warehouse|airflow|dbt|dashboard|analytics|faostat|data|pipeline)/.test(text)) {
     return 'Data Engineering & Analytics';
   }
 
-  return 'Applied AI Products';
+  return 'AI Agents & LLM Products';
 }
 
 function inferStack(repo) {
@@ -111,7 +115,9 @@ function inferStack(repo) {
   if (/llm|agent|gemini|prompt/.test(text)) stack.push('LLMs');
   if (/gemini/.test(text)) stack.push('Gemini API');
   if (/nlp|text|token|transformer/.test(text)) stack.push('NLP');
-  if (repo.language) stack.push(repo.language);
+  if (repo.language && !['Jupyter Notebook', 'Python'].includes(repo.language)) {
+    stack.push(repo.language);
+  }
 
   return [...new Set(stack)].slice(0, 6);
 }
@@ -140,7 +146,9 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'kaggle-csiro-image2biomass': {
-    impact: 'Active Kaggle workflow for pasture biomass prediction',
+    title: 'Kaggle CSIRO Image2Biomass',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Pasture biomass prediction workflow with grouped validation and embedding experiments',
     stack: ['ExtraTrees', 'HistGradientBoosting', 'GroupKFold', 'EfficientNet-B0', 'PCA', 'Constraint Checks'],
     points: [
       'Built a CSIRO Image2Biomass competition workflow for pasture biomass prediction using image metadata, color features, and submission-ready post-processing.',
@@ -148,6 +156,7 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'kaggle-maze-crawler': {
+    category: 'Machine Learning & Kaggle',
     impact: 'Kaggle simulation agent with replay-driven BFS experiments',
     stack: ['Jump BFS', 'Wall Memory', 'Danger Gating', 'Simulation/RL', 'Replay Analysis'],
     points: [
@@ -156,6 +165,7 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'kaggle-ROGII-Wellbore-Geology-Prediction': {
+    category: 'Machine Learning & Kaggle',
     impact: 'Kaggle wellbore TVT reconstruction with Beam/PF trajectory modeling',
     stack: ['Beam Search', 'Particle Filter', 'LightGBM', 'CatBoost', 'Artifact Replay', 'Masked Validation'],
     points: [
@@ -164,6 +174,7 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'kaggle-neurogolf-2026': {
+    category: 'Machine Learning & Kaggle',
     impact: 'Kaggle NeuroGolf 2026 ARC-style solver and ONNX submission workflow',
     stack: ['ONNX', 'ARC Solvers', 'Connected Components', 'One-Hot Tensors', 'Rule Diagnostics'],
     points: [
@@ -180,7 +191,17 @@ const PROJECT_COPY_OVERRIDES = {
       'Applied game-play grouped validation, distance and motion features, type-specific contact modeling, temporal smoothing, blended LightGBM models, and helmet-derived video feature probes.'
     ]
   },
+  'kaggle-orbit-wars': {
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle simulation agent for orbital strategy and replay-driven iteration',
+    stack: ['Simulation/RL', 'Orbital Mechanics', 'Strategy Agents', 'BFS', 'Replay Analysis'],
+    points: [
+      'Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.',
+      'Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows.'
+    ]
+  },
   'kaggle-s6e4-predict-irrigation-need': {
+    category: 'Machine Learning & Kaggle',
     impact: 'Kaggle Playground S6E4 irrigation-need prediction workflow',
     stack: ['CatBoost', 'Stratified CV', 'Model Diagnostics', 'Feature Interactions', 'Class Weighting', 'EDA Diagnostics'],
     points: [
@@ -189,6 +210,7 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'kaggle-s6e5-predict-f1-pit-stops': {
+    category: 'Machine Learning & Kaggle',
     impact: 'Kaggle F1 pit-stop prediction with model diagnostics',
     stack: ['LightGBM', 'XGBoost', 'CatBoost', 'Stratified CV', 'Calibration', 'Feature Engineering'],
     points: [
@@ -196,8 +218,28 @@ const PROJECT_COPY_OVERRIDES = {
       'Applied race-context feature engineering, stratified validation, LightGBM tuning, XGBoost and CatBoost challenger checks, calibration diagnostics, and race-level error review.'
     ]
   },
+  'kaggle-s6e6-predicting-stellar-class': {
+    title: 'Kaggle S6E6 Predicting Stellar Class',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle stellar-object classification with probability stacking and threshold calibration',
+    stack: ['Probability Stacking', 'Threshold Calibration', 'Nelder-Mead', 'Ensembling', 'Astronomical Data'],
+    points: [
+      'Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.',
+      'Applied multi-model probability stacking, Nelder-Mead threshold calibration, public-consensus hybrid blending, astronomical feature review, and reusable submission validation.'
+    ]
+  },
+  'foodlens-calibrated-food-recognition': {
+    title: 'FoodLens: Calibrated Food Recognition',
+    category: 'Deep Learning & Vision',
+    impact: 'Full-stack food recognition app with confidence-based routing and FastAPI + React delivery',
+    stack: ['ResNet50', 'PyTorch', 'FastAPI', 'React', 'Calibration', 'Multi-food Detection'],
+    points: [
+      'Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.',
+      'Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery.'
+    ]
+  },
   'multi-class-food-recognition': {
-    category: 'Deep Learning & Computer Vision',
+    category: 'Deep Learning & Vision',
     impact: 'Food-101 image classification with transfer learning and model diagnostics',
     stack: ['ResNet50', 'ConvNeXt-Tiny', 'EfficientNet-B0', 'PyTorch', 'Calibration'],
     points: [
@@ -206,6 +248,7 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'ScriptClean-AI': {
+    category: 'AI Agents & LLM Products',
     impact: 'Transcript-to-study-guide app powered by Gemini',
     stack: ['React', 'TypeScript', 'Gemini API', 'Transcript Processing', 'Rich Text Export'],
     points: [
@@ -214,13 +257,17 @@ const PROJECT_COPY_OVERRIDES = {
     ]
   },
   'sydney-rainfall-forecasting': {
+    category: 'MLOps & Forecasting',
     impact: 'Live Streamlit dashboard for Sydney rainfall forecasts',
+    stack: ['Open-Meteo', 'Scikit-learn', 'joblib', 'Streamlit', 'Forecasting'],
     points: [
-      'Built a rainfall forecasting app with Open-Meteo data, scikit-learn models, and joblib artifacts.',
-      'Includes a live project link from the repository homepage metadata.'
+      'Built a Sydney rainfall forecasting app with Open-Meteo observations, scikit-learn models, joblib artifacts, and Streamlit delivery.',
+      'Applied future-weather target handling, feature-order checks, model metadata, and dashboard-ready inference validation.'
     ]
   },
   'youtube-trending-snowflake-lakehouse': {
+    title: 'YouTube Trending Snowflake Lakehouse',
+    category: 'Data Engineering & Analytics',
     impact: 'Snowflake pipeline for multi-country YouTube trends',
     stack: ['Snowflake', 'API Ingestion', 'SQL Analytics', 'Data Modeling'],
     points: [
@@ -237,7 +284,7 @@ function buildProject(repo) {
   const copy = PROJECT_COPY_OVERRIDES[repo.name];
 
   return {
-    title: toTitle(repo.name),
+    title: copy?.title || toTitle(repo.name),
     category: copy?.category || inferCategory(repo),
     github: repo.html_url,
     ...(demo ? { demo } : {}),

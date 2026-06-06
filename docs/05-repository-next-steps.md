@@ -1,6 +1,7 @@
 # Repository Next Steps
 
-Use this as the working checklist after each portfolio or GitHub-project refresh.
+Use this as the working checklist after each portfolio, resume, or GitHub-profile
+refresh.
 
 ## Immediate Maintenance
 
@@ -26,6 +27,9 @@ Use this as the working checklist after each portfolio or GitHub-project refresh
   portfolio cards.
 - Revisit the homepage summary after major project waves so it matches the
   strongest current evidence.
+- Keep `docs/04-github-profile-readme.md` shorter and more selective than the
+  full portfolio. It should lead with a recruiter-friendly narrative, then use
+  selected projects as proof.
 
 ## GitHub Project Hygiene
 
@@ -63,8 +67,9 @@ Use this as the working checklist after each portfolio or GitHub-project refresh
   AI Meal Planner, AfriWeave, ScriptClean AI, and Apple Foundation Agent.
 - For MLOps roles, lead with Solana Price Forecasting, Sydney Rainfall
   Forecasting, and the portfolio itself as a deployed CI/CD artifact.
-- Refresh `docs/04-github-profile-readme.md` after major portfolio changes and
-  copy the final version into the profile repository when ready.
+- Refresh `docs/04-github-profile-readme.md` after major portfolio changes,
+  keeping it focused on narrative, strongest evidence, and clear contact links.
+  Copy the final version into the profile repository when ready.
 
 ## Reliability smoke checks (post-change)
 

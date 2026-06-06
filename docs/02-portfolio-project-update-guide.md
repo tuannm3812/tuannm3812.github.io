@@ -1,9 +1,10 @@
 # Portfolio Project Update Guide
 
-Use this guide when translating project work into portfolio cards and resume
-bullets. The goal is consistency: every card should quickly explain what the
-project is, then show the technical skills applied. Keep detailed results,
-metric tables, and experiment logs in repository docs.
+Use this guide when translating project work into portfolio cards, resume
+bullets, and profile-ready project summaries. The goal is consistency: every
+card should explain what the project does, then prove the technical skills
+behind it. Keep detailed results, metric tables, and experiment logs in
+repository docs.
 
 ## Source Of Truth
 
@@ -87,7 +88,8 @@ skill: `Text Processing` instead of `Python`, `Streamlit UX` instead of `UX`,
 
 ## Copy Rules
 
-Write cards as compact evidence, not sales copy.
+Write cards as compact evidence, not sales copy. A reader should understand the
+problem, the workflow, and the technical proof without reading every repository.
 
 - Lead with the project domain, problem, or workflow.
 - Use the second bullet for techniques and skill sets.
@@ -102,6 +104,9 @@ Write cards as compact evidence, not sales copy.
   `Packaged`, `Implemented`, `Maintained`.
 - Avoid temporary wording such as `preparing`, `work in progress`, or
   `refreshing` unless the status itself is important.
+- For the GitHub profile README, prefer a smaller curated set of projects over a
+  full catalog. The profile should invite deeper review, not duplicate the whole
+  portfolio.
 
 ## Sync Script Rules
 

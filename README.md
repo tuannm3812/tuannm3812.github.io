@@ -1,8 +1,8 @@
 # Tuan Nguyen Portfolio
 
-Personal portfolio for Tuan Nguyen, focused on machine learning, data engineering, MLOps, and selected project work.
+Personal portfolio for Tuan Nguyen, focused on practical machine learning, data engineering, MLOps, applied AI, and selected public project work.
 
-The site is a React/Vite portfolio with Firebase-backed contact/comment features, GitHub Pages deployment, and automated GitHub project metadata sync.
+The site is a React/Vite portfolio with Firebase-backed contact and comment features, GitHub Pages deployment, and an automated GitHub project metadata sync. The surrounding docs keep portfolio copy, resume material, deployment notes, and profile README content easy to refresh without digging through application code.
 
 ## Tech Stack
 
@@ -59,14 +59,15 @@ scripts/             Automation scripts such as GitHub project sync
 src/                 React application source
 ```
 
-Key source files:
+Key files:
 
 - `src/data/resume.ts`: curated portfolio, resume, skills, education, and experience content.
 - `src/data/githubProjects.ts`: generated GitHub project cards.
 - `scripts/sync-github-projects.mjs`: GitHub metadata sync with curated copy overrides.
-- `docs/00-documentation-index.md`: documentation index and update workflow.
+- `docs/00-documentation-index.md`: documentation map and update workflow.
 - `docs/02-portfolio-project-update-guide.md`: project-card writing rules.
 - `docs/03-resume-content-guide.md`: resume-ready project and keyword content.
+- `docs/04-github-profile-readme.md`: polished GitHub profile README source.
 - `docs/05-repository-next-steps.md`: maintenance roadmap.
 
 ## Firebase

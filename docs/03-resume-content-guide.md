@@ -1,6 +1,8 @@
 # Resume Content Guide
 
-Generated from the latest resume draft and current public GitHub project metadata.
+Use this guide as the source for resume summaries, role-specific project choices,
+and keyword-rich bullets. It should stay aligned with the portfolio, public
+GitHub repositories, Kaggle profile, and GitHub profile README.
 
 Sources checked:
 - Latest resume source: `F:\Downloads\MikeNguyen_Resume.pptx`
@@ -13,7 +15,9 @@ Last refreshed: 2026-06-06
 
 ## Formatting Recommendation
 
-For a designed PDF resume, use selective bolding inside project bullets to guide the reader's eye. Keep the emphasis restrained so the bullets stay professional and ATS-readable:
+For a designed PDF resume, use selective bolding inside project bullets to guide
+the reader's eye. Keep the emphasis restrained so the bullets stay professional
+and ATS-readable:
 
 - Highlight only 2-4 high-signal terms per bullet.
 - Put keywords in project titles, tag lines, skills sections, and stack lines.

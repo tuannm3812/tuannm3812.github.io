@@ -1,4 +1,7 @@
-# Deployment
+# Deployment Guide
+
+Use this checklist when publishing portfolio changes or updating Firebase-backed
+features.
 
 This repository is configured for GitHub Pages at:
 
@@ -38,3 +41,7 @@ npm ci
 npm run lint
 npm run build
 ```
+
+For content-only documentation changes, `npm run lint` and `npm run build` are
+usually enough to confirm the app still compiles. For Firebase, routing, or UI
+changes, use `npm run check`.
