@@ -5,7 +5,7 @@ import type { Project } from './resume';
 export const githubProjects: Project[] = [
   {
     "title": "FoodLens: Calibrated Food Recognition",
-    "category": "Deep Learning & Computer Vision",
+    "category": "Deep Learning & Vision",
     "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
     "impact": "Full-stack food recognition app with confidence-based routing and FastAPI + React prototype",
     "stack": [
@@ -234,7 +234,7 @@ export const githubProjects: Project[] = [
   },
   {
     "title": "ScriptClean AI",
-    "category": "Applied AI Products",
+    "category": "AI Agents & LLM Products",
     "github": "https://github.com/tuannm3812/ScriptClean-AI",
     "impact": "Transcript-to-study-guide app powered by Gemini",
     "stack": [

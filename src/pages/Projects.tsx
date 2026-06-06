@@ -74,7 +74,7 @@ export default function Projects() {
           Technical <span className="text-brand">Projects</span>
         </h2>
         <p className="text-lg text-slate-500 dark:text-slate-400">
-          Public work across computer vision, data engineering, time-series modelling, NLP, AI agents, and applied product prototypes.
+          Public work across AI agents, deep learning, data engineering, Kaggle competitions, and deployed ML systems.
         </p>
       </div>
 

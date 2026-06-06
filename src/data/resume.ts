@@ -123,7 +123,7 @@ export const resumeData: ResumeData = {
   projects: [
     {
       title: "Bioacoustic Species Classification",
-      category: "Deep Learning & Computer Vision",
+      category: "Deep Learning & Vision",
       github: "https://github.com/tuannm3812/kaggle-birdclef-2026",
       impact: "Active BirdCLEF+ 2026 bioacoustic classification workspace",
       stack: ["Perch v2", "EfficientNet-B0", "PyTorch", "Audio ML", "CPU Inference"],
@@ -134,7 +134,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "VisionVoice: Image Captioning",
-      category: "Deep Learning & Computer Vision",
+      category: "Deep Learning & Vision",
       github: "https://github.com/tuannm3812/VisionVoice",
       impact: "Accessible VizWiz captioning with visual attention",
       stack: ["PyTorch", "ResNet-LSTM", "Bahdanau Attention", "Beam Search", "VizWiz"],
@@ -145,7 +145,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Flickr8k Image Captioning",
-      category: "Deep Learning & Computer Vision",
+      category: "Deep Learning & Vision",
       github: "https://github.com/tuannm3812/flickr-image-captioning",
       impact: "Reproducible Flickr8k captioning workflow",
       stack: ["PyTorch", "VGG16", "ResNet50", "Attention", "Beam Search"],
@@ -179,7 +179,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Solana Price Forecasting",
-      category: "Time-Series & MLOps",
+      category: "MLOps & Forecasting",
       github: "https://github.com/tuannm3812/solana-price-prediction",
       demo: "https://solana-price-prediction-tuannm3812.streamlit.app/",
       impact: "Real-time forecasting and Streamlit dashboard",
@@ -191,7 +191,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Sydney Rainfall Forecasting",
-      category: "Time-Series & MLOps",
+      category: "MLOps & Forecasting",
       github: "https://github.com/tuannm3812/sydney-rainfall-forecasting",
       demo: "https://sydney-rainfall-forecasting.streamlit.app/",
       impact: "Sydney rainfall forecasting pipeline with Streamlit delivery",
@@ -203,7 +203,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Gender Equality Policy NLP",
-      category: "NLP & Generative AI",
+      category: "Machine Learning & Kaggle",
       github: "https://github.com/tuannm3812/gender-equality-policy-nlp",
       impact: "Policy discourse analysis from parliamentary submissions",
       stack: ["NLP", "TF-IDF", "LDA", "K-Means", "Policy Analytics"],
@@ -214,7 +214,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "TikTok Semantic",
-      category: "NLP & Generative AI",
+      category: "Data Engineering & Analytics",
       github: "https://github.com/tuannm3812/tiktok-semantic",
       impact: "Semantic marketing analytics for climate-action TikToks",
       stack: ["Pandas", "scikit-learn", "NetworkX", "NLP", "Graph Analytics"],
@@ -225,7 +225,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "AfriWeave",
-      category: "NLP & Generative AI",
+      category: "AI Agents & LLM Products",
       github: "https://github.com/tuannm3812/AfriWeave",
       impact: "Culturally focused Streamlit NLP prototype",
       stack: ["Streamlit", "Keras", "JAX", "BPE", "Transformers"],
@@ -236,7 +236,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Enterprise Text-to-SQL Agent",
-      category: "NLP & Generative AI",
+      category: "AI Agents & LLM Products",
       github: "https://github.com/tuannm3812/aipa-text-to-sql-agent",
       demo: "https://aipa-text-to-sql-agent.streamlit.app/",
       impact: "Enterprise-style schema RAG agent with safe local SQL execution",
@@ -248,7 +248,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Apple Foundation Agent",
-      category: "Applied AI Products",
+      category: "AI Agents & LLM Products",
       github: "https://github.com/tuannm3812/apple-foundation-agent",
       impact: "Interactive Streamlit diagnostic for developer workflows",
       stack: ["Streamlit", "Scoring Logic", "Streamlit UX", "Decision Flow", "Deployment"],
@@ -259,7 +259,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "AI Meal Planner",
-      category: "Applied AI Products",
+      category: "AI Agents & LLM Products",
       github: "https://github.com/tuannm3812/ai-meal-planner",
       demo: "https://tuannm3812-ai-meal-planner.streamlit.app/",
       impact: "Multi-agent meal planning app with live Streamlit demo",
@@ -271,7 +271,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Personal Portfolio",
-      category: "Applied AI Products",
+      category: "MLOps & Forecasting",
       github: "https://github.com/tuannm3812/tuannm3812.github.io",
       demo: "https://tuannm3812.github.io",
       impact: "React portfolio deployed with GitHub Pages",
