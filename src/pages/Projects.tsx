@@ -85,7 +85,7 @@ export default function Projects() {
             className="group/category rounded-xl border border-slate-200/80 bg-white/90 dark:border-slate-800/80 dark:bg-slate-900/90 shadow-sm overflow-hidden"
             open={categoryIndex === 0}
           >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50 [&::-webkit-details-marker]:hidden border-b border-transparent group-open/category:border-slate-200/60 dark:group-open/category:border-slate-800/60">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50 [&::-webkit-details-marker]:hidden border-b border-transparent group-open/category:border-slate-200/60 dark:group-open/category:border-slate-800/60 focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none">
               <span className="flex items-center gap-3">
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <Layers size={18} />
@@ -115,9 +115,11 @@ export default function Projects() {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-3">
                         <div className="flex flex-wrap items-center gap-1.5">
-                          <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
-                            {project.stack[0]}
-                          </span>
+                          {project.stack.length > 0 && (
+                            <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
+                              {project.stack[0]}
+                            </span>
+                          )}
                           {isKaggleProject(project) && (
                             <span
                               className="inline-flex items-center gap-1 rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-700 dark:border-sky-800 dark:bg-sky-950/70 dark:text-sky-300"
@@ -161,9 +163,9 @@ export default function Projects() {
                     </ul>
 
                     <div className="flex flex-wrap gap-1">
-                      {project.stack.map((tech) => (
+                      {project.stack.map((tech, techIndex) => (
                         <span
-                          key={tech}
+                          key={`${tech}-${techIndex}`}
                           className="rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 dark:text-slate-400"
                         >
                           {tech}
@@ -178,7 +180,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-brand dark:bg-slate-900 dark:hover:bg-brand"
+                        className="flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-brand dark:bg-slate-900 dark:hover:bg-brand focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:outline-none"
                       >
                         <Github size={13} />
                         Source Code
@@ -189,7 +191,7 @@ export default function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 transition-all hover:border-brand hover:bg-brand hover:text-white"
+                        className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 transition-all hover:border-brand hover:bg-brand hover:text-white focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:outline-none"
                       >
                         <ExternalLink size={13} />
                         Live Demo
