@@ -4,49 +4,49 @@ import { resumeData } from '../data/resume';
 import { ArrowRight, Brain, CloudCog, Database, Globe, MapPin, Sparkles, TerminalSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
+const expertise = [
+  {
+    icon: <Brain />,
+    label: "AI Agents & Deep Learning",
+    title: "Models that reason and act",
+    desc: "LLM agents, text-to-SQL, RAG, computer vision, audio ML, image captioning, and competition-grade ML systems."
+  },
+  {
+    icon: <Database />,
+    label: "Data Engineering",
+    title: "Pipelines that can be trusted",
+    desc: "Airflow, dbt, Snowflake, Databricks, Delta Lake, medallion architecture, and warehouse-ready analytics marts."
+  },
+  {
+    icon: <CloudCog />,
+    label: "MLOps & Deployment",
+    title: "From notebook to production",
+    desc: "FastAPI, Streamlit, GitHub Actions, pytest, model artifacts, reproducible workflows, and live dashboards."
+  },
+  {
+    icon: <Globe />,
+    label: "Kaggle & Experimentation",
+    title: "Systematic ML experimentation",
+    desc: "Grouped validation, gradient boosting sweeps, OOF blending, bioacoustic ML, tabular modeling, and simulation agents."
+  }
+];
+
 export default function Home() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
-
-  const expertise = [
-    {
-      icon: <Brain />,
-      label: "AI Agents & Deep Learning",
-      title: "Models that reason and act",
-      desc: "LLM agents, text-to-SQL, RAG, computer vision, audio ML, image captioning, and competition-grade ML systems."
-    },
-    {
-      icon: <Database />,
-      label: "Data Engineering",
-      title: "Pipelines that can be trusted",
-      desc: "Airflow, dbt, Snowflake, Databricks, Delta Lake, medallion architecture, and warehouse-ready analytics marts."
-    },
-    {
-      icon: <CloudCog />,
-      label: "MLOps & Deployment",
-      title: "From notebook to production",
-      desc: "FastAPI, Streamlit, GitHub Actions, pytest, model artifacts, reproducible workflows, and live dashboards."
-    },
-    {
-      icon: <Globe />,
-      label: "Kaggle & Experimentation",
-      title: "Systematic ML experimentation",
-      desc: "Grouped validation, gradient boosting sweeps, OOF blending, bioacoustic ML, tabular modeling, and simulation agents."
-    }
-  ];
-
   return (
     <div className="space-y-16">
       {/* Hero Section */}
@@ -82,7 +82,7 @@ export default function Home() {
             </Link>
             <Link
               to="/contact"
-              className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 font-bold rounded-lg transition-all shadow-sm"
+              className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold rounded-lg transition-all shadow-sm"
             >
               Get in Touch
             </Link>
@@ -148,7 +148,7 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-5">
           {resumeData.reflections.map((reflection, index) => (
             <motion.div
-              key={index}
+              key={reflection.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
