@@ -82,10 +82,10 @@ export default function Projects() {
         {sortedProjectGroups.map(([category, projects], categoryIndex) => (
           <details
             key={category}
-            className="group/category rounded-xl border border-slate-200 bg-white/70 dark:border-slate-800 dark:bg-slate-900/70"
+            className="group/category rounded-xl border border-slate-200/80 bg-white/90 dark:border-slate-800/80 dark:bg-slate-900/90 shadow-sm overflow-hidden"
             open={categoryIndex === 0}
           >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50 [&::-webkit-details-marker]:hidden border-b border-transparent group-open/category:border-slate-200/60 dark:group-open/category:border-slate-800/60">
               <span className="flex items-center gap-3">
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <Layers size={18} />
@@ -101,7 +101,7 @@ export default function Projects() {
               />
             </summary>
 
-            <div className="grid gap-4 border-t border-slate-100 p-5 dark:border-slate-800 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-4 p-5 md:grid-cols-2 xl:grid-cols-3">
               {projects.map((project, index) => (
                 <motion.div
                   key={project.title}
@@ -109,7 +109,7 @@ export default function Projects() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.06 }}
-                  className="group relative flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-brand/50 hover:shadow-lg hover:shadow-brand/5 dark:border-slate-800 dark:bg-slate-950"
+                  className="group relative flex h-full flex-col rounded-lg border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:border-brand hover:shadow-md dark:border-slate-800/80 dark:bg-slate-950"
                 >
                   <div className="flex-1 space-y-4">
                     <div className="space-y-2">
@@ -164,7 +164,7 @@ export default function Projects() {
                       {project.stack.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md bg-slate-100 px-1.5 py-1 font-mono text-[10px] text-slate-600 dark:bg-slate-800 dark:text-slate-400"
+                          className="rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 dark:text-slate-400"
                         >
                           {tech}
                         </span>
@@ -178,7 +178,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-brand hover:shadow-brand/20 dark:bg-brand dark:hover:bg-brand-light"
+                        className="flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-brand dark:bg-slate-900 dark:hover:bg-brand"
                       >
                         <Github size={13} />
                         Source Code
@@ -189,7 +189,7 @@ export default function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 rounded-lg border border-brand/30 bg-brand/5 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-brand transition-all hover:bg-brand hover:text-white"
+                        className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 transition-all hover:border-brand hover:bg-brand hover:text-white"
                       >
                         <ExternalLink size={13} />
                         Live Demo
