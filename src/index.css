@@ -24,30 +24,28 @@
   /* Clean outline styles for accessibility and minimal bold styling */
   input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: var(--color-brand) !important;
-    box-shadow: 0 0 0 2px rgba(5, 64, 242, 0.15);
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-brand) 15%, transparent);
   }
 }
 
 @layer utilities {
   .site-backdrop {
-    background:
+    background-image:
       linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-      #fafafa;
-    background-size: 40px 40px, 40px 40px;
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-color: #fafafa;
+    background-size: 40px 40px;
   }
 
   .dark .site-backdrop {
-    background:
+    background-image:
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      #0b0f19;
-    background-size: 40px 40px, 40px 40px;
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-color: #0b0f19;
   }
 
   .expertise-band {
-    background:
-      linear-gradient(90deg, rgba(5, 64, 242, 0.05), rgba(5, 108, 242, 0.03));
+    background-image: linear-gradient(90deg, rgba(5, 64, 242, 0.05), rgba(5, 108, 242, 0.03));
   }
 }
