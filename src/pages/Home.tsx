@@ -75,14 +75,14 @@ export default function Home() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/projects"
-              className="px-6 py-3 bg-brand text-white font-bold rounded-lg hover:bg-brand-light transition-all flex items-center gap-2 group"
+              className="px-6 py-3 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold rounded-lg transition-all flex items-center gap-2 group shadow-md"
             >
               View Projects
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="px-6 py-3 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
+              className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 font-bold rounded-lg transition-all shadow-sm"
             >
               Get in Touch
             </Link>
@@ -114,7 +114,7 @@ export default function Home() {
             {resumeData.highlights.map((highlight) => (
               <div
                 key={highlight.label}
-            className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-900/70 backdrop-blur shadow-sm"
+                className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 shadow-sm hover:border-brand/40 transition-colors"
               >
                 <span className="block text-2xl font-black text-brand">{highlight.value}</span>
                 <span className="mt-1 block text-xs leading-snug text-slate-600 dark:text-slate-400">{highlight.label}</span>
@@ -153,7 +153,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand/50 transition-all shadow-sm hover:shadow-lg hover:shadow-brand/5"
+              className="p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand transition-all shadow-sm hover:shadow-md hover:shadow-brand/5"
             >
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -199,7 +199,7 @@ export default function Home() {
               <motion.div
                 key={skill.label}
                 variants={item}
-                className="expertise-band p-5 rounded-xl bg-white/90 dark:bg-slate-900/85 border border-slate-200 dark:border-slate-800 hover:border-brand transition-all hover:shadow-lg hover:shadow-brand/5 group"
+                className="expertise-band p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand/60 transition-all hover:shadow-md group"
               >
                 <div className="flex items-start gap-5">
                   <div className="w-12 h-12 rounded-lg bg-white dark:bg-slate-950 text-brand border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
@@ -233,7 +233,7 @@ export default function Home() {
               {resumeData.technologyStack.map((group) => (
                 <div
                   key={group.title}
-                  className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-4 shadow-sm hover:border-brand/60 hover:shadow-lg hover:shadow-brand/5 transition-all"
+                  className="rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 p-5 shadow-sm hover:border-brand/60 transition-all"
                 >
                   <div className="flex items-start gap-3">
                     <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
@@ -251,7 +251,7 @@ export default function Home() {
                     {group.tools.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 text-[10px] font-mono border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 rounded-md text-slate-600 dark:text-slate-400 hover:border-brand hover:text-brand transition-all cursor-default"
+                        className="px-2.5 py-1 text-[10px] font-mono font-semibold border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 rounded-md text-slate-600 dark:text-slate-400 hover:border-brand hover:text-brand transition-all cursor-default"
                       >
                         {tech}
                       </span>
