@@ -4,10 +4,99 @@ import type { Project } from './resume';
 // Curated projects in resume.ts take priority when GitHub URLs overlap.
 export const githubProjects: Project[] = [
   {
+    "title": "FoodLens: Calibrated Food Recognition",
+    "category": "Deep Learning & Computer Vision",
+    "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
+    "impact": "Full-stack food recognition app with confidence-based routing and FastAPI + React prototype",
+    "stack": [
+      "ResNet50",
+      "PyTorch",
+      "FastAPI",
+      "React",
+      "Calibration",
+      "Multi-food Crop Detection"
+    ],
+    "points": [
+      "Built FoodLens: a calibrated Food-101 recognition system featuring confidence-based decision routing, multi-food crop detection, and an end-to-end FastAPI + React prototype.",
+      "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, image/video/URL ingestion, and confidence-gated routing for reliable multi-class food identification."
+    ]
+  },
+  {
+    "title": "Kaggle BirdCLEF+ 2026",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-birdclef-2026",
+    "impact": "Bioacoustic bird species classification with EfficientNet-B0 and Google Perch v2",
+    "stack": [
+      "EfficientNet-B0",
+      "Google Perch v2",
+      "Mel Spectrogram",
+      "PyTorch",
+      "Bioacoustics",
+      "Transfer Learning"
+    ],
+    "points": [
+      "Built a BirdCLEF+ 2026 competition workflow for fine-grained bird species identification from audio recordings using spectrogram representations and foundation model probes.",
+      "Applied EfficientNet-B0 baseline training, Google Perch v2 embedding extraction, curated EDA on class-imbalanced audio datasets, and reusable training utilities for rapid experimentation."
+    ]
+  },
+  {
+    "title": "Airbnb ELT Warehouse",
+    "category": "Data Engineering & Analytics",
+    "github": "https://github.com/tuannm3812/airbnb-ELT-warehouse",
+    "impact": "End-to-end ELT warehouse for Sydney Airbnb & Census data with Airflow, dbt, and Bronze-Silver-Gold layers",
+    "stack": [
+      "Airflow",
+      "dbt",
+      "PostgreSQL",
+      "Bronze-Silver-Gold",
+      "ELT",
+      "Data Modeling"
+    ],
+    "points": [
+      "Built a production-style ELT data warehouse ingesting Sydney Airbnb listings and ABS Census data into a Bronze-Silver-Gold lakehouse architecture on PostgreSQL.",
+      "Applied Apache Airflow orchestration, dbt transformations, incremental loading strategies, and analytical models enabling neighbourhood-level pricing, occupancy, and demographic insights."
+    ]
+  },
+  {
+    "title": "Kaggle S6E6 Predicting Stellar Class",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-s6e6-predicting-stellar-class",
+    "impact": "Kaggle Playground S6E6 stellar object classification workflow",
+    "stack": [
+      "LightGBM",
+      "XGBoost",
+      "CatBoost",
+      "Stratified CV",
+      "Feature Engineering",
+      "Astronomical Data"
+    ],
+    "points": [
+      "Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.",
+      "Applied stratified cross-validation, gradient boosting model sweeps, astronomical feature engineering, class-balance analysis, and reusable submission validation."
+    ]
+  },
+  {
+    "title": "Kaggle Orbit Wars",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-orbit-wars",
+    "impact": "Kaggle simulation competition agent for orbital mechanics strategy",
+    "stack": [
+      "Simulation/RL",
+      "Orbital Mechanics",
+      "Strategy Agents",
+      "BFS",
+      "Replay Analysis"
+    ],
+    "points": [
+      "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
+      "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
+    ]
+  },
+  {
     "title": "Kaggle CSIRO Image2biomass",
     "category": "Machine Learning & Kaggle",
     "github": "https://github.com/tuannm3812/kaggle-csiro-image2biomass",
-    "impact": "Active Kaggle workflow for pasture biomass prediction",
+    "impact": "AI-assisted pasture biomass prediction with grouped CV and embedding experiments",
     "stack": [
       "ExtraTrees",
       "HistGradientBoosting",
@@ -124,23 +213,6 @@ export const githubProjects: Project[] = [
     "points": [
       "Built a Kaggle F1 pit-stop prediction workflow for estimating next-lap pit probability from race, stint, tyre, lap-time, and position context.",
       "Applied race-context feature engineering, stratified validation, LightGBM tuning, XGBoost and CatBoost challenger checks, calibration diagnostics, and race-level error review."
-    ]
-  },
-  {
-    "title": "Multi-Class Food Recognition",
-    "category": "Deep Learning & Computer Vision",
-    "github": "https://github.com/tuannm3812/multi-class-food-recognition",
-    "impact": "Food-101 image classification with transfer learning and model diagnostics",
-    "stack": [
-      "ResNet50",
-      "ConvNeXt-Tiny",
-      "EfficientNet-B0",
-      "PyTorch",
-      "Calibration"
-    ],
-    "points": [
-      "Built a Food-101 image classification workflow for fine-grained food recognition across visually similar dish categories and ranked prediction use cases.",
-      "Applied ResNet50 fine-tuning, modern backbone comparison, stratified evaluation, augmentation, label smoothing, calibration analysis, hard-class review, and deterministic inference packaging."
     ]
   },
   {
