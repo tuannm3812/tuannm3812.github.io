@@ -80,18 +80,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={cn(
-                  'text-sm font-bold tracking-tight transition-all hover:text-brand',
-                  location.pathname === item.path ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={cn(
+                    'text-sm font-bold transition-all hover:text-brand',
+                    isActive ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
+                  )}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -129,18 +132,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4"
             >
               <div className="flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={cn(
-                      'text-lg font-bold tracking-tight py-2 transition-all hover:text-brand',
-                      location.pathname === item.path ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={cn(
+                        'text-lg font-bold tracking-tight py-2 transition-all hover:text-brand',
+                        isActive ? 'text-brand' : 'text-slate-600 dark:text-slate-400',
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
           )}
@@ -162,11 +168,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </main>
 
-      <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-950/50 py-12 transition-colors">
+      <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-950 py-12 transition-colors">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold">{resumeData.name}</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-sm">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-sm">
               Building practical machine learning, data engineering, and applied AI workflows.
             </p>
           </div>
@@ -184,7 +190,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Mail size={24} />
             </a>
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Copyright {new Date().getFullYear()} Tuan Nguyen. All rights reserved.
           </p>
         </div>
