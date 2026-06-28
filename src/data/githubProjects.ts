@@ -4,6 +4,19 @@ import type { Project } from './resume';
 // Curated projects in resume.ts take priority when GitHub URLs overlap.
 export const githubProjects: Project[] = [
   {
+    "title": "CircleU",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/CircleU",
+    "impact": "A local-first, privacy-focused iOS voice journaling and self-reflection app built with SwiftUI, Apple Intelligence, and Firebase cloud backup.",
+    "stack": [
+      "Swift"
+    ],
+    "points": [
+      "A local-first, privacy-focused iOS voice journaling and self-reflection app built with SwiftUI, Apple Intelligence, and Firebase cloud backup.",
+      "Maintained as a public GitHub project and ready for deeper portfolio documentation."
+    ]
+  },
+  {
     "title": "FoodLens: Calibrated Food Recognition",
     "category": "Deep Learning & Vision",
     "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
@@ -19,6 +32,19 @@ export const githubProjects: Project[] = [
     "points": [
       "Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.",
       "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery."
+    ]
+  },
+  {
+    "title": "Kaggle AI Agent Security",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-ai-agent-security",
+    "impact": "Public Jupyter Notebook project from GitHub",
+    "stack": [
+      "LLMs"
+    ],
+    "points": [
+      "Public repository for Kaggle AI Agent Security, maintained on GitHub.",
+      "Maintained as a public GitHub project and ready for deeper portfolio documentation."
     ]
   },
   {
@@ -105,6 +131,20 @@ export const githubProjects: Project[] = [
     "points": [
       "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
       "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
+    ]
+  },
+  {
+    "title": "Kaggle Pokemon Tcg AI Battle",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-pokemon-tcg-ai-battle",
+    "impact": "Public Jupyter Notebook project from GitHub",
+    "stack": [
+      "GitHub",
+      "Project"
+    ],
+    "points": [
+      "Public repository for Kaggle Pokemon Tcg AI Battle, maintained on GitHub.",
+      "Maintained as a public GitHub project and ready for deeper portfolio documentation."
     ]
   },
   {
@@ -196,20 +236,31 @@ export const githubProjects: Project[] = [
     ]
   },
   {
-    "title": "ScriptClean AI",
+    "title": "Unsw Ma Hackathon 2026",
     "category": "AI Agents & LLM Products",
-    "github": "https://github.com/tuannm3812/ScriptClean-AI",
-    "impact": "Transcript-to-study-guide app powered by Gemini",
+    "github": "https://github.com/tuannm3812/unsw-ma-hackathon-2026",
+    "impact": "Public Jupyter Notebook project from GitHub",
     "stack": [
-      "React",
-      "TypeScript",
-      "Gemini API",
-      "Transcript Processing",
-      "Rich Text Export"
+      "GitHub",
+      "Project"
     ],
     "points": [
-      "Built a transcript-to-study-guide app for converting raw YouTube lecture transcripts into structured study notes and learning materials.",
-      "Applied React, TypeScript, Tailwind, Gemini prompting, speaker structure, topic headers, bilingual vocabulary support, and rich-text export for Docs or Word workflows."
+      "Public repository for Unsw Ma Hackathon 2026, maintained on GitHub.",
+      "Maintained as a public GitHub project and ready for deeper portfolio documentation."
+    ]
+  },
+  {
+    "title": "Uts Mdsi",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/uts-mdsi",
+    "impact": "Public Python project from GitHub",
+    "stack": [
+      "GitHub",
+      "Project"
+    ],
+    "points": [
+      "Public repository for Uts Mdsi, maintained on GitHub.",
+      "Maintained as a public GitHub project and ready for deeper portfolio documentation."
     ]
   },
   {
