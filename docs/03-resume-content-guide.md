@@ -403,6 +403,19 @@ Streamlit, Python, AI Agent, Diagnostic Flow, Scoring Logic, Product Prototype
 
 GitHub: https://github.com/tuannm3812/apple-foundation-agent
 
+### UTS Tech Festival 2026 GenAI Hackathon (Applied AI / Scenario Response)
+
+Recommended for:
+Applied AI, Hackathon, Resilient Infrastructure, Technology Assessment, Smart Intersection
+
+Tags:
+Generative AI, Austroads, Sustainable Design, Telemetry, Prompt Engineering, Document Automation
+
+- Developed comprehensive technical responses for three engineering scenarios: LEGO sustainable urban housing, Caterpillar/WesTrac future worksite fleet transition, and Austroads-aligned smart intersection asphalt design.
+- Applied generative AI prompting strategy, adaptive signal logic design, sustainable mix design, machinery telemetry plans, and automated HTML/PDF document compilation pipelines.
+
+GitHub: https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon
+
 ### Personal Portfolio (Frontend / Portfolio Automation)
 
 Recommended for:
@@ -601,6 +614,12 @@ Current public project inventory, including the Text-to-SQL agent even though Gi
 | apple-foundation-agent | AI / Streamlit Prototype | Product prototype |
 | ai-meal-planner | AI Product / Full Stack | Product prototype |
 | ScriptClean-AI | AI Product / Frontend | Supporting AI product project |
+| uts-techfest-2026-genai-hackathon | AI / Scenario Response | Hackathon project |
+| CircleU | iOS / SwiftUI App | Supporting iOS project |
+| kaggle-ai-agent-security | Machine Learning / AI Security | Supporting agent security project |
+| kaggle-pokemon-tcg-ai-battle | Machine Learning / Simulation | Supporting simulation-agent project |
+| unsw-ma-hackathon-2026 | Data Engineering / Crowdfunding | Supporting hackathon project |
+| uts-mdsi | AI / Course Wiki | Supporting documentation project |
 | tuannm3812.github.io | Portfolio / Frontend | Supporting portfolio evidence |
 
 ## Resume Links Section

@@ -4,6 +4,24 @@ import type { Project } from './resume';
 // Curated projects in resume.ts take priority when GitHub URLs overlap.
 export const githubProjects: Project[] = [
   {
+    "title": "CircleU: iOS Journaling App",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/CircleU",
+    "impact": "Local-first voice journaling and self-reflection iOS app with Apple Intelligence integration",
+    "stack": [
+      "SwiftUI",
+      "Apple Intelligence",
+      "iOS",
+      "Firebase",
+      "Swift",
+      "Local-First"
+    ],
+    "points": [
+      "Built CircleU, a privacy-focused iOS voice journaling app with Apple Intelligence self-reflection features and Firebase cloud backups.",
+      "Applied SwiftUI layout design, local-first Swift data architecture, Apple Intelligence integration, and secure Firebase synchronization."
+    ]
+  },
+  {
     "title": "FoodLens: Calibrated Food Recognition",
     "category": "Deep Learning & Vision",
     "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
@@ -19,6 +37,41 @@ export const githubProjects: Project[] = [
     "points": [
       "Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.",
       "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery."
+    ]
+  },
+  {
+    "title": "Kaggle AI Agent Security",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-ai-agent-security",
+    "impact": "Kaggle AI agent security attack modeling and tool-using failure discovery",
+    "stack": [
+      "AI Security",
+      "Multi-Step Attacks",
+      "Agents",
+      "Python",
+      "Kaggle"
+    ],
+    "points": [
+      "Built an attack-modeling workflow for identifying reproducible multi-step tool-use vulnerabilities in AI agents.",
+      "Developed attack notebooks analyzing tool usage chains, prompt injections, and multi-step simulation failure routes."
+    ]
+  },
+  {
+    "title": "Kaggle BirdCLEF 2026",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-birdclef-2026",
+    "impact": "Kaggle BirdCLEF 2026 audio classification baseline and Google Perch v2 feature extraction workflow",
+    "stack": [
+      "EfficientNet-B0",
+      "Google Perch v2",
+      "PyTorch",
+      "Audio ML",
+      "EDA",
+      "Training Utilities"
+    ],
+    "points": [
+      "Built a Kaggle BirdCLEF 2026 competition workspace for identifying wildlife species from Pantanal audio recordings.",
+      "Applied EfficientNet-B0 fine-tuning, Google Perch v2 embeddings, audio data preparation, and reusable training pipelines."
     ]
   },
   {
@@ -105,6 +158,24 @@ export const githubProjects: Project[] = [
     "points": [
       "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
       "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
+    ]
+  },
+  {
+    "title": "Kaggle Pokémon TCG AI Battle",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-pokemon-tcg-ai-battle",
+    "impact": "Kaggle Pokémon TCG simulation agent and paired self-play evaluation framework",
+    "stack": [
+      "Simulation/RL",
+      "Heuristic Agents",
+      "Card Analytics",
+      "Self-Play",
+      "Python",
+      "Kaggle"
+    ],
+    "points": [
+      "Built a simulation-agent workflow for the Pokémon TCG AI Battle competition, including card-pool analysis and paired self-play evaluation.",
+      "Applied rule-based heuristic search, simulator interfaces, legal-action masks, and submission packaging."
     ]
   },
   {
@@ -210,6 +281,58 @@ export const githubProjects: Project[] = [
     "points": [
       "Built a transcript-to-study-guide app for converting raw YouTube lecture transcripts into structured study notes and learning materials.",
       "Applied React, TypeScript, Tailwind, Gemini prompting, speaker structure, topic headers, bilingual vocabulary support, and rich-text export for Docs or Word workflows."
+    ]
+  },
+  {
+    "title": "UNSW Marketing Analytics Hackathon 2026",
+    "category": "Data Engineering & Analytics",
+    "github": "https://github.com/tuannm3812/unsw-ma-hackathon-2026",
+    "impact": "Crowdfunding funding-speed prediction and prosocial market analysis",
+    "stack": [
+      "Kiva Data",
+      "Funding Speed",
+      "Prosocial Motives",
+      "Regression",
+      "Python"
+    ],
+    "points": [
+      "Built a predictive analytics workflow for the UNSW Marketing Analytics Hackathon using micro-lending data from Kiva.",
+      "Applied feature engineering, loan-level regression, factor analysis of lender motives, and data visualization."
+    ]
+  },
+  {
+    "title": "UTS MDSI LLM Wiki",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/uts-mdsi",
+    "impact": "Markdown wiki database of MDSI course materials optimized for LLM tools",
+    "stack": [
+      "Markdown",
+      "LLM Wiki",
+      "Course Materials",
+      "Google Drive",
+      "Data Curation"
+    ],
+    "points": [
+      "Built an LLM-optimized Markdown wiki curating UTS MDSI course syllabus, materials, and Google Drive resources.",
+      "Applied markdown structuring, data curation, content indexing, and clean folder layouts for AI agent parsing."
+    ]
+  },
+  {
+    "title": "UTS Tech Festival 2026 GenAI Hackathon",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon",
+    "impact": "Resilient infrastructure, smart intersection, and autonomous worksite solutions for civil & environmental engineering challenges",
+    "stack": [
+      "Generative AI",
+      "Austroads Smart Intersection",
+      "Sustainable Asphalt",
+      "Telemetry & Fleet Spec",
+      "Prompt Engineering",
+      "Project Strategy"
+    ],
+    "points": [
+      "Developed comprehensive technical submissions for three engineering scenarios: LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite fleet spec, and an Austroads-aligned smart intersection.",
+      "Applied generative AI prompting strategy, adaptive signal logic design, sustainable mix design, telemetry planning, and automated HTML/PDF document compilation."
     ]
   },
   {

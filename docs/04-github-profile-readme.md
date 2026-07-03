@@ -16,6 +16,7 @@ Right now my public work is focused on three things:
 | --- | --- |
 | [Enterprise Text-to-SQL Agent](https://github.com/tuannm3812/aipa-text-to-sql-agent) | Turns natural-language questions into safer local SQL using hybrid schema RAG, Gemini/Ollama generation, SQLGlot validation, SQLite execution, and Streamlit delivery. |
 | [AI Meal Planner](https://github.com/tuannm3812/ai-meal-planner) | Combines FastAPI, Streamlit, calorie prediction, local meal retrieval, nutrition checks, feedback capture, and CI-tested backend contracts into a practical planning workflow. |
+| [UTS Tech Festival GenAI Hackathon](https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon) | Scenario responses for LEGO sustainable housing, Caterpillar/WesTrac fleet transition, and Austroads smart intersection signal design. |
 | [FoodLens](https://github.com/tuannm3812/foodlens-calibrated-food-recognition) | Calibrated Food-101 recognition with ResNet50, confidence routing, multi-food crop detection, and a FastAPI + React prototype. |
 | [Airbnb ELT Warehouse](https://github.com/tuannm3812/airbnb-ELT-warehouse) | End-to-end Sydney Airbnb and Census analytics warehouse using Airflow, dbt, PostgreSQL, medallion modelling, and SCD Type 2 snapshots. |
 | [Bioacoustic Species Classification](https://github.com/tuannm3812/kaggle-birdclef-2026) | BirdCLEF+ audio ML workspace with EfficientNet-B0, Perch v2 probes, reusable artifacts, and CPU-safe inference packaging. |
