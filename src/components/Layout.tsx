@@ -99,20 +99,40 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             })}
             <button
               onClick={toggleTheme}
-              className="ml-1 rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-800"
+              className="ml-1 rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-800 flex items-center justify-center h-9 w-9 focus-visible:outline-none"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={theme}
+                  initial={{ rotate: -90, scale: 0.8, opacity: 0 }}
+                  animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                  exit={{ rotate: 90, scale: 0.8, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                </motion.div>
+              </AnimatePresence>
             </button>
           </div>
 
           <div className="flex shrink-0 items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900"
+              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900 flex items-center justify-center h-10 w-10 overflow-hidden"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={theme}
+                  initial={{ rotate: -90, scale: 0.8, opacity: 0 }}
+                  animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                  exit={{ rotate: 90, scale: 0.8, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                </motion.div>
+              </AnimatePresence>
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

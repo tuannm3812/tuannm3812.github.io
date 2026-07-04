@@ -33,9 +33,31 @@ export default function Blog() {
     return () => unsubscribe();
   }, []);
 
+  const [scrollPercent, setScrollPercent] = useState(0);
+
   useEffect(() => {
     setNewComment('');
     setCommentSubmitError(null);
+  }, [selectedPost]);
+
+  useEffect(() => {
+    if (!selectedPost) {
+      setScrollPercent(0);
+      return;
+    }
+
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollPercent((window.scrollY / totalHeight) * 100);
+      } else {
+        setScrollPercent(0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [selectedPost]);
 
   const handleLogin = async () => {
@@ -136,6 +158,14 @@ export default function Blog() {
             exit={{ opacity: 0, y: -20 }}
             className="max-w-4xl mx-auto space-y-8"
           >
+            {/* Reading progress indicator */}
+            <div className="fixed top-16 left-0 right-0 h-1 bg-slate-200/50 dark:bg-slate-800/50 z-50 pointer-events-none">
+              <div 
+                className="h-full bg-brand transition-all duration-75 ease-out rounded-r-full"
+                style={{ width: `${scrollPercent}%` }}
+              />
+            </div>
+
             <button
               onClick={() => setSelectedPost(null)}
               className="px-4 py-2 text-sm font-bold text-slate-500 hover:text-brand transition-colors flex items-center gap-2"
