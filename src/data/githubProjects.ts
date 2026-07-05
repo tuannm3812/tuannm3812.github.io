@@ -57,24 +57,6 @@ export const githubProjects: Project[] = [
     ]
   },
   {
-    "title": "Kaggle BirdCLEF 2026",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-birdclef-2026",
-    "impact": "Kaggle BirdCLEF 2026 audio classification baseline and Google Perch v2 feature extraction workflow",
-    "stack": [
-      "EfficientNet-B0",
-      "Google Perch v2",
-      "PyTorch",
-      "Audio ML",
-      "EDA",
-      "Training Utilities"
-    ],
-    "points": [
-      "Built a Kaggle BirdCLEF 2026 competition workspace for identifying wildlife species from Pantanal audio recordings.",
-      "Applied EfficientNet-B0 fine-tuning, Google Perch v2 embeddings, audio data preparation, and reusable training pipelines."
-    ]
-  },
-  {
     "title": "Kaggle CSIRO Image2Biomass",
     "category": "Machine Learning & Kaggle",
     "github": "https://github.com/tuannm3812/kaggle-csiro-image2biomass",
@@ -267,23 +249,6 @@ export const githubProjects: Project[] = [
     ]
   },
   {
-    "title": "ScriptClean AI",
-    "category": "AI Agents & LLM Products",
-    "github": "https://github.com/tuannm3812/ScriptClean-AI",
-    "impact": "Transcript-to-study-guide app powered by Gemini",
-    "stack": [
-      "React",
-      "TypeScript",
-      "Gemini API",
-      "Transcript Processing",
-      "Rich Text Export"
-    ],
-    "points": [
-      "Built a transcript-to-study-guide app for converting raw YouTube lecture transcripts into structured study notes and learning materials.",
-      "Applied React, TypeScript, Tailwind, Gemini prompting, speaker structure, topic headers, bilingual vocabulary support, and rich-text export for Docs or Word workflows."
-    ]
-  },
-  {
     "title": "UNSW Marketing Analytics Hackathon 2026",
     "category": "Data Engineering & Analytics",
     "github": "https://github.com/tuannm3812/unsw-ma-hackathon-2026",
@@ -315,24 +280,6 @@ export const githubProjects: Project[] = [
     "points": [
       "Built an LLM-optimized Markdown wiki curating UTS MDSI course syllabus, materials, and Google Drive resources.",
       "Applied markdown structuring, data curation, content indexing, and clean folder layouts for AI agent parsing."
-    ]
-  },
-  {
-    "title": "UTS Tech Festival 2026 GenAI Hackathon",
-    "category": "AI Agents & LLM Products",
-    "github": "https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon",
-    "impact": "Resilient infrastructure, smart intersection, and autonomous worksite solutions for civil & environmental engineering challenges",
-    "stack": [
-      "Generative AI",
-      "Austroads Smart Intersection",
-      "Sustainable Asphalt",
-      "Telemetry & Fleet Spec",
-      "Prompt Engineering",
-      "Project Strategy"
-    ],
-    "points": [
-      "Developed comprehensive technical submissions for three engineering scenarios: LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite fleet spec, and an Austroads-aligned smart intersection.",
-      "Applied generative AI prompting strategy, adaptive signal logic design, sustainable mix design, telemetry planning, and automated HTML/PDF document compilation."
     ]
   },
   {
