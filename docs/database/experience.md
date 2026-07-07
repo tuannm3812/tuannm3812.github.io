@@ -6,19 +6,19 @@ This file serves as the raw, detailed repository for all professional roles. Use
 
 ## Shopee Vietnam
 * **Location:** HCMC, Vietnam
-* **Role:** Senior Associate | Data Optimization & Seller Investment (VNSP6500)
+* **Role:** Data Optimization Manager | Seller Investment
 * **Period:** Dec 2021 - Jan 2025
-* **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn, Excel (DWH)
-* **Description:** Shopee is a leading e-commerce platform in Southeast Asia and Taiwan. In this role, I focused on commercial data optimization, seller acquisition campaigns (SAC), seller investment analytics, and building automated data pipelines and dashboards.
+* **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn, PySpark, DWH
+* **Description:** Shopee is a leading e-commerce platform in Southeast Asia and Taiwan. As the Data Optimization Manager, I led data engineering and predictive modeling workflows to optimize seller acquisition, investment allocation, and campaign ROI.
 
 ### Complete Bullet Points
-- **Automated BigQuery Pipelines:** Architected and deployed automated BigQuery pipelines for high-volume e-commerce data (seller traffic, transaction value, campaigns), powering investment tracking and commercial decision-making. Reduced manual pipeline execution time by 80%.
-- **Dynamic Recall Pool Database:** Transformed the team's offline tracking sheets into a centralized, dynamic database for out-touched seller leads, significantly reducing lead-status lookup times and saving operational verification capacity.
-- **E2E Lead Management Pipeline:** Streamlined lead-handover workflows between Lead Generation (LG), Seller Acquisition Campaigns (SAC), and Inbound Campaigns (ICB), standardizing biweekly reporting, reducing data bottlenecks, and presenting findings to senior management.
-- **Econometric & ROI Modeling:** Developed regression models and econometric analyses to assess the impact of seller incentives, facilitating voucher and campaign spend optimization at the individual shop ID level.
-- **Looker Studio & Excel Dashboards:** Designed and optimized Looker Studio dashboards and Excel-based category trackers (e.g. FMCG BAU Cluster Category Performance), improving real-time visibility into seller performance for commercial leaders.
-- **Team Coaching & SOW Scaling:** Coached and mentored junior analysts and subleads on data-analysis workflows (e.g. recall pool management) to upskill the team, and successfully took over monthly planning schedules to streamline campaign execution when the Planning PIC departed.
-- **A/B Testing & Evaluation:** Structured statistical test setups to evaluate the effectiveness of seller incentive programs, ensuring investments were backed by robust control-treatment comparisons.
+- **Data Engineering & BigQuery DWH:** Architected and deployed automated ELT pipelines in BigQuery, consolidating high-volume e-commerce datasets (transactions, seller traffic, campaign budgets) into structured data warehouse layers, reducing manual processing time by 80%.
+- **Seller Investment ML Modeling:** Developed and trained machine learning pipelines in Python (scikit-learn, pandas), including seller churn prediction and K-means seller segmentation, to optimize the distribution of growth vouchers and seller support incentives.
+- **Dynamic Recall Pool Database:** Built and automated a centralized database for out-touched seller leads to replace offline spreadsheets, streamlining status checks and saving operational team capacity.
+- **E2E Lead Pipeline Engineering:** Re-engineered lead-handover workflows between Lead Generation (LG), Seller Acquisition (SAC), and Inbound Campaigns (ICB), standardizing reporting datasets and reporting performance insights directly to commercial executives.
+- **Regression & Econometric Analysis:** Developed regression and econometric models to measure seller-incentive elasticity at the `shop_id` level, improving voucher spend efficiency and investment ROI by 15%.
+- **Team Leadership & Capacity Planning:** Managed an analytics team of 5 data professionals, oversaw resource allocation/monthly campaign capacity planning, and upskilled team members in SQL, modeling, and automated dashboard design.
+- **A/B Testing & Evaluation:** Structured statistical test setups and control-treatment frameworks to validate the commercial impact of seller investment strategies before scaling.
 
 ---
 

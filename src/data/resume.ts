@@ -88,13 +88,13 @@ export const resumeData: ResumeData = {
     {
       company: "Shopee Vietnam",
       location: "HCMC, Vietnam",
-      role: "Data Optimization | Seller Investment",
+      role: "Data Optimization Manager | Seller Investment",
       period: "Dec 2021 - Jan 2025",
       points: [
-        "Architected automated BigQuery pipelines for high-volume e-commerce data, powering investment tracking and commercial decision-making.",
-        "Developed predictive models including churn prediction and K-means seller clustering to personalize seller support and allocate resources more effectively.",
-        "Led a cross-functional analytics team of 5, translating model outputs into investment actions that improved ROI by 15%.",
-        "Designed self-service dashboards in Looker Studio, reducing ad-hoc reporting load and improving stakeholder visibility."
+        "Architected automated BigQuery data warehousing pipelines for high-volume e-commerce data, reducing manual execution workloads by 80%.",
+        "Developed predictive models in Python, including seller churn and K-means segmentation, to allocate seller growth incentives and vouchers.",
+        "Led an analytics team of 5 and designed A/B tests to optimize seller incentives, improving spend ROI by 15% year-over-year.",
+        "Re-engineered end-to-end lead management workflows across acquisition campaigns, creating self-service dashboards that improved stakeholder visibility."
       ]
     },
     {
