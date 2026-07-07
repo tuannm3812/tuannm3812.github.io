@@ -25,3 +25,7 @@ ui-debug.log
 # Local agent/worktree scratch state
 .superpowers/
 .worktrees/
+
+# Private Career Copilot Data
+/jobs/
+/docs/database/
