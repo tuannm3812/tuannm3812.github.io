@@ -72,6 +72,14 @@ refresh.
 - Keep the `PROFILE_README_TOKEN` repository secret configured so the profile
   README workflow can publish that source into `tuannm3812/tuannm3812`.
 
+## Career Copilot & RAG Database
+
+- Periodically sync your public GitHub repositories using `npm run sync:github-projects`.
+- Add custom text overrides to `PROJECT_COPY_OVERRIDES` in `scripts/sync-github-projects.mjs` for newly synced projects to avoid generic copy.
+- Keep your raw database files in `docs/database/` updated with your latest education, experiences, skills, and STAR stories.
+- Run `Initialize career copilot for [company-role]` in Antigravity to prepare for new job applications.
+- Run `Run career copilot tailoring for [company-role]` in Antigravity to tailor resumes, cover letters, and interview preparation materials natively.
+
 ## Reliability smoke checks (post-change)
 
 - Run `npm run check`.

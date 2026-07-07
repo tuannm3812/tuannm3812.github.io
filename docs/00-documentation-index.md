@@ -16,6 +16,10 @@ and maintenance priorities.
   the GitHub profile repository README.
 - [Repository Next Steps](05-repository-next-steps.md): Maintenance roadmap and
   practical improvement checklist.
+- [LinkedIn About Draft](06-linkedin-about.md): Recruiter-friendly LinkedIn About
+  copy with portfolio link and headline options.
+- [Career Copilot Operations & Workflow Guide](07-career-copilot-workflow.md): Workflow guide and commands to operate your career RAG database.
+
 
 ## Update Workflow
 
