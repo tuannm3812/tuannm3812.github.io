@@ -6,16 +6,18 @@ This file serves as the raw, detailed repository for all professional roles. Use
 
 ## Shopee Vietnam
 * **Location:** HCMC, Vietnam
-* **Role:** Data Optimization | Seller Investment
+* **Role:** Senior Associate | Data Optimization & Seller Investment (VNSP6500)
 * **Period:** Dec 2021 - Jan 2025
-* **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn
-* **Description:** Shopee is a leading e-commerce platform in Southeast Asia and Taiwan. In this role, I focused on commercial data optimization, seller investment analytics, and automating reporting pipelines for seller acquisition and growth.
+* **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn, Excel (DWH)
+* **Description:** Shopee is a leading e-commerce platform in Southeast Asia and Taiwan. In this role, I focused on commercial data optimization, seller acquisition campaigns (SAC), seller investment analytics, and building automated data pipelines and dashboards.
 
 ### Complete Bullet Points
 - **Automated BigQuery Pipelines:** Architected and deployed automated BigQuery pipelines for high-volume e-commerce data (seller traffic, transaction value, campaigns), powering investment tracking and commercial decision-making. Reduced manual pipeline execution time by 80%.
-- **Predictive Modelling for Retention:** Developed and trained predictive models including seller churn prediction and K-means clustering (using scikit-learn and pandas) to segment sellers, personalize seller support campaigns, and allocate growth investment resources more effectively.
-- **Team Leadership & ROI:** Led a cross-functional analytics team of 5 data analysts, translating model outputs and insights into commercial seller-investment actions that improved ROI on seller incentives by 15% year-over-year.
-- **Looker Studio Dashboards:** Designed and optimized self-service Looker Studio dashboards for commercial teams and executives, reducing ad-hoc reporting requests by 40% and improving real-time visibility into seller performance.
+- **Dynamic Recall Pool Database:** Transformed the team's offline tracking sheets into a centralized, dynamic database for out-touched seller leads, significantly reducing lead-status lookup times and saving operational verification capacity.
+- **E2E Lead Management Pipeline:** Streamlined lead-handover workflows between Lead Generation (LG), Seller Acquisition Campaigns (SAC), and Inbound Campaigns (ICB), standardizing biweekly reporting, reducing data bottlenecks, and presenting findings to senior management.
+- **Econometric & ROI Modeling:** Developed regression models and econometric analyses to assess the impact of seller incentives, facilitating voucher and campaign spend optimization at the individual shop ID level.
+- **Looker Studio & Excel Dashboards:** Designed and optimized Looker Studio dashboards and Excel-based category trackers (e.g. FMCG BAU Cluster Category Performance), improving real-time visibility into seller performance for commercial leaders.
+- **Team Coaching & SOW Scaling:** Coached and mentored junior analysts and subleads on data-analysis workflows (e.g. recall pool management) to upskill the team, and successfully took over monthly planning schedules to streamline campaign execution when the Planning PIC departed.
 - **A/B Testing & Evaluation:** Structured statistical test setups to evaluate the effectiveness of seller incentive programs, ensuring investments were backed by robust control-treatment comparisons.
 
 ---
