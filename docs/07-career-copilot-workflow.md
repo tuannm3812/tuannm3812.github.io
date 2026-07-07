@@ -15,6 +15,10 @@ All of your raw career assets and active job applications are structured as foll
 │       ├── education_certs.md          <-- Degrees and credentials (UTS, FTU)
 │       ├── skills_matrix.md            <-- Technical skill and technology mapping
 │       ├── story_bank.md               <-- Behavioral interview stories (STAR method)
+│       ├── raw_sources/                <-- Folder for drop-in raw materials to be summarized
+│       │   ├── certificates/           <-- Certificates, PDFs, screenshots
+│       │   ├── education/              <-- Academic transcripts, course descriptions
+│       │   └── experience/             <-- Work drafts, metrics, past descriptions
 │       └── projects/                   <-- Detailed catalog of your 30+ projects
 │           ├── ai_meal_planner.md
 │           ├── airbnb_elt_warehouse.md
