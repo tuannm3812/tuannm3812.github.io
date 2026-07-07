@@ -4,6 +4,23 @@ import type { Project } from './resume';
 // Curated projects in resume.ts take priority when GitHub URLs overlap.
 export const githubProjects: Project[] = [
   {
+    "title": "CircleU",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/CircleU",
+    "impact": "Privacy-first iOS reflection journal with ambient voice check-ins and AI emotional analysis",
+    "stack": [
+      "SwiftUI",
+      "Apple Intelligence",
+      "Firebase",
+      "Speech Framework",
+      "LLM Schemas"
+    ],
+    "points": [
+      "Built CircleU, a privacy-first iOS reflection and support circles application featuring ambient voice journaling and speech-to-text integration using Apple's native Speech framework.",
+      "Implemented cognitive extraction for emotions and automated Daily Growth Quests using LLM schemas and Apple Intelligence, backed by firewalled Firestore group sharing."
+    ]
+  },
+  {
     "title": "FoodLens: Calibrated Food Recognition",
     "category": "Deep Learning & Vision",
     "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
@@ -19,6 +36,23 @@ export const githubProjects: Project[] = [
     "points": [
       "Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.",
       "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery."
+    ]
+  },
+  {
+    "title": "Kaggle AI Agent Security",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-ai-agent-security",
+    "impact": "Adversarial attack algorithms for multi-step tool failures in LLM agents",
+    "stack": [
+      "Python",
+      "Adversarial Prompting",
+      "Tool Injection",
+      "Replay Manifests",
+      "Jupyter"
+    ],
+    "points": [
+      "Developed attack algorithms for the Kaggle AI Agent Security competition to identify reproducible, multi-step failures in tool-using LLM agents.",
+      "Mapped agent policy and tool failure surfaces, replicated the local evaluation environment, and implemented manifest tracking to log and validate deterministic attacks."
     ]
   },
   {
@@ -105,6 +139,23 @@ export const githubProjects: Project[] = [
     "points": [
       "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
       "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
+    ]
+  },
+  {
+    "title": "Kaggle Pokémon TCG AI Battle",
+    "category": "Machine Learning & Kaggle",
+    "github": "https://github.com/tuannm3812/kaggle-pokemon-tcg-ai-battle",
+    "impact": "Gaussian skill simulation agent and self-play evaluation for Pokémon TCG",
+    "stack": [
+      "Python",
+      "Simulator Ingestion",
+      "Gaussian Skill Estimator",
+      "Self-play Evaluation",
+      "EDA"
+    ],
+    "points": [
+      "Built a legal decision agent and optimized 60-card decks for the Kaggle Pokémon TCG AI Battle simulation competition.",
+      "Established an offline self-play evaluation framework using win/draw/loss tracking, Gaussian skill uncertainty estimates, and action-sequence experiment logging to screen policy changes."
     ]
   },
   {
@@ -196,20 +247,36 @@ export const githubProjects: Project[] = [
     ]
   },
   {
-    "title": "ScriptClean AI",
-    "category": "AI Agents & LLM Products",
-    "github": "https://github.com/tuannm3812/ScriptClean-AI",
-    "impact": "Transcript-to-study-guide app powered by Gemini",
+    "title": "UNSW MA Hackathon 2026",
+    "category": "Data Engineering & Analytics",
+    "github": "https://github.com/tuannm3812/unsw-ma-hackathon-2026",
+    "impact": "Prosocial crowdfunding analysis predicting Kiva micro-lending funding speeds",
     "stack": [
-      "React",
-      "TypeScript",
-      "Gemini API",
-      "Transcript Processing",
-      "Rich Text Export"
+      "Python",
+      "NLP Text Framing",
+      "Feature Engineering",
+      "Ridge Regression",
+      "Random Forest"
     ],
     "points": [
-      "Built a transcript-to-study-guide app for converting raw YouTube lecture transcripts into structured study notes and learning materials.",
-      "Applied React, TypeScript, Tailwind, Gemini prompting, speaker structure, topic headers, bilingual vocabulary support, and rich-text export for Docs or Word workflows."
+      "Analyzed loan-level Kiva data (2016-2025) for the UNSW Marketing Analytics Hackathon to identify drivers of prosocial crowdfunding speed in subsistence markets.",
+      "Engineered NLP text-framing metrics on borrower narratives, borrower demographics, and repayment interval features, training Ridge and Random Forest pipelines."
+    ]
+  },
+  {
+    "title": "UTS MDSI LLM Wiki",
+    "category": "AI Agents & LLM Products",
+    "github": "https://github.com/tuannm3812/uts-mdsi",
+    "impact": "Curated LLM-ready markdown knowledge base for Master of Data Science course materials",
+    "stack": [
+      "Markdown",
+      "Obsidian/Vault",
+      "Course Synthesis",
+      "Prompt Engineering"
+    ],
+    "points": [
+      "Built a persistent course-material knowledge vault (UTS MDSI LLM Wiki) spanning multiple semesters, optimized for LLM tutor ingestion and assignment review.",
+      "Structured markdown subject guides, assessment calendars, and prompt libraries covering Machine Learning, Big Data, Applied NLP, and Decision Support systems."
     ]
   },
   {

@@ -274,6 +274,55 @@ const PROJECT_COPY_OVERRIDES = {
       'Built a Snowflake analytics workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.',
       'Applied API ingestion, SQL-based data modeling, repeatable trend analysis, country-level comparisons, and warehouse-ready documentation.'
     ]
+  },
+  'CircleU': {
+    category: 'AI Agents & LLM Products',
+    impact: 'Privacy-first iOS reflection journal with ambient voice check-ins and AI emotional analysis',
+    stack: ['SwiftUI', 'Apple Intelligence', 'Firebase', 'Speech Framework', 'LLM Schemas'],
+    points: [
+      'Built CircleU, a privacy-first iOS reflection and support circles application featuring ambient voice journaling and speech-to-text integration using Apple\'s native Speech framework.',
+      'Implemented cognitive extraction for emotions and automated Daily Growth Quests using LLM schemas and Apple Intelligence, backed by firewalled Firestore group sharing.'
+    ]
+  },
+  'kaggle-ai-agent-security': {
+    title: 'Kaggle AI Agent Security',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Adversarial attack algorithms for multi-step tool failures in LLM agents',
+    stack: ['Python', 'Adversarial Prompting', 'Tool Injection', 'Replay Manifests', 'Jupyter'],
+    points: [
+      'Developed attack algorithms for the Kaggle AI Agent Security competition to identify reproducible, multi-step failures in tool-using LLM agents.',
+      'Mapped agent policy and tool failure surfaces, replicated the local evaluation environment, and implemented manifest tracking to log and validate deterministic attacks.'
+    ]
+  },
+  'kaggle-pokemon-tcg-ai-battle': {
+    title: 'Kaggle Pokémon TCG AI Battle',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Gaussian skill simulation agent and self-play evaluation for Pokémon TCG',
+    stack: ['Python', 'Simulator Ingestion', 'Gaussian Skill Estimator', 'Self-play Evaluation', 'EDA'],
+    points: [
+      'Built a legal decision agent and optimized 60-card decks for the Kaggle Pokémon TCG AI Battle simulation competition.',
+      'Established an offline self-play evaluation framework using win/draw/loss tracking, Gaussian skill uncertainty estimates, and action-sequence experiment logging to screen policy changes.'
+    ]
+  },
+  'unsw-ma-hackathon-2026': {
+    title: 'UNSW MA Hackathon 2026',
+    category: 'Data Engineering & Analytics',
+    impact: 'Prosocial crowdfunding analysis predicting Kiva micro-lending funding speeds',
+    stack: ['Python', 'NLP Text Framing', 'Feature Engineering', 'Ridge Regression', 'Random Forest'],
+    points: [
+      'Analyzed loan-level Kiva data (2016-2025) for the UNSW Marketing Analytics Hackathon to identify drivers of prosocial crowdfunding speed in subsistence markets.',
+      'Engineered NLP text-framing metrics on borrower narratives, borrower demographics, and repayment interval features, training Ridge and Random Forest pipelines.'
+    ]
+  },
+  'uts-mdsi': {
+    title: 'UTS MDSI LLM Wiki',
+    category: 'AI Agents & LLM Products',
+    impact: 'Curated LLM-ready markdown knowledge base for Master of Data Science course materials',
+    stack: ['Markdown', 'Obsidian/Vault', 'Course Synthesis', 'Prompt Engineering'],
+    points: [
+      'Built a persistent course-material knowledge vault (UTS MDSI LLM Wiki) spanning multiple semesters, optimized for LLM tutor ingestion and assignment review.',
+      'Structured markdown subject guides, assessment calendars, and prompt libraries covering Machine Learning, Big Data, Applied NLP, and Decision Support systems.'
+    ]
   }
 };
 
