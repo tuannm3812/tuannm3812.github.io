@@ -6,19 +6,28 @@ This file serves as the raw, detailed repository for all professional roles. Use
 
 ## Shopee Vietnam
 * **Location:** HCMC, Vietnam
-* **Role:** Data Optimization Manager | Seller Investment
+* **Role:** Lead Data Optimization & Insights Manager | Seller Acquisition & Incubation (New Seller Flow)
 * **Period:** Dec 2021 - Jan 2025
-* **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn, PySpark, DWH
-* **Description:** Shopee is a leading e-commerce platform in Southeast Asia and Taiwan. As the Data Optimization Manager, I led data engineering and predictive modeling workflows to optimize seller acquisition, investment allocation, and campaign ROI.
+* **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn, PySpark, DWH, Excel
+* **Description:** Shopee is a leading e-commerce platform in Southeast Asia. In this role, I served as the strategic and data lead for the New Seller Flow (NSF) team—a specialized unit tasked with acquiring and incubating high-value sellers from competitor platforms. I architected data pipelines, built predictive models, and delivered strategic insights directly to the Head of Business Development and the CEO to define platform strategies (commissions, advertisements, flashsales, and vouchers).
 
-### Complete Bullet Points
-- **Data Engineering & BigQuery DWH:** Architected and deployed automated ELT pipelines in BigQuery, consolidating high-volume e-commerce datasets (transactions, seller traffic, campaign budgets) into structured data warehouse layers, reducing manual processing time by 80%.
-- **Seller Investment ML Modeling:** Developed and trained machine learning pipelines in Python (scikit-learn, pandas), including seller churn prediction and K-means seller segmentation, to optimize the distribution of growth vouchers and seller support incentives.
-- **Dynamic Recall Pool Database:** Built and automated a centralized database for out-touched seller leads to replace offline spreadsheets, streamlining status checks and saving operational team capacity.
-- **E2E Lead Pipeline Engineering:** Re-engineered lead-handover workflows between Lead Generation (LG), Seller Acquisition (SAC), and Inbound Campaigns (ICB), standardizing reporting datasets and reporting performance insights directly to commercial executives.
-- **Regression & Econometric Analysis:** Developed regression and econometric models to measure seller-incentive elasticity at the `shop_id` level, improving voucher spend efficiency and investment ROI by 15%.
-- **Team Leadership & Capacity Planning:** Managed an analytics team of 5 data professionals, oversaw resource allocation/monthly campaign capacity planning, and upskilled team members in SQL, modeling, and automated dashboard design.
-- **A/B Testing & Evaluation:** Structured statistical test setups and control-treatment frameworks to validate the commercial impact of seller investment strategies before scaling.
+### STAR Highlight 1: Strategic Commission & Incentive Policy (CEO / Executive Level Impact)
+* **Situation:** Shopee needed to adjust commercial structures (commission rates, ad subsidies, flashsale access, and vouchers) for major sellers to protect platform margins without causing seller churn.
+* **Task:** Act as the core strategic data partner for executive leadership, analyzing fee elasticity and transaction metrics across millions of shops to guide policy decisions.
+* **Action:** Built a comprehensive seller financial-impact model in BigQuery, analyzing GMV sensitivity, ad-spend efficiency, and discount voucher elasticity. Translated complex data tables into strategic recommendations and presented them directly to the Head of Business Development and the CEO.
+* **Result (Suggested Metrics):** Formulated a dynamic commission and voucher allocation strategy that optimized platform spend, resulting in a **15% year-over-year increase in voucher ROI**, a **12% growth in seller ad adoption**, and a successful restructuring of seller commission rates with minimal seller friction.
+
+### STAR Highlight 2: End-to-End Data Engine for New Seller Flow (NSF Pipeline)
+* **Situation:** The NSF team was incubating high-potential competitor sellers, but the pipeline (Lead Generation scraping -> Seller Acquisition pitching -> Key Account Manager incubation tracking) was fragmented across local spreadsheets, resulting in data siloing and seller drop-off.
+* **Task:** Architect a centralized, automated data engine to monitor the entire seller lifecycle from initial lead scraping to successful incubation graduation.
+* **Action:** Designed and deployed BigQuery ETL pipelines to ingest Lead Gen (LG) candidate data, track Seller Acquisition (SAC) conversion pitches, and monitor post-onboarding sales data. Automated the daily calculation of seller growth trajectories and integrated alerts to flag at-risk accounts.
+* **Result (Suggested Metrics):** Unified the NSF lifecycle, reducing manual data-processing latency by **80%**, decreasing seller drop-off during onboarding by **25%**, and accelerating the time-to-first-sale for newly acquired big sellers by **30%**.
+
+### STAR Highlight 3: Key Account Manager (KAM) Incubation Tracking & Growth
+* **Situation:** Key Account Managers (KAMs) lacked automated, real-time tracking of newly onboarded big sellers, making it difficult to help them hit their GMV targets during the critical incubation period.
+* **Task:** Build self-service tracking and predictive alerts to help KAMs prioritize support and maximize seller incubation success rates.
+* **Action:** Built predictive models in Python (seller churn, growth clustering) and designed Looker Studio dashboards tracking daily sales velocity, inventory levels, and campaign participation. Coached 5 analysts on building executive and operational reporting tools.
+* **Result (Suggested Metrics):** Enabled data-driven incubation management, helping the team achieve an **85%+ successful seller incubation graduation rate** (sellers hitting target GMV milestones) and contributing to significant incremental GMV from newly onboarded competitor shops.
 
 ---
 

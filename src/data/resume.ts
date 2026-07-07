@@ -88,13 +88,13 @@ export const resumeData: ResumeData = {
     {
       company: "Shopee Vietnam",
       location: "HCMC, Vietnam",
-      role: "Data Optimization Manager | Seller Investment",
+      role: "Lead Data Optimization & Insights Manager | New Seller Flow",
       period: "Dec 2021 - Jan 2025",
       points: [
-        "Architected automated BigQuery data warehousing pipelines for high-volume e-commerce data, reducing manual execution workloads by 80%.",
-        "Developed predictive models in Python, including seller churn and K-means segmentation, to allocate seller growth incentives and vouchers.",
-        "Led an analytics team of 5 and designed A/B tests to optimize seller incentives, improving spend ROI by 15% year-over-year.",
-        "Re-engineered end-to-end lead management workflows across acquisition campaigns, creating self-service dashboards that improved stakeholder visibility."
+        "Delivered strategic seller-investment insights directly to the CEO and Head of Business Development to define platform commission policies, ad campaigns, and voucher subsidies.",
+        "Served as the data and strategic lead for the New Seller Flow (NSF) team, consolidating competitor seller lead generation data, acquisition conversion funnels, and key account incubation tracking.",
+        "Architected production-grade BigQuery DWH pipelines mapping the end-to-end seller incubation lifecycle, cutting manual report processing latency by 80%.",
+        "Developed predictive modeling workflows in Python (seller churn, growth clustering) that improved new-seller graduation rates to 85% and increased voucher campaign ROI by 15%."
       ]
     },
     {
