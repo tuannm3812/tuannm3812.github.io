@@ -112,12 +112,13 @@ export const resumeData: ResumeData = {
     {
       company: "PwC Vietnam",
       location: "Hanoi, Vietnam",
-      role: "Senior Assurance Associate",
+      role: "Senior Assurance Associate | Financial Services & Capital Markets",
       period: "Aug 2017 - Dec 2020",
       points: [
-        "Built Python and SQL scripts to automate anomaly testing and improve the repeatability of fraud and risk assessments.",
-        "Extracted, cleaned, and analyzed financial datasets across 40+ banking and capital markets clients.",
-        "Introduced code-based data manipulation techniques into traditional audit workflows, improving analytical rigor and reviewability."
+        "Acted as data champion, building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.",
+        "Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to under 1 hour.",
+        "Ingested and analyzed millions of transactional records across 40+ commercial banking and securities clients using database querying.",
+        "Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to client C-levels."
       ]
     }
   ],

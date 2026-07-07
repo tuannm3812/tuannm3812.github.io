@@ -54,12 +54,19 @@ This file serves as the raw, detailed repository for all professional roles. Use
 
 ## PwC Vietnam
 * **Location:** Hanoi, Vietnam
-* **Role:** Senior Assurance Associate
+* **Role:** Senior Assurance Associate | Financial Services & Capital Markets
 * **Period:** Aug 2017 - Dec 2020
-* **Key Tools:** Python, SQL, VBA, Audit Automation Tools, Excel
-* **Description:** PwC is a global professional services firm. In this role, I performed financial audit and risk assessment services, specializing in the banking, financial services, and capital markets sectors.
+* **Key Tools:** Python (pandas, NumPy), SQL, VBA, Excel, ACL
+* **Description:** PwC is a Big Four professional services firm. In this role, I performed financial audits, control testing, and data-driven risk assessments for large commercial banks, securities firms, and investment funds. I acted as the data champion in my unit, designing scripts to automate manual audit procedures and querying massive databases to detect system anomalies.
 
-### Complete Bullet Points
-- **Audit Script Automation:** Built and maintained custom Python and SQL scripts to automate anomaly testing, transactional matching, and journal-entry testing, improving the repeatability of fraud and risk assessments across client engagements.
-- **Big Data Risk Analytics:** Extracted, cleaned, and analyzed massive financial and transactional datasets across 40+ banking and capital markets clients, identifying key control deficiencies and reporting insights directly to C-level executives.
-- **Workflow Digitization:** Introduced code-based data manipulation techniques into traditional audit workflows, replacing manual Excel procedures and improving analytical rigor, speed, and reviewability.
+### STAR Highlight 1: Audit Automation & Data Championing (Process Optimization)
+* **Situation:** Audit teams spent days manually reviewing and matching journal entries and transaction logs in Excel, which was slow, error-prone, and constrained by Excel's row limits.
+* **Task:** Act as the team's data champion to automate transaction matching, bank reconciliations, and interest rate audits, upskilling the audit unit.
+* **Action:** Built custom Python (pandas) and SQL scripts to load, clean, and match transactional logs against ledgers. Coached 10+ team members on basic database querying and code-based data verification workflows.
+* **Result:** Reduced transaction testing execution time by over **90%** (shrinking 2-day manual workflows to under 1 hour), expanding audit coverage from small samples to **100% of transaction data**.
+
+### STAR Highlight 2: Big Data Risk Analytics & Control Auditing (System Diagnostics)
+* **Situation:** Commercial banking clients processed millions of daily transactions, making traditional manual sampling methods blind to systemic software bugs or hidden bookkeeping anomalies.
+* **Task:** Ingest and analyze millions of ledger rows to identify control gaps, booking discrepancies, and fraud risk factors across 40+ banking and capital markets clients.
+* **Action:** Developed custom SQL scripts to query core banking databases. Built anomaly-detection models targeting outlier booking times, round-sum transactions, and double-posted entries.
+* **Result:** Flagged critical control discrepancies and booking anomalies that manual testing had missed. Presented audit findings and systemic recommendations directly to client C-level executives, facilitating database and internal control adjustments.
