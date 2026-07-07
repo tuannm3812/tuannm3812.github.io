@@ -403,6 +403,84 @@ Streamlit, Python, AI Agent, Diagnostic Flow, Scoring Logic, Product Prototype
 
 GitHub: https://github.com/tuannm3812/apple-foundation-agent
 
+### UTS Tech Festival 2026 GenAI Hackathon (Applied AI / Scenario Response)
+
+Recommended for:
+Applied AI, Hackathon, Resilient Infrastructure, Technology Assessment, Smart Intersection
+
+Tags:
+Generative AI, Austroads, Sustainable Design, Telemetry, Prompt Engineering, Document Automation
+
+- Developed comprehensive technical responses for three engineering scenarios: LEGO sustainable urban housing, Caterpillar/WesTrac future worksite fleet transition, and Austroads-aligned smart intersection asphalt design.
+- Applied generative AI prompting strategy, adaptive signal logic design, sustainable mix design, machinery telemetry plans, and automated HTML/PDF document compilation pipelines.
+
+GitHub: https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon
+
+### CircleU (iOS / SwiftUI App)
+
+Recommended for:
+iOS Development, SwiftUI, Apple Intelligence, Local-First Architecture, Mobile Apps
+
+Tags:
+SwiftUI, Apple Intelligence, iOS, Firebase, Swift, Local-First, Mobile Development
+
+- Built a local-first, privacy-focused iOS voice journaling and self-reflection app with SwiftUI, Apple Intelligence, and Firebase cloud backup.
+- Applied SwiftUI layout design, local-first Swift data architecture, Apple Intelligence integration, and secure Firebase synchronization.
+
+GitHub: https://github.com/tuannm3812/CircleU
+
+### Kaggle AI Agent Security (Machine Learning / AI Security)
+
+Recommended for:
+AI Security, Agent Vulnerabilities, Tool Attacks, Kaggle, Vulnerability Research
+
+Tags:
+AI Security, Multi-Step Attacks, Agents, Python, Kaggle, Tool Abuse, Notebook-First
+
+- Built an attack-modeling workflow for identifying reproducible multi-step tool-use vulnerabilities in AI agents.
+- Developed attack notebooks analyzing tool usage chains, prompt injections, and multi-step simulation failure routes.
+
+GitHub: https://github.com/tuannm3812/kaggle-ai-agent-security
+
+### Kaggle Pokémon TCG AI Battle (Machine Learning / Simulation)
+
+Recommended for:
+Simulation, Heuristic Search, Game AI, Kaggle, Reinforcement Learning
+
+Tags:
+Simulation/RL, Heuristic Agents, Card Analytics, Self-Play, Python, Kaggle, Game Simulator
+
+- Built a simulation-agent workflow for the Pokémon TCG AI Battle competition, including card-pool analysis and paired self-play evaluation.
+- Applied rule-based heuristic search, simulator interfaces, legal-action masks, and submission packaging.
+
+GitHub: https://github.com/tuannm3812/kaggle-pokemon-tcg-ai-battle
+
+### UNSW Marketing Analytics Hackathon 2026 (Data Engineering / Crowdfunding)
+
+Recommended for:
+Data Analytics, Predictive Modeling, Factor Analysis, Hackathon, Marketing Science
+
+Tags:
+Kiva Data, Funding Speed, Prosocial Motives, Regression, Python, Hackathon, Factor Analytics
+
+- Built a predictive analytics workflow for the UNSW Marketing Analytics Hackathon using micro-lending data from Kiva to model funding speed.
+- Applied feature engineering, loan-level regression, factor analysis of lender motives, and data visualization.
+
+GitHub: https://github.com/tuannm3812/unsw-ma-hackathon-2026
+
+### UTS MDSI LLM Wiki (AI / Course Wiki)
+
+Recommended for:
+Data Curation, Markdown Database, LLM Optimization, Wiki Systems, Knowledge Management
+
+Tags:
+Markdown, LLM Wiki, Course Materials, Google Drive, Data Curation, Knowledge Engineering
+
+- Built an LLM-optimized Markdown wiki curating UTS MDSI course syllabus, materials, and Google Drive resources.
+- Applied markdown structuring, data curation, content indexing, and clean folder layouts for AI agent parsing.
+
+GitHub: https://github.com/tuannm3812/uts-mdsi
+
 ### Personal Portfolio (Frontend / Portfolio Automation)
 
 Recommended for:
@@ -601,6 +679,12 @@ Current public project inventory, including the Text-to-SQL agent even though Gi
 | apple-foundation-agent | AI / Streamlit Prototype | Product prototype |
 | ai-meal-planner | AI Product / Full Stack | Product prototype |
 | ScriptClean-AI | AI Product / Frontend | Supporting AI product project |
+| uts-techfest-2026-genai-hackathon | AI / Scenario Response | Hackathon project |
+| CircleU | iOS / SwiftUI App | Supporting iOS project |
+| kaggle-ai-agent-security | Machine Learning / AI Security | Supporting agent security project |
+| kaggle-pokemon-tcg-ai-battle | Machine Learning / Simulation | Supporting simulation-agent project |
+| unsw-ma-hackathon-2026 | Data Engineering / Crowdfunding | Supporting hackathon project |
+| uts-mdsi | AI / Course Wiki | Supporting documentation project |
 | tuannm3812.github.io | Portfolio / Frontend | Supporting portfolio evidence |
 
 ## Resume Links Section

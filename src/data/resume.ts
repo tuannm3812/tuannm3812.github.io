@@ -270,6 +270,17 @@ export const resumeData: ResumeData = {
       ]
     },
     {
+      title: "UTS Tech Festival 2026 GenAI Hackathon",
+      category: "AI Agents & LLM Products",
+      github: "https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon",
+      impact: "Solutions for LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite, and Austroads smart intersection",
+      stack: ["Generative AI", "Austroads Signal Design", "Sustainable Asphalt Mix", "Telemetry & Fleet Matrix", "Prompt Engineering"],
+      points: [
+        "Developed comprehensive technical submissions for three scenarios: LEGO sustainable urban housing, Caterpillar/WesTrac worksite fleet transition, and Austroads-aligned smart intersection mix design.",
+        "Applied generative AI prompting strategy, adaptive signal logic, sustainable mix design, machinery telemetry plans, and automated HTML/PDF document compilation."
+      ]
+    },
+    {
       title: "Personal Portfolio",
       category: "MLOps & Forecasting",
       github: "https://github.com/tuannm3812/tuannm3812.github.io",
