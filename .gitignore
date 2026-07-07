@@ -4,6 +4,24 @@ dist/
 coverage/
 .DS_Store
 *.log
+
+# Local environment and secrets
 .env*
 !.env.example
+*.pem
+*.key
+*.p12
+*.p8
+*service-account*.json
+*credentials*.json
+*secret*.json
+
+# Local Firebase/emulator state
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Local agent/worktree scratch state
+.superpowers/
 .worktrees/
