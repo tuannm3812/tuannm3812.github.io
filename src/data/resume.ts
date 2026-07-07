@@ -88,13 +88,13 @@ export const resumeData: ResumeData = {
     {
       company: "Shopee Vietnam",
       location: "HCMC, Vietnam",
-      role: "Lead Data Optimization & Insights Manager | New Seller Flow",
+      role: "Lead Data Optimization & Insights Manager | Growth & Acquisition",
       period: "Dec 2021 - Jan 2025",
       points: [
-        "Delivered strategic seller-investment insights directly to the CEO and Head of Business Development to define platform commission policies, ad campaigns, and voucher subsidies.",
-        "Served as the data and strategic lead for the New Seller Flow (NSF) team, consolidating competitor seller lead generation data, acquisition conversion funnels, and key account incubation tracking.",
-        "Architected production-grade BigQuery DWH pipelines mapping the end-to-end seller incubation lifecycle, cutting manual report processing latency by 80%.",
-        "Developed predictive modeling workflows in Python (seller churn, growth clustering) that improved new-seller graduation rates to 85% and increased voucher campaign ROI by 15%."
+        "Delivered strategic growth and pricing insights directly to senior executives to optimize commercial fee structures, ad campaigns, and voucher incentives.",
+        "Served as the data and strategy lead for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.",
+        "Architected automated BigQuery data warehousing pipelines consolidating transaction and traffic data, reducing manual processing workloads by 80%.",
+        "Developed predictive modeling workflows in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%."
       ]
     },
     {

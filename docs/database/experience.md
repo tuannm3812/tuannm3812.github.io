@@ -6,28 +6,28 @@ This file serves as the raw, detailed repository for all professional roles. Use
 
 ## Shopee Vietnam
 * **Location:** HCMC, Vietnam
-* **Role:** Lead Data Optimization & Insights Manager | Seller Acquisition & Incubation (New Seller Flow)
+* **Role:** Lead Data Optimization & Insights Manager | Growth & Acquisition
 * **Period:** Dec 2021 - Jan 2025
 * **Key Tools:** Python, SQL, BigQuery, Looker Studio, Git, pandas, scikit-learn, PySpark, DWH, Excel
-* **Description:** Shopee is a leading e-commerce platform in Southeast Asia. In this role, I served as the strategic and data lead for the New Seller Flow (NSF) team—a specialized unit tasked with acquiring and incubating high-value sellers from competitor platforms. I architected data pipelines, built predictive models, and delivered strategic insights directly to the Head of Business Development and the CEO to define platform strategies (commissions, advertisements, flashsales, and vouchers).
+* **Description:** Shopee is a leading e-commerce platform in Southeast Asia. In this role, I served as the data and analytics lead for the partner growth and acquisition team. I architected data pipelines, built predictive models, and delivered strategic insights directly to senior executives and business heads to optimize commercial pricing, growth incentives, and advertising strategies.
 
-### STAR Highlight 1: Strategic Commission & Incentive Policy (CEO / Executive Level Impact)
-* **Situation:** Shopee needed to adjust commercial structures (commission rates, ad subsidies, flashsale access, and vouchers) for major sellers to protect platform margins without causing seller churn.
-* **Task:** Act as the core strategic data partner for executive leadership, analyzing fee elasticity and transaction metrics across millions of shops to guide policy decisions.
-* **Action:** Built a comprehensive seller financial-impact model in BigQuery, analyzing GMV sensitivity, ad-spend efficiency, and discount voucher elasticity. Translated complex data tables into strategic recommendations and presented them directly to the Head of Business Development and the CEO.
-* **Result (Suggested Metrics):** Formulated a dynamic commission and voucher allocation strategy that optimized platform spend, resulting in a **15% year-over-year increase in voucher ROI**, a **12% growth in seller ad adoption**, and a successful restructuring of seller commission rates with minimal seller friction.
+### STAR Highlight 1: Data-Driven Pricing & Incentive Policy (Executive Level Impact)
+* **Situation:** The platform needed to optimize commercial pricing structures, advertising campaigns, and incentive programs to protect profit margins while maintaining partner retention.
+* **Task:** Act as the core strategic data partner for executive leadership, analyzing price elasticity and transaction metrics across a large partner network to guide investment policies.
+* **Action:** Built a partner financial-impact model in BigQuery, analyzing GMV sensitivity, ad-spend efficiency, and discount voucher elasticity. Translated complex data tables into strategic recommendations and presented them directly to senior executives.
+* **Result:** Formulated a dynamic pricing and incentive allocation framework that optimized platform spend, resulting in a **15% year-over-year increase in voucher ROI**, a **12% growth in ad adoption**, and a successful restructuring of commercial fee tiers.
 
-### STAR Highlight 2: End-to-End Data Engine for New Seller Flow (NSF Pipeline)
-* **Situation:** The NSF team was incubating high-potential competitor sellers, but the pipeline (Lead Generation scraping -> Seller Acquisition pitching -> Key Account Manager incubation tracking) was fragmented across local spreadsheets, resulting in data siloing and seller drop-off.
-* **Task:** Architect a centralized, automated data engine to monitor the entire seller lifecycle from initial lead scraping to successful incubation graduation.
-* **Action:** Designed and deployed BigQuery ETL pipelines to ingest Lead Gen (LG) candidate data, track Seller Acquisition (SAC) conversion pitches, and monitor post-onboarding sales data. Automated the daily calculation of seller growth trajectories and integrated alerts to flag at-risk accounts.
-* **Result (Suggested Metrics):** Unified the NSF lifecycle, reducing manual data-processing latency by **80%**, decreasing seller drop-off during onboarding by **25%**, and accelerating the time-to-first-sale for newly acquired big sellers by **30%**.
+### STAR Highlight 2: End-to-End Data Pipeline for Partner Lifecycle (Data Engineering)
+* **Situation:** The acquisition and growth pipeline (lead generation -> partner acquisition -> account incubation tracking) was fragmented across local spreadsheets, resulting in data siloing and partner drop-off.
+* **Task:** Architect a centralized, automated data engine to monitor the entire partner lifecycle from initial lead ingestion to successful growth graduation.
+* **Action:** Designed and deployed BigQuery ETL pipelines to ingest partner leads, track conversion funnels, and monitor post-onboarding performance data. Automated the calculation of partner growth trajectories and integrated alerts to flag at-risk accounts.
+* **Result:** Unified the partner lifecycle, reducing manual data-processing latency by **80%**, decreasing partner drop-off during onboarding by **25%**, and accelerating the time-to-first-transaction for newly acquired partners by **30%**.
 
-### STAR Highlight 3: Key Account Manager (KAM) Incubation Tracking & Growth
-* **Situation:** Key Account Managers (KAMs) lacked automated, real-time tracking of newly onboarded big sellers, making it difficult to help them hit their GMV targets during the critical incubation period.
-* **Task:** Build self-service tracking and predictive alerts to help KAMs prioritize support and maximize seller incubation success rates.
-* **Action:** Built predictive models in Python (seller churn, growth clustering) and designed Looker Studio dashboards tracking daily sales velocity, inventory levels, and campaign participation. Coached 5 analysts on building executive and operational reporting tools.
-* **Result (Suggested Metrics):** Enabled data-driven incubation management, helping the team achieve an **85%+ successful seller incubation graduation rate** (sellers hitting target GMV milestones) and contributing to significant incremental GMV from newly onboarded competitor shops.
+### STAR Highlight 3: Account Incubation Tracking & Growth (Machine Learning & Analytics)
+* **Situation:** Account managers lacked automated, real-time tracking of newly onboarded partners, making it difficult to help them hit growth targets during their critical initial phase.
+* **Task:** Build self-service tracking and predictive models to help account managers prioritize support and maximize partner incubation success rates.
+* **Action:** Developed predictive models in Python (churn prediction, growth clustering) and designed Looker Studio dashboards tracking daily sales velocity, inventory levels, and campaign participation. Coached 5 analysts on building executive and operational reporting tools.
+* **Result:** Enabled data-driven incubation management, helping the team achieve an **85%+ successful partner growth graduation rate** (partners hitting target milestones) and contributing to significant incremental GMV from newly onboarded accounts.
 
 ---
 
