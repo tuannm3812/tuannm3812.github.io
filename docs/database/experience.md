@@ -31,17 +31,24 @@ This file serves as the raw, detailed repository for all professional roles. Use
 
 ---
 
-## FPT Software
+## FPT Software & FPT Digital (FDX)
 * **Location:** Hanoi, Vietnam
-* **Role:** Senior Digital Transformation Consultant
+* **Role:** Strategy Lead (Global Affairs) & Digital Transformation Consultant
 * **Period:** Dec 2020 - Dec 2021
-* **Key Tools:** Python, SQL, CRM Platforms, Agile Methodologies
-* **Description:** FPT Software is a global technology and IT service provider. In this consulting role, I advised enterprise clients on digital operating models, CRM implementation, and data-driven customer strategies.
+* **Key Tools:** Digital Maturity Frameworks, Enterprise Architecture, PowerPoint, Excel, Python, DWH, SQL
+* **Description:** FPT is a leading global technology and digital transformation service provider. During my tenure, I operated in a dual capacity: leading strategic market entry and partnership communication with multinational corporations (MNCs/FDIs) for the FPT Software Global Affairs Team, and serving as a Digital Transformation Consultant at FPT Digital (FDX) collaborating with McKinsey and BCG on large-scale enterprise engagements.
 
-### Complete Bullet Points
-- **CRM & Predictive Analytics:** Led CRM implementation workstreams and delivered predictive analytics modules for lead scoring and sales pipeline forecasting, resulting in a 20% improvement in lead-to-opportunity conversion rates.
-- **Coaching & Operating Models:** Coached client business units on AI-enabled workflows and data-driven operating models, facilitating change management and contributing to measurable digital productivity gains.
-- **Architecture & Roadmaps:** Translated client operational bottlenecks into detailed implementation roadmaps, agile delivery plans, and scalable data architecture recommendations (e.g. centralized customer data platforms).
+### STAR Highlight 1: MNC & FDI Technology Partnership Strategy (FPT Software Global Affairs)
+* **Situation:** FPT Software sought to expand its technology outsourcing and integration accounts among major multinational corporations (MNCs) and foreign direct investments (FDIs) established in Vietnam.
+* **Task:** Formulate macroeconomic briefs, communication frameworks, and strategic partnership pitches to position FPT as the core technology partner for foreign MNC leadership.
+* **Action:** Performed research on FDI attraction trends and technology outsourcing dynamics. Designed strategic materials, pitched FPT's capabilities in data engineering, cloud, and software delivery, and managed high-level communication channels with MNC representatives.
+* **Result:** Established tech collaboration frameworks and active communication channels with multiple global MNCs, successfully landing FPT as their local systems integrator and software development partner.
+
+### STAR Highlight 2: Enterprise Digital Transformation (FPT Digital / McKinsey & BCG Collaboration)
+* **Situation:** Leading conglomerates (e.g., Minh Phu Seafood Corp), state enterprises (e.g., Vietnam Electricity - EVN), and provincial governments (e.g., Binh Dinh Province) required multi-year digital transformation roadmaps to modernize legacy infrastructures.
+* **Task:** Collaborate with top-tier global consulting firms (McKinsey, BCG) to conduct digital maturity audits and design scalable technology/data architectures.
+* **Action:** Performed operational audits and data-collection mappings. Designed blueprints for consolidated data warehouses (DWH), cloud migrations, and customer relation systems. Co-drafted strategic proposals and presented breakthrough digital enablers directly to client Steering Committees (SteerCo).
+* **Result:** Co-delivered comprehensive, multi-year digital roadmaps and breakthrough operational ideas for billion-dollar organizations and regional economic hubs, accelerating technology adoption and data-driven governance.
 
 ---
 

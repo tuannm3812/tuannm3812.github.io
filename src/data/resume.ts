@@ -98,14 +98,15 @@ export const resumeData: ResumeData = {
       ]
     },
     {
-      company: "FPT Software",
+      company: "FPT Software & FPT Digital",
       location: "Hanoi, Vietnam",
-      role: "Senior Digital Transformation Consultant",
+      role: "Strategy Lead (Global Affairs) & Transformation Consultant",
       period: "Dec 2020 - Dec 2021",
       points: [
-        "Led CRM implementation workstreams and delivered predictive analytics modules for lead scoring and pipeline forecasting.",
-        "Coached client teams on AI-enabled workflows and data-driven operating models, contributing to measurable productivity gains.",
-        "Translated operational bottlenecks into implementation roadmaps, agile delivery plans, and scalable data architecture recommendations."
+        "Led strategic technology partnership communication with foreign multinational corporations (MNCs/FDIs) for the Global Affairs Team, establishing integration channels.",
+        "Collaborated with top-tier global consulting firms (McKinsey, BCG) on enterprise-level digital maturity and data architecture transformation projects.",
+        "Co-designed multi-year digital transformation roadmaps and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.",
+        "Presented breakthrough digital enablers directly to client Steering Committees (SteerCo) to accelerate technology adoption."
       ]
     },
     {
