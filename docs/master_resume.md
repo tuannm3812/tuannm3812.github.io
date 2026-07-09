@@ -23,21 +23,25 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 
 ### Shopee Vietnam
 *Lead Data Optimization & Insights Manager | Growth & Acquisition* | **Dec 2021 - Jan 2025**
-* **Engineered** Python predictive models (churn forecasting, K-means clustering) for incubation management, driving an **85%+ partner milestone graduation rate**.
-* **Architected** BigQuery ETL pipelines to consolidate multi-channel partner transaction and traffic data, reducing manual data-processing latency by **80%**.
-* **Formulated** a dynamic pricing and incentive allocation framework that optimized spend, resulting in a **15% YoY increase in voucher ROI**.
+* **Engineered** Python predictive models (churn forecasting, K-means clustering) in BigQuery to optimize the distribution of growth vouchers, **driving an 85%+ partner milestone graduation rate**.
+* **Architected** BigQuery ETL pipelines to consolidate transaction and seller traffic datasets, **reducing manual data-processing latency by 80%** and decreasing partner onboarding drop-off by 25%.
+* **Developed** regression and econometric models to measure partner fee elasticity at the shop level, **improving voucher spend efficiency and investment ROI by 15%**.
+* **Automated** lead scraping pipelines using Python (BeautifulSoup, REST APIs) to consolidate competitor seller data, replacing offline tracking spreadsheets.
+* **Coached** an analytics team of 5 data professionals on SQL, predictive modeling, and automated report delivery in Looker Studio.
 
 ### FPT Software & FPT Digital (FDX)
 *Strategy Lead (Global Affairs) & Digital Transformation Consultant* | **Dec 2020 - Dec 2021**
-* **Audited** digital maturity and designed cloud-migration data blueprints for enterprise conglomerates in collaboration with McKinsey and BCG.
-* **Negotiated** technology partnership frameworks with multinational corporations, securing FPT as the local systems integrator for FDI clients.
-* **Designed** strategic pitch decks and tech capability briefs for executives, securing outsourcing agreements for software delivery and data engineering units.
+* **Audited** digital maturity and designed cloud-migration data blueprints for enterprise conglomerates (e.g., Minh Phu Seafood Corp, Vietnam Electricity) in collaboration with McKinsey and BCG.
+* **Led** Salesforce CRM implementation workstreams and delivered predictive analytics modules for lead scoring, **driving a 20% improvement in lead-to-opportunity conversion rates**.
+* **Negotiated** technology partnership frameworks with multinational corporations (MNCs), **securing FPT as the local systems integrator** for foreign direct investment clients.
+* **Translated** client operational bottlenecks into detailed implementation roadmaps, agile delivery plans, and Customer Data Platform (CDP) architecture recommendations.
 
 ### PwC Vietnam
 *Senior Assurance Associate | Financial Services & Capital Markets* | **Aug 2017 - Dec 2020**
-* **Programmed** Python (pandas) and SQL data-validation scripts, automating manual bank reconciliation workflows and cutting execution time by **90%**.
-* **Analyzed** core banking transaction ledgers using SQL to identify security gaps and presented database remediation strategies directly to C-level executives.
-* **Upskilled** a team of 10+ auditors on basic SQL database querying and automated data-verification scripts, boosting the unit's technical capability.
+* **Directed** financial audit engagements as the Senior-in-Charge for a diverse portfolio of 40+ commercial banks, securities firms, investment funds, and corporate clients across multiple domain industries.
+* **Programmed** Python (pandas) and SQL data-validation scripts on client Oracle databases, **automating manual bank reconciliation workflows and cutting execution time by 90%** (2 days down to under 1 hour).
+* **Analyzed** core banking transaction ledgers using SQL to identify security gaps and double-posted entries, **expanding audit coverage to 100% of transaction data**.
+* **Presented** database control deficiencies and systemic booking anomalies directly to client C-level executives, driving database remediation strategies.
 
 ---
 
