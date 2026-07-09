@@ -1,47 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { resumeData } from '../data/resume';
+import { resumeData, Project } from '../data/resume';
 import { githubProjects } from '../data/githubProjects';
 import { ExternalLink, Github, Star, Trophy } from 'lucide-react';
 import { cn } from '../lib/utils';
-
-const projectPriority: Record<string, { score: number; stars: number }> = {
-  'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
-  'Production-Grade ELT Pipeline': { score: 96, stars: 3 },
-  'AI Meal Planner': { score: 94, stars: 3 },
-  'CircleU: iOS Journaling App': { score: 92, stars: 3 },
-  'Solana Price Forecasting': { score: 91, stars: 3 },
-  'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 3 },
-  'Bioacoustic Species Classification': { score: 89, stars: 3 },
-  'Kaggle CSIRO Image2Biomass': { score: 88, stars: 2 },
-  'FoodLens: Calibrated Food Recognition': { score: 87, stars: 2 },
-  'Kaggle ROGII Wellbore Geology Prediction': { score: 86, stars: 2 },
-  'Kaggle AI Agent Security': { score: 85, stars: 2 },
-  'TikTok Semantic': { score: 85, stars: 2 },
-  'Kaggle Pokémon TCG AI Battle': { score: 84, stars: 2 },
-  'Kaggle NFL Player Contact Detection': { score: 84, stars: 2 },
-  'VisionVoice: Image Captioning': { score: 83, stars: 2 },
-  'Kaggle NeuroGolf 2026': { score: 82, stars: 2 },
-  'UNSW Marketing Analytics Hackathon 2026': { score: 81, stars: 2 },
-  'NYC Taxi Databricks': { score: 81, stars: 2 },
-  'Airbnb ELT Warehouse': { score: 80, stars: 2 },
-  'YouTube Trending Snowflake Lakehouse': { score: 79, stars: 2 },
-  'Flickr8k Image Captioning': { score: 78, stars: 2 },
-  'Kaggle S6E5 Predict F1 Pit Stops': { score: 77, stars: 2 },
-  'Kaggle Maze Crawler': { score: 76, stars: 2 },
-  'Kaggle S6E6 Predicting Stellar Class': { score: 75, stars: 2 },
-  'Kaggle Orbit Wars': { score: 74, stars: 2 },
-  'Kaggle S6E4 Predict Irrigation Need': { score: 73, stars: 2 },
-  'Sydney Rainfall Forecasting': { score: 71, stars: 2 },
-  'Gender Equality Policy NLP': { score: 69, stars: 2 },
-  'UTS MDSI LLM Wiki': { score: 68, stars: 2 },
-  'FAOSTAT Food Price Shock Dashboard': { score: 67, stars: 2 },
-  'ScriptClean AI': { score: 65, stars: 2 },
-  'AfriWeave': { score: 60, stars: 1 },
-  'Deep Learning Group 10': { score: 58, stars: 1 },
-  'Apple Foundation Agent': { score: 55, stars: 1 },
-  'Personal Portfolio': { score: 45, stars: 1 }
-};
+import { projectPriority } from '../data/projectPriority';
 
 function getProjectRank(title: string) {
   return projectPriority[title] || { score: 0, stars: 0 };
@@ -55,7 +18,7 @@ function isKaggleProject(project: { title: string; category: string; stack: stri
   );
 }
 
-function ProjectCard({ project, index }: { project: any; index: number }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
