@@ -72,7 +72,7 @@ Key files:
 
 ## Firebase
 
-Firebase is used for contact form submissions and blog comments. The public Firebase web app config lives in `firebase-applet-config.json`; security is enforced through `firestore.rules`.
+Firebase is used for contact form submissions and blog comments. The public Firebase web app config lives in `src/config/firebase-applet-config.json`; security is enforced through `firestore.rules`.
 
 Before going live, confirm that:
 
