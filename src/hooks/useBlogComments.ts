@@ -29,7 +29,10 @@ export function useBlogComments(postId: string | null) {
     setLoading(true);
     setError(null);
 
-    const commentQuery = query(collection(db, `blog_posts/${postId}/comments`), orderBy('createdAt', 'desc'));
+    const commentQuery = query(
+      collection(db, `blog_posts/${postId}/comments`),
+      orderBy('createdAt', 'desc'),
+    );
     const unsubscribe = safeSubscribeSnapshot<BlogComment>(
       commentQuery,
       `blog_posts/${postId}/comments`,

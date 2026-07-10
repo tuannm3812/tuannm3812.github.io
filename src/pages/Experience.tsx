@@ -47,7 +47,10 @@ export default function Experience() {
 
                 <ul className="grid gap-2 md:grid-cols-2">
                   {exp.points.map((point, i) => (
-                    <li key={i} className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex gap-2">
+                    <li
+                      key={i}
+                      className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex gap-2"
+                    >
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
                       {point}
                     </li>

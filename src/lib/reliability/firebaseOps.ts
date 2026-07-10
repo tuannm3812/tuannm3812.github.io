@@ -1,13 +1,21 @@
-import { addDoc, CollectionReference, Query, onSnapshot, DocumentData, QuerySnapshot } from 'firebase/firestore';
+import {
+  addDoc,
+  CollectionReference,
+  DocumentData,
+  onSnapshot,
+  Query,
+  QuerySnapshot,
+  WithFieldValue,
+} from 'firebase/firestore';
 import { OperationResult, mapErrorToResult } from './types';
 
 export async function safeCreateDocument<T>(
-  target: CollectionReference<DocumentData>,
-  data: T,
+  target: CollectionReference<T>,
+  data: WithFieldValue<T>,
   path: string,
 ): Promise<OperationResult<string>> {
   try {
-    const ref = await addDoc(target, data as any);
+    const ref = await addDoc(target, data);
     return { ok: true, data: ref.id };
   } catch (error) {
     return mapErrorToResult('create', error, path);

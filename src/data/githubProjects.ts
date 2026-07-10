@@ -4,295 +4,245 @@ import type { Project } from './resume';
 // Curated projects in resume.ts take priority when GitHub URLs overlap.
 export const githubProjects: Project[] = [
   {
-    "title": "CircleU",
-    "category": "AI Agents & LLM Products",
-    "github": "https://github.com/tuannm3812/CircleU",
-    "impact": "Privacy-first iOS reflection journal with ambient voice check-ins and AI emotional analysis",
-    "stack": [
-      "SwiftUI",
-      "Apple Intelligence",
-      "Firebase",
-      "Speech Framework",
-      "LLM Schemas"
-    ],
-    "points": [
+    title: 'CircleU',
+    category: 'AI Agents & LLM Products',
+    github: 'https://github.com/tuannm3812/CircleU',
+    impact:
+      'Privacy-first iOS reflection journal with ambient voice check-ins and AI emotional analysis',
+    stack: ['SwiftUI', 'Apple Intelligence', 'Firebase', 'Speech Framework', 'LLM Schemas'],
+    points: [
       "Built CircleU, a privacy-first iOS reflection and support circles application featuring ambient voice journaling and speech-to-text integration using Apple's native Speech framework.",
-      "Implemented cognitive extraction for emotions and automated Daily Growth Quests using LLM schemas and Apple Intelligence, backed by firewalled Firestore group sharing."
-    ]
+      'Implemented cognitive extraction for emotions and automated Daily Growth Quests using LLM schemas and Apple Intelligence, backed by firewalled Firestore group sharing.',
+    ],
   },
   {
-    "title": "FoodLens: Calibrated Food Recognition",
-    "category": "Deep Learning & Vision",
-    "github": "https://github.com/tuannm3812/foodlens-calibrated-food-recognition",
-    "impact": "Full-stack food recognition app with confidence-based routing and FastAPI + React delivery",
-    "stack": [
-      "ResNet50",
-      "PyTorch",
-      "FastAPI",
-      "React",
-      "Calibration",
-      "Multi-food Detection"
+    title: 'FoodLens: Calibrated Food Recognition',
+    category: 'Deep Learning & Vision',
+    github: 'https://github.com/tuannm3812/foodlens-calibrated-food-recognition',
+    impact:
+      'Full-stack food recognition app with confidence-based routing and FastAPI + React delivery',
+    stack: ['ResNet50', 'PyTorch', 'FastAPI', 'React', 'Calibration', 'Multi-food Detection'],
+    points: [
+      'Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.',
+      'Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery.',
     ],
-    "points": [
-      "Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.",
-      "Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery."
-    ]
   },
   {
-    "title": "Kaggle AI Agent Security",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-ai-agent-security",
-    "impact": "Adversarial attack algorithms for multi-step tool failures in LLM agents",
-    "stack": [
-      "Python",
-      "Adversarial Prompting",
-      "Tool Injection",
-      "Replay Manifests",
-      "Jupyter"
+    title: 'Kaggle AI Agent Security',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-ai-agent-security',
+    impact: 'Adversarial attack algorithms for multi-step tool failures in LLM agents',
+    stack: ['Python', 'Adversarial Prompting', 'Tool Injection', 'Replay Manifests', 'Jupyter'],
+    points: [
+      'Developed attack algorithms for the Kaggle AI Agent Security competition to identify reproducible, multi-step failures in tool-using LLM agents.',
+      'Mapped agent policy and tool failure surfaces, replicated the local evaluation environment, and implemented manifest tracking to log and validate deterministic attacks.',
     ],
-    "points": [
-      "Developed attack algorithms for the Kaggle AI Agent Security competition to identify reproducible, multi-step failures in tool-using LLM agents.",
-      "Mapped agent policy and tool failure surfaces, replicated the local evaluation environment, and implemented manifest tracking to log and validate deterministic attacks."
-    ]
   },
   {
-    "title": "Kaggle CSIRO Image2Biomass",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-csiro-image2biomass",
-    "impact": "Pasture biomass prediction workflow with grouped validation and embedding experiments",
-    "stack": [
-      "ExtraTrees",
-      "HistGradientBoosting",
-      "GroupKFold",
-      "EfficientNet-B0",
-      "PCA",
-      "Constraint Checks"
+    title: 'Kaggle CSIRO Image2Biomass',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-csiro-image2biomass',
+    impact: 'Pasture biomass prediction workflow with grouped validation and embedding experiments',
+    stack: [
+      'ExtraTrees',
+      'HistGradientBoosting',
+      'GroupKFold',
+      'EfficientNet-B0',
+      'PCA',
+      'Constraint Checks',
     ],
-    "points": [
-      "Built a CSIRO Image2Biomass competition workflow for pasture biomass prediction using image metadata, color features, and submission-ready post-processing.",
-      "Applied grouped validation, ExtraTrees and HistGradientBoosting sweeps, OOF blending, EfficientNet-B0 embedding probes, PCA experiments, and biomass constraint checks."
-    ]
+    points: [
+      'Built a CSIRO Image2Biomass competition workflow for pasture biomass prediction using image metadata, color features, and submission-ready post-processing.',
+      'Applied grouped validation, ExtraTrees and HistGradientBoosting sweeps, OOF blending, EfficientNet-B0 embedding probes, PCA experiments, and biomass constraint checks.',
+    ],
   },
   {
-    "title": "Kaggle Maze Crawler",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-maze-crawler",
-    "impact": "Kaggle simulation agent with replay-driven BFS experiments",
-    "stack": [
-      "Jump BFS",
-      "Wall Memory",
-      "Danger Gating",
-      "Simulation/RL",
-      "Replay Analysis"
+    title: 'Kaggle Maze Crawler',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-maze-crawler',
+    impact: 'Kaggle simulation agent with replay-driven BFS experiments',
+    stack: ['Jump BFS', 'Wall Memory', 'Danger Gating', 'Simulation/RL', 'Replay Analysis'],
+    points: [
+      'Built a Kaggle Maze Crawler workflow for turn-based maze navigation, simulation review, agent iteration, and Kaggle-safe submission generation.',
+      'Applied jump-preferred BFS, known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, and replay diagnostics.',
     ],
-    "points": [
-      "Built a Kaggle Maze Crawler workflow for turn-based maze navigation, simulation review, agent iteration, and Kaggle-safe submission generation.",
-      "Applied jump-preferred BFS, known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, and replay diagnostics."
-    ]
   },
   {
-    "title": "Kaggle NeuroGolf 2026",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-neurogolf-2026",
-    "impact": "Kaggle NeuroGolf 2026 ARC-style solver and ONNX submission workflow",
-    "stack": [
-      "ONNX",
-      "ARC Solvers",
-      "Connected Components",
-      "One-Hot Tensors",
-      "Rule Diagnostics"
+    title: 'Kaggle NeuroGolf 2026',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-neurogolf-2026',
+    impact: 'Kaggle NeuroGolf 2026 ARC-style solver and ONNX submission workflow',
+    stack: ['ONNX', 'ARC Solvers', 'Connected Components', 'One-Hot Tensors', 'Rule Diagnostics'],
+    points: [
+      'Built a NeuroGolf 2026 workflow for ARC-style grid reasoning, task profiling, solver routing, and ONNX submission packaging.',
+      'Applied shape and palette diagnostics, connected-component analysis, same-shape and shape-changing solver queues, static one-hot tensors, and solved-task manifests.',
     ],
-    "points": [
-      "Built a NeuroGolf 2026 workflow for ARC-style grid reasoning, task profiling, solver routing, and ONNX submission packaging.",
-      "Applied shape and palette diagnostics, connected-component analysis, same-shape and shape-changing solver queues, static one-hot tensors, and solved-task manifests."
-    ]
   },
   {
-    "title": "Kaggle NFL Player Contact Detection",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-nfl-player-contact-detection",
-    "impact": "Kaggle NFL contact-detection workflow for player-safety analytics",
-    "stack": [
-      "LightGBM",
-      "Tracking Features",
-      "Helmet Features",
-      "Temporal Smoothing",
-      "Video Probes"
+    title: 'Kaggle NFL Player Contact Detection',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-nfl-player-contact-detection',
+    impact: 'Kaggle NFL contact-detection workflow for player-safety analytics',
+    stack: [
+      'LightGBM',
+      'Tracking Features',
+      'Helmet Features',
+      'Temporal Smoothing',
+      'Video Probes',
     ],
-    "points": [
-      "Built an NFL player-contact detection workflow for identifying player-player and player-ground contact from tracking data, labels, helmet boxes, and video context.",
-      "Applied game-play grouped validation, distance and motion features, type-specific contact modeling, temporal smoothing, blended LightGBM models, and helmet-derived video feature probes."
-    ]
+    points: [
+      'Built an NFL player-contact detection workflow for identifying player-player and player-ground contact from tracking data, labels, helmet boxes, and video context.',
+      'Applied game-play grouped validation, distance and motion features, type-specific contact modeling, temporal smoothing, blended LightGBM models, and helmet-derived video feature probes.',
+    ],
   },
   {
-    "title": "Kaggle Orbit Wars",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-orbit-wars",
-    "impact": "Kaggle simulation agent for orbital strategy and replay-driven iteration",
-    "stack": [
-      "Simulation/RL",
-      "Orbital Mechanics",
-      "Strategy Agents",
-      "BFS",
-      "Replay Analysis"
+    title: 'Kaggle Orbit Wars',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-orbit-wars',
+    impact: 'Kaggle simulation agent for orbital strategy and replay-driven iteration',
+    stack: ['Simulation/RL', 'Orbital Mechanics', 'Strategy Agents', 'BFS', 'Replay Analysis'],
+    points: [
+      'Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.',
+      'Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows.',
     ],
-    "points": [
-      "Built a Kaggle Orbit Wars simulation agent for turn-based orbital strategy, combining deterministic solvers with rule-based heuristics and submission-ready packaging.",
-      "Applied orbital physics modeling, BFS-based path planning, agent iteration from replay diagnostics, and Kaggle-safe submission generation workflows."
-    ]
   },
   {
-    "title": "Kaggle Pokémon TCG AI Battle",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-pokemon-tcg-ai-battle",
-    "impact": "Gaussian skill simulation agent and self-play evaluation for Pokémon TCG",
-    "stack": [
-      "Python",
-      "Simulator Ingestion",
-      "Gaussian Skill Estimator",
-      "Self-play Evaluation",
-      "EDA"
+    title: 'Kaggle Pokémon TCG AI Battle',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-pokemon-tcg-ai-battle',
+    impact: 'Gaussian skill simulation agent and self-play evaluation for Pokémon TCG',
+    stack: [
+      'Python',
+      'Simulator Ingestion',
+      'Gaussian Skill Estimator',
+      'Self-play Evaluation',
+      'EDA',
     ],
-    "points": [
-      "Built a legal decision agent and optimized 60-card decks for the Kaggle Pokémon TCG AI Battle simulation competition.",
-      "Established an offline self-play evaluation framework using win/draw/loss tracking, Gaussian skill uncertainty estimates, and action-sequence experiment logging to screen policy changes."
-    ]
+    points: [
+      'Built a legal decision agent and optimized 60-card decks for the Kaggle Pokémon TCG AI Battle simulation competition.',
+      'Established an offline self-play evaluation framework using win/draw/loss tracking, Gaussian skill uncertainty estimates, and action-sequence experiment logging to screen policy changes.',
+    ],
   },
   {
-    "title": "Kaggle ROGII Wellbore Geology Prediction",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction",
-    "impact": "Kaggle wellbore TVT reconstruction with Beam/PF trajectory modeling",
-    "stack": [
-      "Beam Search",
-      "Particle Filter",
-      "LightGBM",
-      "CatBoost",
-      "Artifact Replay",
-      "Masked Validation"
+    title: 'Kaggle ROGII Wellbore Geology Prediction',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction',
+    impact: 'Kaggle wellbore TVT reconstruction with Beam/PF trajectory modeling',
+    stack: [
+      'Beam Search',
+      'Particle Filter',
+      'LightGBM',
+      'CatBoost',
+      'Artifact Replay',
+      'Masked Validation',
     ],
-    "points": [
-      "Built a ROGII Wellbore Geology workflow for reconstructing hidden TVT trajectories from horizontal wells, paired typewells, and gamma-ray log signals.",
-      "Applied held-out-well masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, Beam/PF trajectory candidates, and artifact replay."
-    ]
+    points: [
+      'Built a ROGII Wellbore Geology workflow for reconstructing hidden TVT trajectories from horizontal wells, paired typewells, and gamma-ray log signals.',
+      'Applied held-out-well masked-tail validation, typewell GR alignment, feature-tree residuals, spatial formation imputation, Beam/PF trajectory candidates, and artifact replay.',
+    ],
   },
   {
-    "title": "Kaggle S6E4 Predict Irrigation Need",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-s6e4-predict-irrigation-need",
-    "impact": "Kaggle Playground S6E4 irrigation-need prediction workflow",
-    "stack": [
-      "CatBoost",
-      "Stratified CV",
-      "Model Diagnostics",
-      "Feature Interactions",
-      "Class Weighting",
-      "EDA Diagnostics"
+    title: 'Kaggle S6E4 Predict Irrigation Need',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e4-predict-irrigation-need',
+    impact: 'Kaggle Playground S6E4 irrigation-need prediction workflow',
+    stack: [
+      'CatBoost',
+      'Stratified CV',
+      'Model Diagnostics',
+      'Feature Interactions',
+      'Class Weighting',
+      'EDA Diagnostics',
     ],
-    "points": [
-      "Built a Kaggle Playground irrigation-need prediction workflow for classifying crop water demand from agronomic and weather-style tabular features.",
-      "Applied CatBoost tuning, stratified validation, agronomic interaction features, threshold features, class-weight experiments, feature importance review, and reusable submission validation."
-    ]
+    points: [
+      'Built a Kaggle Playground irrigation-need prediction workflow for classifying crop water demand from agronomic and weather-style tabular features.',
+      'Applied CatBoost tuning, stratified validation, agronomic interaction features, threshold features, class-weight experiments, feature importance review, and reusable submission validation.',
+    ],
   },
   {
-    "title": "Kaggle S6E5 Predict F1 Pit Stops",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-s6e5-predict-f1-pit-stops",
-    "impact": "Kaggle F1 pit-stop prediction with model diagnostics",
-    "stack": [
-      "LightGBM",
-      "XGBoost",
-      "CatBoost",
-      "Stratified CV",
-      "Calibration",
-      "Feature Engineering"
+    title: 'Kaggle S6E5 Predict F1 Pit Stops',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e5-predict-f1-pit-stops',
+    impact: 'Kaggle F1 pit-stop prediction with model diagnostics',
+    stack: [
+      'LightGBM',
+      'XGBoost',
+      'CatBoost',
+      'Stratified CV',
+      'Calibration',
+      'Feature Engineering',
     ],
-    "points": [
-      "Built a Kaggle F1 pit-stop prediction workflow for estimating next-lap pit probability from race, stint, tyre, lap-time, and position context.",
-      "Applied race-context feature engineering, stratified validation, LightGBM tuning, XGBoost and CatBoost challenger checks, calibration diagnostics, and race-level error review."
-    ]
+    points: [
+      'Built a Kaggle F1 pit-stop prediction workflow for estimating next-lap pit probability from race, stint, tyre, lap-time, and position context.',
+      'Applied race-context feature engineering, stratified validation, LightGBM tuning, XGBoost and CatBoost challenger checks, calibration diagnostics, and race-level error review.',
+    ],
   },
   {
-    "title": "Kaggle S6E6 Predicting Stellar Class",
-    "category": "Machine Learning & Kaggle",
-    "github": "https://github.com/tuannm3812/kaggle-s6e6-predicting-stellar-class",
-    "impact": "Kaggle stellar-object classification with probability stacking and threshold calibration",
-    "stack": [
-      "Probability Stacking",
-      "Threshold Calibration",
-      "Nelder-Mead",
-      "Ensembling",
-      "Astronomical Data"
+    title: 'Kaggle S6E6 Predicting Stellar Class',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e6-predicting-stellar-class',
+    impact:
+      'Kaggle stellar-object classification with probability stacking and threshold calibration',
+    stack: [
+      'Probability Stacking',
+      'Threshold Calibration',
+      'Nelder-Mead',
+      'Ensembling',
+      'Astronomical Data',
     ],
-    "points": [
-      "Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.",
-      "Applied multi-model probability stacking, Nelder-Mead threshold calibration, public-consensus hybrid blending, astronomical feature review, and reusable submission validation."
-    ]
+    points: [
+      'Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.',
+      'Applied multi-model probability stacking, Nelder-Mead threshold calibration, public-consensus hybrid blending, astronomical feature review, and reusable submission validation.',
+    ],
   },
   {
-    "title": "NYC Taxi Databricks",
-    "category": "Data Engineering & Analytics",
-    "github": "https://github.com/tuannm3812/NYC-Taxi-Databricks",
-    "impact": "Databricks lakehouse analytics for NYC taxi trips",
-    "stack": [
-      "PySpark",
-      "Databricks",
-      "Delta Lake",
-      "Spark SQL",
-      "Ridge Regression"
+    title: 'NYC Taxi Databricks',
+    category: 'Data Engineering & Analytics',
+    github: 'https://github.com/tuannm3812/NYC-Taxi-Databricks',
+    impact: 'Databricks lakehouse analytics for NYC taxi trips',
+    stack: ['PySpark', 'Databricks', 'Delta Lake', 'Spark SQL', 'Ridge Regression'],
+    points: [
+      'Built a Databricks lakehouse workflow for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modeling.',
+      'Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts.',
     ],
-    "points": [
-      "Built a Databricks lakehouse workflow for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modeling.",
-      "Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts."
-    ]
   },
   {
-    "title": "UNSW MA Hackathon 2026",
-    "category": "Data Engineering & Analytics",
-    "github": "https://github.com/tuannm3812/unsw-ma-hackathon-2026",
-    "impact": "Prosocial crowdfunding analysis predicting Kiva micro-lending funding speeds",
-    "stack": [
-      "Python",
-      "NLP Text Framing",
-      "Feature Engineering",
-      "Ridge Regression",
-      "Random Forest"
+    title: 'UNSW MA Hackathon 2026',
+    category: 'Data Engineering & Analytics',
+    github: 'https://github.com/tuannm3812/unsw-ma-hackathon-2026',
+    impact: 'Prosocial crowdfunding analysis predicting Kiva micro-lending funding speeds',
+    stack: [
+      'Python',
+      'NLP Text Framing',
+      'Feature Engineering',
+      'Ridge Regression',
+      'Random Forest',
     ],
-    "points": [
-      "Analyzed loan-level Kiva data (2016-2025) for the UNSW Marketing Analytics Hackathon to identify drivers of prosocial crowdfunding speed in subsistence markets.",
-      "Engineered NLP text-framing metrics on borrower narratives, borrower demographics, and repayment interval features, training Ridge and Random Forest pipelines."
-    ]
+    points: [
+      'Analyzed loan-level Kiva data (2016-2025) for the UNSW Marketing Analytics Hackathon to identify drivers of prosocial crowdfunding speed in subsistence markets.',
+      'Engineered NLP text-framing metrics on borrower narratives, borrower demographics, and repayment interval features, training Ridge and Random Forest pipelines.',
+    ],
   },
   {
-    "title": "UTS MDSI LLM Wiki",
-    "category": "AI Agents & LLM Products",
-    "github": "https://github.com/tuannm3812/uts-mdsi",
-    "impact": "Curated LLM-ready markdown knowledge base for Master of Data Science course materials",
-    "stack": [
-      "Markdown",
-      "Obsidian/Vault",
-      "Course Synthesis",
-      "Prompt Engineering"
+    title: 'UTS MDSI LLM Wiki',
+    category: 'AI Agents & LLM Products',
+    github: 'https://github.com/tuannm3812/uts-mdsi',
+    impact: 'Curated LLM-ready markdown knowledge base for Master of Data Science course materials',
+    stack: ['Markdown', 'Obsidian/Vault', 'Course Synthesis', 'Prompt Engineering'],
+    points: [
+      'Built a persistent course-material knowledge vault (UTS MDSI LLM Wiki) spanning multiple semesters, optimized for LLM tutor ingestion and assignment review.',
+      'Structured markdown subject guides, assessment calendars, and prompt libraries covering Machine Learning, Big Data, Applied NLP, and Decision Support systems.',
     ],
-    "points": [
-      "Built a persistent course-material knowledge vault (UTS MDSI LLM Wiki) spanning multiple semesters, optimized for LLM tutor ingestion and assignment review.",
-      "Structured markdown subject guides, assessment calendars, and prompt libraries covering Machine Learning, Big Data, Applied NLP, and Decision Support systems."
-    ]
   },
   {
-    "title": "YouTube Trending Snowflake Lakehouse",
-    "category": "Data Engineering & Analytics",
-    "github": "https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse",
-    "impact": "Snowflake pipeline for multi-country YouTube trends",
-    "stack": [
-      "Snowflake",
-      "API Ingestion",
-      "SQL Analytics",
-      "Data Modeling"
+    title: 'YouTube Trending Snowflake Lakehouse',
+    category: 'Data Engineering & Analytics',
+    github: 'https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse',
+    impact: 'Snowflake pipeline for multi-country YouTube trends',
+    stack: ['Snowflake', 'API Ingestion', 'SQL Analytics', 'Data Modeling'],
+    points: [
+      'Built a Snowflake analytics workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.',
+      'Applied API ingestion, SQL-based data modeling, repeatable trend analysis, country-level comparisons, and warehouse-ready documentation.',
     ],
-    "points": [
-      "Built a Snowflake analytics workflow for ingesting, cleaning, and analyzing multi-country YouTube Trending data.",
-      "Applied API ingestion, SQL-based data modeling, repeatable trend analysis, country-level comparisons, and warehouse-ready documentation."
-    ]
-  }
+  },
 ];

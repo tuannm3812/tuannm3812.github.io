@@ -19,7 +19,12 @@ import { ReliabilityError } from '../lib/reliability/types';
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-  const { comments, loading: commentsLoading, error: commentsError, retry: retryComments } = useBlogComments(selectedPost?.id ?? null);
+  const {
+    comments,
+    loading: commentsLoading,
+    error: commentsError,
+    retry: retryComments,
+  } = useBlogComments(selectedPost?.id ?? null);
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -160,7 +165,7 @@ export default function Blog() {
           >
             {/* Reading progress indicator */}
             <div className="fixed top-16 left-0 right-0 h-1 bg-slate-200/50 dark:bg-slate-800/50 z-50 pointer-events-none">
-              <div 
+              <div
                 className="h-full bg-brand transition-all duration-75 ease-out rounded-r-full"
                 style={{ width: `${scrollPercent}%` }}
               />
@@ -207,10 +212,7 @@ export default function Blog() {
                   <p className="font-medium text-slate-600 dark:text-slate-400">
                     Join the discussion by signing in with Google.
                   </p>
-                  <button
-                    onClick={handleLogin}
-                    className="btn-secondary mx-auto"
-                  >
+                  <button onClick={handleLogin} className="btn-secondary mx-auto">
                     <LogIn size={20} className="text-brand" />
                     Sign in with Google
                   </button>
@@ -218,7 +220,9 @@ export default function Blog() {
               ) : (
                 <div className="surface-card space-y-4 p-5">
                   <div className="flex items-center gap-3">
-                    {user.photoURL && <img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" />}
+                    {user.photoURL && (
+                      <img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" />
+                    )}
                     <p className="font-bold">{user.displayName}</p>
                   </div>
                   <textarea
@@ -250,7 +254,7 @@ export default function Blog() {
                 {commentsLoading ? (
                   <p className="text-sm text-slate-500 italic py-2">Loading comments…</p>
                 ) : null}
-                
+
                 {commentsError ? (
                   <FeatureErrorPanel
                     title="Comments unavailable"
@@ -266,26 +270,26 @@ export default function Blog() {
                   </p>
                 ) : null}
 
-                {!commentsLoading && !commentsError && comments.length > 0 ? (
-                  comments.map((comment) => (
-                    <motion.div
-                      key={comment.id}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="surface-card space-y-2 p-4"
-                    >
-                      <div className="flex justify-between items-center">
-                        <span className="font-bold text-brand">{comment.authorName}</span>
-                        <span className="text-xs text-slate-500">
-                          {comment.createdAt && typeof comment.createdAt.toDate === 'function'
-                            ? comment.createdAt.toDate().toLocaleDateString()
-                            : new Date().toLocaleDateString()}
-                        </span>
-                      </div>
-                      <p className="text-slate-600 dark:text-slate-400">{comment.text}</p>
-                    </motion.div>
-                  ))
-                ) : null}
+                {!commentsLoading && !commentsError && comments.length > 0
+                  ? comments.map((comment) => (
+                      <motion.div
+                        key={comment.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="surface-card space-y-2 p-4"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="font-bold text-brand">{comment.authorName}</span>
+                          <span className="text-xs text-slate-500">
+                            {comment.createdAt && typeof comment.createdAt.toDate === 'function'
+                              ? comment.createdAt.toDate().toLocaleDateString()
+                              : new Date().toLocaleDateString()}
+                          </span>
+                        </div>
+                        <p className="text-slate-600 dark:text-slate-400">{comment.text}</p>
+                      </motion.div>
+                    ))
+                  : null}
               </div>
             </div>
           </motion.div>

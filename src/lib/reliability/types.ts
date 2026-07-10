@@ -26,8 +26,15 @@ export interface ReliabilityFailure {
 
 export type OperationResult<T> = ReliabilitySuccess<T> | ReliabilityFailure;
 
-export function mapErrorToResult(operation: string, error: unknown, path?: string): ReliabilityFailure {
-  const code = typeof error === 'object' && error !== null && 'code' in error ? String((error as { code?: unknown }).code) : undefined;
+export function mapErrorToResult(
+  operation: string,
+  error: unknown,
+  path?: string,
+): ReliabilityFailure {
+  const code =
+    typeof error === 'object' && error !== null && 'code' in error
+      ? String((error as { code?: unknown }).code)
+      : undefined;
   const message =
     error instanceof Error
       ? error.message
