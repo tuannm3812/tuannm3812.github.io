@@ -22,21 +22,21 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
-          <Route 
-            path="/blog" 
+          <Route
+            path="/blog"
             element={
               <Suspense fallback={<LoadingFallback />}>
                 <Blog />
               </Suspense>
-            } 
+            }
           />
-          <Route 
-            path="/contact" 
+          <Route
+            path="/contact"
             element={
               <Suspense fallback={<LoadingFallback />}>
                 <Contact />
               </Suspense>
-            } 
+            }
           />
         </Routes>
       </Layout>

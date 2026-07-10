@@ -7,7 +7,7 @@ import { db, collection, serverTimestamp } from '../lib/firebase';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
-import { ReliabilityError, ReliabilityFailure } from '../lib/reliability/types';
+import { ReliabilityError } from '../lib/reliability/types';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -71,7 +71,8 @@ export default function Contact() {
           <p className="section-eyebrow">Contact</p>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h2>
           <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg">
-            Have an ML, data, or applied AI opportunity in mind? Send a note and I will get back to you.
+            Have an ML, data, or applied AI opportunity in mind? Send a note and I will get back to
+            you.
           </p>
         </div>
 
@@ -82,7 +83,10 @@ export default function Contact() {
             </div>
             <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Email Me</p>
-              <a href={`mailto:${resumeData.email}`} className="break-all font-bold transition-colors hover:text-brand">
+              <a
+                href={`mailto:${resumeData.email}`}
+                className="break-all font-bold transition-colors hover:text-brand"
+              >
                 {resumeData.email}
               </a>
             </div>
@@ -94,7 +98,10 @@ export default function Contact() {
             </div>
             <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Phone</p>
-              <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} className="break-words font-bold transition-colors hover:text-brand">
+              <a
+                href={`tel:${resumeData.phone.replace(/\s/g, '')}`}
+                className="break-words font-bold transition-colors hover:text-brand"
+              >
                 {resumeData.phone}
               </a>
             </div>
@@ -116,7 +123,12 @@ export default function Contact() {
             </div>
             <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Kaggle</p>
-              <a href={resumeData.kaggle} target="_blank" rel="noreferrer" className="break-all font-bold transition-colors hover:text-brand">
+              <a
+                href={resumeData.kaggle}
+                target="_blank"
+                rel="noreferrer"
+                className="break-all font-bold transition-colors hover:text-brand"
+              >
                 kaggle.com/tuannm3812
               </a>
             </div>
@@ -135,11 +147,10 @@ export default function Contact() {
               <CheckCircle2 size={48} />
             </div>
             <h3 className="text-2xl font-bold italic">Message Received!</h3>
-            <p className="text-slate-500 dark:text-slate-400">Thanks for reaching out, Tuan will get back to you soon.</p>
-            <button
-              onClick={() => setStatus('idle')}
-              className="btn-secondary mt-4 px-6 py-2"
-            >
+            <p className="text-slate-500 dark:text-slate-400">
+              Thanks for reaching out, Tuan will get back to you soon.
+            </p>
+            <button onClick={() => setStatus('idle')} className="btn-secondary mt-4 px-6 py-2">
               Send another
             </button>
           </motion.div>
@@ -158,7 +169,12 @@ export default function Contact() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+              <label
+                htmlFor="name"
+                className="text-sm font-bold uppercase tracking-wider text-slate-500"
+              >
+                Full Name
+              </label>
               <input
                 id="name"
                 type="text"
@@ -167,8 +183,8 @@ export default function Contact() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className={cn(
-                  "w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800",
-                  errors.name && "border-red-500"
+                  'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                  errors.name && 'border-red-500',
                 )}
                 placeholder="John Doe"
               />
@@ -176,7 +192,12 @@ export default function Contact() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-slate-500">Email Address</label>
+              <label
+                htmlFor="email"
+                className="text-sm font-bold uppercase tracking-wider text-slate-500"
+              >
+                Email Address
+              </label>
               <input
                 id="email"
                 type="email"
@@ -184,8 +205,8 @@ export default function Contact() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className={cn(
-                  "w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800",
-                  errors.email && "border-red-500"
+                  'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                  errors.email && 'border-red-500',
                 )}
                 placeholder="john@example.com"
               />
@@ -193,7 +214,12 @@ export default function Contact() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-slate-500">Your Message</label>
+              <label
+                htmlFor="message"
+                className="text-sm font-bold uppercase tracking-wider text-slate-500"
+              >
+                Your Message
+              </label>
               <textarea
                 id="message"
                 value={formData.message}
@@ -201,12 +227,14 @@ export default function Contact() {
                 rows={4}
                 maxLength={5000}
                 className={cn(
-                  "w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800",
-                  errors.message && "border-red-500"
+                  'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                  errors.message && 'border-red-500',
                 )}
                 placeholder="How can I help you?"
               />
-              {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
+              {errors.message && (
+                <p className="text-xs text-red-500 font-medium">{errors.message}</p>
+              )}
             </div>
 
             <button
@@ -214,7 +242,10 @@ export default function Contact() {
               className="btn-primary w-full bg-brand py-3 text-white hover:bg-brand-light disabled:opacity-50 group"
             >
               {status === 'submitting' ? 'Sending...' : 'Send Message'}
-              <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <Send
+                size={18}
+                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+              />
             </button>
           </form>
         )}

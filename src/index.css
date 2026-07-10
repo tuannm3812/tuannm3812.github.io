@@ -1,15 +1,15 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand: #0540F2;
-  --color-brand-light: #056CF2;
+  --color-brand: #0540f2;
+  --color-brand-light: #056cf2;
   --color-brand-dark: #1e1b4b;
-  --color-brand-bg: #F2F2F2;
+  --color-brand-bg: #f2f2f2;
   --color-ink: #0f172a;
   --color-muted: #64748b;
 }
@@ -22,9 +22,11 @@
   body {
     min-width: 320px;
   }
-  
+
   /* Clean outline styles for accessibility and minimal bold styling */
-  input:focus, textarea:focus, select:focus {
+  input:focus,
+  textarea:focus,
+  select:focus {
     outline: none;
     border-color: var(--color-brand);
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-brand) 15%, transparent);

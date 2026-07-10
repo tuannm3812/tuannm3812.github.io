@@ -17,7 +17,7 @@ let state: FirebaseHealthState = {
 
 registerHealthCheck(() => !state.isOffline);
 
-let listeners = new Set<() => void>();
+const listeners = new Set<() => void>();
 let running = false;
 let timer: ReturnType<typeof setInterval> | null = null;
 
@@ -54,7 +54,10 @@ export async function refreshFirebaseHealth() {
       lastMessage: null,
     };
   } catch (error) {
-    const code = typeof error === 'object' && error !== null && 'code' in error ? String((error as { code?: unknown }).code) : undefined;
+    const code =
+      typeof error === 'object' && error !== null && 'code' in error
+        ? String((error as { code?: unknown }).code)
+        : undefined;
     const isPermissionDenied = code === 'permission-denied';
     const message = error instanceof Error ? error.message : String(error);
     state = {

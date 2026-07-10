@@ -35,8 +35,8 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'UTS MDSI LLM Wiki': { score: 68, stars: 2 },
   'FAOSTAT Food Price Shock Dashboard': { score: 67, stars: 2 },
   'ScriptClean AI': { score: 65, stars: 2 },
-  'AfriWeave': { score: 60, stars: 1 },
+  AfriWeave: { score: 60, stars: 1 },
   'Deep Learning Group 10': { score: 58, stars: 1 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
-  'Personal Portfolio': { score: 45, stars: 1 }
+  'Personal Portfolio': { score: 45, stars: 1 },
 };

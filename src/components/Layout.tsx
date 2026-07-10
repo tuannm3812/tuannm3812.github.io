@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import { AlertTriangle, BarChart3, ExternalLink, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react';
+import {
+  AlertTriangle,
+  BarChart3,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Mail,
+  Menu,
+  Moon,
+  Sun,
+  X,
+} from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
@@ -74,14 +85,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-white/80 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/80 dark:shadow-black/20">
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex min-w-0 items-center gap-1 text-xl font-black tracking-tighter transition-colors hover:text-brand">
+          <Link
+            to="/"
+            className="flex min-w-0 items-center gap-1 text-xl font-black tracking-tighter transition-colors hover:text-brand"
+          >
             <span className="truncate">{resumeData.name}</span>
             <span className="text-brand">.</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/85 p-1 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/75 dark:shadow-black/20">
             {navItems.map((item) => {
-              const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
+              const isActive =
+                location.pathname === item.path ||
+                (item.path !== '/' && location.pathname.startsWith(item.path));
               return (
                 <Link
                   key={item.path}
@@ -155,7 +171,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => {
-                  const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
+                  const isActive =
+                    location.pathname === item.path ||
+                    (item.path !== '/' && location.pathname.startsWith(item.path));
                   return (
                     <Link
                       key={item.path}
@@ -201,16 +219,38 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </p>
           </div>
           <div className="flex gap-3 items-center">
-            <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="LinkedIn">
+            <a
+              href={resumeData.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
+              aria-label="LinkedIn"
+            >
               <Linkedin size={24} />
             </a>
-            <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="GitHub">
+            <a
+              href={resumeData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
+              aria-label="GitHub"
+            >
               <Github size={24} />
             </a>
-            <a href={resumeData.kaggle} target="_blank" rel="noopener noreferrer" className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="Kaggle">
+            <a
+              href={resumeData.kaggle}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
+              aria-label="Kaggle"
+            >
               <BarChart3 size={24} />
             </a>
-            <a href={`mailto:${resumeData.email}`} className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all" aria-label="Email">
+            <a
+              href={`mailto:${resumeData.email}`}
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
+              aria-label="Email"
+            >
               <Mail size={24} />
             </a>
           </div>
