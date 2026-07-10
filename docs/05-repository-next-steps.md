@@ -46,14 +46,12 @@ refresh.
 
 ## Portfolio Engineering
 
-- Consider code-splitting Firebase/blog routes if the production bundle warning
-  becomes important.
 - Add a lightweight visual smoke test for `/`, `/projects`, `/blog`, and
   `/contact` before future UI-heavy changes.
 - Add a small script that compares public GitHub project URLs against portfolio
   project URLs and reports missing or extra entries.
-- Consider moving Firebase web config into `src/config/` only if the import path
-  and deployment workflow are updated together.
+- Keep Firebase web config, reliability wrappers, and Firebase-dependent pages
+  aligned when contact or blog behavior changes.
 
 ## Resume And Profile
 
