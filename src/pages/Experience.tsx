@@ -14,6 +14,7 @@ import {
   Bot,
   Lightbulb,
   Terminal,
+  Download,
 } from 'lucide-react';
 
 function getStackIcon(title: string) {
@@ -35,6 +36,28 @@ function getStackIcon(title: string) {
 export default function Experience() {
   return (
     <div className="max-w-5xl mx-auto space-y-16">
+      {/* Page Header with Resume Download */}
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-slate-100 pb-8 dark:border-slate-800/65">
+        <div className="space-y-3">
+          <p className="section-eyebrow">Background & Credentials</p>
+          <h1 className="text-4xl font-black tracking-tight md:text-5xl">
+            Professional <span className="text-brand">Path</span>
+          </h1>
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
+            My career history, technical expertise matrix, professional philosophy, and academic
+            credentials.
+          </p>
+        </div>
+        <a
+          href="/assets/tuan-nguyen-resume.pdf"
+          download
+          className="btn-secondary flex items-center gap-2 cursor-pointer w-fit"
+        >
+          <Download size={18} />
+          Download Resume (PDF)
+        </a>
+      </div>
+
       {/* Work Experience */}
       <section className="space-y-8">
         <p className="section-eyebrow">Professional path</p>

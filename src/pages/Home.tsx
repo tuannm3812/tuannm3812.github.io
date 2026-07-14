@@ -92,14 +92,28 @@ function ProjectCover({
   icon,
   title,
   category,
+  coverImage,
 }: {
   icon: React.ReactNode;
   title: string;
   category: string;
+  coverImage?: string;
 }) {
   return (
     <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-950 dark:border-slate-800">
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(14,165,233,0.22),rgba(15,23,42,0)_45%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,26px_26px,26px_26px]" />
+      {coverImage ? (
+        <>
+          <img
+            src={coverImage}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-slate-950/20" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(14,165,233,0.22),rgba(15,23,42,0)_45%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,26px_26px,26px_26px]" />
+      )}
       <div className="relative flex h-full flex-col justify-between p-5 text-white">
         <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-sky-200">
           {icon}
@@ -213,7 +227,12 @@ export default function Home() {
               transition={{ delay: index * 0.06 }}
               className="surface-card surface-card-hover group flex min-h-full flex-col gap-5 p-5"
             >
-              <ProjectCover icon={project.icon} title={project.title} category={project.category} />
+              <ProjectCover
+                icon={project.icon}
+                title={project.title}
+                category={project.category}
+                coverImage={project.coverImage}
+              />
 
               <div className="flex flex-1 flex-col justify-between gap-5">
                 <div className="space-y-3">

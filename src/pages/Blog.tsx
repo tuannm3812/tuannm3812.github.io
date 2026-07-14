@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowLeft, ArrowRight, Calendar, LogIn, MessageSquare, User } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, LogIn, MessageSquare, User, Clock } from 'lucide-react';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { blogPosts, BlogPost } from '../data/blog';
 import {
@@ -16,6 +16,13 @@ import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { ReliabilityError } from '../lib/reliability/types';
+
+function calculateReadTime(text: string): string {
+  const wordsPerMinute = 225;
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+}
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -156,6 +163,10 @@ export default function Blog() {
                       <User size={14} />
                       {post.author}
                     </span>
+                    <span className="flex items-center gap-1">
+                      <Clock size={14} />
+                      {calculateReadTime(post.content)}
+                    </span>
                   </div>
                   <h3 className="text-xl font-bold group-hover:text-brand transition-colors">
                     {post.title}
@@ -204,6 +215,10 @@ export default function Blog() {
                   <span className="flex items-center gap-1">
                     <User size={14} />
                     {selectedPost.author}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={14} />
+                    {calculateReadTime(selectedPost.content)}
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-black tracking-tight">

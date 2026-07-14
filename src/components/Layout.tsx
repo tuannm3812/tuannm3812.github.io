@@ -18,6 +18,7 @@ import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { useFirebaseHealth } from '../hooks/useFirebaseHealth';
 import ErrorBoundary from './ErrorBoundary';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -34,6 +35,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const firebaseHealth = useFirebaseHealth();
   const isFirebaseOffline = firebaseHealth.isOffline;
+
+  useDocumentTitle();
 
   useEffect(() => {
     setIsMenuOpen(false);

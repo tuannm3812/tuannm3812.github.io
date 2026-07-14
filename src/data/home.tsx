@@ -13,6 +13,7 @@ export interface FeaturedProject {
   outcome: string;
   stack: string[];
   href: string;
+  coverImage?: string;
 }
 
 export interface WorkingStyle {
