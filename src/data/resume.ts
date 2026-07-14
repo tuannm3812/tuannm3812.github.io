@@ -128,11 +128,11 @@ export const resumeData: ResumeData = {
       title: 'Bioacoustic Species Classification',
       category: 'Deep Learning & Vision',
       github: 'https://github.com/tuannm3812/kaggle-birdclef-2026',
-      impact: 'Active BirdCLEF+ 2026 bioacoustic classification workspace',
+      impact: 'Google Perch v2 and EfficientNet sound classification model',
       stack: ['Perch v2', 'EfficientNet-B0', 'PyTorch', 'Audio ML', 'CPU Inference'],
       points: [
-        'Built a BirdCLEF+ 2026 bioacoustic classification workspace for noisy multi-species ecological audio experiments and Kaggle submission workflows.',
-        'Applied curated EDA, EfficientNet-B0 baselines, Google Perch v2 probe training, CPU-safe inference packaging, reusable PyTorch modules, and lightweight model artifacts.',
+        'Developed a PyTorch audio classification workspace utilizing Google Perch v2 embeddings and EfficientNet-B0 fine-tuning for multi-species ecological monitoring.',
+        'Optimized local inference performance to run within CPU-safe memory constraints, addressing potential spectrogram array memory leaks on long audio waveforms.',
       ],
     },
     {
@@ -161,11 +161,11 @@ export const resumeData: ResumeData = {
       title: 'Production-Grade ELT Pipeline',
       category: 'Data Engineering & Analytics',
       github: 'https://github.com/tuannm3812/airbnb-ELT-warehouse',
-      impact: 'Airbnb and Census warehouse with dimensional marts',
+      impact: 'Sydney Airbnb & Census warehouse with Airflow and dbt',
       stack: ['Airflow', 'dbt', 'PostgreSQL', 'Medallion', 'SCD Type 2'],
       points: [
-        'Built an ELT warehouse for Sydney Airbnb, Census, and LGA analytics with dimensional marts for market and locality analysis.',
-        'Applied Airflow orchestration, dbt transformations, PostgreSQL modeling, Bronze-Silver-Gold layers, sequential monthly processing, and SCD Type 2 history.',
+        'Designed a Medallion-architecture ELT data pipeline for Sydney Airbnb and Census logs, automating historical dimensional snapshots via dbt SCD Type 2.',
+        'Orchestrated monthly data load schedules using Apache Airflow, managing schema evolution and reducing data drift errors across LGA regional dimensions.',
       ],
     },
     {
@@ -242,11 +242,11 @@ export const resumeData: ResumeData = {
       category: 'AI Agents & LLM Products',
       github: 'https://github.com/tuannm3812/aipa-text-to-sql-agent',
       demo: 'https://aipa-text-to-sql-agent.streamlit.app/',
-      impact: 'Enterprise-style schema RAG agent with safe local SQL execution',
+      impact: 'Schema RAG agent with AST-validated SQLite execution sandbox',
       stack: ['Gemini/Ollama', 'Hybrid Schema RAG', 'Streamlit', 'SQLite', 'SQLGlot'],
       points: [
-        'Built an enterprise-style text-to-SQL agent for answering natural-language questions over local SQLite databases while keeping data execution local.',
-        'Applied hybrid lexical, semantic, value-hint, and foreign-key schema retrieval with Gemini/Ollama generation, SQLGlot validation, SQLite authorizer controls, result caps, query repair, tests, and evaluation outputs.',
+        'Built a secure schema-RAG Text-to-SQL agent with query-repair loops, achieving high-fidelity translations without exposing raw client database records to LLM API endpoints.',
+        'Enforced database safety using SQLite authorizer controls and SQLGlot AST validation to block malicious prompt injections and unauthorized DDL commands.',
       ],
     },
     {
@@ -265,11 +265,11 @@ export const resumeData: ResumeData = {
       category: 'AI Agents & LLM Products',
       github: 'https://github.com/tuannm3812/ai-meal-planner',
       demo: 'https://tuannm3812-ai-meal-planner.streamlit.app/',
-      impact: 'Multi-agent meal planning app with live Streamlit demo',
+      impact: 'Multi-agent wellness planner with FastAPI contract checks',
       stack: ['FastAPI', 'Streamlit', 'scikit-learn', 'Local RAG', 'USDA API'],
       points: [
-        'Built a multi-agent AI meal planner for generating nutrition-aware meal plans, shopping lists, and user-specific recommendations.',
-        'Applied FastAPI, Streamlit, Pydantic schemas, calorie expenditure prediction, local RAG, allergy and health-condition filtering, USDA/FatSecret nutrition checks, feedback capture, and CI-tested backend contracts.',
+        'Architected a multi-agent planning workflow with FastAPI and Pydantic, executing parallelized dietary constraint checks and USDA/FatSecret nutrition lookups.',
+        'Enforced type-safe contract validation under automated CI testing, reducing client-server schema mismatch errors on meal suggestion payloads.',
       ],
     },
     {

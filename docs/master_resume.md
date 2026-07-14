@@ -49,14 +49,14 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 
 ### AI Meal Planner (AI Product / Full Stack)
 *FastAPI, Streamlit, scikit-learn, Local RAG, Pydantic, USDA API, Nutrition Verification, CI*
-* Built a **multi-agent AI meal planner** featuring Pydantic schemas, scikit-learn calorie expenditure prediction, and **retrieval-first meal recommendations**.
-* Delivered a production-ready workflow with **dietary constraint filtering** (allergies, health conditions), USDA nutrition verification, and CI-tested backend contracts.
+* Architected a **multi-agent planning workflow** with FastAPI and Pydantic, executing parallelized dietary constraint checks and USDA/FatSecret nutrition lookups.
+* Enforced **type-safe contract validation** under automated CI testing, reducing client-server schema mismatch errors on meal suggestion payloads.
 * **GitHub:** [ai-meal-planner](https://github.com/tuannm3812/ai-meal-planner) | **Live Demo:** [ai-meal-planner-demo](https://tuannm3812-ai-meal-planner.streamlit.app/)
 
 ### Enterprise Text-to-SQL Agent (Applied AI / RAG)
 *Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety*
-* Built an **enterprise text-to-SQL agent** utilizing hybrid schema RAG, SQLite local execution, and **SQLGlot-assisted query validation**.
-* Enforced **privacy-aware execution** by sending only schema metadata to the LLM, and implemented query-repair loops and read-only execution guardrails.
+* Built a **secure schema-RAG Text-to-SQL agent** with query-repair loops, achieving high-fidelity translations without exposing raw client database records to LLM API endpoints.
+* Enforced **database execution safety** using SQLite authorizer controls and SQLGlot AST validation to block malicious prompt injections and unauthorized DDL commands.
 * **GitHub:** [aipa-text-to-sql-agent](https://github.com/tuannm3812/aipa-text-to-sql-agent) | **Live Demo:** [text-to-sql-demo](https://aipa-text-to-sql-agent.streamlit.app/)
 
 ### NYC Taxi Databricks (Data Engineering / Databricks)
@@ -67,8 +67,8 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 
 ### Production-Grade ELT Pipeline: Airbnb Market Analytics (Data Engineering / ELT)
 *Python, Airflow, dbt, PostgreSQL, Medallion Architecture, ELT, Data Lineage, SCD Type 2*
-* Designed an **end-to-end ELT analytics warehouse** with Airflow, dbt, PostgreSQL, Bronze-Silver-Gold modeling, and Sydney Airbnb and Census datasets.
-* Preserved longitudinal market history through sequential monthly processing and **SCD Type 2 snapshots** across host, property, and locality dimensions.
+* Designed a **Medallion-architecture ELT data pipeline** for Sydney Airbnb and Census logs, automating historical dimensional snapshots via dbt SCD Type 2.
+* Orchestrated **monthly data load schedules** using Apache Airflow, managing schema evolution and reducing data drift errors across LGA regional dimensions.
 * **GitHub:** [airbnb-ELT-warehouse](https://github.com/tuannm3812/airbnb-ELT-warehouse)
 
 ---

@@ -1,8 +1,92 @@
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink, MapPin } from 'lucide-react';
 import { resumeData } from '../data/resume';
 import { focusAreas, featuredProjects, workingStyle } from '../data/home';
+
+function FocusAreaCard({ title, desc }: { title: string; desc: string }) {
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [hovering, setHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCoords({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      className="relative soft-panel p-4 overflow-hidden transition-all duration-300 hover:border-brand/45 hover:-translate-y-0.5"
+    >
+      {hovering && (
+        <div
+          className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(120px circle at ${coords.x}px ${coords.y}px, rgba(5, 64, 242, 0.08), transparent 80%)`,
+          }}
+        />
+      )}
+      <span className="relative z-10 block text-sm font-black text-slate-950 dark:text-white">
+        {title}
+      </span>
+      <span className="relative z-10 mt-1 block text-xs font-semibold leading-snug text-slate-600 dark:text-slate-400">
+        {desc}
+      </span>
+    </div>
+  );
+}
+
+function WorkingStyleCard({
+  icon,
+  title,
+  desc,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}) {
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [hovering, setHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCoords({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      className="surface-card p-5 relative overflow-hidden transition-transform duration-300 hover:-translate-y-0.5"
+    >
+      {hovering && (
+        <div
+          className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(200px circle at ${coords.x}px ${coords.y}px, rgba(5, 64, 242, 0.045), transparent 80%)`,
+          }}
+        />
+      )}
+      <div className="relative z-10 flex items-start gap-3">
+        <div className="icon-tile h-9 w-9">{icon}</div>
+        <div>
+          <h3 className="font-bold">{title}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ProjectCover({
   icon,
@@ -68,14 +152,7 @@ export default function Home() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {focusAreas.map((area) => (
-              <div key={area.title} className="soft-panel p-4">
-                <span className="block text-sm font-black text-slate-950 dark:text-white">
-                  {area.title}
-                </span>
-                <span className="mt-1 block text-xs font-semibold leading-snug text-slate-600 dark:text-slate-400">
-                  {area.desc}
-                </span>
-              </div>
+              <FocusAreaCard key={area.title} title={area.title} desc={area.desc} />
             ))}
           </div>
         </motion.div>
@@ -173,17 +250,7 @@ export default function Home() {
 
       <section className="grid gap-4 md:grid-cols-3">
         {workingStyle.map((item) => (
-          <div key={item.title} className="surface-card p-5">
-            <div className="flex items-start gap-3">
-              <div className="icon-tile h-9 w-9">{item.icon}</div>
-              <div>
-                <h3 className="font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          </div>
+          <WorkingStyleCard key={item.title} icon={item.icon} title={item.title} desc={item.desc} />
         ))}
       </section>
     </div>

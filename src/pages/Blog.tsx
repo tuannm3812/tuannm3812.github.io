@@ -41,9 +41,21 @@ export default function Blog() {
   const [scrollPercent, setScrollPercent] = useState(0);
 
   useEffect(() => {
-    setNewComment('');
+    if (selectedPost) {
+      const cached = localStorage.getItem(`blog_comment_draft_${selectedPost.id}`);
+      setNewComment(cached || '');
+    } else {
+      setNewComment('');
+    }
     setCommentSubmitError(null);
   }, [selectedPost]);
+
+  const handleCommentChange = (text: string) => {
+    setNewComment(text);
+    if (selectedPost) {
+      localStorage.setItem(`blog_comment_draft_${selectedPost.id}`, text);
+    }
+  };
 
   useEffect(() => {
     if (!selectedPost) {
@@ -97,6 +109,9 @@ export default function Blog() {
       return;
     }
 
+    if (selectedPost) {
+      localStorage.removeItem(`blog_comment_draft_${selectedPost.id}`);
+    }
     setNewComment('');
     setIsSubmitting(false);
   };
@@ -227,7 +242,7 @@ export default function Blog() {
                   </div>
                   <textarea
                     value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
+                    onChange={(e) => handleCommentChange(e.target.value)}
                     className="w-full resize-none rounded-lg border border-slate-100 bg-slate-50 p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-slate-800 dark:bg-slate-950"
                     placeholder="Share your thoughts..."
                     rows={3}

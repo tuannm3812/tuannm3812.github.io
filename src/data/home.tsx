@@ -42,7 +42,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: 'Enterprise Text-to-SQL Agent',
     category: 'Enterprise AI',
     outcome:
-      'Schema-aware analytics agent with hybrid retrieval, SQL validation, repair loops, and safe local execution.',
+      'Secure schema-RAG Text-to-SQL agent with query-repair loops and SQLite authorizer sandboxing to prevent DDL injection.',
     stack: ['Gemini/Ollama', 'Schema RAG', 'SQLGlot', 'SQLite'],
     href: 'https://github.com/tuannm3812/aipa-text-to-sql-agent',
   },
@@ -51,7 +51,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: 'AI Meal Planner',
     category: 'AI Product Engineering',
     outcome:
-      'Multi-agent meal planning workflow with FastAPI, structured schemas, nutrition checks, and CI-tested backend contracts.',
+      'Multi-agent wellness planner with FastAPI contract checking, Pydantic type safety, and parallelized USDA constraint checks.',
     stack: ['FastAPI', 'Pydantic', 'Local RAG', 'Streamlit'],
     href: 'https://github.com/tuannm3812/ai-meal-planner',
   },
@@ -60,7 +60,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: 'Bioacoustic Species Classification',
     category: 'Deep Learning Research',
     outcome:
-      'BirdCLEF+ 2026 audio-classification workspace with reusable PyTorch modules, Perch probes, EDA, and CPU-safe inference packaging.',
+      'PyTorch audio classifier using Google Perch v2 embeddings and EfficientNet-B0, optimized to run under CPU memory constraints.',
     stack: ['Perch v2', 'EfficientNet-B0', 'PyTorch', 'Audio ML'],
     href: 'https://github.com/tuannm3812/kaggle-birdclef-2026',
   },
@@ -69,7 +69,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: 'Production-Grade ELT Pipeline',
     category: 'Data Engineering Architecture',
     outcome:
-      'Sydney Airbnb and Census warehouse with Airflow orchestration, dbt marts, PostgreSQL, and SCD Type 2 history.',
+      'Medallion-architecture data warehouse for Sydney Airbnb/Census datasets with dbt SCD Type 2 tracking and Airflow scheduling.',
     stack: ['Airflow', 'dbt', 'PostgreSQL', 'Medallion'],
     href: 'https://github.com/tuannm3812/airbnb-ELT-warehouse',
   },

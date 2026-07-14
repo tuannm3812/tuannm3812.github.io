@@ -12,10 +12,10 @@ Before moving deeper into ML and data engineering, I worked across consulting, a
 
 Recent projects include:
 
-- Text-to-SQL AI agents with schema retrieval and SQL validation
-- Calibrated food recognition with confidence-aware model serving
-- ELT warehouse pipelines with Airflow, dbt, PostgreSQL, and dimensional modelling
-- Kaggle-style ML experimentation across tabular, vision, audio, and simulation problems
+- Secure schema-RAG Text-to-SQL agents with query-repair loops and AST-validated execution sandboxes
+- Calibrated Food-101 recognition with temperature scaling and confidence-gated decision routing
+- Medallion-architecture ELT data warehouses with dbt SCD Type 2 tracking and Airflow scheduling
+- PyTorch audio classifiers using Google Perch v2 embeddings optimized under CPU-safe execution constraints
 
 I’m currently open to ML Engineer, Data Engineer, Data Scientist, and Applied AI roles where I can help teams turn complex data problems into production-ready systems.
 

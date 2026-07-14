@@ -5,7 +5,13 @@ import { ExternalLink, Github, Star, Trophy } from 'lucide-react';
 import type { Project } from '../data/resume';
 import { getProjectRank, isKaggleProject } from '../lib/projects';
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  onTagClick,
+}: {
+  project: Project;
+  onTagClick?: (tag: string) => void;
+}) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const projectRank = getProjectRank(project.title);
 
@@ -88,12 +94,18 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         <div className="flex flex-wrap gap-1 pt-1">
           {project.stack.map((tech, techIndex) => (
-            <span
+            <button
               key={`${tech}-${techIndex}`}
-              className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors hover:border-brand/40 hover:text-brand dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-400"
+              onClick={() => onTagClick?.(tech)}
+              disabled={!onTagClick}
+              className={`rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-400 ${
+                onTagClick
+                  ? 'cursor-pointer hover:border-brand/45 hover:bg-brand/5 hover:text-brand'
+                  : ''
+              }`}
             >
               {tech}
-            </span>
+            </button>
           ))}
         </div>
       </div>
