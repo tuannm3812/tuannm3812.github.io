@@ -11,7 +11,8 @@
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
-    "check": "npm run lint && npm run build",
+    "validate:links": "node scripts/validate-project-links.mjs",
+    "check": "npm run validate:links && npm run lint && npm run build",
     "sync:github-projects": "node scripts/sync-github-projects.mjs",
     "sync:profile-readme": "node scripts/sync-profile-readme.mjs",
     "prepare": "husky"

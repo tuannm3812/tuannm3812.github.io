@@ -7,7 +7,7 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
   'Production-Grade ELT Pipeline': { score: 96, stars: 3 },
   'AI Meal Planner': { score: 94, stars: 3 },
-  'CircleU: iOS Journaling App': { score: 92, stars: 3 },
+  CircleU: { score: 92, stars: 3 },
   'Solana Price Forecasting': { score: 91, stars: 3 },
   'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 3 },
   'Bioacoustic Species Classification': { score: 89, stars: 3 },
@@ -20,7 +20,7 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Kaggle NFL Player Contact Detection': { score: 84, stars: 2 },
   'VisionVoice: Image Captioning': { score: 83, stars: 2 },
   'Kaggle NeuroGolf 2026': { score: 82, stars: 2 },
-  'UNSW Marketing Analytics Hackathon 2026': { score: 81, stars: 2 },
+  'UNSW MA Hackathon 2026': { score: 81, stars: 2 },
   'NYC Taxi Databricks': { score: 81, stars: 2 },
   'Airbnb ELT Warehouse': { score: 80, stars: 2 },
   'YouTube Trending Snowflake Lakehouse': { score: 79, stars: 2 },
@@ -39,4 +39,5 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Deep Learning Group 10': { score: 58, stars: 1 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
   'Personal Portfolio': { score: 45, stars: 1 },
+  'Kaggle Predicting Student Health Risk': { score: 70, stars: 2 },
 };

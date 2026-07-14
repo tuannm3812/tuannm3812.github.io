@@ -1,7 +1,36 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
-import { Briefcase, GraduationCap, MapPin, Calendar } from 'lucide-react';
+import {
+  Briefcase,
+  GraduationCap,
+  MapPin,
+  Calendar,
+  Code2,
+  Database,
+  Cpu,
+  BrainCircuit,
+  Wrench,
+  Bot,
+  Lightbulb,
+  Terminal,
+} from 'lucide-react';
+
+function getStackIcon(title: string) {
+  const t = title.toLowerCase();
+  if (t.includes('language') || t.includes('engineering'))
+    return <Code2 size={20} className="text-brand" />;
+  if (t.includes('platform')) return <Database size={20} className="text-brand" />;
+  if (t.includes('orchestration') || t.includes('analytics'))
+    return <Cpu size={20} className="text-brand" />;
+  if (t.includes('machine learning') || t.includes('ml'))
+    return <BrainCircuit size={20} className="text-brand" />;
+  if (t.includes('production') || t.includes('mlops'))
+    return <Wrench size={20} className="text-brand" />;
+  if (t.includes('ai') || t.includes('nlp') || t.includes('agent'))
+    return <Bot size={20} className="text-brand" />;
+  return <Terminal size={20} className="text-brand" />;
+}
 
 export default function Experience() {
   return (
@@ -57,6 +86,90 @@ export default function Experience() {
                   ))}
                 </ul>
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Technical Skill Matrix */}
+      <section className="space-y-8">
+        <p className="section-eyebrow">Expertise & Stack</p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
+          <Terminal className="text-brand" />
+          Technical Skill Matrix
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {resumeData.technologyStack.map((stack, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="surface-card surface-card-hover flex flex-col justify-between p-5"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="icon-tile h-9 w-9">{getStackIcon(stack.title)}</div>
+                  <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
+                    {stack.title}
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  {stack.description}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
+                {stack.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded bg-slate-100/60 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors hover:bg-brand/10 hover:text-brand dark:bg-slate-900/65 dark:text-slate-400 dark:hover:text-brand"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Philosophy & Reflections */}
+      <section className="space-y-8">
+        <p className="section-eyebrow">Philosophy & Mindset</p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
+          <Lightbulb className="text-brand" />
+          Professional Philosophy
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-5">
+          {resumeData.reflections.map((ref, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="soft-panel border-l-4 border-l-brand p-5 space-y-3"
+            >
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  {ref.category}
+                </span>
+                <h3 className="text-base font-black text-slate-950 dark:text-white">{ref.title}</h3>
+              </div>
+              <ul className="space-y-2">
+                {ref.points.map((point, i) => (
+                  <li
+                    key={i}
+                    className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+                  >
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

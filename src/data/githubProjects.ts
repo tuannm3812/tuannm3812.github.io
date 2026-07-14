@@ -124,6 +124,17 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'Kaggle Predicting Student Health Risk',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-predicting-student-health-risk',
+    impact: 'Public Jupyter Notebook project from GitHub',
+    stack: ['GitHub', 'Project'],
+    points: [
+      'Public repository for Kaggle Predicting Student Health Risk, maintained on GitHub.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+    ],
+  },
+  {
     title: 'Kaggle ROGII Wellbore Geology Prediction',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction',

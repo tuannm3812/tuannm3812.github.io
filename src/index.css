@@ -86,4 +86,31 @@
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/50 hover:text-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200;
   }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+
+  /* Glow effects */
+  .text-glow {
+    text-shadow: 0 0 24px rgba(5, 64, 242, 0.2);
+  }
 }
