@@ -34,7 +34,7 @@ async function fetchRepos(page = 1, repos = []) {
   return pageRepos.length === 100 ? fetchRepos(page + 1, nextRepos) : nextRepos;
 }
 
-function getCuratedGithubLinks(resumeSource) {
+export function getCuratedGithubLinks(resumeSource) {
   return new Set(
     [...resumeSource.matchAll(new RegExp(`https://github\\.com/${GITHUB_USER}/[^"',\\s]+`, 'g'))].map(
       ([url]) => url.replace(/\/$/, '')
@@ -42,7 +42,7 @@ function getCuratedGithubLinks(resumeSource) {
   );
 }
 
-function toTitle(name) {
+export function toTitle(name) {
   return name
     .replace(/[-_]+/g, ' ')
     .replace(/\b\w/g, (letter) => letter.toUpperCase())
@@ -64,7 +64,7 @@ function toTitle(name) {
     .replace(/\bMulti Class\b/g, 'Multi-Class');
 }
 
-function inferCategory(repo) {
+export function inferCategory(repo) {
   const text = `${repo.name} ${repo.description || ''}`.toLowerCase();
 
   if (/kaggle|playground|competition|catboost|lightgbm|biomass|irrigation|pit-stop|pit stop/.test(text)) {
@@ -90,7 +90,7 @@ function inferCategory(repo) {
   return 'AI Agents & LLM Products';
 }
 
-function inferStack(repo) {
+export function inferStack(repo) {
   const text = `${repo.name} ${repo.description || ''} ${repo.homepage || ''}`.toLowerCase();
   const stack = [];
 
@@ -124,7 +124,7 @@ function inferStack(repo) {
   return [...new Set(stack)].slice(0, 6);
 }
 
-function getDemoUrl(repo) {
+export function getDemoUrl(repo) {
   const homepage = repo.homepage?.trim();
   if (!homepage) return undefined;
   return /^https?:\/\//.test(homepage) ? homepage : `https://${homepage}`;
@@ -348,7 +348,7 @@ const PROJECT_COPY_OVERRIDES = {
   }
 };
 
-function buildProject(repo) {
+export function buildProject(repo) {
   const stack = inferStack(repo);
   const description = repo.description?.trim();
   const demo = getDemoUrl(repo);
@@ -390,21 +390,27 @@ export const githubProjects: Project[] = ${JSON.stringify(projects, null, 2)};
   return prettier.format(source, { ...config, filepath });
 }
 
-const resumeSource = await readFile(RESUME_PATH, 'utf8');
-const curatedGithubLinks = getCuratedGithubLinks(resumeSource);
-const repos = await fetchRepos();
+async function main() {
+  const resumeSource = await readFile(RESUME_PATH, 'utf8');
+  const curatedGithubLinks = getCuratedGithubLinks(resumeSource);
+  const repos = await fetchRepos();
 
-const projects = repos
-  .filter((repo) => !repo.private)
-  .filter((repo) => !repo.fork)
-  .filter((repo) => !repo.archived)
-  .filter((repo) => !repo.disabled)
-  .filter((repo) => repo.size > 0)
-  .filter((repo) => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
-  .filter((repo) => !IGNORED_REPOS.has(repo.name))
-  .filter((repo) => !curatedGithubLinks.has(repo.html_url.replace(/\/$/, '')))
-  .map(buildProject)
-  .sort((a, b) => a.title.localeCompare(b.title));
+  const projects = repos
+    .filter((repo) => !repo.private)
+    .filter((repo) => !repo.fork)
+    .filter((repo) => !repo.archived)
+    .filter((repo) => !repo.disabled)
+    .filter((repo) => repo.size > 0)
+    .filter((repo) => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
+    .filter((repo) => !IGNORED_REPOS.has(repo.name))
+    .filter((repo) => !curatedGithubLinks.has(repo.html_url.replace(/\/$/, '')))
+    .map(buildProject)
+    .sort((a, b) => a.title.localeCompare(b.title));
 
-await writeFile(OUTPUT_PATH, await serializeProjects(projects), 'utf8');
-console.log(`Synced ${projects.length} generated GitHub project(s).`);
+  await writeFile(OUTPUT_PATH, await serializeProjects(projects), 'utf8');
+  console.log(`Synced ${projects.length} generated GitHub project(s).`);
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  await main();
+}

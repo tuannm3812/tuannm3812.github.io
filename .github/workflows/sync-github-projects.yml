@@ -35,6 +35,9 @@ jobs:
       - name: Type check
         run: npm run lint
 
+      - name: Test
+        run: npm run test
+
       - name: Commit and push changes
         run: |
           if git diff --quiet src/data/githubProjects.ts; then

@@ -46,6 +46,10 @@ refresh.
 
 ## Portfolio Engineering
 
+- Run `npm run test` (Vitest) to check the reliability lib
+  (`src/lib/reliability/*.test.ts`) and the GitHub project sync helpers
+  (`scripts/sync-github-projects.test.mjs`); `npm run check` already runs it.
+  Add new unit tests alongside any new pure logic in those areas.
 - Add a lightweight visual smoke test for `/`, `/projects`, `/blog`, and
   `/contact` before future UI-heavy changes.
 - Add a small script that compares public GitHub project URLs against portfolio
