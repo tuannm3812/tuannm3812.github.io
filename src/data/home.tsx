@@ -46,6 +46,7 @@ export const featuredProjects: FeaturedProject[] = [
       'Secure schema-RAG Text-to-SQL agent with query-repair loops and SQLite authorizer sandboxing to prevent DDL injection.',
     stack: ['Gemini/Ollama', 'Schema RAG', 'SQLGlot', 'SQLite'],
     href: 'https://github.com/tuannm3812/aipa-text-to-sql-agent',
+    coverImage: '/assets/projects/text-to-sql.jpg',
   },
   {
     icon: <PackageCheck size={22} />,
@@ -55,6 +56,7 @@ export const featuredProjects: FeaturedProject[] = [
       'Multi-agent wellness planner with FastAPI contract checking, Pydantic type safety, and parallelized USDA constraint checks.',
     stack: ['FastAPI', 'Pydantic', 'Local RAG', 'Streamlit'],
     href: 'https://github.com/tuannm3812/ai-meal-planner',
+    coverImage: '/assets/projects/meal-planner.jpg',
   },
   {
     icon: <Brain size={22} />,
@@ -64,6 +66,7 @@ export const featuredProjects: FeaturedProject[] = [
       'PyTorch audio classifier using Google Perch v2 embeddings and EfficientNet-B0, optimized to run under CPU memory constraints.',
     stack: ['Perch v2', 'EfficientNet-B0', 'PyTorch', 'Audio ML'],
     href: 'https://github.com/tuannm3812/kaggle-birdclef-2026',
+    coverImage: '/assets/projects/bird-classification.jpg',
   },
   {
     icon: <Warehouse size={22} />,
@@ -73,6 +76,7 @@ export const featuredProjects: FeaturedProject[] = [
       'Medallion-architecture data warehouse for Sydney Airbnb/Census datasets with dbt SCD Type 2 tracking and Airflow scheduling.',
     stack: ['Airflow', 'dbt', 'PostgreSQL', 'Medallion'],
     href: 'https://github.com/tuannm3812/airbnb-ELT-warehouse',
+    coverImage: '/assets/projects/airbnb-elt.jpg',
   },
 ];
 
