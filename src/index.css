@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -112,5 +113,18 @@
   /* Glow effects */
   .text-glow {
     text-shadow: 0 0 24px rgba(5, 64, 242, 0.2);
+  }
+
+  /* Long-form blog article body (Tailwind Typography, tinted to brand) */
+  .blog-article {
+    @apply prose prose-slate max-w-none text-base leading-relaxed md:text-lg dark:prose-invert;
+    --tw-prose-links: var(--color-brand);
+    --tw-prose-bold: var(--color-ink);
+    --tw-prose-quotes: var(--color-brand-dark);
+    --tw-prose-quote-borders: var(--color-brand);
+    --tw-prose-invert-links: var(--color-brand-light);
+    --tw-prose-invert-bold: #f1f5f9;
+    --tw-prose-invert-quotes: #f1f5f9;
+    --tw-prose-invert-quote-borders: var(--color-brand-light);
   }
 }

@@ -17,9 +17,10 @@ import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { ReliabilityError } from '../lib/reliability/types';
 
-function calculateReadTime(text: string): string {
+function calculateReadTime(html: string): string {
   const wordsPerMinute = 225;
-  const words = text.trim().split(/\s+/).length;
+  const text = html.replace(/<[^>]+>/g, ' ');
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.ceil(words / wordsPerMinute);
   return `${minutes} min read`;
 }
@@ -226,9 +227,12 @@ export default function Blog() {
                 </h1>
               </div>
 
-              <div className="prose prose-slate dark:prose-invert max-w-none text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                {selectedPost.content}
-              </div>
+              {/* Post content is authored HTML from src/data/blog.ts, never user input, so
+                  dangerouslySetInnerHTML carries no injection risk here. */}
+              <div
+                className="blog-article"
+                dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+              />
             </article>
 
             <div className="border-t border-slate-200 dark:border-slate-800 pt-8 space-y-6">
