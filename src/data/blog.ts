@@ -48,6 +48,87 @@ export const blogPosts: BlogPost[] = [
       </ul>
       <p>Zero for twelve. The easy read is that the project stalled.</p>
 
+      <figure class="not-prose my-10">
+        <div class="rounded-xl border border-slate-200 bg-white/60 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
+          <svg viewBox="0 0 940 260" class="w-full" role="img" aria-label="Bar chart of out-of-fold balanced-accuracy gain versus the champion model, for twelve rejected experiments v10 through v23. All twelve stay below the promotion gate line; four are negative regressions; one sits exactly at zero; v23 is the closest miss.">
+            <line x1="60" y1="140" x2="920" y2="140" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="1.4"></line>
+            <line x1="60" y1="92" x2="920" y2="92" class="stroke-slate-400 dark:stroke-slate-500" stroke-width="1.4" stroke-dasharray="4 3"></line>
+            <text x="926" y="96" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px] font-bold">gate +0.0002</text>
+            <text x="926" y="144" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">0</text>
+
+            <g>
+              <rect x="66" y="136.6" width="48" height="3.4" rx="2" class="fill-brand dark:fill-brand-light"><title>v10, calibration sweep: +0.00014 balanced accuracy</title></rect>
+              <text x="90" y="128.6" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+0.14</text>
+              <text x="90" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v10</text>
+            </g>
+            <g>
+              <rect x="130" y="139.3" width="48" height="0.7" rx="1" class="fill-brand dark:fill-brand-light"><title>v13, HGB probability blend: +0.00003 balanced accuracy</title></rect>
+              <text x="154" y="131.3" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+0.03</text>
+              <text x="154" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v13</text>
+            </g>
+            <g>
+              <rect x="194" y="139.3" width="48" height="0.7" rx="1" class="fill-brand dark:fill-brand-light"><title>v14, targeted interaction features: +0.00003 balanced accuracy</title></rect>
+              <text x="218" y="131.3" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+0.03</text>
+              <text x="218" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v14</text>
+            </g>
+            <g>
+              <rect x="258" y="130.2" width="48" height="9.8" rx="2" class="fill-brand dark:fill-brand-light"><title>v15, GPU hyperparameter search: +0.00041 balanced accuracy</title></rect>
+              <text x="282" y="122.2" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+0.41</text>
+              <text x="282" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v15</text>
+            </g>
+            <g>
+              <rect x="322" y="133" width="48" height="7" rx="2" class="fill-brand dark:fill-brand-light"><title>v16, multi-seed averaging: +0.00029 balanced accuracy</title></rect>
+              <text x="346" y="125" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+0.29</text>
+              <text x="346" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v16</text>
+            </g>
+            <g>
+              <rect x="386" y="133.3" width="48" height="6.7" rx="2" class="fill-brand dark:fill-brand-light"><title>v17, five-fold CV and CatBoost diversity: +0.00028 balanced accuracy</title></rect>
+              <text x="410" y="125.3" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+0.28</text>
+              <text x="410" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v17</text>
+            </g>
+            <g>
+              <rect x="450" y="140" width="48" height="30.7" rx="2" class="fill-red-500 dark:fill-red-400"><title>v18, OOF stacking over four models: -0.00128 balanced accuracy (regression)</title></rect>
+              <text x="474" y="184.7" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">−1.28</text>
+              <text x="474" y="200" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v18</text>
+            </g>
+            <g>
+              <rect x="514" y="140" width="48" height="5.4" rx="2" class="fill-red-500 dark:fill-red-400"><title>v19, synthetic-geometry features: -0.0000227 balanced accuracy (regression)</title></rect>
+              <text x="538" y="159.4" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">−0.23</text>
+              <text x="538" y="174" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v19</text>
+            </g>
+            <g>
+              <rect x="578" y="140" width="48" height="11.5" rx="2" class="fill-red-500 dark:fill-red-400"><title>v20, fold-safe target encoding: -0.0000481 balanced accuracy (regression)</title></rect>
+              <text x="602" y="165.5" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">−0.48</text>
+              <text x="602" y="180" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v20</text>
+            </g>
+            <g>
+              <rect x="642" y="140" width="48" height="5.8" rx="2" class="fill-red-500 dark:fill-red-400"><title>v21, rounding/precision artifact features: -0.0000243 balanced accuracy (regression)</title></rect>
+              <text x="666" y="159.8" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">−0.24</text>
+              <text x="666" y="174" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v21</text>
+            </g>
+            <g>
+              <circle cx="730" cy="140" r="4" class="fill-none stroke-slate-500 dark:stroke-slate-400" stroke-width="1.6"><title>v22, logistic-regression blend: 0.00000 balanced accuracy (blend sweep chose 0% weight)</title></circle>
+              <text x="730" y="128" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">0.00</text>
+              <text x="730" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v22</text>
+            </g>
+            <g>
+              <rect x="770" y="113.4" width="48" height="26.6" rx="2" class="fill-amber-500 dark:fill-amber-400"><title>v23, native categorical splits: +0.000111 balanced accuracy (closest miss)</title></rect>
+              <text x="794" y="105.4" text-anchor="middle" class="fill-slate-700 dark:fill-slate-200 font-mono text-[10px] font-bold">+1.11</text>
+              <text x="794" y="156" text-anchor="middle" class="fill-slate-500 dark:fill-slate-400 font-mono text-[10.5px]">v23</text>
+            </g>
+          </svg>
+          <div class="mt-3 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-brand dark:bg-brand-light"></span>positive, still below gate</span>
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-red-500 dark:bg-red-400"></span>regression</span>
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-amber-500 dark:bg-amber-400"></span>closest miss (v23)</span>
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-full border-[1.5px] border-slate-500 dark:border-slate-400"></span>exactly zero (v22)</span>
+          </div>
+        </div>
+        <figcaption class="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
+          Bars in ×10⁻⁴ balanced accuracy, one per rejected experiment. Hover a bar for what it tested.
+        </figcaption>
+      </figure>
+
       <h2>Reading the competition instead of guessing at #13</h2>
       <p>Rather than run a thirteenth variant, I pulled and read the source of five top-scoring
       public notebooks for the same competition. All five — different architectures, different
