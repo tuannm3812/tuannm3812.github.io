@@ -9,32 +9,13 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: 'turning-notebooks-into-portfolio-evidence',
-    title: 'Turning Notebooks Into Portfolio Evidence',
+    id: 'twelve-rejected-experiments-and-a-model-ceiling',
+    title: 'Twelve Rejected Experiments and a Model Ceiling',
     excerpt:
-      'How I translate Kaggle notebooks into project cards that show algorithms, validation design, and engineering judgment instead of just notebook labels.',
-    date: '2026-05-28',
+      'A Kaggle health-risk classifier plateaued at 0.94959 balanced accuracy after twelve straight failed experiments. Reading five competitors’ notebooks explained why, and why stopping there was the right call.',
+    date: '2026-07-20',
     content:
-      'Many strong machine learning projects begin as notebooks, especially Kaggle work. The portfolio version should not stop at the environment label. A useful project card explains the problem, the workflow outcome, and the techniques that carried the work: validation design, feature engineering, model families, diagnostics, artifacts, and submission packaging. That makes notebook-first work easier for reviewers to understand because it shows the engineering decisions behind the experiment.',
-    author: 'Tuan Nguyen',
-  },
-  {
-    id: 'mlops-feedback-loops',
-    title: 'MLOps Starts With Feedback Loops',
-    excerpt:
-      'A practical note on why production ML is less about one perfect model and more about monitoring, retraining, and ownership.',
-    date: '2026-04-10',
-    content:
-      'The most useful MLOps systems I have worked on are not built around a single heroic model. They are built around feedback loops: data quality checks, performance monitoring, retraining triggers, deployment gates, and clear ownership when something drifts. A model can look strong in a notebook and still fail quietly in production if the surrounding system does not explain what changed, who should respond, and how to recover safely.',
-    author: 'Tuan Nguyen',
-  },
-  {
-    id: 'analytics-that-ships',
-    title: 'Analytics That Ships',
-    excerpt: 'What e-commerce analytics taught me about moving from dashboards to decisions.',
-    date: '2026-03-25',
-    content:
-      'In high-volume e-commerce work, a dashboard is only valuable when it changes the next decision. That means the metric has to be trusted, refreshed at the right cadence, and connected to an action someone can actually take. The best analytics products reduce translation work: they make the trade-off visible, show the expected impact, and give business teams enough context to move without waiting for another ad-hoc analysis.',
+      'On a recent Kaggle competition — a three-class student health-risk classifier scored on balanced accuracy under a 15:1 class imbalance — the first serious model, a balanced LightGBM/XGBoost blend, reached 0.94959 on the public leaderboard. What came next was more instructive than the model itself: twelve further ideas — synthetic feature engineering, fold-safe target encoding, five-fold cross-validation, logistic-regression blending, native categorical splits, hyperparameter search — all failed the same promotion bar in a row, each by a smaller and more specific margin than the last. Rather than run a thirteenth variant, I pulled and read the source of five top-scoring public notebooks for the same competition. All five, using different architectures and different authors, converged on the same balanced-accuracy band this project had already reached — a documented ceiling, not a gap in the modeling. The visible leaderboard sat roughly 0.0015 higher, but tracing why showed that gap was mostly shared submission files and hand-edited leaderboard corrections, not better models — the same pattern that had already cost a public #1 team its private ranking in an earlier round of the same competition series. Closing the project there, instead of chasing the higher number, was the decision that actually mattered. The skill worth practicing is not finding the next tweak — it is building the discipline to check outside evidence before assuming there is always one more tweak worth finding.',
     author: 'Tuan Nguyen',
   },
 ];
