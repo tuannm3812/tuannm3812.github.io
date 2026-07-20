@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   sync_profile_readme:
@@ -60,3 +61,76 @@ jobs:
           git add README.md
           git commit -m "docs: sync profile readme"
           git push
+
+      - name: Open or update failure alert
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '🔴 Sync Profile README workflow is failing';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              'The **Sync Profile README** workflow just failed.',
+              '',
+              `Run: ${runUrl}`,
+              `Trigger: ${context.eventName}`,
+              `Commit: ${context.sha}`,
+              '',
+              'Common past cause: `PROFILE_README_TOKEN` went stale after the underlying ' +
+                'fine-grained token was regenerated without updating this repo secret. Check ' +
+                'that first, then re-run via `gh workflow run "Sync Profile README"`.',
+            ].join('\n');
+
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'automation-failure',
+            });
+            const existing = openIssues.find((issue) => issue.title === title);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Failed again.\n\n${body}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['automation-failure'],
+              });
+            }
+
+      - name: Close resolved failure alert
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '🔴 Sync Profile README workflow is failing';
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'automation-failure',
+            });
+            const existing = openIssues.find((issue) => issue.title === title);
+            if (existing) {
+              const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Resolved: the workflow succeeded again.\n\nRun: ${runUrl}`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                state: 'closed',
+              });
+            }
