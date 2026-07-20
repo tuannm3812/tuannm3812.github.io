@@ -140,31 +140,11 @@ const PROJECT_COPY_OVERRIDES = {
       'Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts.'
     ]
   },
-  'CircleU': {
-    title: 'CircleU: iOS Journaling App',
-    category: 'AI Agents & LLM Products',
-    impact: 'Local-first voice journaling and self-reflection iOS app with Apple Intelligence integration',
-    stack: ['SwiftUI', 'Apple Intelligence', 'iOS', 'Firebase', 'Swift', 'Local-First'],
-    points: [
-      'Built CircleU, a privacy-focused iOS voice journaling app with Apple Intelligence self-reflection features and Firebase cloud backups.',
-      'Applied SwiftUI layout design, local-first Swift data architecture, Apple Intelligence integration, and secure Firebase synchronization.'
-    ]
-  },
   'Deep-Learning-Group-10': {
     impact: 'Deep learning notebook workspace for group experimentation',
     points: [
       'Maintained a Jupyter-based deep learning project workspace for collaborative model experimentation and analysis.',
       'Kept as supporting academic evidence while higher-signal portfolio cards focus on documented, reproducible repos.'
-    ]
-  },
-  'kaggle-ai-agent-security': {
-    title: 'Kaggle AI Agent Security',
-    category: 'Machine Learning & Kaggle',
-    impact: 'Kaggle AI agent security attack modeling and tool-using failure discovery',
-    stack: ['AI Security', 'Multi-Step Attacks', 'Agents', 'Python', 'Kaggle'],
-    points: [
-      'Built an attack-modeling workflow for identifying reproducible multi-step tool-use vulnerabilities in AI agents.',
-      'Developed attack notebooks analyzing tool usage chains, prompt injections, and multi-step simulation failure routes.'
     ]
   },
   'kaggle-birdclef-2026': {
@@ -194,16 +174,6 @@ const PROJECT_COPY_OVERRIDES = {
     points: [
       'Built a Kaggle Maze Crawler workflow for turn-based maze navigation, simulation review, agent iteration, and Kaggle-safe submission generation.',
       'Applied jump-preferred BFS, known-wall memory, mirrored-wall inference, active scout replacement, south-bound danger gating, and replay diagnostics.'
-    ]
-  },
-  'kaggle-pokemon-tcg-ai-battle': {
-    title: 'Kaggle Pokémon TCG AI Battle',
-    category: 'Machine Learning & Kaggle',
-    impact: 'Kaggle Pokémon TCG simulation agent and paired self-play evaluation framework',
-    stack: ['Simulation/RL', 'Heuristic Agents', 'Card Analytics', 'Self-Play', 'Python', 'Kaggle'],
-    points: [
-      'Built a simulation-agent workflow for the Pokémon TCG AI Battle competition, including card-pool analysis and paired self-play evaluation.',
-      'Applied rule-based heuristic search, simulator interfaces, legal-action masks, and submission packaging.'
     ]
   },
   'kaggle-ROGII-Wellbore-Geology-Prediction': {
@@ -307,16 +277,6 @@ const PROJECT_COPY_OVERRIDES = {
       'Applied future-weather target handling, feature-order checks, model metadata, and dashboard-ready inference validation.'
     ]
   },
-  'unsw-ma-hackathon-2026': {
-    title: 'UNSW Marketing Analytics Hackathon 2026',
-    category: 'Data Engineering & Analytics',
-    impact: 'Crowdfunding funding-speed prediction and prosocial market analysis',
-    stack: ['Kiva Data', 'Funding Speed', 'Prosocial Motives', 'Regression', 'Python'],
-    points: [
-      'Built a predictive analytics workflow for the UNSW Marketing Analytics Hackathon using micro-lending data from Kiva.',
-      'Applied feature engineering, loan-level regression, factor analysis of lender motives, and data visualization.'
-    ]
-  },
   'uts-techfest-2026-genai-hackathon': {
     title: 'UTS Tech Festival 2026 GenAI Hackathon',
     category: 'AI Agents & LLM Products',
@@ -325,16 +285,6 @@ const PROJECT_COPY_OVERRIDES = {
     points: [
       'Developed comprehensive technical submissions for three engineering scenarios: LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite fleet spec, and an Austroads-aligned smart intersection.',
       'Applied generative AI prompting strategy, adaptive signal logic design, sustainable mix design, telemetry planning, and automated HTML/PDF document compilation.'
-    ]
-  },
-  'uts-mdsi': {
-    title: 'UTS MDSI LLM Wiki',
-    category: 'AI Agents & LLM Products',
-    impact: 'Markdown wiki database of MDSI course materials optimized for LLM tools',
-    stack: ['Markdown', 'LLM Wiki', 'Course Materials', 'Google Drive', 'Data Curation'],
-    points: [
-      'Built an LLM-optimized Markdown wiki curating UTS MDSI course syllabus, materials, and Google Drive resources.',
-      'Applied markdown structuring, data curation, content indexing, and clean folder layouts for AI agent parsing.'
     ]
   },
   'youtube-trending-snowflake-lakehouse': {
