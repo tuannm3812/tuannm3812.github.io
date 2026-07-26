@@ -39,6 +39,18 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'Kaggle Biohub Cell Tracking During Development',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-biohub-cell-tracking-during-development',
+    impact:
+      'Kaggle entry for Biohub – Cell Tracking During Development: 3D+time cell tracking in zebrafish embryo microscopy via U-Net + transformer + ILP with graph repair. Public LB 0.817.',
+    stack: ['NLP'],
+    points: [
+      'Kaggle entry for Biohub – Cell Tracking During Development: 3D+time cell tracking in zebrafish embryo microscopy via U-Net + transformer + ILP with graph repair. Public LB 0.817.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+    ],
+  },
+  {
     title: 'Kaggle CSIRO Image2Biomass',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-csiro-image2biomass',
@@ -124,17 +136,6 @@ export const githubProjects: Project[] = [
     ],
   },
   {
-    title: 'Kaggle Predicting Student Health Risk',
-    category: 'Machine Learning & Kaggle',
-    github: 'https://github.com/tuannm3812/kaggle-predicting-student-health-risk',
-    impact: 'Public Jupyter Notebook project from GitHub',
-    stack: ['GitHub', 'Project'],
-    points: [
-      'Public repository for Kaggle Predicting Student Health Risk, maintained on GitHub.',
-      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
-    ],
-  },
-  {
     title: 'Kaggle ROGII Wellbore Geology Prediction',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-ROGII-Wellbore-Geology-Prediction',
@@ -204,6 +205,18 @@ export const githubProjects: Project[] = [
     points: [
       'Built a Kaggle Playground stellar class prediction workflow for classifying stars, galaxies, and quasars from spectroscopic and photometric survey features.',
       'Applied multi-model probability stacking, Nelder-Mead threshold calibration, public-consensus hybrid blending, astronomical feature review, and reusable submission validation.',
+    ],
+  },
+  {
+    title: 'Kaggle S6e7 Predicting Student Health Risk',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e7-predicting-student-health-risk',
+    impact:
+      'Kaggle Playground Series S6E7 — predicting student health risk with a class-balanced LightGBM/XGBoost ensemble (public score 0.94959). Full EDA, experiment ledger, and reproducible notebooks in docs/.',
+    stack: ['LightGBM'],
+    points: [
+      'Kaggle Playground Series S6E7 — predicting student health risk with a class-balanced LightGBM/XGBoost ensemble (public score 0.94959). Full EDA, experiment ledger, and reproducible notebooks in docs/.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
     ],
   },
   {
