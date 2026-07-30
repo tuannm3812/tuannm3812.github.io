@@ -16,6 +16,7 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Kaggle ROGII Wellbore Geology Prediction': { score: 86, stars: 2 },
   'Kaggle AI Agent Security': { score: 85, stars: 2 },
   'TikTok Semantic': { score: 85, stars: 2 },
+  'Kaggle Biohub Cell Tracking During Development': { score: 84, stars: 2 },
   'Kaggle Pokémon TCG AI Battle': { score: 84, stars: 2 },
   'Kaggle NFL Player Contact Detection': { score: 84, stars: 2 },
   'VisionVoice: Image Captioning': { score: 83, stars: 2 },
@@ -26,6 +27,7 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'YouTube Trending Snowflake Lakehouse': { score: 79, stars: 2 },
   'Flickr8k Image Captioning': { score: 78, stars: 2 },
   'Kaggle S6E5 Predict F1 Pit Stops': { score: 77, stars: 2 },
+  'Kaggle S6E7 Predicting Student Health Risk': { score: 77, stars: 2 },
   'Kaggle Maze Crawler': { score: 76, stars: 2 },
   'Kaggle S6E6 Predicting Stellar Class': { score: 75, stars: 2 },
   'Kaggle Orbit Wars': { score: 74, stars: 2 },
@@ -39,5 +41,4 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Deep Learning Group 10': { score: 58, stars: 1 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
   'Personal Portfolio': { score: 45, stars: 1 },
-  'Kaggle Predicting Student Health Risk': { score: 70, stars: 2 },
 };

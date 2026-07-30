@@ -43,11 +43,17 @@ export const githubProjects: Project[] = [
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-biohub-cell-tracking-during-development',
     impact:
-      'Kaggle entry for Biohub – Cell Tracking During Development: 3D+time cell tracking in zebrafish embryo microscopy via U-Net + transformer + ILP with graph repair. Public LB 0.817.',
-    stack: ['NLP'],
+      'Kaggle Biohub 3D cell-tracking workflow combining a detect-and-link pipeline with a custom graph-repair stage',
+    stack: [
+      'TemporalUNet3D',
+      'Cross-Attention Transformer',
+      'ILP Graph Optimization',
+      'Graph Repair',
+      '3D Cell Tracking',
+    ],
     points: [
-      'Kaggle entry for Biohub – Cell Tracking During Development: 3D+time cell tracking in zebrafish embryo microscopy via U-Net + transformer + ILP with graph repair. Public LB 0.817.',
-      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+      'Built a Kaggle Biohub Cell Tracking workflow for detecting and linking cells across 3D+time zebrafish embryo microscopy video as a genuine code-competition submission.',
+      'Applied a TemporalUNet3D center-detection and cross-attention node-transformer pipeline with ILP graph optimization, plus a custom short-track pruning and gap-recovery repair stage validated through iterative experiment logging.',
     ],
   },
   {
@@ -208,15 +214,22 @@ export const githubProjects: Project[] = [
     ],
   },
   {
-    title: 'Kaggle S6e7 Predicting Student Health Risk',
+    title: 'Kaggle S6E7 Predicting Student Health Risk',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-s6e7-predicting-student-health-risk',
     impact:
-      'Kaggle Playground Series S6E7 — predicting student health risk with a class-balanced LightGBM/XGBoost ensemble (public score 0.94959). Full EDA, experiment ledger, and reproducible notebooks in docs/.',
-    stack: ['LightGBM'],
+      'Kaggle Playground S6E7 student health-risk classification with class-balanced gradient boosting ensembles',
+    stack: [
+      'LightGBM',
+      'XGBoost',
+      'Class-Balanced Ensembling',
+      'Categorical Encoding',
+      'OOF Blending',
+      'Experiment Ledger',
+    ],
     points: [
-      'Kaggle Playground Series S6E7 — predicting student health risk with a class-balanced LightGBM/XGBoost ensemble (public score 0.94959). Full EDA, experiment ledger, and reproducible notebooks in docs/.',
-      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+      'Built a Kaggle Playground S6E7 workflow for predicting student health risk from sleep, activity, stress, diet, and lifestyle survey features.',
+      'Applied domain-ordered categorical encoding, class-balanced LightGBM and XGBoost ensembling, OOF probability blending, and a documented experiment ledger for leaderboard decisions.',
     ],
   },
   {

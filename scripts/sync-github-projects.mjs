@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import prettier from 'prettier';
 
 const GITHUB_USER = process.env.GITHUB_USER || 'tuannm3812';
@@ -316,6 +316,25 @@ const PROJECT_COPY_OVERRIDES = {
       'Mapped agent policy and tool failure surfaces, replicated the local evaluation environment, and implemented manifest tracking to log and validate deterministic attacks.'
     ]
   },
+  'kaggle-s6e7-predicting-student-health-risk': {
+    title: 'Kaggle S6E7 Predicting Student Health Risk',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle Playground S6E7 student health-risk classification with class-balanced gradient boosting ensembles',
+    stack: ['LightGBM', 'XGBoost', 'Class-Balanced Ensembling', 'Categorical Encoding', 'OOF Blending', 'Experiment Ledger'],
+    points: [
+      'Built a Kaggle Playground S6E7 workflow for predicting student health risk from sleep, activity, stress, diet, and lifestyle survey features.',
+      'Applied domain-ordered categorical encoding, class-balanced LightGBM and XGBoost ensembling, OOF probability blending, and a documented experiment ledger for leaderboard decisions.'
+    ]
+  },
+  'kaggle-biohub-cell-tracking-during-development': {
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle Biohub 3D cell-tracking workflow combining a detect-and-link pipeline with a custom graph-repair stage',
+    stack: ['TemporalUNet3D', 'Cross-Attention Transformer', 'ILP Graph Optimization', 'Graph Repair', '3D Cell Tracking'],
+    points: [
+      'Built a Kaggle Biohub Cell Tracking workflow for detecting and linking cells across 3D+time zebrafish embryo microscopy video as a genuine code-competition submission.',
+      'Applied a TemporalUNet3D center-detection and cross-attention node-transformer pipeline with ILP graph optimization, plus a custom short-track pruning and gap-recovery repair stage validated through iterative experiment logging.'
+    ]
+  },
   'kaggle-pokemon-tcg-ai-battle': {
     title: 'Kaggle Pokémon TCG AI Battle',
     category: 'Machine Learning & Kaggle',
@@ -411,6 +430,6 @@ async function main() {
   console.log(`Synced ${projects.length} generated GitHub project(s).`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
 }
