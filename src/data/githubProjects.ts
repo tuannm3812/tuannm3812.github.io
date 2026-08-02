@@ -233,6 +233,28 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'Kaggle S6e8 Predicting Smartphone Addiction',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e8-predicting-smartphone-addiction',
+    impact: 'Public Jupyter Notebook project from GitHub',
+    stack: ['GitHub', 'Project'],
+    points: [
+      'Public repository for Kaggle S6e8 Predicting Smartphone Addiction, maintained on GitHub.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+    ],
+  },
+  {
+    title: 'Kaggriculture',
+    category: 'AI Agents & LLM Products',
+    github: 'https://github.com/tuannm3812/kaggriculture',
+    impact: 'Public Python project from GitHub',
+    stack: ['GitHub', 'Project'],
+    points: [
+      'Public repository for Kaggriculture, maintained on GitHub.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+    ],
+  },
+  {
     title: 'NYC Taxi Databricks',
     category: 'Data Engineering & Analytics',
     github: 'https://github.com/tuannm3812/NYC-Taxi-Databricks',
@@ -241,6 +263,17 @@ export const githubProjects: Project[] = [
     points: [
       'Built a Databricks lakehouse workflow for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modeling.',
       'Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts.',
+    ],
+  },
+  {
+    title: 'Unsw Aisoc Hack 2026',
+    category: 'AI Agents & LLM Products',
+    github: 'https://github.com/tuannm3812/unsw-aisoc-hack-2026',
+    impact: 'Public Python project from GitHub',
+    stack: ['GitHub', 'Project'],
+    points: [
+      'Public repository for Unsw Aisoc Hack 2026, maintained on GitHub.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
     ],
   },
   {
