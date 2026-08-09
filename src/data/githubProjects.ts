@@ -160,6 +160,17 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'Kaggle Rsna Knee Abnormality Detection',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-rsna-knee-abnormality-detection',
+    impact: 'Public Python project from GitHub',
+    stack: ['GitHub', 'Project'],
+    points: [
+      'Public repository for Kaggle Rsna Knee Abnormality Detection, maintained on GitHub.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+    ],
+  },
+  {
     title: 'Kaggle S6E4 Predict Irrigation Need',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-s6e4-predict-irrigation-need',
