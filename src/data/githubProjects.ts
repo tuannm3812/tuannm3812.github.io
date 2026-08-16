@@ -305,17 +305,6 @@ export const githubProjects: Project[] = [
     ],
   },
   {
-    title: 'UTS MDSI LLM Wiki',
-    category: 'AI Agents & LLM Products',
-    github: 'https://github.com/tuannm3812/uts-mdsi',
-    impact: 'Curated LLM-ready markdown knowledge base for Master of Data Science course materials',
-    stack: ['Markdown', 'Obsidian/Vault', 'Course Synthesis', 'Prompt Engineering'],
-    points: [
-      'Built a persistent course-material knowledge vault (UTS MDSI LLM Wiki) spanning multiple semesters, optimized for LLM tutor ingestion and assignment review.',
-      'Structured markdown subject guides, assessment calendars, and prompt libraries covering Machine Learning, Big Data, Applied NLP, and Decision Support systems.',
-    ],
-  },
-  {
     title: 'YouTube Trending Snowflake Lakehouse',
     category: 'Data Engineering & Analytics',
     github: 'https://github.com/tuannm3812/youtube-trending-snowflake-lakehouse',
