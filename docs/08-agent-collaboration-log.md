@@ -39,6 +39,39 @@ what should not be touched.
 ## 2026-08-20 - Codex
 
 **Branch:** `main`
+**Scope:** Portfolio asset refresh, project ranking cleanup, and GitHub hygiene.
+
+**Changed**
+- Added priority scores for four newly synced GitHub repositories so project
+  validation no longer reports missing ranking metadata.
+- Replaced the four homepage flagship project cover images with generated
+  project-specific 1280x720 JPEG assets:
+  - `public/assets/projects/text-to-sql.jpg`
+  - `public/assets/projects/meal-planner.jpg`
+  - `public/assets/projects/bird-classification.jpg`
+  - `public/assets/projects/airbnb-elt.jpg`
+- Refreshed the `PROFILE_README_TOKEN` repository secret without recording or
+  exposing the token value.
+- Changed `tuannm3812/aipa-text-to-sql-agent` default branch from
+  `tuannm3812/main-refinement` to `main`.
+
+**Verified**
+- Visually inspected all four generated project covers after installing them in
+  the workspace.
+- Confirmed `PROFILE_README_TOKEN` works by running the **Sync Profile README**
+  workflow successfully via `workflow_dispatch`.
+- Confirmed `tuannm3812/aipa-text-to-sql-agent` now reports `main` as the
+  default branch.
+
+**Open / Handoff**
+- The previously exposed GitHub PAT still needs to be revoked from the GitHub
+  web UI if it has not already been revoked.
+- Review the generated covers in the live homepage after deployment and replace
+  any image whose visual direction should be more project-literal.
+
+## 2026-08-20 - Codex
+
+**Branch:** `main`
 **Scope:** Homepage content refinement and portfolio coordination review.
 
 **Changed**
@@ -71,20 +104,6 @@ what should not be touched.
   via `.gitignore`.
 
 **Open / Handoff**
-- Replace placeholder cover images with generated project-specific covers:
-  - `public/assets/projects/text-to-sql.jpg`
-  - `public/assets/projects/ai-meal-planner.jpg`
-  - `public/assets/projects/bird-classification.jpg`
-  - `public/assets/projects/airbnb-elt.jpg`
-- Consider reviewing `tuannm3812/aipa-text-to-sql-agent`: default branch was
-  reported as `tuannm3812/main-refinement`, which is unusual for a polished
-  public portfolio repository.
-- Add priority scores for newly synced projects if they should appear above the
-  bottom of the generated project list:
-  - Kaggle Rsna Knee Abnormality Detection
-  - Kaggle S6e8 Predicting Smartphone Addiction
-  - Kaggriculture
-  - Unsw Aisoc Hack 2026
 - Do not commit ignored private career material from `jobs/` or
   `docs/database/` to this public repository unless it is intentionally
   sanitized for publication.
