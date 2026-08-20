@@ -19,6 +19,7 @@ and maintenance priorities.
 - [LinkedIn About Draft](06-linkedin-about.md): Recruiter-friendly LinkedIn About
   copy with portfolio link and headline options.
 - [Career Copilot Operations & Workflow Guide](07-career-copilot-workflow.md): Workflow guide and commands to operate your career RAG database.
+- [Agent Collaboration Log](08-agent-collaboration-log.md): Public-safe coding-agent handoff and work log.
 
 
 ## Update Workflow
