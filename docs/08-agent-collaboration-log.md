@@ -50,7 +50,8 @@ what should not be touched.
   - Production-Grade ELT Pipeline
 - Kept project cover visuals as professional placeholders while waiting for
   generated cover images.
-- Updated GitHub Actions workflow action versions for Node 24 compatibility.
+- Updated GitHub Actions workflow action versions for Node 24 compatibility,
+  including GitHub Pages upload/deploy actions.
 - Added an early validation step for `PROFILE_README_TOKEN` so profile README
   sync failures clearly identify a missing, expired, or under-scoped token.
 - Reviewed GitHub repository inventory through the GitHub connector.
