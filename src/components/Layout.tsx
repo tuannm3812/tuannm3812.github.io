@@ -28,12 +28,17 @@ const navItems = [
   { name: 'Contact', path: '/contact' },
 ];
 
+// Only these routes read or write Firestore, so the connectivity banner (and the
+// Firebase SDK it loads) stays out of the way everywhere else.
+const FIREBASE_ROUTES = ['/blog', '/contact'];
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
-  const firebaseHealth = useFirebaseHealth();
+  const usesFirebase = FIREBASE_ROUTES.some((path) => location.pathname.startsWith(path));
+  const firebaseHealth = useFirebaseHealth(usesFirebase);
   const isFirebaseOffline = firebaseHealth.isOffline;
 
   useDocumentTitle();
@@ -41,6 +46,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (!isFirebaseOffline) {
@@ -52,6 +66,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="site-backdrop min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:shadow-lg"
+      >
+        Skip to content
+      </a>
+
       <AnimatePresence>
         {showStatus && (
           <motion.div
@@ -198,7 +219,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      <main className="pt-24 pb-16 min-h-screen">
+      <main id="main-content" className="pt-24 pb-16 min-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

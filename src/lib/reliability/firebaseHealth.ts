@@ -1,6 +1,3 @@
-import { getDocFromServer, doc } from 'firebase/firestore';
-import { db, registerHealthCheck } from '../firebase';
-
 export interface FirebaseHealthState {
   isOffline: boolean;
   isReady: boolean;
@@ -15,7 +12,18 @@ let state: FirebaseHealthState = {
   lastMessage: null,
 };
 
-registerHealthCheck(() => !state.isOffline);
+// The Firebase SDK is ~515 kB and only the Blog and Contact routes need it, so it
+// is pulled in on demand here rather than through a static import. A static import
+// would put the whole SDK in the chunk that Layout (and therefore every route)
+// loads before first paint.
+async function loadFirebase() {
+  const [{ getDocFromServer, doc }, { db, registerHealthCheck }] = await Promise.all([
+    import('firebase/firestore'),
+    import('../firebase'),
+  ]);
+  registerHealthCheck(() => !state.isOffline);
+  return { getDocFromServer, doc, db };
+}
 
 const listeners = new Set<() => void>();
 let running = false;
@@ -46,6 +54,7 @@ export function subscribeFirebaseHealth(listener: () => void) {
 
 export async function refreshFirebaseHealth() {
   try {
+    const { getDocFromServer, doc, db } = await loadFirebase();
     await getDocFromServer(doc(db, '_connection_test_', 'init'));
     state = {
       isOffline: false,

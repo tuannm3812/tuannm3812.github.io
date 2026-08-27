@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f172a" />
     <meta name="author" content="Tuan Nguyen" />
+    <script>
+      // Applies the stored theme before first paint. useTheme() sets the same class,
+      // but only in an effect that runs after React mounts -- long enough for dark-mode
+      // visitors to see a white flash on every load.
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme =
+            saved ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.classList.add(theme);
+        } catch (e) {
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://tuannm3812.github.io/" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JJNDSVE6M"></script>

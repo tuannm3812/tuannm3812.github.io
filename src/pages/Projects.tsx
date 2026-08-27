@@ -5,6 +5,11 @@ import { cn } from '../lib/utils';
 import ProjectCard from '../components/ProjectCard';
 import { getPortfolioProjects } from '../lib/projects';
 
+// The unfiltered grid runs to ~35 cards of equal visual weight, which buries the
+// strongest work. With no filter applied the list is split so the top-ranked
+// projects get their own band; any active filter falls back to a single flat grid.
+const FEATURED_COUNT = 6;
+
 export default function Projects() {
   const projects = getPortfolioProjects();
 
@@ -23,13 +28,17 @@ export default function Projects() {
     return matchesCategory && matchesTag;
   });
 
+  const isFiltered = activeCategory !== 'All' || Boolean(selectedTag);
+  const featuredProjects = isFiltered ? [] : filteredProjects.slice(0, FEATURED_COUNT);
+  const remainingProjects = isFiltered ? filteredProjects : filteredProjects.slice(FEATURED_COUNT);
+
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
         <p className="section-eyebrow">Portfolio evidence</p>
-        <h2 className="text-4xl font-black tracking-tight md:text-5xl">
+        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
           Technical <span className="text-brand">Projects</span>
-        </h2>
+        </h1>
         <p className="text-lg text-slate-500 dark:text-slate-400">
           Public work across AI agents, deep learning, data engineering, Kaggle competitions, and
           deployed ML systems.
@@ -92,13 +101,38 @@ export default function Projects() {
         )}
       </div>
 
-      <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      {featuredProjects.length > 0 && (
+        <section className="space-y-4">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 className="section-eyebrow">Selected work</h2>
+            <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
+              Strongest {featuredProjects.length} of {filteredProjects.length}
+            </span>
+          </div>
+          <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {featuredProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </section>
+      )}
+
+      <section className="space-y-4">
+        {featuredProjects.length > 0 && (
+          <h2 className="section-eyebrow border-t border-slate-200/70 pt-8 dark:border-slate-800/70">
+            More projects
+          </h2>
+        )}
+        <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {remainingProjects.map((project) => (
+              <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </section>
     </div>
   );
 }

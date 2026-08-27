@@ -178,11 +178,17 @@ export default function Home() {
           className="min-w-0"
         >
           <div className="surface-card relative w-full max-w-full overflow-hidden shadow-xl shadow-slate-300/40 dark:shadow-black/30">
-            <img
-              src="/assets/tuan-profile.jpg"
-              alt="Tuan Nguyen looking across the water toward a city skyline"
-              className="h-[340px] w-full object-cover object-[42%_72%] md:h-[430px]"
-            />
+            <picture>
+              <source srcSet="/assets/tuan-profile.webp" type="image/webp" />
+              <img
+                src="/assets/tuan-profile.jpg"
+                alt="Tuan Nguyen looking across the water toward a city skyline"
+                width={1200}
+                height={1600}
+                fetchPriority="high"
+                className="h-[340px] w-full object-cover object-[42%_72%] md:h-[430px]"
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <p className="font-mono text-xs uppercase tracking-[0.24em] text-sky-200">

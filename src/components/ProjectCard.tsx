@@ -98,7 +98,7 @@ export default function ProjectCard({
               key={`${tech}-${techIndex}`}
               onClick={() => onTagClick?.(tech)}
               disabled={!onTagClick}
-              className={`rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-400 ${
+              className={`rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[11px] font-semibold text-slate-600 transition-colors dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-400 ${
                 onTagClick
                   ? 'cursor-pointer hover:border-brand/45 hover:bg-brand/5 hover:text-brand'
                   : ''

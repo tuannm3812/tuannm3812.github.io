@@ -69,7 +69,7 @@ export default function Contact() {
       <div className="min-w-0 space-y-8">
         <div className="space-y-3">
           <p className="section-eyebrow">Contact</p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h2>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h1>
           <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg">
             Have an ML, data, or applied AI opportunity in mind? Send a note and I will get back to
             you.
