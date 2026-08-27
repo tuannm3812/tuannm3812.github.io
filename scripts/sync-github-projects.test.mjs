@@ -19,6 +19,16 @@ describe('toTitle', () => {
       'YouTube Trending Snowflake Lakehouse',
     );
   });
+
+  it('corrects institution and competition-series acronyms', () => {
+    expect(toTitle('kaggle-rsna-knee-abnormality-detection')).toBe(
+      'Kaggle RSNA Knee Abnormality Detection',
+    );
+    expect(toTitle('kaggle-s6e8-predicting-smartphone-addiction')).toBe(
+      'Kaggle S6E8 Predicting Smartphone Addiction',
+    );
+    expect(toTitle('unsw-aisoc-hack-2026')).toBe('UNSW AiSoc Hack 2026');
+  });
 });
 
 describe('inferCategory', () => {

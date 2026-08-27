@@ -56,6 +56,12 @@ export function toTitle(name) {
     .replace(/\bS6e4\b/g, 'S6E4')
     .replace(/\bS6e5\b/g, 'S6E5')
     .replace(/\bS6e6\b/g, 'S6E6')
+    .replace(/\bS6e7\b/g, 'S6E7')
+    .replace(/\bS6e8\b/g, 'S6E8')
+    .replace(/\bRsna\b/g, 'RSNA')
+    .replace(/\bUnsw\b/g, 'UNSW')
+    .replace(/\bUts\b/g, 'UTS')
+    .replace(/\bAisoc\b/g, 'AiSoc')
     .replace(/\bF1\b/g, 'F1')
     .replace(/\bFaostat\b/g, 'FAOSTAT')
     .replace(/\bYoutube\b/g, 'YouTube')
@@ -343,6 +349,46 @@ const PROJECT_COPY_OVERRIDES = {
     points: [
       'Built a legal decision agent and optimized 60-card decks for the Kaggle Pokémon TCG AI Battle simulation competition.',
       'Established an offline self-play evaluation framework using win/draw/loss tracking, Gaussian skill uncertainty estimates, and action-sequence experiment logging to screen policy changes.'
+    ]
+  },
+  'kaggle-rsna-knee-abnormality-detection': {
+    title: 'Kaggle RSNA Knee Abnormality Detection',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Multimodal knee MRI workflow pairing DICOM series with free-text radiology reports for multi-label abnormality detection',
+    stack: ['DICOM I/O', 'Multimodal ML', 'Weak Labeling', 'Macro AUC', 'Medical Imaging', 'Study-Level Datasets'],
+    points: [
+      'Built a Kaggle RSNA Knee Abnormality workflow for predicting twelve clinical knee MRI findings, spanning ligament and meniscus injury, osteoarthritis, effusion, and fracture, across a multi-terabyte-scale DICOM and report corpus.',
+      'Applied tested DICOM ingestion, report-derived weak-label mining, study-level dataset assembly, macro-AUC evaluation, and a documented weak-label go/no-go review before committing to a modeling phase.'
+    ]
+  },
+  'kaggle-s6e8-predicting-smartphone-addiction': {
+    title: 'Kaggle S6E8 Predicting Smartphone Addiction',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle Playground S6E8 behavioural risk classification with a gated model-promotion workflow',
+    stack: ['LightGBM', 'CatBoost', 'HistGradientBoosting', 'Stratified CV', 'Paired Bootstrap', 'OOF Alignment'],
+    points: [
+      'Built a Kaggle Playground S6E8 workflow for predicting smartphone addiction from behavioural and usage survey features.',
+      'Applied fixed-fold OOF alignment across candidate models, a budget-matched LightGBM, CatBoost, and HistGradientBoosting search, and paired-bootstrap promotion gates that also justified stopping ensemble work when candidate correlation failed a predeclared diversity bar.'
+    ]
+  },
+  'kaggriculture': {
+    title: 'Kaggriculture Farm Economy Agent',
+    category: 'Machine Learning & Kaggle',
+    impact: 'Kaggle featured-competition simulation agent for a two-player farm economy, iterated behind statistical promotion gates',
+    stack: ['Simulation Agents', 'Task Scheduling', 'Economy Modeling', 'Paired Evaluation', 'Confidence Intervals', 'Agent Packaging'],
+    points: [
+      'Built a Kaggriculture competition agent for a two-player farm-economy simulation, combining a tested economy-math library with a multi-tile task scheduler, daily hiring, and bounded multi-unit assignment.',
+      'Applied local tournament self-play, paired evaluation with Hoeffding confidence intervals as an explicit promotion gate, a versioned agent-iteration log recording non-promotions, and reproducible submission packaging.'
+    ]
+  },
+  'unsw-aisoc-hack-2026': {
+    title: 'Spatial Brain: UNSW AiSoc Hackathon 2026',
+    category: 'AI Agents & LLM Products',
+    impact: 'Shared semantic canvas where a Mistral agent roster turns cross-disciplinary artifacts into linked, reviewable context',
+    stack: ['Mistral AI', 'Multi-Agent Roster', 'OCR Ingestion', 'MCP Tools', 'Knowledge Graph', 'Jira Integration'],
+    points: [
+      'Built Spatial Brain for the UNSW AiSoc, Atlassian, and Mistral hackathon: a shared canvas that ingests PDFs, whiteboard photos, and spreadsheets as typed nodes so multi-disciplinary teams keep the reasoning behind each handoff.',
+      'Applied a Mistral specialist agent roster across sense, present, align, and review workflows, with OCR and multimodal ingest, human-in-the-loop promotion of candidates, MCP tool exposure, and Jira outbound integration.'
     ]
   },
   'unsw-ma-hackathon-2026': {
