@@ -3,7 +3,7 @@
 Single running checklist for the portfolio and the GitHub account behind it.
 Tick items off as you go and add new ones under the matching section.
 
-**Last reviewed:** 2026-08-30
+**Last reviewed:** 2026-08-31
 **Legend:** `[ ]` open · `[x]` done · **Decide** = needs your call, not just execution
 
 ---
@@ -133,6 +133,20 @@ silently broken today — these are hardening items, not outages.
       done
       ```
 
+- [ ] **Push `coding-standards` to GitHub — it has no remote.** The master
+      standard is now 380+ lines across 4 commits and exists on one disk only.
+      It is the most reused thing you own and the least backed up. Needs a
+      public/private decision: public makes it citable from the repos that
+      already reference "the personal master standard", private still solves
+      the backup problem.
+
+- [ ] **Activate the personal layer:** `mv ~/.claude/CLAUDE.md.draft ~/.claude/CLAUDE.md`
+      (drafted 2026-08-30, ~1k tokens/session, inert until renamed).
+
+- [ ] **Add root `CLAUDE.md` to the ~10 active repos** from
+      `coding-standards/templates/CLAUDE.md.template`. Currently 0 of 40 repos
+      have one, so no project standard is being auto-loaded anywhere.
+
 - [ ] **Consider renaming `coding-standards` → `0. Standards`** so it sorts first
       with the numbered `1. Study` / `2. Kaggle` / `3. Personal` / `4. Training`
       folders. Check for hardcoded paths in project docs first — several repos
@@ -181,7 +195,14 @@ commits), `project-15-strategy` (80), `Insta-tracking` (31),
 
 ## 6. Adding a New Project
 
-When a new repo should appear on the portfolio:
+For starting a repo from scratch — structure, `.gitignore`, agent instruction
+layering, and the collaboration-log convention — follow **§13 of the master
+standard** (`~/Documents/GitHub/coding-standards/coding_standards.md`), with the
+root file template at `coding-standards/templates/CLAUDE.md.template`. That is
+the single source; don't restate it here.
+
+The steps below are the portfolio-specific part — getting an existing repo to
+show up as a card:
 
 1. Give the repo a **real GitHub description** — the sync script falls back to it,
    and a missing description is what produces `impact: 'Public Python project
