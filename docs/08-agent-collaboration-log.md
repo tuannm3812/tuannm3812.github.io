@@ -36,6 +36,68 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-08-29 - Codex + Review Agent
+
+**Branch:** `main`
+**Scope:** Whole-repository review and agent handoff refresh.
+
+**Changed**
+- Reviewed the current repository structure after recent commits through
+  `9b0a487`:
+  - React/Vite portfolio routes in `src/pages/`
+  - reusable UI components in `src/components/`
+  - curated and synced project data in `src/data/`
+  - project ranking and merge logic in `src/lib/projects.ts`
+  - Firebase reliability wrappers in `src/lib/reliability/`
+  - GitHub project/profile sync scripts in `scripts/`
+  - GitHub Actions workflows in `.github/workflows/`
+- Requested an independent review-agent pass focused on bug risk, security,
+  automation fragility, test gaps, and handoff quality.
+- Updated `docs/10-repository-roadmap.md` so completed resume/project-cover
+  items are no longer presented as pending.
+
+**Verified**
+- `npm run check` passed on 2026-08-29 after allowing Vite/Vitest to write its
+  temporary files:
+  - project link/data validation: 0 errors, 0 warnings
+  - ESLint and TypeScript check
+  - Vitest suite: 3 test files, 32 tests passed
+  - production build
+- `git status -sb` showed `main...origin/main` before documentation edits.
+- `.gitignore` keeps local/private folders ignored, including `jobs/` and
+  `docs/database/`.
+- `public/.DS_Store` exists locally but is ignored and not tracked.
+
+**Review Findings**
+- High: the previously exposed GitHub PAT still needs explicit revocation in
+  the GitHub web UI if that has not already happened. Do not record token
+  values in this repo.
+- High: `firestore.rules` allows unauthenticated public creation of contact
+  documents. The fields and lengths are validated, but a public portfolio can
+  still be scripted for spam/cost abuse. Consider App Check, CAPTCHA-style
+  friction, a backend rate-limited contact endpoint, or another protected
+  submission path.
+- Medium: authenticated blog comments are publicly readable and creatable under
+  any `blog_posts/{postId}/comments/{commentId}` path that matches the request
+  payload. There is no moderation/delete workflow, admin action path, known-post
+  allowlist, or stored `uid` for ownership.
+- Medium: scheduled GitHub project sync writes generated project metadata
+  directly to `main`. Safer alternatives are opening a PR or gating generated
+  project publication through explicit allowlist/priority metadata.
+- Low: current tests cover reliability helpers and sync-script behavior, but
+  not browser flows, Firestore rules, contact submit, Google sign-in failure,
+  comment moderation assumptions, or route fallback behavior.
+
+**Open / Handoff**
+- Revoke the exposed PAT through GitHub settings if it has not already been
+  revoked.
+- Decide whether to harden contact/comment writes now or keep them as a
+  documented risk until the portfolio needs interactive features live.
+- Consider changing scheduled project sync to open a pull request instead of
+  pushing generated changes directly to `main`.
+- Add Firebase Rules tests and a small browser smoke suite when the interaction
+  layer becomes more important than static portfolio presentation.
+
 ## 2026-08-20 - Codex
 
 **Branch:** `main`

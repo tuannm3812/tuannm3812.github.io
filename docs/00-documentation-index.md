@@ -24,6 +24,9 @@ and maintenance priorities.
   content source for the downloadable PDF.
 - [Repository Roadmap](10-repository-roadmap.md): Frontend and Firebase setup tasks
   and next-phase improvements.
+- [Pending Tasks](11-pending-tasks.md): The running checklist. Open decisions,
+  security follow-ups, per-repo sync status, and the steps for adding a new
+  project. Start here.
 
 ## Working Notes
 
