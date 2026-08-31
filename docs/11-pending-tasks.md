@@ -143,9 +143,10 @@ silently broken today — these are hardening items, not outages.
 - [ ] **Activate the personal layer:** `mv ~/.claude/CLAUDE.md.draft ~/.claude/CLAUDE.md`
       (drafted 2026-08-30, ~1k tokens/session, inert until renamed).
 
-- [ ] **Add root `CLAUDE.md` to the ~10 active repos** from
-      `coding-standards/templates/CLAUDE.md.template`. Currently 0 of 40 repos
-      have one, so no project standard is being auto-loaded anywhere.
+- [ ] **Add root `AGENTS.md` (+ one-line `CLAUDE.md`) to the ~10 active repos** from
+      `coding-standards/templates/AGENTS.md.template`. Only 2 of 40 repos have a
+      hand-written one (`36126-active-fire-research`, `project-15-strategy`), so
+      almost no project standard is being auto-loaded anywhere.
 
 - [ ] **Consider renaming `coding-standards` → `0. Standards`** so it sorts first
       with the numbered `1. Study` / `2. Kaggle` / `3. Personal` / `4. Training`
@@ -198,7 +199,7 @@ commits), `project-15-strategy` (80), `Insta-tracking` (31),
 For starting a repo from scratch — structure, `.gitignore`, agent instruction
 layering, and the collaboration-log convention — follow **§13 of the master
 standard** (`~/Documents/GitHub/coding-standards/coding_standards.md`), with the
-root file template at `coding-standards/templates/CLAUDE.md.template`. That is
+root file template at `coding-standards/templates/AGENTS.md.template`. That is
 the single source; don't restate it here.
 
 The steps below are the portfolio-specific part — getting an existing repo to
