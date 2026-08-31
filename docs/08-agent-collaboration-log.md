@@ -36,6 +36,44 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-08-31 - Codex / Claude Handoff Planning
+
+**Branch:** `main`
+**Scope:** Future project agent-readiness plan and ECC reference review.
+
+**Changed**
+- Discussed a lightweight future-project documentation kit for Codex, Claude
+  Code, Cursor, GitHub Copilot, and review agents.
+- Recommended this baseline file set for serious future repos:
+  - `AGENTS.md`
+  - `README.md`
+  - `docs/00-project-brief.md`
+  - `docs/01-coding-standards.md`
+  - `docs/02-agent-collaboration-log.md`
+  - `docs/03-review-checklist.md`
+  - `docs/04-roadmap.md`
+  - `.env.example`
+  - `.gitignore`
+- Added `https://github.com/affaan-m/ECC` as a useful reference for
+  multi-agent/harness organization. The repo includes agent-oriented areas such
+  as `.agents`, `.claude`, `.codex`, `.cursor`, `.github`, `agents`, `hooks`,
+  `rules`, `skills`, and `workflows`.
+
+**Verified**
+- Reviewed the public ECC repository page on 2026-08-31.
+- Confirmed the current portfolio repo already keeps a root-level agent
+  collaboration log and ignores private career/application material.
+
+**Open / Handoff**
+- Do not copy ECC wholesale into portfolio or future project repos. Treat it as
+  a reference for structure and process, then keep Tuan's template lightweight.
+- Next documentation improvement: create a reusable
+  `docs/templates/agent-ready-project-template.md` or a dedicated template repo
+  for AI/data/Kaggle/full-stack projects.
+- When using Claude Code alongside Codex, ask Claude to read `AGENTS.md`,
+  `docs/00-project-brief.md`, `docs/01-coding-standards.md`, and the latest
+  entries in `docs/02-agent-collaboration-log.md` before making changes.
+
 ## 2026-08-29 - Codex + Review Agent
 
 **Branch:** `main`
