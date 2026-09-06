@@ -271,6 +271,18 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'Kaggle S6e9 Predicting Electric Vehicle Purchases',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e9-predicting-electric-vehicle-purchases',
+    impact:
+      'Kaggle Playground Series S6E9: predicting electric vehicle purchases. Notebook-first workflow with fixed-fold OOF validation, paired-comparison promotion gates, and a documented experiment ledger.',
+    stack: ['GitHub', 'Project'],
+    points: [
+      'Kaggle Playground Series S6E9: predicting electric vehicle purchases. Notebook-first workflow with fixed-fold OOF validation, paired-comparison promotion gates, and a documented experiment ledger.',
+      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+    ],
+  },
+  {
     title: 'Kaggriculture Farm Economy Agent',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggriculture',
