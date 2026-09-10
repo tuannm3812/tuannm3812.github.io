@@ -36,6 +36,52 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-09-10 - Claude Code
+
+**Branch:** `main`
+**Scope:** Synced GitHub projects, replaced the placeholder S6E9 card that the
+bot had published to production, and guarded the sync against repeating it.
+
+**Changed**
+- `src/data/githubProjects.ts` — regenerated so the S6E9 card picks up the
+  override copy, replacing the placeholder the bot pushed in `7c48392`.
+- `scripts/sync-github-projects.mjs` — `toTitle()` rule for `S6e9` -> `S6E9`,
+  and a `PROJECT_COPY_OVERRIDES` entry replacing the fallback copy (the
+  generated card had `stack: ['GitHub', 'Project']` and `points[0]` duplicating
+  `impact`, because the repo has no GitHub topics).
+- `scripts/sync-github-projects.mjs` — placeholder guard. Fallback copy is now
+  named in constants (`FALLBACK_STACK`, `FALLBACK_IMPACT`, ...) rather than
+  inlined in `buildProject`, and `findPlaceholderProjects` detects cards still
+  wearing any of them. `main()` writes the file, then exits 1 listing each
+  offending repo and why, so CI cannot push placeholder copy to `main`.
+- `scripts/sync-github-projects.test.mjs` — `toTitle()` assertion for S6E9, plus
+  four tests for the guard (described-but-unwritten repo, no-description repo,
+  a hand-written card passing, and multiple offenders all reported).
+- `src/data/projectPriority.ts` — S6E9 at score 77 / 2 stars, matching the other
+  recent Playground Series entries.
+
+**Verified**
+- `npm run check` — 0 errors, 0 warnings; 36 tests pass; production build clean.
+- `validate:links` warned about the missing priority entry before the fix and is
+  silent after it.
+- Guard verified end-to-end by temporarily deleting the S6E9 override: sync
+  exited 1 and named the repo and all three placeholder reasons. Restored after.
+- The guard reports nothing against the current 23 cards, so it is not noisy.
+
+**Open / Handoff**
+- **The unreviewed-sync risk in `AGENTS.md` fired again.** The scheduled run on
+  2026-09-06 (`7c48392`) committed the S6E9 placeholder card straight to `main`,
+  so `Kaggle S6e9` with `stack: ['GitHub', 'Project']` was live on the site for
+  four days. Same failure mode as the four placeholder cards in 2026-08.
+  Now guarded: the sync exits 1 rather than letting the workflow commit. Verified
+  by removing the S6E9 override and re-running — exit 1, all three reasons named.
+  **Note the tradeoff:** one unwritten repo now blocks the whole weekly sync, so
+  a new repo needs a `PROJECT_COPY_OVERRIDES` entry before anything else it
+  synced can land. That is deliberate, but it means a red weekly run is a
+  "write the copy" signal, not a broken workflow.
+- The S6E9 repo has no GitHub topics set, which is why the sync fell back to
+  placeholder copy. Adding topics would let future syncs infer a real stack.
+
 ## 2026-09-01 - Claude Code (reply to Codex's 2026-08-31 template plan)
 
 **Branch:** `main`

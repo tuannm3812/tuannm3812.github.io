@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildProject,
+  findPlaceholderProjects,
   getCuratedGithubLinks,
   getDemoUrl,
   inferCategory,
@@ -26,6 +27,9 @@ describe('toTitle', () => {
     );
     expect(toTitle('kaggle-s6e8-predicting-smartphone-addiction')).toBe(
       'Kaggle S6E8 Predicting Smartphone Addiction',
+    );
+    expect(toTitle('kaggle-s6e9-predicting-electric-vehicle-purchases')).toBe(
+      'Kaggle S6E9 Predicting Electric Vehicle Purchases',
     );
     expect(toTitle('unsw-aisoc-hack-2026')).toBe('UNSW AiSoc Hack 2026');
   });
@@ -148,5 +152,60 @@ describe('buildProject', () => {
       language: 'TypeScript',
     });
     expect(project.demo).toBe('https://demo.example.com');
+  });
+});
+
+describe('findPlaceholderProjects', () => {
+  // The repo shape that slipped a placeholder card into production on
+  // 2026-09-06: a real description, but no topics and no overrides entry.
+  // Deliberately a name that is NOT in PROJECT_COPY_OVERRIDES — the real S6E9
+  // repo now has an entry, so using it here would test the override, not the guard.
+  const unwrittenRepo = {
+    name: 'kaggle-s7e1-some-new-competition',
+    description: 'Kaggle Playground Series S7E1: a competition nobody has written copy for yet.',
+    language: 'Jupyter Notebook',
+    topics: [],
+    html_url: 'https://github.com/tuannm3812/kaggle-s7e1-some-new-competition',
+  };
+
+  it('flags a described repo that has no topics and no overrides entry', () => {
+    const [flagged] = findPlaceholderProjects([buildProject(unwrittenRepo)]);
+
+    expect(flagged).toBeDefined();
+    expect(flagged.reasons).toContain('points[0] duplicates impact verbatim');
+    expect(flagged.reasons).toContain('placeholder points[1]');
+    expect(flagged.reasons.some((reason) => reason.startsWith('placeholder stack'))).toBe(true);
+  });
+
+  it('flags a repo with no description at all', () => {
+    const [flagged] = findPlaceholderProjects([
+      buildProject({ ...unwrittenRepo, description: null }),
+    ]);
+
+    expect(flagged.reasons).toContain('placeholder impact (repo has no description)');
+    expect(flagged.reasons).toContain('placeholder points[0]');
+  });
+
+  it('passes a card that has hand-written copy', () => {
+    expect(
+      findPlaceholderProjects([
+        {
+          title: 'Kaggle S7E1 Some New Competition',
+          github: unwrittenRepo.html_url,
+          impact: 'Kaggle Playground S7E1 classification with gated promotion',
+          stack: ['Target Encoding', 'ROC AUC'],
+          points: ['Built a gated experiment workflow.', 'Target-encoded value identities.'],
+        },
+      ]),
+    ).toEqual([]);
+  });
+
+  it('reports every card that needs copy, not just the first', () => {
+    const flagged = findPlaceholderProjects([
+      buildProject(unwrittenRepo),
+      buildProject({ ...unwrittenRepo, name: 'another-repo', html_url: 'https://github.com/x/y' }),
+    ]);
+
+    expect(flagged).toHaveLength(2);
   });
 });

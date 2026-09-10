@@ -271,15 +271,22 @@ export const githubProjects: Project[] = [
     ],
   },
   {
-    title: 'Kaggle S6e9 Predicting Electric Vehicle Purchases',
+    title: 'Kaggle S6E9 Predicting Electric Vehicle Purchases',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-s6e9-predicting-electric-vehicle-purchases',
     impact:
-      'Kaggle Playground Series S6E9: predicting electric vehicle purchases. Notebook-first workflow with fixed-fold OOF validation, paired-comparison promotion gates, and a documented experiment ledger.',
-    stack: ['GitHub', 'Project'],
+      'Kaggle Playground S6E9 EV-purchase classification where one diagnostic beat nine tuning steps combined',
+    stack: [
+      'Target Encoding',
+      'ROC AUC',
+      'Fixed-Fold OOF',
+      'Paired-Bootstrap Gates',
+      'Seed Averaging',
+      'Experiment Ledger',
+    ],
     points: [
-      'Kaggle Playground Series S6E9: predicting electric vehicle purchases. Notebook-first workflow with fixed-fold OOF validation, paired-comparison promotion gates, and a documented experiment ledger.',
-      'Maintained as a public GitHub project and ready for deeper portfolio documentation.',
+      'Built a Kaggle Playground S6E9 workflow predicting EV purchase intent across 669k training rows, reaching 0.94570 public AUC through ten gated experiments and a bit-identical reproduction run.',
+      'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC — five times the combined gain of the other nine accepted steps — with every run, kept or rejected, recorded against a gate predeclared before execution.',
     ],
   },
   {

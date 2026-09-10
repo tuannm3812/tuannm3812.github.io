@@ -32,6 +32,7 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Kaggle S6E5 Predict F1 Pit Stops': { score: 77, stars: 2 },
   'Kaggle S6E7 Predicting Student Health Risk': { score: 77, stars: 2 },
   'Kaggle S6E8 Predicting Smartphone Addiction': { score: 77, stars: 2 },
+  'Kaggle S6E9 Predicting Electric Vehicle Purchases': { score: 77, stars: 2 },
   'Kaggle Maze Crawler': { score: 76, stars: 2 },
   'Kaggle S6E6 Predicting Stellar Class': { score: 75, stars: 2 },
   'Kaggle Orbit Wars': { score: 74, stars: 2 },

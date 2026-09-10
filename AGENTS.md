@@ -20,9 +20,14 @@ does not apply here.
 **Project cards are generated, not hand-written.** `src/data/githubProjects.ts`
 is produced by `scripts/sync-github-projects.mjs` and overwritten on every sync
 — edit the `PROJECT_COPY_OVERRIDES` map in the script, never the generated file.
-A repo with no GitHub description falls back to placeholder copy
-(`impact: 'Public Python project from GitHub'`), which is how four placeholder
-cards once reached production.
+A repo with no GitHub description (or no topics) falls back to placeholder copy
+(`impact: 'Public Python project from GitHub'`, `stack: ['GitHub', 'Project']`),
+which is how four placeholder cards reached production in 2026-08 and a fifth in
+2026-09. The sync now refuses to be the last step: `findPlaceholderProjects`
+fails it with exit 1, naming each repo still wearing fallback copy, so the
+weekly workflow cannot commit one. **A red weekly sync usually means a new repo
+needs a `PROJECT_COPY_OVERRIDES` entry, not that the workflow is broken** — and
+until you write it, nothing else that run synced can land either.
 
 **Run `npm run check` before committing anything.** It chains link validation,
 ESLint, `tsc --noEmit`, the test suite and a production build. Link validation
@@ -60,4 +65,5 @@ add a `projectPriority.ts` entry, then `npm run check`.
   from `scripts/resume/resume.html`. The published copy deliberately omits the
   phone number that `docs/09-master-resume.md` carries.
 - The weekly sync workflow commits generated cards straight to `main` with no
-  review step.
+  review step. The placeholder guard blocks the worst case, but any other bad
+  generated copy still ships unreviewed.

@@ -58,6 +58,7 @@ export function toTitle(name) {
     .replace(/\bS6e6\b/g, 'S6E6')
     .replace(/\bS6e7\b/g, 'S6E7')
     .replace(/\bS6e8\b/g, 'S6E8')
+    .replace(/\bS6e9\b/g, 'S6E9')
     .replace(/\bRsna\b/g, 'RSNA')
     .replace(/\bUnsw\b/g, 'UNSW')
     .replace(/\bUts\b/g, 'UTS')
@@ -361,6 +362,24 @@ const PROJECT_COPY_OVERRIDES = {
       'Applied tested DICOM ingestion, report-derived weak-label mining, study-level dataset assembly, macro-AUC evaluation, and a documented weak-label go/no-go review before committing to a modeling phase.'
     ]
   },
+  'kaggle-s6e9-predicting-electric-vehicle-purchases': {
+    title: 'Kaggle S6E9 Predicting Electric Vehicle Purchases',
+    category: 'Machine Learning & Kaggle',
+    impact:
+      'Kaggle Playground S6E9 EV-purchase classification where one diagnostic beat nine tuning steps combined',
+    stack: [
+      'Target Encoding',
+      'ROC AUC',
+      'Fixed-Fold OOF',
+      'Paired-Bootstrap Gates',
+      'Seed Averaging',
+      'Experiment Ledger',
+    ],
+    points: [
+      'Built a Kaggle Playground S6E9 workflow predicting EV purchase intent across 669k training rows, reaching 0.94570 public AUC through ten gated experiments and a bit-identical reproduction run.',
+      'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC \u2014 five times the combined gain of the other nine accepted steps \u2014 with every run, kept or rejected, recorded against a gate predeclared before execution.',
+    ],
+  },
   'kaggle-s6e8-predicting-smartphone-addiction': {
     title: 'Kaggle S6E8 Predicting Smartphone Addiction',
     category: 'Machine Learning & Kaggle',
@@ -413,6 +432,21 @@ const PROJECT_COPY_OVERRIDES = {
   }
 };
 
+// Fallback copy used when a repo has no PROJECT_COPY_OVERRIDES entry. These are
+// placeholders, not publishable copy: a card still wearing any of them reached
+// the card generator without a human writing for it. Named here (rather than
+// inlined below) so findPlaceholderProjects can detect them without the two
+// definitions drifting apart. See findPlaceholderProjects.
+export const FALLBACK_STACK = ['GitHub', 'Project'];
+export const FALLBACK_IMPACT = (repo) =>
+  `Public ${repo.language || 'technical'} project from GitHub`;
+export const FALLBACK_POINT_NO_DESCRIPTION = (repo) =>
+  `Public repository for ${toTitle(repo.name)}, maintained on GitHub.`;
+export const FALLBACK_POINT_DEMO =
+  'Includes a live project link from the repository homepage metadata.';
+export const FALLBACK_POINT_NO_DEMO =
+  'Maintained as a public GitHub project and ready for deeper portfolio documentation.';
+
 export function buildProject(repo) {
   const stack = inferStack(repo);
   const description = repo.description?.trim();
@@ -424,18 +458,50 @@ export function buildProject(repo) {
     category: copy?.category || inferCategory(repo),
     github: repo.html_url,
     ...(demo ? { demo } : {}),
-    impact: copy?.impact || description || `Public ${repo.language || 'technical'} project from GitHub`,
-    stack: copy?.stack || (stack.length ? stack : ['GitHub', 'Project']),
+    impact: copy?.impact || description || FALLBACK_IMPACT(repo),
+    stack: copy?.stack || (stack.length ? stack : [...FALLBACK_STACK]),
     points:
       copy?.points || [
         description
           ? description.replace(/\s+/g, ' ')
-          : `Public repository for ${toTitle(repo.name)}, maintained on GitHub.`,
-        demo
-          ? 'Includes a live project link from the repository homepage metadata.'
-          : 'Maintained as a public GitHub project and ready for deeper portfolio documentation.'
+          : FALLBACK_POINT_NO_DESCRIPTION(repo),
+        demo ? FALLBACK_POINT_DEMO : FALLBACK_POINT_NO_DEMO
       ]
   };
+}
+
+// Guard against the failure mode that has now reached production twice: the
+// weekly workflow syncs a repo that has no override entry, and the placeholder
+// copy is committed to main and deployed with no human in the loop. Reports the
+// reasons rather than a bare boolean so the CI log names what to fix.
+export function findPlaceholderProjects(projects) {
+  return projects
+    .map((project) => {
+      const reasons = [];
+      const [firstPoint, secondPoint] = project.points;
+
+      if (
+        project.stack.length === FALLBACK_STACK.length &&
+        project.stack.every((item, index) => item === FALLBACK_STACK[index])
+      ) {
+        reasons.push(`placeholder stack ${JSON.stringify(FALLBACK_STACK)} (repo has no topics)`);
+      }
+      if (/^Public .+ project from GitHub$/.test(project.impact)) {
+        reasons.push('placeholder impact (repo has no description)');
+      }
+      if (firstPoint === project.impact) {
+        reasons.push('points[0] duplicates impact verbatim');
+      }
+      if (/^Public repository for .+, maintained on GitHub\.$/.test(firstPoint)) {
+        reasons.push('placeholder points[0]');
+      }
+      if (secondPoint === FALLBACK_POINT_DEMO || secondPoint === FALLBACK_POINT_NO_DEMO) {
+        reasons.push('placeholder points[1]');
+      }
+
+      return { title: project.title, github: project.github, reasons };
+    })
+    .filter((result) => result.reasons.length > 0);
 }
 
 async function serializeProjects(projects) {
@@ -472,8 +538,29 @@ async function main() {
     .map(buildProject)
     .sort((a, b) => a.title.localeCompare(b.title));
 
+  // Written before the guard runs, so a failing sync still leaves an inspectable
+  // diff to work from rather than only an error message.
   await writeFile(OUTPUT_PATH, await serializeProjects(projects), 'utf8');
   console.log(`Synced ${projects.length} generated GitHub project(s).`);
+
+  const placeholders = findPlaceholderProjects(projects);
+  if (placeholders.length > 0) {
+    console.error(
+      `\n${placeholders.length} generated card(s) still carry placeholder copy:\n`
+    );
+    for (const { title, github, reasons } of placeholders) {
+      console.error(`  ${title}  (${github})`);
+      for (const reason of reasons) {
+        console.error(`    - ${reason}`);
+      }
+    }
+    console.error(
+      '\nAdd a PROJECT_COPY_OVERRIDES entry for each repo above (and give the repo\n' +
+        'a GitHub description and topics). The generated file has been written, so\n' +
+        'the diff is there to review, but it must not be published as-is.\n'
+    );
+    process.exitCode = 1;
+  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
