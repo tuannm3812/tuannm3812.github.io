@@ -286,7 +286,7 @@ export const githubProjects: Project[] = [
     ],
     points: [
       'Built a Kaggle Playground S6E9 workflow predicting EV purchase intent across 669k training rows, reaching 0.94570 public AUC through ten gated experiments and a bit-identical reproduction run.',
-      'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC — five times the combined gain of the other nine accepted steps — with every run, kept or rejected, recorded against a gate predeclared before execution.',
+      'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC — five times the combined gain of the other nine experiments — with every run, kept or rejected, recorded against a gate predeclared before execution.',
     ],
   },
   {

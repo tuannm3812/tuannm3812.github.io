@@ -174,7 +174,28 @@ describe('findPlaceholderProjects', () => {
     expect(flagged).toBeDefined();
     expect(flagged.reasons).toContain('points[0] duplicates impact verbatim');
     expect(flagged.reasons).toContain('placeholder points[1]');
-    expect(flagged.reasons.some((reason) => reason.startsWith('placeholder stack'))).toBe(true);
+    expect(
+      flagged.reasons.some((reason) =>
+        reason.includes('inferStack matched nothing, no stack override'),
+      ),
+    ).toBe(true);
+  });
+
+
+  // Regression guard for a wrong diagnosis this message used to carry. It read
+  // "repo has no topics", but inferStack() reads only name, description,
+  // homepage and language - never repo.topics - so topics can be present and
+  // the fallback still fires. Adding topics to a repo does nothing for its card.
+  it('still flags a repo that has topics, since inferStack ignores them', () => {
+    const withTopics = {
+      ...unwrittenRepo,
+      topics: ['python', 'pandas', 'machine-learning'],
+    };
+
+    expect(inferStack(withTopics)).toEqual([]);
+    const [flagged] = findPlaceholderProjects([buildProject(withTopics)]);
+    expect(flagged).toBeDefined();
+    expect(flagged.reasons.join(' ')).not.toContain('topics');
   });
 
   it('flags a repo with no description at all', () => {

@@ -1,5 +1,10 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import {
+  FALLBACK_POINT_DEMO,
+  FALLBACK_POINT_NO_DEMO,
+  FALLBACK_STACK,
+} from './sync-github-projects.mjs';
 
 const RESUME_PATH = './src/data/resume.ts';
 const GITHUB_PROJECTS_PATH = './src/data/githubProjects.ts';
@@ -89,6 +94,50 @@ async function validate() {
     }
   }
 
+  // Check for placeholder copy in the generated cards.
+  //
+  // The sync script already refuses to finish when it generates placeholder
+  // copy, but it writes the file *before* exiting so the diff stays reviewable.
+  // That leaves the bad card sitting in the working tree, where a `git add -A`
+  // would commit it and this gate — the documented pre-commit check — used to
+  // pass. So check the written file too, not just the moment it is generated.
+  //
+  // Detection leans on one fact: a card either has a PROJECT_COPY_OVERRIDES
+  // entry or it does not. Without one, `points[1]` is always one of the two
+  // fallback bullets, so that marker alone catches every unwritten card. The
+  // stack and impact markers are checked as well, purely to say more about what
+  // is wrong. Constants are imported from the sync script so the two cannot
+  // drift apart.
+  const fallbackStackLiteral = `stack: [${FALLBACK_STACK.map((s) => `'${s}'`).join(', ')}]`;
+  const cardChunks = githubContent.split(/(?=\n\s*title:)/).slice(1);
+
+  for (const chunk of cardChunks) {
+    const title = chunk.match(/title:\s*['"]([^'"]+)['"]/)?.[1] ?? '(unknown card)';
+    const reasons = [];
+
+    if (chunk.includes(FALLBACK_POINT_DEMO) || chunk.includes(FALLBACK_POINT_NO_DEMO)) {
+      reasons.push('fallback points[1] - no PROJECT_COPY_OVERRIDES entry');
+    }
+    if (chunk.includes(fallbackStackLiteral)) {
+      reasons.push(`fallback ${fallbackStackLiteral}`);
+    }
+    if (/impact:\s*(?:\n\s*)?['"]Public .+ project from GitHub['"]/.test(chunk)) {
+      reasons.push('fallback impact - repo has no description');
+    }
+
+    if (reasons.length > 0) {
+      console.error(`\u274c Error: Project "${title}" still carries placeholder copy:`);
+      for (const reason of reasons) {
+        console.error(`   - ${reason}`);
+      }
+      console.error(
+        '   Add a PROJECT_COPY_OVERRIDES entry in scripts/sync-github-projects.mjs,'
+      );
+      console.error('   then re-run `npm run sync:github-projects`.');
+      errors++;
+    }
+  }
+
   // Check database files mapping
   if (dbProjectFiles.length > 0) {
     const dbProjectTitles = dbProjectFiles.map(f => {
@@ -100,7 +149,10 @@ async function validate() {
     console.log(`📂 Database projects catalog: ${dbProjectFiles.length} files found.`);
   }
 
-  console.log(`\n✅ Validation completed: ${errors} Errors, ${warnings} Warnings.`);
+  // A run that reports errors must not print a green check: this gate now
+  // blocks commits, so its verdict line has to match its exit code.
+  const verdict = errors > 0 ? '❌' : '✅';
+  console.log(`\n${verdict} Validation completed: ${errors} Errors, ${warnings} Warnings.`);
   if (errors > 0) {
     process.exit(1);
   }

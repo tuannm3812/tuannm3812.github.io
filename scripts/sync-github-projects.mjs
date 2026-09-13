@@ -377,7 +377,7 @@ const PROJECT_COPY_OVERRIDES = {
     ],
     points: [
       'Built a Kaggle Playground S6E9 workflow predicting EV purchase intent across 669k training rows, reaching 0.94570 public AUC through ten gated experiments and a bit-identical reproduction run.',
-      'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC \u2014 five times the combined gain of the other nine accepted steps \u2014 with every run, kept or rejected, recorded against a gate predeclared before execution.',
+      'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC \u2014 five times the combined gain of the other nine experiments \u2014 with every run, kept or rejected, recorded against a gate predeclared before execution.',
     ],
   },
   'kaggle-s6e8-predicting-smartphone-addiction': {
@@ -484,7 +484,9 @@ export function findPlaceholderProjects(projects) {
         project.stack.length === FALLBACK_STACK.length &&
         project.stack.every((item, index) => item === FALLBACK_STACK[index])
       ) {
-        reasons.push(`placeholder stack ${JSON.stringify(FALLBACK_STACK)} (repo has no topics)`);
+        reasons.push(
+          `placeholder stack ${JSON.stringify(FALLBACK_STACK)} (inferStack matched nothing, no stack override)`
+        );
       }
       if (/^Public .+ project from GitHub$/.test(project.impact)) {
         reasons.push('placeholder impact (repo has no description)');
@@ -555,9 +557,11 @@ async function main() {
       }
     }
     console.error(
-      '\nAdd a PROJECT_COPY_OVERRIDES entry for each repo above (and give the repo\n' +
-        'a GitHub description and topics). The generated file has been written, so\n' +
-        'the diff is there to review, but it must not be published as-is.\n'
+      '\nAdd a PROJECT_COPY_OVERRIDES entry for each repo above. inferStack() reads\n' +
+        'only the repo name, description and homepage - never topics - so a richer\n' +
+        'description may help, but an override is the reliable fix. The generated\n' +
+        'file has been written, so the diff is there to review, but it must not be\n' +
+        'published as-is.\n'
     );
     process.exitCode = 1;
   }

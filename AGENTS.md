@@ -20,14 +20,18 @@ does not apply here.
 **Project cards are generated, not hand-written.** `src/data/githubProjects.ts`
 is produced by `scripts/sync-github-projects.mjs` and overwritten on every sync
 — edit the `PROJECT_COPY_OVERRIDES` map in the script, never the generated file.
-A repo with no GitHub description (or no topics) falls back to placeholder copy
-(`impact: 'Public Python project from GitHub'`, `stack: ['GitHub', 'Project']`),
-which is how four placeholder cards reached production in 2026-08 and a fifth in
-2026-09. The sync now refuses to be the last step: `findPlaceholderProjects`
-fails it with exit 1, naming each repo still wearing fallback copy, so the
-weekly workflow cannot commit one. **A red weekly sync usually means a new repo
-needs a `PROJECT_COPY_OVERRIDES` entry, not that the workflow is broken** — and
-until you write it, nothing else that run synced can land either.
+A repo falls back to placeholder copy (`impact: 'Public Python project from
+GitHub'`, `stack: ['GitHub', 'Project']`) when it has no description, or when
+`inferStack()` matches nothing. **`inferStack()` reads only the repo name,
+description and homepage — it never reads GitHub topics**, so adding topics to a
+repo does nothing for its card; an overrides entry is the only reliable fix.
+This is how four placeholder cards reached production in 2026-08 and a fifth in
+2026-09. Two gates now stop a sixth: `findPlaceholderProjects` fails the sync
+with exit 1, so the weekly workflow cannot commit one, and `npm run check`
+fails on an already-written file, so a `git add -A` after a failed sync cannot
+sneak one past either. **A red weekly sync usually means a new repo needs a
+`PROJECT_COPY_OVERRIDES` entry, not that the workflow is broken** — and until
+you write it, nothing else that run synced can land.
 
 **Run `npm run check` before committing anything.** It chains link validation,
 ESLint, `tsc --noEmit`, the test suite and a production build. Link validation
