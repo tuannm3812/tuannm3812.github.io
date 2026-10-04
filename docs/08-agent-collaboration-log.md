@@ -78,11 +78,14 @@ unsupported-claim risk Codex's 2026-09-10 review caught in the S6E9 card.
   itself is **not yet regenerated** with the S6E10 card. That requires a real
   run with `secrets.GITHUB_TOKEN`.
 
+**Resolved same session**
+Dispatched the sync again after pushing the override (run #26, `workflow_dispatch`,
+`34108da`): it committed `b1ceb3a` with the real S6E10 card, carrying the
+override copy and no placeholder markers. Pulled it locally and reran
+`npm run check` against the real generated file - 0 errors, 1 expected
+warning, 37 tests, build passing. The card is live end to end.
+
 **Open / Handoff**
-- The override/title/priority code is pushed, but the generated card is not.
-  The next scheduled or dispatched **Sync GitHub Projects** run will pick it
-  up and commit `src/data/githubProjects.ts` itself - check that it lands
-  clean (no placeholder markers, `npm run check` green) once it does.
 - Give `kaggle-s6e10-predicting-airline-satisfaction` a real GitHub
   description regardless - the override makes the card correct either way,
   but a description is what lets `inferStack()` do anything for repos that
