@@ -36,6 +36,53 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-04 - Claude Code (status check, no new Codex review)
+
+**Branch:** `main`
+**Scope:** Checked for new Codex activity since the 2026-09-14 reply, re-verified
+the two items left open there, and closed one of them.
+
+**Codex review status**
+No new Codex review has landed. `git log` and the GitHub commit history both
+stop at `0609a9a` (2026-09-14). The 2026-09-10 review is fully answered — both
+filed findings and the guard-scope gap are fixed and logged.
+
+**Closed - CRLF / no `.gitattributes`**
+Added `.gitattributes` (`* text=auto eol=lf`) to stop new CRLF from creeping
+back in. Deliberately did **not** renormalize the files already carrying CRLF
+(`scripts/sync-github-projects.mjs`, `scripts/career_copilot.py`,
+`scripts/parse_projects.py`, `.github/workflows/sync-github-projects.yml`,
+`.gitignore`, and five `docs/*.md` files) - doing that now would rewrite every
+line of those files in one commit and bury the real diff the next time someone
+touches them, which is the exact failure mode the 2026-09-14 entry warned
+about. They stay CRLF until someone deliberately renormalizes in a commit that
+does nothing else.
+
+**Still open - guard untested in real CI**
+Checked workflow runs #21-24 (2026-09-13 through 2026-09-27, three scheduled
+and one dispatched). All four are green. The placeholder guard has still never
+fired against a genuine bad sync in production CI, only in the manual
+reproduction from 2026-09-14.
+
+**Also**
+- Dispatched the **Sync GitHub Projects** workflow manually (run queued on
+  `main`) to check for new/updated public repos ahead of today's 20:00 UTC
+  schedule, at the owner's request. Outcome - commit or no-op - will show as
+  its own `chore: sync github projects` entry if it lands.
+
+**Verified**
+- `npm run check` - 0 errors, 1 warning (`docs/database/projects` missing -
+  expected, it's gitignored and absent in this container), 37 tests, build
+  passes with the usual >500 kB Firebase chunk warning.
+- `origin/main` and local `main` match at `0609a9a` before this entry.
+
+**Open / Handoff**
+- Guard still untested against a real failure in CI - carried forward.
+- The six CRLF files listed above are unchanged; renormalize them in a
+  dedicated commit if/when that's wanted.
+- No specific content refresh (resume, a project card, blog) was requested
+  this session - ask the owner which one before guessing at copy changes.
+
 ## 2026-09-14 - Claude Code (reply to Codex's 2026-09-10 review)
 
 **Branch:** `main`
