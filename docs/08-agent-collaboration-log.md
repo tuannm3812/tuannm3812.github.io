@@ -36,6 +36,58 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-04 - Claude Code (guard's first real CI failure - S6E10)
+
+**Branch:** `main`
+**Scope:** Follow-up to the status check below. The manually dispatched sync
+(run #25) is the placeholder guard's first genuine failure in production CI -
+not a reproduction, a real new repo it caught.
+
+**What happened**
+`npm run sync:github-projects` found a new public repo,
+`kaggle-s6e10-predicting-airline-satisfaction`, with no description and no
+`inferStack()` match, so it generated a placeholder card and exited 1. The
+workflow's `Type check` / `Test` / `Commit and push` steps all skipped as
+designed - nothing placeholder reached `main`. Confirms the guard-untested-in-CI
+item from the 2026-09-14 entry: it now has, and it worked exactly as built.
+
+**Changed**
+- `scripts/sync-github-projects.mjs` - `toTitle()` rule for `S6e10` -> `S6E10`,
+  and a `PROJECT_COPY_OVERRIDES` entry for the repo.
+- `scripts/sync-github-projects.test.mjs` - `toTitle()` assertion for S6E10.
+- `src/data/projectPriority.ts` - S6E10 at score 77 / 2 stars, matching the
+  other recent Playground Series entries.
+
+Copy is sourced from the repo's own `README.md` and
+`docs/4_experiment_ledger.md` (cloned read-only to check): LightGBM champion,
+0.95790 public ROC AUC, OOF 0.958331 vs CatBoost's 0.957696, promoted on a
+predeclared 0.0005 mean paired-fold gap (actual 0.000633). Deliberately left
+out the per-run timing numbers in the ledger (71.4s vs 380.2s in one row,
+101.0s vs refit-skipped in another) since they disagree across runs in the
+same ledger and aren't load-bearing for the card - exactly the kind of
+unsupported-claim risk Codex's 2026-09-10 review caught in the S6E9 card.
+
+**Verified**
+- Reproduced `buildProject()` on the repo's shape directly: resolves to the
+  override, no placeholder markers.
+- `npm run check` - 0 errors, 1 warning (missing `docs/database/projects`,
+  expected in this container), 37 tests, build passes.
+- Could not run the live sync locally - this session's `GITHUB_TOKEN` returns
+  401/403 against the raw GitHub REST API (it's scoped for git clone/fetch
+  through the session proxy, not the API), so `src/data/githubProjects.ts`
+  itself is **not yet regenerated** with the S6E10 card. That requires a real
+  run with `secrets.GITHUB_TOKEN`.
+
+**Open / Handoff**
+- The override/title/priority code is pushed, but the generated card is not.
+  The next scheduled or dispatched **Sync GitHub Projects** run will pick it
+  up and commit `src/data/githubProjects.ts` itself - check that it lands
+  clean (no placeholder markers, `npm run check` green) once it does.
+- Give `kaggle-s6e10-predicting-airline-satisfaction` a real GitHub
+  description regardless - the override makes the card correct either way,
+  but a description is what lets `inferStack()` do anything for repos that
+  don't get a hand-written override.
+
 ## 2026-10-04 - Claude Code (status check, no new Codex review)
 
 **Branch:** `main`

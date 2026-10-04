@@ -59,6 +59,7 @@ export function toTitle(name) {
     .replace(/\bS6e7\b/g, 'S6E7')
     .replace(/\bS6e8\b/g, 'S6E8')
     .replace(/\bS6e9\b/g, 'S6E9')
+    .replace(/\bS6e10\b/g, 'S6E10')
     .replace(/\bRsna\b/g, 'RSNA')
     .replace(/\bUnsw\b/g, 'UNSW')
     .replace(/\bUts\b/g, 'UTS')
@@ -378,6 +379,17 @@ const PROJECT_COPY_OVERRIDES = {
     points: [
       'Built a Kaggle Playground S6E9 workflow predicting EV purchase intent across 669k training rows, reaching 0.94570 public AUC through ten gated experiments and a bit-identical reproduction run.',
       'Diagnosed that the nominally numeric columns were value identities rather than magnitudes, and target-encoding them added +0.00337 AUC \u2014 five times the combined gain of the other nine experiments \u2014 with every run, kept or rejected, recorded against a gate predeclared before execution.',
+    ],
+  },
+  'kaggle-s6e10-predicting-airline-satisfaction': {
+    title: 'Kaggle S6E10 Predicting Airline Satisfaction',
+    category: 'Machine Learning & Kaggle',
+    impact:
+      'Kaggle Playground S6E10 airline-satisfaction classification with a predeclared promotion gate between LightGBM and CatBoost',
+    stack: ['LightGBM', 'CatBoost', 'ROC AUC', 'Stratified K-Fold', 'OOF Alignment', 'Experiment Ledger'],
+    points: [
+      'Built a Kaggle Playground S6E10 workflow predicting airline-satisfaction probability across 699,635 training rows, reaching 0.95790 public ROC AUC with a LightGBM champion.',
+      'Promoted LightGBM over a CatBoost baseline on a predeclared 0.0005 mean paired-fold AUC gap (actual 0.000633), then held the champion after two further LightGBM arms, zero-value indicators and a 2,000-tree budget, both failed to clear the same bar.',
     ],
   },
   'kaggle-s6e8-predicting-smartphone-addiction': {

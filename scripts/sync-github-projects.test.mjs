@@ -31,6 +31,9 @@ describe('toTitle', () => {
     expect(toTitle('kaggle-s6e9-predicting-electric-vehicle-purchases')).toBe(
       'Kaggle S6E9 Predicting Electric Vehicle Purchases',
     );
+    expect(toTitle('kaggle-s6e10-predicting-airline-satisfaction')).toBe(
+      'Kaggle S6E10 Predicting Airline Satisfaction',
+    );
     expect(toTitle('unsw-aisoc-hack-2026')).toBe('UNSW AiSoc Hack 2026');
   });
 });
