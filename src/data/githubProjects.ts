@@ -179,6 +179,25 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'Kaggle S6E10 Predicting Airline Satisfaction',
+    category: 'Machine Learning & Kaggle',
+    github: 'https://github.com/tuannm3812/kaggle-s6e10-predicting-airline-satisfaction',
+    impact:
+      'Kaggle Playground S6E10 airline-satisfaction classification with a predeclared promotion gate between LightGBM and CatBoost',
+    stack: [
+      'LightGBM',
+      'CatBoost',
+      'ROC AUC',
+      'Stratified K-Fold',
+      'OOF Alignment',
+      'Experiment Ledger',
+    ],
+    points: [
+      'Built a Kaggle Playground S6E10 workflow predicting airline-satisfaction probability across 699,635 training rows, reaching 0.95790 public ROC AUC with a LightGBM champion.',
+      'Promoted LightGBM over a CatBoost baseline on a predeclared 0.0005 mean paired-fold AUC gap (actual 0.000633), then held the champion after two further LightGBM arms, zero-value indicators and a 2,000-tree budget, both failed to clear the same bar.',
+    ],
+  },
+  {
     title: 'Kaggle S6E4 Predict Irrigation Need',
     category: 'Machine Learning & Kaggle',
     github: 'https://github.com/tuannm3812/kaggle-s6e4-predict-irrigation-need',
