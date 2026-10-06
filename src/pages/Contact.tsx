@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, BarChart3 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, BarChart3, WifiOff } from 'lucide-react';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { db, collection, serverTimestamp } from '../lib/firebase';
@@ -8,10 +8,13 @@ import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import { ReliabilityError } from '../lib/reliability/types';
+import { SettledWrite } from '../lib/reliability/pendingWrite';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'queued' | 'success' | 'error'>(
+    'idle',
+  );
   const [submitError, setSubmitError] = useState<ReliabilityError | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -41,7 +44,7 @@ export default function Contact() {
     setStatus('submitting');
     setSubmitError(null);
 
-    const result = await safeCreateDocument(
+    const outcome = await safeCreateDocument(
       collection(db, 'contacts'),
       {
         name: formData.name.trim(),
@@ -52,15 +55,27 @@ export default function Contact() {
       'contacts',
     );
 
-    if (!result.ok) {
+    // Offline: the original write is queued and still lands later. Wait for it
+    // rather than offering a retry that would send the message twice.
+    if (outcome.status === 'queued') {
+      setStatus('queued');
+      finishSubmit(await outcome.settled);
+    } else {
+      finishSubmit(outcome);
+    }
+  };
+
+  const finishSubmit = (result: SettledWrite) => {
+    if (result.status === 'failed') {
       setStatus('error');
       setSubmitError(result.error);
       return;
     }
-
     setStatus('success');
     setFormData({ name: '', email: '', message: '' });
   };
+
+  const busy = status === 'submitting' || status === 'queued';
 
   const displayError = status === 'error' && submitError ? toDisplayMessage(submitError) : null;
 
@@ -167,86 +182,104 @@ export default function Contact() {
             />
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <label
-                htmlFor="name"
-                className="text-sm font-bold uppercase tracking-wider text-slate-500"
-              >
-                Full Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                autoComplete="name"
-                maxLength={120}
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className={cn(
-                  'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
-                  errors.name && 'border-red-500',
-                )}
-                placeholder="John Doe"
-              />
-              {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
-            </div>
+          <form onSubmit={handleSubmit}>
+            {/* Locked while a message is in flight, so edits can't be lost when it lands. */}
+            <fieldset disabled={busy} className="min-w-0 space-y-4">
+              <div className="space-y-2">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-bold uppercase tracking-wider text-slate-500"
+                >
+                  Full Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  autoComplete="name"
+                  maxLength={120}
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className={cn(
+                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                    errors.name && 'border-red-500',
+                  )}
+                  placeholder="John Doe"
+                />
+                {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
+              </div>
 
-            <div className="space-y-2">
-              <label
-                htmlFor="email"
-                className="text-sm font-bold uppercase tracking-wider text-slate-500"
-              >
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                autoComplete="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className={cn(
-                  'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
-                  errors.email && 'border-red-500',
-                )}
-                placeholder="john@example.com"
-              />
-              {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
-            </div>
+              <div className="space-y-2">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-bold uppercase tracking-wider text-slate-500"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={cn(
+                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                    errors.email && 'border-red-500',
+                  )}
+                  placeholder="john@example.com"
+                />
+                {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
+              </div>
 
-            <div className="space-y-2">
-              <label
-                htmlFor="message"
-                className="text-sm font-bold uppercase tracking-wider text-slate-500"
-              >
-                Your Message
-              </label>
-              <textarea
-                id="message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={4}
-                maxLength={5000}
-                className={cn(
-                  'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
-                  errors.message && 'border-red-500',
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-bold uppercase tracking-wider text-slate-500"
+                >
+                  Your Message
+                </label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={4}
+                  maxLength={5000}
+                  className={cn(
+                    'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                    errors.message && 'border-red-500',
+                  )}
+                  placeholder="How can I help you?"
+                />
+                {errors.message && (
+                  <p className="text-xs text-red-500 font-medium">{errors.message}</p>
                 )}
-                placeholder="How can I help you?"
-              />
-              {errors.message && (
-                <p className="text-xs text-red-500 font-medium">{errors.message}</p>
-              )}
-            </div>
+              </div>
 
-            <button
-              disabled={status === 'submitting'}
-              className="btn-primary w-full bg-brand py-3 text-white hover:bg-brand-light disabled:opacity-50 group"
-            >
-              {status === 'submitting' ? 'Sending...' : 'Send Message'}
-              <Send
-                size={18}
-                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-              />
-            </button>
+              {status === 'queued' ? (
+                <p
+                  role="status"
+                  className="flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-800 dark:text-amber-300"
+                >
+                  <WifiOff size={16} className="mt-0.5 shrink-0" />
+                  You're offline. Your message is saved and will send automatically when you
+                  reconnect. Keep this tab open.
+                </p>
+              ) : null}
+
+              <button
+                disabled={busy}
+                className="btn-primary w-full bg-brand py-3 text-white hover:bg-brand-light disabled:opacity-50 group"
+              >
+                {status === 'submitting'
+                  ? 'Sending...'
+                  : status === 'queued'
+                    ? 'Waiting for connection...'
+                    : 'Send Message'}
+                <Send
+                  size={18}
+                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                />
+              </button>
+            </fieldset>
           </form>
         )}
       </div>

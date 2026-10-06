@@ -1,25 +1,39 @@
 import {
-  addDoc,
   CollectionReference,
+  doc,
   DocumentData,
   onSnapshot,
   Query,
   QuerySnapshot,
+  setDoc,
   WithFieldValue,
 } from 'firebase/firestore';
-import { OperationResult, mapErrorToResult } from './types';
+import { mapErrorToResult } from './types';
+import { raceWrite, WriteOutcome } from './pendingWrite';
 
+const PENDING_AFTER_MS = 6000;
+
+/**
+ * Creates a document under a client-generated ID. Resolves `sent` once Firestore
+ * acknowledges it, `failed` if it is rejected, or `queued` if it is still pending
+ * (offline) after a few seconds — immediately when the browser reports offline.
+ * A queued write is the original write; await `settled`, never retry it.
+ */
 export async function safeCreateDocument<T>(
   target: CollectionReference<T>,
   data: WithFieldValue<T>,
   path: string,
-): Promise<OperationResult<string>> {
+): Promise<WriteOutcome> {
+  let ref;
+  let write: Promise<void>;
   try {
-    const ref = await addDoc(target, data);
-    return { ok: true, data: ref.id };
+    ref = doc(target);
+    write = setDoc(ref, data);
   } catch (error) {
-    return mapErrorToResult('create', error, path);
+    return { status: 'failed', id: '', error: mapErrorToResult('create', error, path).error };
   }
+  const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
+  return raceWrite(write, ref.id, path, offline ? 0 : PENDING_AFTER_MS);
 }
 
 export function safeSubscribeSnapshot<T>(

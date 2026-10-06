@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { toDisplayMessage } from './messages';
+import { toDisplayMessage, toSignInMessage } from './messages';
 import { ReliabilityErrorKind, type ReliabilityError } from './types';
 
 function errorOf(kind: ReliabilityErrorKind): ReliabilityError {
@@ -37,5 +37,26 @@ describe('toDisplayMessage', () => {
     const display = toDisplayMessage(errorOf(ReliabilityErrorKind.UNKNOWN));
     expect(display.title).toBe('Something went wrong');
     expect(display.detail).toContain('unexpected error');
+  });
+});
+
+describe('toSignInMessage', () => {
+  it('stays silent when the visitor closes or re-opens the popup', () => {
+    expect(toSignInMessage({ code: 'auth/popup-closed-by-user' })).toBeNull();
+    expect(toSignInMessage({ code: 'auth/cancelled-popup-request' })).toBeNull();
+  });
+
+  it('explains a blocked popup', () => {
+    expect(toSignInMessage({ code: 'auth/popup-blocked' })).toMatch(/pop-up/i);
+  });
+
+  it('explains a network failure', () => {
+    expect(toSignInMessage({ code: 'auth/network-request-failed' })).toMatch(/connection/i);
+  });
+
+  it('gives a generic message for an unauthorized domain or unknown error', () => {
+    const generic = toSignInMessage({ code: 'auth/unauthorized-domain' });
+    expect(generic).toMatch(/isn't available right now/i);
+    expect(toSignInMessage(new Error('boom'))).toBe(generic);
   });
 });

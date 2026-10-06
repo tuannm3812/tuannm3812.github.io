@@ -54,3 +54,26 @@ export function toDisplayMessage(error: ReliabilityError | null): ReliabilityDis
     cta: 'Retry',
   };
 }
+
+/**
+ * Visitor-facing text for a failed Google sign-in, or null when the visitor
+ * dismissed the popup themselves and no message is needed.
+ */
+export function toSignInMessage(error: unknown): string | null {
+  const code =
+    typeof error === 'object' && error !== null && 'code' in error
+      ? String((error as { code?: unknown }).code)
+      : '';
+
+  if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
+    return null;
+  }
+  if (code === 'auth/popup-blocked') {
+    return 'Your browser blocked the sign-in pop-up. Allow pop-ups for this site and try again.';
+  }
+  if (code === 'auth/network-request-failed') {
+    return 'Sign-in could not reach Google. Check your connection and try again.';
+  }
+  console.error('Sign-in error:', error);
+  return "Sign-in isn't available right now. Please try again later.";
+}

@@ -16,8 +16,9 @@ import { useBlogComments } from '../hooks/useBlogComments';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import NotFound from './NotFound';
-import { toDisplayMessage } from '../lib/reliability/messages';
+import { toDisplayMessage, toSignInMessage } from '../lib/reliability/messages';
 import { ReliabilityError } from '../lib/reliability/types';
+import { SettledWrite } from '../lib/reliability/pendingWrite';
 import { safeGetItem, safeRemoveItem, safeSetItem } from '../lib/safeStorage';
 
 function calculateReadTime(html: string): string {
@@ -44,6 +45,8 @@ export default function Blog() {
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isQueued, setIsQueued] = useState(false);
+  const [signInError, setSignInError] = useState<string | null>(null);
   const [commentSubmitError, setCommentSubmitError] = useState<ReliabilityError | null>(null);
 
   useEffect(() => {
@@ -99,10 +102,12 @@ export default function Blog() {
   }, [selectedPost]);
 
   const handleLogin = async () => {
+    setSignInError(null);
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (error) {
-      console.error('Login error:', error);
+      // The comment draft is in storage, so a failed sign-in loses nothing.
+      setSignInError(toSignInMessage(error));
     }
   };
 
@@ -113,7 +118,8 @@ export default function Blog() {
     setIsSubmitting(true);
     setCommentSubmitError(null);
 
-    const result = await safeCreateDocument(
+    const postId = selectedPost.id;
+    const outcome = await safeCreateDocument(
       collection(db, `blog_posts/${selectedPost.id}/comments`),
       {
         postId: selectedPost.id,
@@ -124,17 +130,23 @@ export default function Blog() {
       `blog_posts/${selectedPost.id}/comments`,
     );
 
-    if (!result.ok) {
-      setIsSubmitting(false);
+    // Offline: wait for the queued original write instead of retrying (duplicates).
+    let result: SettledWrite;
+    if (outcome.status === 'queued') {
+      setIsQueued(true);
+      result = await outcome.settled;
+      setIsQueued(false);
+    } else {
+      result = outcome;
+    }
+
+    setIsSubmitting(false);
+    if (result.status === 'failed') {
       setCommentSubmitError(result.error);
       return;
     }
-
-    if (selectedPost) {
-      safeRemoveItem(`blog_comment_draft_${selectedPost.id}`);
-    }
+    safeRemoveItem(`blog_comment_draft_${postId}`);
     setNewComment('');
-    setIsSubmitting(false);
   };
 
   if (postId && !selectedPost) {
@@ -276,9 +288,14 @@ export default function Blog() {
                   <p className="font-medium text-slate-600 dark:text-slate-400">
                     Join the discussion by signing in with Google.
                   </p>
+                  {signInError ? (
+                    <p role="alert" className="text-sm font-medium text-red-500">
+                      {signInError}
+                    </p>
+                  ) : null}
                   <button onClick={handleLogin} className="btn-secondary mx-auto">
                     <LogIn size={20} className="text-brand" />
-                    Sign in with Google
+                    {signInError ? 'Try again' : 'Sign in with Google'}
                   </button>
                 </div>
               ) : (
@@ -292,11 +309,18 @@ export default function Blog() {
                   <textarea
                     value={newComment}
                     onChange={(e) => handleCommentChange(e.target.value)}
+                    disabled={isSubmitting}
                     className="w-full resize-none rounded-lg border border-slate-100 bg-slate-50 p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-slate-800 dark:bg-slate-950"
                     placeholder="Share your thoughts..."
                     rows={3}
                     maxLength={2000}
                   />
+                  {isQueued ? (
+                    <p role="status" className="text-xs font-medium text-amber-600 py-1">
+                      You're offline. Your comment is saved and will post automatically when you
+                      reconnect. Keep this tab open.
+                    </p>
+                  ) : null}
                   {commentSubmitError ? (
                     <p className="text-xs text-red-500 font-medium py-1">
                       Failed to post comment: {toDisplayMessage(commentSubmitError).detail}
@@ -308,7 +332,11 @@ export default function Blog() {
                       disabled={isSubmitting || !newComment.trim()}
                       className="btn-primary bg-brand px-6 py-2 text-white hover:bg-brand-light disabled:opacity-50"
                     >
-                      {isSubmitting ? 'Posting...' : 'Post Comment'}
+                      {isQueued
+                        ? 'Waiting for connection...'
+                        : isSubmitting
+                          ? 'Posting...'
+                          : 'Post Comment'}
                     </button>
                   </div>
                 </div>

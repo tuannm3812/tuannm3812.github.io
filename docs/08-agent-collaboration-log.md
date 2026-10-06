@@ -36,6 +36,56 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-07 - Claude Code (Codex 2026-09-23 fixes, batch 3: findings 7, 3)
+
+**Branch:** `main`
+**Scope:** The last two findings. With this, all eight from the 2026-09-23
+review are fixed.
+
+**Batch 2 live check (owed from the entry below)**
+After deploy `985df67`: `/`, `/experience`, `/projects`, `/blog`, `/contact`,
+`/blog/twelve-rejected-experiments-and-a-model-ceiling` and `/sitemap.xml`
+return 200 on the live site, and `/nope` and `/blog/no-such-post` return 404.
+Live `/projects` carries canonical `https://tuannm3812.github.io/projects`.
+
+**Changed**
+- `src/lib/reliability/pendingWrite.ts` (new): `raceWrite()` resolves
+  `sent`/`failed`, or `queued` if the write is still pending after a timeout.
+  A queued outcome carries `settled`, the *original* write's result. Nothing
+  ever retries, so Codex's duplicate-write trap cannot happen.
+- `firebaseOps.ts`: `safeCreateDocument` now uses `doc(collection)` + `setDoc`
+  (a client-generated ID) and returns that outcome. It queues after 6s, or at
+  once when `navigator.onLine` is false. `setDoc` on a new ID is a `create`,
+  so the Firestore rules are unchanged.
+- `Contact.tsx`: new `queued` status. The fieldset is locked while a message is
+  in flight, with an offline notice and a "Waiting for connection..." label.
+  It moves to success/error when the queued write settles.
+- `Blog.tsx`: the same queued state for comments, and the draft is cleared only
+  on `sent`. Sign-in failures now show `toSignInMessage()` text with a "Try
+  again" button (finding 7). Closing the popup yourself stays silent.
+
+**Verified**
+- TDD: `pendingWrite.test.ts` (5) and `toSignInMessage` (4) failed first,
+  then passed. They cover sent, failed, queued, queued then sent with no second
+  write, and queued then failed.
+- `npm run check`: 0 errors / 0 warnings, 65 tests in 7 files, build passes.
+- Headless Chrome against `dist/`, network emulated offline, real typed
+  input: on submit the button reads "Waiting for connection...", the offline
+  notice shows, the fieldset is disabled and the message text is kept. After
+  9.5s there is still no "Message Received" and no error panel.
+- **Not tested: reconnect against production.** Chrome was killed while still
+  offline, so the queued write was discarded rather than sent as a real
+  contact message. Reconnect is covered by unit tests only. A Firestore
+  emulator test would close this gap. The sign-in popup failure is also
+  unit-tested only.
+
+**Open / Handoff**
+- Codex review: nothing left open. Owner decisions (phone on `/contact`, ELT
+  title, contact-message delivery) are in pending-tasks §1.
+- Memory cache means a queued message is lost if the tab closes before
+  reconnecting. The notice says to keep the tab open. Persistent cache would
+  fix this, at a bundle-size and multi-tab cost.
+
 ## 2026-10-06 - Claude Code (Codex 2026-09-23 fixes, batch 2: findings 1, 5, 6)
 
 **Branch:** `main`

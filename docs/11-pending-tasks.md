@@ -120,7 +120,7 @@ silently broken today — these are hardening items, not outages.
 - [x] All five Streamlit demos reachable, 200 with cookies (2026-10-06; app
       wake-state not checked)
 
-### Codex 2026-09-23 review — accepted, not yet fixed
+### Codex 2026-09-23 review — all eight fixed and deployed (2026-10-06/07)
 
 All eight findings verified against source on 2026-10-06; see the agent log
 entry of that date. Suggested order is top to bottom.
@@ -144,9 +144,10 @@ entry of that date. Suggested order is top to bottom.
       2026-10-06: `/blog/:postId`, title is a real `<Link>`. Was: Add a
       `/blog/:postId` route and make the card title a `<Link>`. Today the cards
       are click-only and a post can't be linked, refreshed or reached with Back.
-- [ ] **Show sign-in failures** (finding 7). `handleLogin` only logs to the
+- [x] **Show sign-in failures** (finding 7). Done 2026-10-07. Was: `handleLogin` only logs to the
       console.
-- [ ] **Offline submit stuck on "Sending…/Posting…"** (finding 3). Pre-generate
+- [x] **Offline submit stuck on "Sending…/Posting…"** (finding 3). Done
+      2026-10-07: client-generated ID, queued state, no retry. Was: Pre-generate
       the doc ID so a retry can't duplicate, and show a queued state instead of a
       locked button.
 
@@ -159,7 +160,7 @@ entry of that date. Suggested order is top to bottom.
 - [ ] **Keep an eye on the async Firebase chunk.** It is out of the initial route
       but still ~668 kB when Blog or Contact load. Worth splitting further only if
       those pages become central.
-- [ ] **Add interaction tests.** Current suite (6 files, 56 tests) covers
+- [ ] **Add interaction tests.** Current suite (7 files, 65 tests) covers
       reliability helpers and the sync script only — no Firestore rules tests and
       no browser smoke test for contact submit, sign-in failure, or route
       fallback.
