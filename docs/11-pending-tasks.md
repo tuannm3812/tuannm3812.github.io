@@ -3,7 +3,8 @@
 Single running checklist for the portfolio and the GitHub account behind it.
 Tick items off as you go and add new ones under the matching section.
 
-**Last reviewed:** 2026-08-31
+**Last reviewed:** 2026-10-06 (site sections re-verified against Codex's
+2026-09-23 review; §5 re-checked from local clones)
 **Legend:** `[ ]` open · `[x]` done · **Decide** = needs your call, not just execution
 
 ---
@@ -13,15 +14,10 @@ Tick items off as you go and add new ones under the matching section.
 These are blocked on judgement, not effort. Nothing else in this file depends on
 them.
 
-- [ ] **Decide — `kaggriculture` has diverged and cannot be reconciled safely by
-      guessing.** The local clone has no git remote configured, no reflog, and no
-      remote-tracking refs, yet the GitHub repo exists and is *ahead*:
-      - 62 commits local-only — HEAD `chore: preserve uncommitted v9-v17 work and shared-library WIP`
-      - 39 commits remote-only — HEAD `feat: add task_teacher_v8 gated SW land`
-
-      That pattern suggests a second clone on another machine or path. Work out
-      which lineage is authoritative before merging; either direction can lose
-      work. The portfolio card currently links to the remote (v8) lineage.
+- [x] ~~**Decide — `kaggriculture` has diverged.**~~ Resolved by 2026-10-06:
+      the clone now has `origin` configured, and local `feat/task-teacher-v21`
+      is 8 commits ahead of `origin/main` with **0 remote-only commits** on any
+      remote branch. Nothing left to reconcile; it just needs pushing (§5).
 
 - [ ] **Decide — the flagship project is a fork.** `aipa-text-to-sql-agent` is
       ranked `score: 100`, sits top of the homepage and first in the profile
@@ -43,6 +39,24 @@ them.
       [09-master-resume.md](09-master-resume.md) was deliberately left out of the
       public copy; email and profile links remain. Add it back in
       `scripts/resume/resume.html` if you want it public.
+
+- [ ] **Decide — the phone number is already public on `/contact`.**
+      `Contact.tsx` renders `resumeData.phone` as a `tel:` link, so it ships in
+      the JS bundle and on the live page whatever the PDF does. Either remove it
+      from `resume.ts` + `Contact.tsx` (keeping it only in the private master
+      resume), or accept it as public and stop treating the PDF omission as
+      meaningful. (Codex 2026-09-23.)
+
+- [ ] **Decide — rename "Production-Grade ELT Pipeline".** The repo's own README
+      calls it "local-first… designed to grow into a portfolio-grade analytics
+      platform"; nothing is deployed. Suggested title: **"Airbnb & Census ELT
+      Warehouse"**. Changes `src/data/home.tsx`, `src/data/resume.ts` and the
+      `projectPriority.ts` key together.
+
+- [ ] **Confirm how contact messages reach you.** The form writes to Firestore
+      `contacts`; nothing in this repo reads them or sends a notification. If
+      nobody checks the Firebase console, messages are silently lost. Consider
+      a Firebase "Trigger Email" extension or a scheduled digest.
 
 ---
 
@@ -73,6 +87,11 @@ silently broken today — these are hardening items, not outages.
       - No `update`/`delete` rules exist at all, so moderation needs the console
         or Admin SDK.
 
+- [ ] **Bound comment reads.** `useBlogComments.ts` subscribes to a post's
+      entire comment collection with no `limit()`. Add a limit + "load more" in
+      the same pass as moderation, so a spammed thread doesn't grow every
+      visitor's read cost.
+
 - [ ] **Deploy the rules** — they are written locally but deployment to the live
       project is unconfirmed: `firebase deploy --only firestore:rules`
 - [ ] **Deploy composite indexes** — needed for comment ordering:
@@ -96,6 +115,34 @@ silently broken today — these are hardening items, not outages.
       Contact, stack tags 9px → 11px
 - [x] Placeholder copy replaced for the four newest synced projects
 - [x] Descriptions added to all 7 public repos that were missing them
+- [x] Placeholder guard in both the sync and `npm run check` (2026-09-14); first
+      real CI catch was S6E10 on 2026-10-04, fixed by an override, card live
+- [x] All five Streamlit demos reachable, 200 with cookies (2026-10-06; app
+      wake-state not checked)
+
+### Codex 2026-09-23 review — accepted, not yet fixed
+
+All eight findings verified against source on 2026-10-06; see the agent log
+entry of that date. Suggested order is top to bottom.
+
+- [ ] **Run `npm run check` in `deploy.yml`** (finding 2). The deploy build skips
+      `validate:links`, so the placeholder gate can be bypassed by a direct push.
+- [ ] **Remove `worksFor: Shopee` from the JSON-LD in `index.html`** (finding 8).
+      The role ended in Jan 2025.
+- [ ] **Guard `localStorage` in `useTheme.ts` and the Blog draft** (finding 4).
+      A storage-denied browser currently crashes every route, above the error
+      boundary.
+- [ ] **Direct route URLs return HTTP 404** (finding 1). Only `/` is 200 live.
+      Emit per-route `index.html` with route metadata, add a `*` NotFound route,
+      and extend `public/sitemap.xml`.
+- [ ] **Blog posts: real URLs + keyboard access** (findings 5 + 6). Add a
+      `/blog/:postId` route and make the card title a `<Link>`. Today the cards
+      are click-only and a post can't be linked, refreshed or reached with Back.
+- [ ] **Show sign-in failures** (finding 7). `handleLogin` only logs to the
+      console.
+- [ ] **Offline submit stuck on "Sending…/Posting…"** (finding 3). Pre-generate
+      the doc ID so a retry can't duplicate, and show a queued state instead of a
+      locked button.
 
 - [ ] **Verify rich results.** Run the live URL through
       [Google's Rich Results Test](https://search.google.com/test/rich-results) to
@@ -106,7 +153,7 @@ silently broken today — these are hardening items, not outages.
 - [ ] **Keep an eye on the async Firebase chunk.** It is out of the initial route
       but still ~668 kB when Blog or Contact load. Worth splitting further only if
       those pages become central.
-- [ ] **Add interaction tests.** Current suite (3 files, 32 tests) covers
+- [ ] **Add interaction tests.** Current suite (3 files, 37 tests) covers
       reliability helpers and the sync script only — no Firestore rules tests and
       no browser smoke test for contact submit, sign-in failure, or route
       fallback.
@@ -133,14 +180,15 @@ silently broken today — these are hardening items, not outages.
       done
       ```
 
-- [ ] **Push `coding-standards` to GitHub — it has no remote.** The master
+- [ ] **Push `coding-standards` to GitHub — it has no remote.** (Still no
+      remote as of 2026-10-06.) The master
       standard is now 380+ lines across 4 commits and exists on one disk only.
       It is the most reused thing you own and the least backed up. Needs a
       public/private decision: public makes it citable from the repos that
       already reference "the personal master standard", private still solves
       the backup problem.
 
-- [ ] **Activate the personal layer:** `mv ~/.claude/CLAUDE.md.draft ~/.claude/CLAUDE.md`
+- [ ] **Activate the personal layer** (still a `.draft` on 2026-10-06): `mv ~/.claude/CLAUDE.md.draft ~/.claude/CLAUDE.md`
       (drafted 2026-08-30, ~1k tokens/session, inert until renamed).
 
 - [ ] **Add root `AGENTS.md` (+ one-line `CLAUDE.md`) to the ~10 active repos** from
@@ -165,16 +213,25 @@ silently broken today — these are hardening items, not outages.
 
 Update this as you work. Everything not listed is clean and pushed.
 
+Re-checked 2026-10-06 from the local clones (`git status` + `rev-list` against
+the upstream; `project-15-strategy` and `kaggriculture` freshly fetched).
+
 | Repo | State | Action |
 |---|---|---|
-| `kaggriculture` | diverged 62 local / 39 remote | see §1 — needs your decision |
-| `aiml-youtube-lectures` | 23 uncommitted | review and commit |
-| `uts-mdsi` | 1 unpushed, 4 uncommitted | `feat: render the Project 15 capstone document set to PDF` |
-| `36126-active-fire-research` | 2 uncommitted | review and commit |
-| `project-15-strategy` | 1 unpushed, 1 uncommitted | push |
-| `aipa-text-to-sql-agent` | 1 unpushed | `Ignore local Claude Code settings` |
-| `unsw-ma-hackathon-2026` | 1 uncommitted | review and commit |
-| 8 × `kaggle-*` repos | 1 unpushed each | all the same commit: `docs: add Kaggle submission method guidance to coding standards` — safe to push together |
+| `project-15-strategy` | **206 unpushed** | push. Largest backlog, one disk only |
+| `kaggle-rsna-knee-abnormality-detection` | 9 unpushed | push |
+| `kaggriculture` | 8 ahead of `origin/main`, branch `feat/task-teacher-v21` has no upstream | `git push -u origin feat/task-teacher-v21` |
+| 8 × `kaggle-*` repos | 1 unpushed each | same docs commit in all eight, safe to push together (below) |
+| `aiml-youtube-lectures` | 588 uncommitted | review. Likely generated output; check `.gitignore` before committing |
+| `unsw-ma-hackathon-2026` | 5 uncommitted | review and commit |
+| `kaggle-s6e10-predicting-airline-satisfaction` | 4 uncommitted | review and commit |
+| `NYC-Taxi-Databricks` | 3 uncommitted | review and commit |
+| `aipa-text-to-sql-agent` | 2 uncommitted (devcontainer, agent log) | review and commit. Previous unpushed commit is now pushed |
+| `airbnb-ELT-warehouse` | 2 uncommitted | review and commit |
+| `36126-active-fire-research`, `ai-meal-planner`, `foodlens-calibrated-food-recognition`, `kaggle-s6e9-…`, `ScriptClean-AI` | 1 uncommitted each | review and commit |
+| `coding-standards` | no remote | see §4 |
+
+`uts-mdsi` is now clean and pushed.
 
 The eight Kaggle repos share one identical docs commit and can be pushed in one
 pass:
