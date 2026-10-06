@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
+import NotFound from './pages/NotFound';
 
 const Blog = lazy(() => import('./pages/Blog'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -22,14 +23,17 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
-          <Route
-            path="/blog"
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <Blog />
-              </Suspense>
-            }
-          />
+          {['/blog', '/blog/:postId'].map((path) => (
+            <Route
+              key={path}
+              path={path}
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Blog />
+                </Suspense>
+              }
+            />
+          ))}
           <Route
             path="/contact"
             element={
@@ -38,6 +42,7 @@ export default function App() {
               </Suspense>
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>

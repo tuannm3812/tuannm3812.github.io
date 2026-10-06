@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Calendar, LogIn, MessageSquare, User, Clock } from 'lucide-react';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { blogPosts, BlogPost } from '../data/blog';
@@ -14,6 +15,7 @@ import {
 import { useBlogComments } from '../hooks/useBlogComments';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
+import NotFound from './NotFound';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { ReliabilityError } from '../lib/reliability/types';
 import { safeGetItem, safeRemoveItem, safeSetItem } from '../lib/safeStorage';
@@ -27,7 +29,12 @@ function calculateReadTime(html: string): string {
 }
 
 export default function Blog() {
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  // The open post lives in the URL (/blog/:postId), so it survives refresh, can be
+  // shared, and Back returns to the list.
+  const { postId } = useParams();
+  const selectedPost: BlogPost | null = postId
+    ? (blogPosts.find((post) => post.id === postId) ?? null)
+    : null;
   const {
     comments,
     loading: commentsLoading,
@@ -48,6 +55,11 @@ export default function Blog() {
   }, []);
 
   const [scrollPercent, setScrollPercent] = useState(0);
+
+  useEffect(() => {
+    if (selectedPost) document.title = `${selectedPost.title} | Tuan Nguyen`;
+    else if (postId) document.title = 'Post Not Found | Tuan Nguyen';
+  }, [selectedPost, postId]);
 
   useEffect(() => {
     if (selectedPost) {
@@ -125,6 +137,17 @@ export default function Blog() {
     setIsSubmitting(false);
   };
 
+  if (postId && !selectedPost) {
+    return (
+      <NotFound
+        eyebrow="Writing"
+        message="That post doesn't exist. It may have been renamed or removed."
+        backTo="/blog"
+        backLabel="Back to all posts"
+      />
+    );
+  }
+
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
@@ -152,8 +175,7 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                onClick={() => setSelectedPost(post)}
-                className="surface-card surface-card-hover group flex cursor-pointer items-start gap-5 p-5"
+                className="surface-card surface-card-hover group relative flex items-start gap-5 p-5 focus-within:ring-2 focus-within:ring-brand"
               >
                 <div className="flex-1 space-y-3">
                   <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
@@ -171,7 +193,14 @@ export default function Blog() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold group-hover:text-brand transition-colors">
-                    {post.title}
+                    {/* The ::after overlay stretches the link over the whole card, so the
+                        card stays clickable while keyboard users get one real link. */}
+                    <Link
+                      to={`/blog/${post.id}`}
+                      className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+                    >
+                      {post.title}
+                    </Link>
                   </h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
                     {post.excerpt}
@@ -199,13 +228,13 @@ export default function Blog() {
               />
             </div>
 
-            <button
-              onClick={() => setSelectedPost(null)}
-              className="px-4 py-2 text-sm font-bold text-slate-500 hover:text-brand transition-colors flex items-center gap-2"
+            <Link
+              to="/blog"
+              className="px-4 py-2 text-sm font-bold text-slate-500 hover:text-brand transition-colors flex w-fit items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
             >
               <ArrowLeft size={16} />
               Back to all posts
-            </button>
+            </Link>
 
             <article className="space-y-6">
               <div className="space-y-4">

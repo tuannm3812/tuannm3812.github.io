@@ -128,16 +128,20 @@ entry of that date. Suggested order is top to bottom.
 - [x] **Run `npm run check` in `deploy.yml`** (finding 2). Done 2026-10-06. The deploy build skips
       `validate:links`, so the placeholder gate can be bypassed by a direct push.
 - [x] **Remove `worksFor: Shopee` from the JSON-LD in `index.html`** (finding 8).
-      Done 2026-10-06. Sitemap and per-route metadata still open, with finding 1.
+      Done 2026-10-06. Sitemap and per-route metadata done with finding 1.
       The role ended in Jan 2025.
 - [x] **Guard `localStorage` in `useTheme.ts` and the Blog draft** (finding 4).
       Done 2026-10-06 via `src/lib/safeStorage.ts`.
       A storage-denied browser currently crashes every route, above the error
       boundary.
-- [ ] **Direct route URLs return HTTP 404** (finding 1). Only `/` is 200 live.
+- [x] **Direct route URLs return HTTP 404** (finding 1). Done 2026-10-06:
+      `scripts/generate-route-pages.mjs` writes per-route HTML, a noindex
+      `404.html` and the sitemap from `src/data/routeMeta.ts`; `*` NotFound route.
+      Was: Only `/` is 200 live.
       Emit per-route `index.html` with route metadata, add a `*` NotFound route,
       and extend `public/sitemap.xml`.
-- [ ] **Blog posts: real URLs + keyboard access** (findings 5 + 6). Add a
+- [x] **Blog posts: real URLs + keyboard access** (findings 5 + 6). Done
+      2026-10-06: `/blog/:postId`, title is a real `<Link>`. Was: Add a
       `/blog/:postId` route and make the card title a `<Link>`. Today the cards
       are click-only and a post can't be linked, refreshed or reached with Back.
 - [ ] **Show sign-in failures** (finding 7). `handleLogin` only logs to the
@@ -155,7 +159,7 @@ entry of that date. Suggested order is top to bottom.
 - [ ] **Keep an eye on the async Firebase chunk.** It is out of the initial route
       but still ~668 kB when Blog or Contact load. Worth splitting further only if
       those pages become central.
-- [ ] **Add interaction tests.** Current suite (4 files, 44 tests) covers
+- [ ] **Add interaction tests.** Current suite (6 files, 56 tests) covers
       reliability helpers and the sync script only — no Firestore rules tests and
       no browser smoke test for contact submit, sign-in failure, or route
       fallback.

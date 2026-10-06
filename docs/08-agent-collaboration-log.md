@@ -36,6 +36,52 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-06 - Claude Code (Codex 2026-09-23 fixes, batch 2: findings 1, 5, 6)
+
+**Branch:** `main`
+**Scope:** One routing change covering direct-URL status codes, per-route
+metadata, a not-found page, and URL-addressable, keyboard-reachable blog posts.
+
+**Changed**
+- `src/data/routeMeta.ts` (new) is the single source of route titles and
+  descriptions. It is import-free, so the build script loads it with Node's
+  type stripping. `useDocumentTitle` now reads it and leaves `/blog/:id` titles
+  to the Blog page.
+- `scripts/generate-route-pages.mjs` (new) runs after `vite build` and writes
+  `projects.html`, `blog/<id>.html` and so on: copies of the built index with
+  route-specific title, description, canonical, `og:*` and `twitter:*` tags.
+  Pages serves `/projects` from `projects.html` with a 200. It also writes a
+  noindex `404.html` and a full `sitemap.xml`. `public/sitemap.xml` (`/` only)
+  is removed, and `deploy.yml` no longer copies index to 404.
+- `App.tsx` adds the `/blog/:postId` route and a `*` route to the new `NotFound` page.
+- `Blog.tsx`: the open post comes from the URL, not component state. The card
+  title is a `<Link>` stretched over the card with `::after`, with a
+  `focus-within` ring. Back is a `<Link>`. An unknown post ID renders a
+  not-found view.
+
+**Verified**
+- TDD: `routeMeta.test.ts` and `generate-route-pages.test.mjs` failed first
+  (modules missing), then passed. They include HTML-escaping of titles and
+  descriptions, and a throw if the template loses a tag the script replaces.
+- `npm run check`: 0 errors / 0 warnings, 56 tests in 6 files, build passes.
+- Served `dist/` with a local server that mimics Pages lookup (`p`, `p.html`,
+  `p/index.html`, else 404.html). All five routes and both post URLs return
+  200; `/nope` and `/blog/no-such-post` return 404 and render "Page not found".
+  Headless-Chrome DOM dumps show the correct per-URL title and `<h1>`.
+- Codex's keyboard acceptance, driven over CDP with real key events: the 5th
+  Tab on `/blog` focuses the first post link, Enter opens
+  `/blog/debugging-my-way-to-a-better-kaggle-score` with its title, and
+  `history.back()` returns to `/blog` with both cards.
+- Not verified on the live site until deployed. Live status codes are the
+  real acceptance test.
+
+**Open / Handoff**
+- Remaining from the review: finding 7 (sign-in feedback), then 3 (offline submit).
+- A new blog post now needs nothing extra. The build picks it up from `blog.ts`
+  for its route page and the sitemap.
+- The Blog list heading is an `<h2>` with no page `<h1>`. This predates the
+  change and was left alone, because the same heading also sits above the post's `<h1>`.
+
 ## 2026-10-06 - Claude Code (Codex 2026-09-23 fixes, batch 1: findings 2, 8, 4)
 
 **Branch:** `main`
