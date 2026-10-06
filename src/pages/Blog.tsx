@@ -16,6 +16,7 @@ import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import { toDisplayMessage } from '../lib/reliability/messages';
 import { ReliabilityError } from '../lib/reliability/types';
+import { safeGetItem, safeRemoveItem, safeSetItem } from '../lib/safeStorage';
 
 function calculateReadTime(html: string): string {
   const wordsPerMinute = 225;
@@ -50,7 +51,7 @@ export default function Blog() {
 
   useEffect(() => {
     if (selectedPost) {
-      const cached = localStorage.getItem(`blog_comment_draft_${selectedPost.id}`);
+      const cached = safeGetItem(`blog_comment_draft_${selectedPost.id}`);
       setNewComment(cached || '');
     } else {
       setNewComment('');
@@ -61,7 +62,7 @@ export default function Blog() {
   const handleCommentChange = (text: string) => {
     setNewComment(text);
     if (selectedPost) {
-      localStorage.setItem(`blog_comment_draft_${selectedPost.id}`, text);
+      safeSetItem(`blog_comment_draft_${selectedPost.id}`, text);
     }
   };
 
@@ -118,7 +119,7 @@ export default function Blog() {
     }
 
     if (selectedPost) {
-      localStorage.removeItem(`blog_comment_draft_${selectedPost.id}`);
+      safeRemoveItem(`blog_comment_draft_${selectedPost.id}`);
     }
     setNewComment('');
     setIsSubmitting(false);

@@ -13,8 +13,9 @@
         try {
           var saved = localStorage.getItem('theme');
           var theme =
-            saved ||
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
           document.documentElement.classList.add(theme);
         } catch (e) {
           document.documentElement.classList.add('light');
@@ -59,10 +60,6 @@
           "https://linkedin.com/in/tuan-m-nguyen",
           "https://www.kaggle.com/tuannm3812"
         ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Shopee"
-        },
         "description": "Senior Data Professional specializing in Machine Learning, Data Engineering, and MLOps."
       }
     </script>

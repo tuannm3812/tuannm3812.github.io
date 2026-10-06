@@ -125,11 +125,13 @@ silently broken today — these are hardening items, not outages.
 All eight findings verified against source on 2026-10-06; see the agent log
 entry of that date. Suggested order is top to bottom.
 
-- [ ] **Run `npm run check` in `deploy.yml`** (finding 2). The deploy build skips
+- [x] **Run `npm run check` in `deploy.yml`** (finding 2). Done 2026-10-06. The deploy build skips
       `validate:links`, so the placeholder gate can be bypassed by a direct push.
-- [ ] **Remove `worksFor: Shopee` from the JSON-LD in `index.html`** (finding 8).
+- [x] **Remove `worksFor: Shopee` from the JSON-LD in `index.html`** (finding 8).
+      Done 2026-10-06. Sitemap and per-route metadata still open, with finding 1.
       The role ended in Jan 2025.
-- [ ] **Guard `localStorage` in `useTheme.ts` and the Blog draft** (finding 4).
+- [x] **Guard `localStorage` in `useTheme.ts` and the Blog draft** (finding 4).
+      Done 2026-10-06 via `src/lib/safeStorage.ts`.
       A storage-denied browser currently crashes every route, above the error
       boundary.
 - [ ] **Direct route URLs return HTTP 404** (finding 1). Only `/` is 200 live.
@@ -153,7 +155,7 @@ entry of that date. Suggested order is top to bottom.
 - [ ] **Keep an eye on the async Firebase chunk.** It is out of the initial route
       but still ~668 kB when Blog or Contact load. Worth splitting further only if
       those pages become central.
-- [ ] **Add interaction tests.** Current suite (3 files, 37 tests) covers
+- [ ] **Add interaction tests.** Current suite (4 files, 44 tests) covers
       reliability helpers and the sync script only — no Firestore rules tests and
       no browser smoke test for contact submit, sign-in failure, or route
       fallback.

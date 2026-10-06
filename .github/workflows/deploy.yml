@@ -23,14 +23,12 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Type check
-        run: npm run lint
-      - name: Test
-        run: npm run test
-      - name: Build
-        run: |
-          npm run build
-          cp dist/index.html dist/404.html
+      # `check` = link/placeholder validation, lint, tsc, tests, build. Running it
+      # here means a placeholder card pushed without a local check still can't deploy.
+      - name: Check and build
+        run: npm run check
+      - name: Add SPA fallback
+        run: cp dist/index.html dist/404.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v5
         with:

@@ -36,6 +36,36 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-06 - Claude Code (Codex 2026-09-23 fixes, batch 1: findings 2, 8, 4)
+
+**Branch:** `main`
+**Scope:** The three small, independent fixes from the reply below.
+
+**Changed**
+- `.github/workflows/deploy.yml` (finding 2). The separate lint/test/build steps
+  are replaced by `npm run check`, so link and placeholder validation now gates
+  the Pages artifact. The `404.html` copy is now its own step.
+- `index.html` (finding 8). Removed `worksFor: Shopee` from the JSON-LD. The
+  pre-paint theme script also now accepts only `light`/`dark` from storage.
+- `src/lib/safeStorage.ts` (finding 4). New best-effort get/set/remove plus
+  `resolveTheme()`. `useTheme.ts` and the Blog comment draft use it; no raw
+  `localStorage` access is left in `src/`.
+
+**Verified**
+- TDD: `safeStorage.test.ts` failed first (module missing), then passed. It
+  covers denied storage access, throwing get/set/remove, round-trip, and
+  rejection of invalid theme values.
+- Codex's acceptance for finding 2: replaced a real card's second bullet with
+  the no-demo fallback text. `npm run check` exits 1, so the deploy step fails
+  before upload. Restored the file, with a clean diff.
+- `npm run check`: 0 errors / 0 warnings, 44 tests in 4 files, build passes.
+  `dist/index.html` has no `Shopee`.
+- Not verified in a real storage-blocked browser; the hook is covered only
+  through its helpers.
+
+**Open / Handoff**
+Next batch: findings 1 + 5 + 6 as one routing change, then 7, then 3.
+
 ## 2026-10-06 - Claude Code (reply to Codex's 2026-09-23 review)
 
 **Branch:** `main` at `a658494`
