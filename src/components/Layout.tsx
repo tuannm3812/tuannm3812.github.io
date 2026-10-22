@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   AlertTriangle,
+  ArrowUpRight,
   BarChart3,
   ExternalLink,
   Github,
@@ -19,6 +20,13 @@ import { cn } from '../lib/utils';
 import { useFirebaseHealth } from '../hooks/useFirebaseHealth';
 import ErrorBoundary from './ErrorBoundary';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+
+const socialLinks = [
+  { href: resumeData.linkedin, label: 'LinkedIn', icon: Linkedin },
+  { href: resumeData.github, label: 'GitHub', icon: Github },
+  { href: resumeData.kaggle, label: 'Kaggle', icon: BarChart3 },
+  { href: `mailto:${resumeData.email}`, label: 'Email', icon: Mail },
+];
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -65,13 +73,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const showStatus = isFirebaseOffline && !isDismissed;
 
   return (
-    <div className="site-backdrop min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
+    <div className="site-backdrop isolate min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:shadow-lg"
       >
         Skip to content
       </a>
+
+      <div className="aurora-field" aria-hidden="true">
+        <div className="aurora-blob -left-40 -top-40 h-[34rem] w-[34rem] bg-brand" />
+        <div className="aurora-blob -right-32 top-24 h-[28rem] w-[28rem] bg-aurora-violet [animation-delay:-6s]" />
+        <div className="aurora-blob left-1/3 top-[55vh] h-[24rem] w-[24rem] bg-aurora-cyan [animation-delay:-12s] dark:opacity-[0.12]" />
+      </div>
 
       <AnimatePresence>
         {showStatus && (
@@ -107,17 +121,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-white/80 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/80 dark:shadow-black/20">
-        <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link
-            to="/"
-            className="flex min-w-0 items-center gap-1 text-xl font-black tracking-tighter transition-colors hover:text-brand"
-          >
-            <span className="truncate">{resumeData.name}</span>
-            <span className="text-brand">.</span>
+      <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3">
+        <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between rounded-full border border-slate-200/70 bg-white/80 pl-2 pr-2 shadow-lg shadow-slate-300/20 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-night/80 dark:shadow-black/40">
+          <Link to="/" className="group flex min-w-0 items-center gap-2.5 rounded-full pr-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand via-aurora-violet to-aurora-cyan text-sm font-black text-white shadow-md shadow-brand/30 transition-transform duration-500 group-hover:rotate-[360deg]">
+              TN
+            </span>
+            <span className="truncate text-base font-bold tracking-tight transition-colors group-hover:text-brand dark:group-hover:text-brand-light">
+              {resumeData.name}
+            </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/85 p-1 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/75 dark:shadow-black/20">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive =
                 location.pathname === item.path ||
@@ -127,19 +142,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    'rounded-full px-3.5 py-2 text-sm font-bold transition-all',
+                    'relative rounded-full px-4 py-2 text-sm font-semibold transition-colors',
                     isActive
-                      ? 'bg-slate-950 text-white shadow-sm shadow-slate-950/10 dark:bg-white dark:text-slate-950 dark:shadow-white/10'
-                      : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-white',
+                      ? 'text-white dark:text-slate-950'
+                      : 'text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white',
                   )}
                 >
-                  {item.name}
+                  {isActive && (
+                    <motion.span
+                      layoutId="active-nav-pill"
+                      className="absolute inset-0 rounded-full bg-slate-950 dark:bg-white"
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.name}</span>
                 </Link>
               );
             })}
             <button
               onClick={toggleTheme}
-              className="ml-1 rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-800 flex items-center justify-center h-9 w-9 focus-visible:outline-none"
+              className="ml-1 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 text-slate-600 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-white/10 dark:text-slate-300 dark:hover:text-brand-light"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -159,7 +181,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex shrink-0 items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900 flex items-center justify-center h-10 w-10 overflow-hidden"
+              className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-slate-200/80 transition-colors hover:text-brand dark:border-white/10"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -176,11 +198,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-white transition-colors hover:bg-brand dark:bg-white dark:text-slate-950"
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </nav>
@@ -188,12 +210,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-b border-slate-200 bg-white/95 px-4 py-4 shadow-sm backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/95"
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              className="mx-auto mt-2 max-w-6xl rounded-3xl border border-slate-200/70 bg-white/90 p-3 shadow-xl backdrop-blur-2xl md:hidden dark:border-white/[0.08] dark:bg-night/90"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1">
                 {navItems.map((item) => {
                   const isActive =
                     location.pathname === item.path ||
@@ -203,10 +226,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       key={item.path}
                       to={item.path}
                       className={cn(
-                        'rounded-lg px-3 py-2 text-lg font-bold tracking-tight transition-all',
+                        'rounded-2xl px-4 py-3 text-lg font-semibold tracking-tight transition-all',
                         isActive
                           ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950'
-                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white',
+                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-white',
                       )}
                     >
                       {item.name}
@@ -219,7 +242,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      <main id="main-content" className="pt-24 pb-16 min-h-screen">
+      <main id="main-content" className="pt-28 pb-16 min-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -234,53 +257,50 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </main>
 
-      <footer className="border-t border-slate-200/80 bg-white/85 py-12 transition-colors dark:border-slate-800/80 dark:bg-slate-950/85">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold">{resumeData.name}</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-sm">
-              Building practical machine learning, data engineering, and applied AI workflows.
-            </p>
+      <footer className="relative mt-8 overflow-hidden border-t border-slate-200/70 dark:border-white/[0.06]">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand to-transparent opacity-60"
+          aria-hidden="true"
+        />
+        <div className="mx-auto max-w-7xl px-4 pb-10 pt-16">
+          <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-xl space-y-4">
+              <p className="section-eyebrow">What's next</p>
+              <h2 className="text-4xl font-black leading-[1.05] tracking-tight md:text-5xl">
+                Have a dataset with a{' '}
+                <span className="font-display-serif text-gradient pr-1">story</span> in it?
+              </h2>
+              <p className="text-slate-600 dark:text-slate-400">
+                Building practical machine learning, data engineering, and applied AI workflows.
+              </p>
+              <Link to="/contact" className="btn-primary group w-fit">
+                Start a conversation
+                <ArrowUpRight
+                  size={18}
+                  className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </Link>
+            </div>
+            <div className="flex gap-3">
+              {socialLinks.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  className="icon-tile h-12 w-12 rounded-full transition-all hover:-translate-y-1 hover:border-brand/50 hover:shadow-lg hover:shadow-brand/20"
+                  aria-label={label}
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="flex gap-3 items-center">
-            <a
-              href={resumeData.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a
-              href={resumeData.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
-              aria-label="GitHub"
-            >
-              <Github size={24} />
-            </a>
-            <a
-              href={resumeData.kaggle}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
-              aria-label="Kaggle"
-            >
-              <BarChart3 size={24} />
-            </a>
-            <a
-              href={`mailto:${resumeData.email}`}
-              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
-              aria-label="Email"
-            >
-              <Mail size={24} />
-            </a>
+
+          <div className="mt-14 flex flex-col gap-3 border-t border-slate-200/70 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between dark:border-white/[0.06] dark:text-slate-500">
+            <p>Copyright {new Date().getFullYear()} Tuan Nguyen. All rights reserved.</p>
+            <p className="font-mono text-xs">{resumeData.location} · Built with React + Vite</p>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            Copyright {new Date().getFullYear()} Tuan Nguyen. All rights reserved.
-          </p>
         </div>
       </footer>
     </div>

@@ -36,6 +36,33 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-22 - Claude Code (UI redesign: "Aurora")
+
+**Branch:** `claude/project-thread-rmnjeu`
+**Scope:** Visual redesign only. No copy, links, data or Firebase code changed.
+
+**Changed**
+- `src/index.css`: new palette (indigo brand `#5b5bf6`, violet/cyan used only in
+  gradients), `--font-serif` (Instrument Serif, loaded in `index.html`), aurora
+  backdrop, `.text-gradient`, `.glow-border`, `.tech-chip`, marquee keyframes,
+  pill buttons, glass cards. Animations are cut under `prefers-reduced-motion`.
+- `Layout.tsx`: floating pill nav with animated active pill, fixed aurora layer
+  (wrapper is `isolate` so the `-z-10` layer stays above the page background),
+  footer rebuilt around a contact CTA.
+- `Home.tsx`: new hero with portrait halo and floating focus chips, a stats band
+  from the previously unused `resumeData.highlights`, a tool marquee built from
+  `technologyStack`, a bento grid for featured projects, numbered principles and
+  an education strip.
+- `ProjectCard.tsx` and page headers on Projects, Experience, Blog, Contact and
+  NotFound restyled to match.
+
+**Verified**
+- `npm run check` passes (65 tests, build OK). Playwright screenshots in light,
+  dark and 390px mobile; no horizontal overflow.
+
+**Open / Handoff**
+- Style direction is a first pass awaiting Mike's review on the PR.
+
 ## 2026-10-07 - Claude Code (Codex 2026-09-23 fixes, batch 3: findings 7, 3)
 
 **Branch:** `main`

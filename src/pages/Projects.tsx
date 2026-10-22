@@ -36,8 +36,8 @@ export default function Projects() {
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
         <p className="section-eyebrow">Portfolio evidence</p>
-        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-          Technical <span className="text-brand">Projects</span>
+        <h1 className="text-5xl font-black tracking-tight md:text-6xl">
+          Technical <span className="font-display-serif text-gradient pr-1">Projects</span>
         </h1>
         <p className="text-lg text-slate-500 dark:text-slate-400">
           Public work across AI agents, deep learning, data engineering, Kaggle competitions, and
@@ -47,7 +47,7 @@ export default function Projects() {
 
       <div className="flex flex-col gap-4">
         <div className="-mx-4 flex overflow-x-auto px-4 pb-2 scrollbar-none md:mx-0 md:px-0">
-          <div className="flex gap-1.5 rounded-full border border-slate-200/50 bg-slate-100/60 p-1 backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-900/60">
+          <div className="flex gap-1.5 rounded-full border border-slate-200/50 bg-white/60 p-1 backdrop-blur-md dark:border-white/[0.08] dark:bg-white/[0.04]">
             {categories.map((category) => {
               const isActive = activeCategory === category;
               return (
@@ -121,7 +121,7 @@ export default function Projects() {
 
       <section className="space-y-4">
         {featuredProjects.length > 0 && (
-          <h2 className="section-eyebrow border-t border-slate-200/70 pt-8 dark:border-slate-800/70">
+          <h2 className="section-eyebrow border-t border-slate-200/70 pt-8 dark:border-white/[0.08]">
             More projects
           </h2>
         )}

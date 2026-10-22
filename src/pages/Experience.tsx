@@ -37,11 +37,11 @@ export default function Experience() {
   return (
     <div className="max-w-5xl mx-auto space-y-16">
       {/* Page Header with Resume Download */}
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-slate-100 pb-8 dark:border-slate-800/65">
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-slate-100 pb-8 dark:border-white/[0.08]">
         <div className="space-y-3">
           <p className="section-eyebrow">Background & Credentials</p>
-          <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-            Professional <span className="text-brand">Path</span>
+          <h1 className="text-5xl font-black tracking-tight md:text-6xl">
+            Professional <span className="font-display-serif text-gradient pr-1">Path</span>
           </h1>
           <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
             My career history, technical expertise matrix, professional philosophy, and academic
@@ -66,7 +66,7 @@ export default function Experience() {
           Professional Experience
         </h2>
 
-        <div className="space-y-10 border-l-2 border-slate-200/80 dark:border-slate-800/80 ml-4 pl-8 md:pl-10">
+        <div className="space-y-10 border-l-2 border-brand/25 dark:border-brand-light/20 ml-4 pl-8 md:pl-10">
           {resumeData.experience.map((exp, index) => (
             <motion.div
               key={index}
@@ -77,12 +77,12 @@ export default function Experience() {
               className="relative"
             >
               {/* Timeline Dot */}
-              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-100 dark:border-slate-950" />
+              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-[#f8f8fc] shadow-[0_0_16px] shadow-brand/60 dark:border-night" />
 
               <div className="surface-card surface-card-hover space-y-3 p-5">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                   <h3 className="text-xl font-bold">{exp.role}</h3>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-400">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-400">
                     <Calendar size={14} />
                     {exp.period}
                   </span>
@@ -144,7 +144,7 @@ export default function Experience() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
+              <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-white/[0.08]">
                 {stack.tools.map((tool) => (
                   <span
                     key={tool}

@@ -84,7 +84,9 @@ export default function Contact() {
       <div className="min-w-0 space-y-8">
         <div className="space-y-3">
           <p className="section-eyebrow">Contact</p>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h1>
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight">
+            Let's <span className="font-display-serif text-gradient pr-1">Connect.</span>
+          </h1>
           <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg">
             Have an ML, data, or applied AI opportunity in mind? Send a note and I will get back to
             you.
@@ -200,7 +202,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={cn(
-                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-white/10 dark:bg-slate-800',
                     errors.name && 'border-red-500',
                   )}
                   placeholder="John Doe"
@@ -222,7 +224,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={cn(
-                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-white/10 dark:bg-slate-800',
                     errors.email && 'border-red-500',
                   )}
                   placeholder="john@example.com"
@@ -244,7 +246,7 @@ export default function Contact() {
                   rows={4}
                   maxLength={5000}
                   className={cn(
-                    'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
+                    'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-white/10 dark:bg-slate-800',
                     errors.message && 'border-red-500',
                   )}
                   placeholder="How can I help you?"

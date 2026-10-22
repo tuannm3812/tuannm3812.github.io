@@ -5,14 +5,45 @@
 
 @theme {
   --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand: #0540f2;
-  --color-brand-light: #056cf2;
+  /* "Aurora" palette: indigo carries the brand, violet and cyan only ever appear
+     inside gradients so the accent never competes with body text. */
+  --color-brand: #5b5bf6;
+  --color-brand-light: #8b8bff;
   --color-brand-dark: #1e1b4b;
   --color-brand-bg: #f2f2f2;
+  --color-aurora-violet: #a855f7;
+  --color-aurora-cyan: #22d3ee;
   --color-ink: #0f172a;
+  --color-night: #07080f;
   --color-muted: #64748b;
+
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-aurora: aurora 18s ease-in-out infinite alternate;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes aurora {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(4%, -6%, 0) scale(1.08);
+    }
+    100% {
+      transform: translate3d(-5%, 4%, 0) scale(0.96);
+    }
+  }
 }
 
 @layer base {
@@ -30,62 +61,176 @@
   select:focus {
     outline: none;
     border-color: var(--color-brand);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-brand) 15%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 18%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 }
 
 @layer utilities {
   .site-backdrop {
-    background-image:
-      linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
-    background-color: #fafafa;
-    background-size: 40px 40px;
+    background-color: #f8f8fc;
   }
 
   .dark .site-backdrop {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-color: #0b0f19;
+    background-color: var(--color-night);
+  }
+
+  /* Fixed layer behind every page: a faint dot grid that fades out towards the
+     bottom, plus three slow-drifting aurora blobs. Pure CSS, so it costs no JS. */
+  .aurora-field {
+    @apply pointer-events-none fixed inset-0 -z-10 overflow-hidden;
+  }
+
+  .aurora-field::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(15, 23, 42, 0.09) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  .dark .aurora-field::before {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  }
+
+  .aurora-blob {
+    @apply absolute rounded-full blur-3xl animate-aurora;
+    opacity: 0.35;
+  }
+
+  .dark .aurora-blob {
+    opacity: 0.28;
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-brand) 0%,
+      var(--color-aurora-violet) 45%,
+      var(--color-aurora-cyan) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dark .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-brand-light) 0%,
+      #c084fc 45%,
+      var(--color-aurora-cyan) 100%
+    );
+  }
+
+  .font-display-serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 
   .expertise-band {
-    background-image: linear-gradient(90deg, rgba(5, 64, 242, 0.055), rgba(5, 108, 242, 0.025));
+    background-image: linear-gradient(90deg, rgba(91, 91, 246, 0.06), rgba(34, 211, 238, 0.03));
   }
 }
 
 @layer components {
   .section-eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.22em] text-brand;
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.24em] text-brand dark:text-brand-light;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-gradient-to-r from-brand to-aurora-cyan;
   }
 
   .surface-card {
-    @apply rounded-lg border border-slate-200/80 bg-white/95 shadow-sm shadow-slate-200/60 transition-all dark:border-slate-800/80 dark:bg-slate-900/90 dark:shadow-black/10;
+    @apply rounded-2xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-200/50 backdrop-blur-xl transition-all duration-300 dark:border-white/[0.07] dark:bg-white/[0.03] dark:shadow-black/20;
   }
 
   .surface-card-hover {
-    @apply hover:-translate-y-0.5 hover:border-brand/50 hover:shadow-md hover:shadow-slate-300/40 dark:hover:shadow-black/25;
+    @apply hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-brand/10 dark:hover:border-brand-light/30 dark:hover:bg-white/[0.05] dark:hover:shadow-brand/10;
+  }
+
+  /* Gradient hairline that lights up on hover. Uses a masked ::before so the card
+     keeps its own translucent background. */
+  .glow-border {
+    @apply relative;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--color-brand),
+      var(--color-aurora-violet),
+      var(--color-aurora-cyan)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .glow-border:hover::before,
+  .glow-border:focus-within::before {
+    opacity: 1;
   }
 
   .soft-panel {
-    @apply rounded-lg border border-slate-200/70 bg-slate-50/80 dark:border-slate-800/70 dark:bg-slate-950/45;
+    @apply rounded-2xl border border-slate-200/70 bg-slate-50/70 backdrop-blur-xl dark:border-white/[0.06] dark:bg-white/[0.025];
   }
 
   .icon-tile {
-    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-white text-brand shadow-sm dark:border-slate-800 dark:bg-slate-950;
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-white text-brand shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-brand-light;
   }
 
   .brand-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand/15 bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand;
+    @apply inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand dark:border-brand-light/20 dark:bg-brand-light/10 dark:text-brand-light;
+  }
+
+  .tech-chip {
+    @apply rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[11px] font-medium text-slate-600 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-400;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-brand via-aurora-violet to-brand bg-[length:200%_100%] bg-left px-6 py-3 text-sm font-bold text-white shadow-lg shadow-brand/25 transition-all duration-500 hover:-translate-y-0.5 hover:bg-right hover:shadow-xl hover:shadow-aurora-violet/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-night;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/50 hover:text-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/70 px-6 py-3 text-sm font-bold text-slate-800 backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-brand/50 hover:text-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200 dark:hover:border-brand-light/40 dark:hover:text-white;
   }
 
   /* Custom scrollbars */
@@ -104,15 +249,15 @@
     background: #94a3b8;
   }
   .dark ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #2a2d3e;
   }
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+    background: #3f4360;
   }
 
   /* Glow effects */
   .text-glow {
-    text-shadow: 0 0 24px rgba(5, 64, 242, 0.2);
+    text-shadow: 0 0 32px rgba(91, 91, 246, 0.35);
   }
 
   /* Long-form blog article body (Tailwind Typography, tinted to brand) */

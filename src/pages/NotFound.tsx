@@ -19,8 +19,8 @@ export default function NotFound({
     <div className="max-w-3xl space-y-6 pb-24">
       <div className="space-y-3">
         <p className="section-eyebrow">{eyebrow}</p>
-        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-          Page not <span className="text-brand">found</span>
+        <h1 className="text-5xl font-black tracking-tight md:text-6xl">
+          Page not <span className="font-display-serif text-gradient pr-1">found</span>
         </h1>
         <p className="text-lg text-slate-500 dark:text-slate-400">{message}</p>
       </div>
