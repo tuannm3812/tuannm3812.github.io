@@ -17,7 +17,7 @@ const bentoSpans = ['md:col-span-4', 'md:col-span-2', 'md:col-span-2', 'md:col-s
 const chipPositions = [
   'lg:-left-10 lg:top-10',
   'lg:-right-8 lg:top-[42%]',
-  'lg:-left-6 lg:bottom-24',
+  'lg:-left-6 lg:bottom-36',
 ];
 
 const fadeUp = {
