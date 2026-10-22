@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import type { MouseEvent } from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink, Github, Star, Trophy } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, Star, Trophy } from 'lucide-react';
 import type { Project } from '../data/resume';
 import { getProjectRank, isKaggleProject } from '../lib/projects';
+import { cn } from '../lib/utils';
 
 export default function ProjectCard({
   project,
   onTagClick,
+  featured = false,
+  className,
 }: {
   project: Project;
   onTagClick?: (tag: string) => void;
+  featured?: boolean;
+  className?: string;
 }) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const projectRank = getProjectRank(project.title);
@@ -31,7 +36,12 @@ export default function ProjectCard({
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
       onMouseMove={handleMouseMove}
-      className="surface-card glow-border group relative flex h-full flex-col overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10"
+      className={cn(
+        'surface-card glow-border group relative flex h-full flex-col overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10',
+        featured &&
+          'border-brand/25 bg-gradient-to-br from-brand/[0.07] via-transparent to-aurora-cyan/[0.05] dark:border-brand-light/20',
+        className,
+      )}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -44,6 +54,12 @@ export default function ProjectCard({
         <div className="space-y-2">
           <div className="flex items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-1.5">
+              {featured && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-brand to-aurora-violet px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm shadow-brand/30">
+                  <Sparkles size={11} />
+                  Flagship
+                </span>
+              )}
               {project.stack.length > 0 && (
                 <span className="brand-pill px-2.5 py-1">{project.stack[0]}</span>
               )}
@@ -81,7 +97,7 @@ export default function ProjectCard({
         </div>
 
         <ul className="space-y-2">
-          {project.points.slice(0, 2).map((point, index) => (
+          {project.points.slice(0, featured ? 3 : 2).map((point, index) => (
             <li
               key={index}
               className="flex gap-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400"
