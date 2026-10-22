@@ -164,8 +164,8 @@ export default function Blog() {
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
         <p className="section-eyebrow">Writing</p>
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-          Reflections <span className="text-brand">&</span> Insights
+        <h2 className="text-5xl md:text-6xl font-black tracking-tight">
+          Reflections <span className="font-display-serif text-gradient">&amp;</span> Insights
         </h2>
         <p className="text-lg text-slate-500 dark:text-slate-400">
           Short notes on MLOps, data engineering, and applied AI from projects and practice.
@@ -235,7 +235,7 @@ export default function Blog() {
             {/* Reading progress indicator */}
             <div className="fixed top-16 left-0 right-0 h-1 bg-slate-200/50 dark:bg-slate-800/50 z-50 pointer-events-none">
               <div
-                className="h-full bg-brand transition-all duration-75 ease-out rounded-r-full"
+                className="h-full bg-gradient-to-r from-brand via-aurora-violet to-aurora-cyan transition-all duration-75 ease-out rounded-r-full"
                 style={{ width: `${scrollPercent}%` }}
               />
             </div>
@@ -277,7 +277,7 @@ export default function Blog() {
               />
             </article>
 
-            <div className="border-t border-slate-200 dark:border-slate-800 pt-8 space-y-6">
+            <div className="border-t border-slate-200 dark:border-white/[0.08] pt-8 space-y-6">
               <h3 className="text-2xl font-bold flex items-center gap-3">
                 <MessageSquare className="text-brand" />
                 Comments ({comments.length})
@@ -310,7 +310,7 @@ export default function Blog() {
                     value={newComment}
                     onChange={(e) => handleCommentChange(e.target.value)}
                     disabled={isSubmitting}
-                    className="w-full resize-none rounded-lg border border-slate-100 bg-slate-50 p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-slate-800 dark:bg-slate-950"
+                    className="w-full resize-none rounded-lg border border-slate-100 bg-slate-50 p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-white/[0.08] dark:bg-slate-950"
                     placeholder="Share your thoughts..."
                     rows={3}
                     maxLength={2000}

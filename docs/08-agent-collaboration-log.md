@@ -36,6 +36,60 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-22 - Claude Code (UI redesign: "Aurora" — rejected, handoff to Codex)
+
+**Branch:** `claude/project-thread-rmnjeu` (PR #2, not merged)
+**Scope:** Mike asked for a "wow" redesign. The style I chose ("Aurora") was
+**rejected** by Mike. Do not merge PR #2 as it stands. This entry is a handoff:
+what PR #2 tried, which parts don't depend on its style, and other directions to
+try.
+
+**What Aurora was (so you don't repeat it)**
+- Dark-first, indigo `#5b5bf6` with violet/cyan gradients, drifting blurred
+  "aurora" blobs, glass cards, gradient text, Instrument Serif italic accent
+  words, and a floating pill nav.
+
+**Parts that don't depend on the style**
+These are in PR #2 and can be reused with any visual direction:
+- **Flagship projects on top (Mike asked for this).** Mike feels many projects
+  are simple assignments. `Projects.tsx` puts every project with `stars: 3` in
+  `projectPriority.ts` (7 today) into a Flagship band, with the first card
+  spanning two columns. The rest go under "Archive", collapsed to 6 cards with
+  a "Show all" button. Filters still show a flat grid. `ProjectCard` takes
+  `featured` (badge, 3 bullet points) and `className` props.
+- **Highlights band.** `resumeData.highlights` (7+ years, 30 projects, ...)
+  existed but was never rendered; Home now shows it as a stats row.
+- **Tool marquee.** Built from `resumeData.technologyStack` tools, de-duplicated,
+  so it never needs a separate list.
+- **Home structure.** Hero → stats → tools → featured-project bento (2 wide,
+  2 narrow) → numbered working principles → education strip → footer CTA.
+  This order worked; only the skin was rejected.
+- **Pre-commit hook bug (still open, predates PR #2).** The lint-staged
+  `tsc --noEmit` passes file paths to `tsc`, so `tsc` ignores `tsconfig.json`
+  and fails on `node_modules` types for any .ts/.tsx commit. `npm run check` is
+  the real gate. Fix suggestion: change the lint-staged entry to
+  `bash -c 'tsc --noEmit'`.
+
+**Other directions to offer Mike**
+1. **Editorial / Swiss.** Light paper background, near-black type, one sharp
+   accent (e.g. signal orange), a large serif or grotesk display face, visible
+   grid lines and numbered sections, no gradients or glow. Calm, confident, and
+   reads like a printed annual report.
+2. **Notebook / terminal.** Styled after Jupyter: project cards as
+   `In [1]:` / `Out [1]:` cells, monospace headings, a muted dark or sepia
+   palette with green/amber accents, a typing-cursor hero. It signals "data
+   scientist" straight away.
+3. **Model-card / metrics-led.** Light, clean dashboard feel. Each flagship
+   project shows its key numbers (score, dataset size, latency) and a small
+   sparkline or confusion-matrix thumbnail, laid out like a Hugging Face model
+   card. This puts the evidence first, but needs real metrics per project in
+   the data.
+Show Mike one static hero mock for each before building a whole direction.
+
+**Verified (on PR #2)**
+- `npm run check` passes (65 tests, build OK). Screenshots are in the project's
+  shared folder under `portfolio-redesign/`.
+
 ## 2026-10-07 - Claude Code (Codex 2026-09-23 fixes, batch 3: findings 7, 3)
 
 **Branch:** `main`
