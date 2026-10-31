@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
       'A 3D cell-tracking Kaggle competition improved from 0.810 to 0.827 not through a better model, but through reading the scoring code closely enough to catch a bug that looked like a regression, a small-sample miss that reversed itself, and two negative results worth publishing.',
     date: '2026-07-31',
     content: `
-      <p><em>A field note from an ongoing entry in Kaggle&rsquo;s <a href="https://www.kaggle.com/competitions/biohub-cell-tracking-during-development" target="_blank" rel="noreferrer">Biohub &ndash; Cell Tracking During Development</a> competition (deadline: September 29, 2026). Public leaderboard score at time of writing: <strong>0.827</strong>, up from an initial 0.810 &mdash; a modest-sounding number that took four real submissions and a dozen local experiments to earn honestly.</em></p>
+      <p><em>A field note from my entry in Kaggle&rsquo;s <a href="https://www.kaggle.com/competitions/biohub-cell-tracking-during-development" target="_blank" rel="noreferrer">Biohub &ndash; Cell Tracking During Development</a> competition, which closed on September 29, 2026. Final public leaderboard score: <strong>0.827</strong>, up from an initial 0.810 &mdash; a modest-sounding number that took four real submissions and a dozen local experiments to earn honestly.</em></p>
 
 
       <figure class="not-prose my-10">

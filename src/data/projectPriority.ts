@@ -11,6 +11,8 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Solana Price Forecasting': { score: 91, stars: 3 },
   'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 3 },
   'Bioacoustic Species Classification': { score: 89, stars: 3 },
+  'FarmLens: NSW Crop Suitability Explorer': { score: 89, stars: 2 },
+  'Half-time Briefing: Microsoft x Premier League Hackathon': { score: 86, stars: 2 },
   'Kaggle CSIRO Image2Biomass': { score: 88, stars: 2 },
   'Spatial Brain: UNSW AiSoc Hackathon 2026': { score: 88, stars: 2 },
   'FoodLens: Calibrated Food Recognition': { score: 87, stars: 2 },

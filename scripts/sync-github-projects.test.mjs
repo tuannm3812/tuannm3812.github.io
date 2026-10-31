@@ -133,6 +133,27 @@ describe('buildProject', () => {
     expect(project.impact).toBe('Databricks lakehouse analytics for NYC taxi trips');
   });
 
+  it('gives the two repos that broke the 2026-10-18 and 2026-10-25 weekly syncs publishable copy', () => {
+    const farmLens = buildProject({
+      name: 'FarmLens',
+      html_url: 'https://github.com/tuannm3812/FarmLens',
+      description: 'An explainable NSW crop suitability demo',
+      homepage: '',
+      language: 'Python',
+    });
+    const halftime = buildProject({
+      name: 'ms-pl-insidethegame-2026',
+      html_url: 'https://github.com/tuannm3812/ms-pl-insidethegame-2026',
+      description: '',
+      homepage: '',
+      language: 'Python',
+    });
+
+    expect(farmLens.title).toBe('FarmLens: NSW Crop Suitability Explorer');
+    expect(halftime.title).toBe('Half-time Briefing: Microsoft x Premier League Hackathon');
+    expect(findPlaceholderProjects([farmLens, halftime])).toEqual([]);
+  });
+
   it('falls back to inferred title/category/description for repos with no override', () => {
     const project = buildProject({
       name: 'some-new-repo',
