@@ -36,6 +36,41 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-10-31 - Claude Code (unblock the weekly sync: FarmLens, Half-time Briefing)
+
+**Branch:** `claude/project-thread-cj73bg`
+**Scope:** The weekly `Sync GitHub Projects` run failed on 2026-10-18 and
+2026-10-25 (runs 29 and 30). Two new public repos tripped the placeholder
+guard, exactly as designed, so no card has refreshed since 2026-10-04.
+
+**Changed**
+- `scripts/sync-github-projects.mjs`: `PROJECT_COPY_OVERRIDES` entries for
+  `FarmLens` and `ms-pl-insidethegame-2026`, sourced from each repo's README.
+  The second uses a `title` override ("Half-time Briefing: Microsoft x Premier
+  League Hackathon") because `toTitle()` cannot recover a readable name from
+  the repo slug.
+- `scripts/sync-github-projects.test.mjs`: regression test asserting both
+  cards pass `findPlaceholderProjects`.
+- `src/data/projectPriority.ts`: entries for both new titles (89/2 and 86/2).
+- `src/data/blog.ts`: the Biohub post no longer calls the competition
+  "ongoing" with a September deadline; it now reads as a closed competition
+  with a final public score of 0.827. The private-leaderboard result is not
+  recorded anywhere in the repo, so it was not added.
+
+**Verified**
+- `npm run check`: 0 errors, 66 tests, build passing.
+- Not run: the live sync. This session's token cannot call the GitHub REST
+  API for other repos, so `src/data/githubProjects.ts` is unchanged here and
+  the two cards will land on the next scheduled or dispatched sync, as the
+  S6E10 card did on 2026-10-04.
+
+**Open / Handoff**
+- `ms-pl-insidethegame-2026` still has no GitHub description. The override
+  makes the card publishable regardless, but a description helps the GitHub
+  profile itself.
+- Add the Biohub private-leaderboard score and rank to the blog post once
+  known.
+
 ## 2026-10-07 - Claude Code (Codex 2026-09-23 fixes, batch 3: findings 7, 3)
 
 **Branch:** `main`

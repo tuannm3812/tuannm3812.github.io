@@ -441,6 +441,26 @@ const PROJECT_COPY_OVERRIDES = {
       'Built a persistent course-material knowledge vault (UTS MDSI LLM Wiki) spanning multiple semesters, optimized for LLM tutor ingestion and assignment review.',
       'Structured markdown subject guides, assessment calendars, and prompt libraries covering Machine Learning, Big Data, Applied NLP, and Decision Support systems.'
     ]
+  },
+  FarmLens: {
+    title: 'FarmLens: NSW Crop Suitability Explorer',
+    category: 'Data Engineering & Analytics',
+    impact: 'Explainable crop suitability screening for NSW land, built on eight open climate, soil and imagery sources',
+    stack: ['Python', 'Leaflet', 'Open-Meteo', 'CSIRO SLGA Soil', 'NSW Spatial Imagery', 'FAO EcoCrop', 'Streamlit'],
+    points: [
+      'Built a map-first land explorer that pulls ten years of climate, a seven-day forecast, modelled Australian soil and dated aerial imagery for any NSW point, then scores up to three crop candidates against 15 sourced crop profiles with visible per-factor reasons.',
+      'Designed the scoring as a transparent screening index with centralized weights, source-linked NSW agronomy checks and an optional LLM guide (Finn) that explains but never sets the scores; tested offline with saved fixtures and blocked live HTTP in CI.'
+    ]
+  },
+  'ms-pl-insidethegame-2026': {
+    title: 'Half-time Briefing: Microsoft x Premier League Hackathon',
+    category: 'AI Agents & LLM Products',
+    impact: 'Multi-agent football briefing on Microsoft Agent Framework that turns match events into coaching calls and fan stories',
+    stack: ['Microsoft Agent Framework', 'Azure AI Foundry', 'FastAPI', 'MCP', 'Expected Threat (xT)', 'Azure Container Apps'],
+    points: [
+      'Built a stats -> tactics -> explainer -> coach/fan -> overlay agent pipeline for the Microsoft x Premier League Inside the Game hackathon, computing xG, expected threat, PPDA and momentum in code so model-backed agents only explain and decide.',
+      'Guarded every model reply against hallucinated numbers with rule-based fallbacks, exposed the match tools over MCP, and shipped a single container to Azure Container Apps with keyless managed-identity auth; 39 offline tests.'
+    ]
   }
 };
 
