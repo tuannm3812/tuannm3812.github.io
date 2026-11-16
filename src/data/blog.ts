@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
 
 
       <figure class="not-prose my-10">
-        <div class="rounded-none border border-slate-200 bg-white/60 p-5 dark:border-slate-800 dark:bg-slate-900/40">
+        <div class="rounded-xl border border-slate-200 bg-white/60 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
           <svg viewBox="0 0 640 340" class="w-full" role="img" aria-label="Line chart of public leaderboard score across four submissions: 0.810 baseline, 0.817 after a graph-repair fix, 0.795 after a detection-threshold regression that was reverted, 0.827 after trajectory smoothing (current best).">
             <line x1="60" y1="276" x2="600" y2="276" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1"></line>
             <line x1="60" y1="196" x2="600" y2="196" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1"></line>
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
 
 
       <figure class="not-prose my-10">
-        <div class="rounded-none border border-slate-200 bg-white/60 p-5 dark:border-slate-800 dark:bg-slate-900/40">
+        <div class="rounded-xl border border-slate-200 bg-white/60 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
           <svg viewBox="0 0 640 340" class="w-full" role="img" aria-label="Two lines crossing: at 19 validation videos DET_THRESHOLD=0.90 scores higher than 0.99; at 60 validation videos the ranking flips and 0.99 wins, matching the real leaderboard result.">
             <line x1="60" y1="228" x2="600" y2="228" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1"></line>
             <line x1="60" y1="132" x2="600" y2="132" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1"></line>
@@ -159,7 +159,7 @@ export const blogPosts: BlogPost[] = [
 
 
       <figure class="not-prose my-10">
-        <div class="rounded-none border border-slate-200 bg-white/60 p-5 dark:border-slate-800 dark:bg-slate-900/40">
+        <div class="rounded-xl border border-slate-200 bg-white/60 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
           <svg viewBox="0 0 640 340" class="w-full" role="img" aria-label="Grouped bar chart comparing locally predicted score change against real leaderboard change for three techniques: graph repair (+0.0065 predicted, +0.007 actual, close agreement), DET_THRESHOLD lowering (+0.0025 predicted, -0.022 actual, opposite signs), trajectory smoothing (+0.0123 predicted, +0.010 actual, close agreement).">
             <line x1="60" y1="46" x2="600" y2="46" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1"></line>
             <line x1="60" y1="86" x2="600" y2="86" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1"></line>
@@ -219,7 +219,7 @@ export const blogPosts: BlogPost[] = [
 
 
       <figure class="not-prose my-10">
-        <div class="rounded-none border border-slate-200 bg-white/60 p-5 dark:border-slate-800 dark:bg-slate-900/40">
+        <div class="rounded-xl border border-slate-200 bg-white/60 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
           <svg viewBox="0 0 640 340" class="w-full" role="img" aria-label="Diverging bar chart of six tested techniques' local edge_jaccard delta. Shipped to production: gap-closing plus pruning +0.0065, trajectory smoothing +0.0123. Tested and not adopted: lowering DET_THRESHOLD -0.0022, raising ILP division weight +0.0003, motion-aware gap closing -0.0007, D4 detection TTA -0.0010.">
             <line x1="60" y1="223" x2="600" y2="223" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="1"></line>
 
@@ -281,7 +281,7 @@ export const blogPosts: BlogPost[] = [
           href="https://github.com/tuannm3812/kaggle-biohub-cell-tracking-during-development"
           target="_blank"
           rel="noreferrer"
-          class="flex items-center gap-2 rounded-none bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white transition-all hover:-translate-y-0.5 hover:bg-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white"
+          class="flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
           Source Code
@@ -290,7 +290,7 @@ export const blogPosts: BlogPost[] = [
           href="https://www.kaggle.com/code/tuannm3812/biohub-baseline-modeling"
           target="_blank"
           rel="noreferrer"
-          class="flex items-center gap-2 rounded-none border border-slate-200 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-700 transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+          class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-700 transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
           Kaggle Notebook
@@ -338,7 +338,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zero for twelve. The easy read is that the project stalled.</p>
 
       <figure class="not-prose my-10">
-        <div class="rounded-none border border-slate-200 bg-white/60 p-5 dark:border-slate-800 dark:bg-slate-900/40">
+        <div class="rounded-xl border border-slate-200 bg-white/60 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
           <svg viewBox="0 0 940 260" class="w-full" role="img" aria-label="Bar chart of out-of-fold balanced-accuracy gain versus the champion model, for twelve rejected experiments v10 through v23. All twelve stay below the promotion gate line; four are negative regressions; one sits exactly at zero; v23 is the closest miss.">
             <line x1="60" y1="140" x2="920" y2="140" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="1.4"></line>
             <line x1="60" y1="92" x2="920" y2="92" class="stroke-slate-400 dark:stroke-slate-500" stroke-width="1.4" stroke-dasharray="4 3"></line>
@@ -407,9 +407,9 @@ export const blogPosts: BlogPost[] = [
             </g>
           </svg>
           <div class="mt-3 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
-            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-none bg-brand dark:bg-brand-light"></span>positive, still below gate</span>
-            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-none bg-red-500 dark:bg-red-400"></span>regression</span>
-            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-none bg-amber-500 dark:bg-amber-400"></span>closest miss (v23)</span>
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-brand dark:bg-brand-light"></span>positive, still below gate</span>
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-red-500 dark:bg-red-400"></span>regression</span>
+            <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-amber-500 dark:bg-amber-400"></span>closest miss (v23)</span>
             <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-full border-[1.5px] border-slate-500 dark:border-slate-400"></span>exactly zero (v22)</span>
           </div>
         </div>
@@ -449,7 +449,7 @@ export const blogPosts: BlogPost[] = [
           href="https://github.com/tuannm3812/kaggle-predicting-student-health-risk"
           target="_blank"
           rel="noreferrer"
-          class="flex items-center gap-2 rounded-none bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white transition-all hover:-translate-y-0.5 hover:bg-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white"
+          class="flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
           Source Code
@@ -458,7 +458,7 @@ export const blogPosts: BlogPost[] = [
           href="https://www.kaggle.com/code/tuannm3812/student-health-risk-baseline-modeling"
           target="_blank"
           rel="noreferrer"
-          class="flex items-center gap-2 rounded-none border border-slate-200 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-700 transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+          class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-700 transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
           Kaggle Notebook

@@ -36,6 +36,21 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-17 - Claude Code (back to the original look)
+
+- Mike asked to refine the original site rather than restyle it. Restored
+  `main`'s index.html, index.css, Layout, ProjectCard, Home, Experience,
+  Contact, Blog, blog.ts and data/home.tsx; re-applied only the content fixes
+  (Text-to-SQL link, Biohub closed-competition wording).
+- Re-applied Phase 1 in the original style: Selected work = 3-star projects,
+  then origin groups and the Playground table; roles eyebrow and Download
+  Resume on Home. Home featured: BirdCLEF and Airbnb ELT replaced by CircleU
+  and FarmLens (no cover art yet).
+- BirdCLEF and Solana dropped to 2 stars; Solana tagged coursework.
+- `ui-audit` reduced to the static-Firebase rule; docs/12 marked superseded.
+- Verified: `npm run check` (77 tests). Open: flagship cards and previews for
+  the private Terminal-Bench harness and active-fire projects.
+
 ## 2026-11-17 - Claude Code (Phase 1: recruiter front door)
 
 - Home hero: roles kicker and a Download resume button; Get in touch became a

@@ -151,7 +151,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="surface-card relative min-w-0 overflow-hidden p-6">
+      <div className="surface-card relative min-w-0 overflow-hidden p-6 shadow-xl shadow-slate-200/70 dark:shadow-black/20">
         {status === 'success' ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -200,7 +200,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={cn(
-                    'w-full rounded-none border border-slate-300 bg-white px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-950',
+                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
                     errors.name && 'border-red-500',
                   )}
                   placeholder="John Doe"
@@ -222,7 +222,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={cn(
-                    'w-full rounded-none border border-slate-300 bg-white px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-950',
+                    'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
                     errors.email && 'border-red-500',
                   )}
                   placeholder="john@example.com"
@@ -244,7 +244,7 @@ export default function Contact() {
                   rows={4}
                   maxLength={5000}
                   className={cn(
-                    'w-full resize-none rounded-none border border-slate-300 bg-white px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-950',
+                    'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
                     errors.message && 'border-red-500',
                   )}
                   placeholder="How can I help you?"
@@ -257,7 +257,7 @@ export default function Contact() {
               {status === 'queued' ? (
                 <p
                   role="status"
-                  className="flex items-start gap-2 rounded-none border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-800 dark:text-amber-300"
+                  className="flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-800 dark:text-amber-300"
                 >
                   <WifiOff size={16} className="mt-0.5 shrink-0" />
                   You're offline. Your message is saved and will send automatically when you

@@ -1,42 +1,14 @@
-// Mechanical checks for the design guideline (docs/12-design-guideline.md).
-// Each rule here is one that review comments kept repeating; see docs/14.
+// Mechanical checks that hold whatever the visual style (docs/14).
+// The Swiss-index style rules (no shadow, gradient, blur, rounded corners,
+// colour literals) were removed on 2026-11-17 when Mike chose to keep his
+// original look; add a rule here only when review keeps repeating it.
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
 const SRC = 'src';
-const TOKENS_FILE = join(SRC, 'index.css');
 
 // Class names are matched as whole tokens inside className strings and @apply.
 export const RULES = [
-  {
-    id: 'literal-colour',
-    message: 'colour literal outside src/index.css tokens',
-    test: (line, file) =>
-      file !== TOKENS_FILE &&
-      /((?<![&\w])#[0-9a-fA-F]{3,8}\b|rgba?\()/.test(line) &&
-      !/^\s*(\/\/|\*)/.test(line),
-  },
-  {
-    id: 'shadow',
-    message: 'drop shadows are not part of the Swiss look',
-    test: (line) => /(^|[\s'"`:])(dark:|hover:|group-hover:)*shadow(-[\w/[\].-]+)?(?=[\s'"`]|$)/.test(line),
-  },
-  {
-    id: 'gradient',
-    message: 'gradients are not part of the Swiss look',
-    test: (line) => /(bg-gradient-|bg-\[linear-gradient|bg-\[radial-gradient|radial-gradient\(|linear-gradient\()/.test(line),
-  },
-  {
-    id: 'blur',
-    message: 'blur and glass effects are not part of the Swiss look',
-    test: (line) => /(^|[\s'"`:])(backdrop-blur|blur)(-[\w[\].-]+)?(?=[\s'"`]|$)/.test(line),
-  },
-  {
-    id: 'rounded',
-    message: 'corners are square; only rounded-none and rounded-full (avatars, dots) are allowed',
-    test: (line) =>
-      /(^|[\s'"`:])rounded(-(?!none\b|full\b)[\w[\].-]+)?(?=[\s'"`]|$)/.test(line),
-  },
   {
     id: 'static-firebase',
     message: 'static firebase import puts the SDK back on the critical path',

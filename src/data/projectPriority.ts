@@ -7,11 +7,10 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
   CircleU: { score: 98, stars: 3 },
   'AI Meal Planner': { score: 96, stars: 3 },
-  'Bioacoustic Species Classification': { score: 94, stars: 3 },
   'FarmLens: NSW Crop Suitability Explorer': { score: 92, stars: 3 },
   'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 3 },
-  // Origin unknown (not on the Mac); stays flagship until Mike says otherwise.
-  'Solana Price Forecasting': { score: 89, stars: 3 },
+  // Kaggle entry, not a flagship (Mike, 17 Nov).
+  'Bioacoustic Species Classification': { score: 89, stars: 2 },
   'Half-time Briefing: Microsoft x Premier League Hackathon': { score: 86, stars: 2 },
   'Kaggle CSIRO Image2Biomass': { score: 88, stars: 2 },
   'Spatial Brain: UNSW AiSoc Hackathon 2026': { score: 88, stars: 2 },
@@ -28,7 +27,8 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Kaggle NeuroGolf 2026': { score: 82, stars: 2 },
   'UNSW MA Hackathon 2026': { score: 81, stars: 2 },
   'NYC Taxi Databricks': { score: 81, stars: 2 },
-  // Set assignment, not self-initiated: Mike moved it out of flagship 2026-11-16.
+  // Set assignments, not self-initiated: Mike moved them out of flagship 16-17 Nov.
+  'Solana Price Forecasting': { score: 80, stars: 2 },
   'Production-Grade ELT Pipeline': { score: 80, stars: 2 },
   'Airbnb ELT Warehouse': { score: 80, stars: 2 },
   'YouTube Trending Snowflake Lakehouse': { score: 79, stars: 2 },

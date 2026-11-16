@@ -1,5 +1,12 @@
 # Design Guideline
 
+> **Superseded in part, 17 Nov 2026.** Mike chose to keep his original look
+> (Outfit, rounded cards, cover images) and refine it rather than adopt the
+> Swiss index style. The colour, type, corner and shadow rules below describe
+> the Swiss style and do not apply. The content and evidence rules still do.
+> This file will be rewritten around the original look; see
+> [15](15-design-decisions.md).
+
 Status: core standard, 17 November 2026. The "Swiss index" direction Mike chose
 on 16 November 2026, written down so later changes can't drift from it. Modelled
 on the layered rules in `uts-deck-kit` and `deck-kit`.

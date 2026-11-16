@@ -68,16 +68,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="site-backdrop min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-none focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white "
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:shadow-lg"
       >
         Skip to content
       </a>
-
-      <div className="column-grid" aria-hidden="true">
-        {Array.from({ length: 12 }, (_, column) => (
-          <span key={column} className={column >= 4 ? 'hidden md:block' : undefined} />
-        ))}
-      </div>
 
       <AnimatePresence>
         {showStatus && (
@@ -103,7 +97,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </a>
                 <button
                   onClick={() => setIsDismissed(true)}
-                  className="bg-white/20 hover:bg-white/30 px-2 py-1 rounded-none transition-colors"
+                  className="bg-white/20 hover:bg-white/30 px-2 py-1 rounded transition-colors"
                 >
                   Dismiss
                 </button>
@@ -113,16 +107,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-ink bg-paper dark:border-slate-200 dark:bg-paper-dark">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-white/80 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/80 dark:shadow-black/20">
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link
             to="/"
-            className="flex min-w-0 items-center font-display text-lg font-extrabold tracking-tight transition-colors hover:text-brand"
+            className="flex min-w-0 items-center gap-1 text-xl font-black tracking-tighter transition-colors hover:text-brand"
           >
             <span className="truncate">{resumeData.name}</span>
+            <span className="text-brand">.</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/85 p-1 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/75 dark:shadow-black/20">
             {navItems.map((item) => {
               const isActive =
                 location.pathname === item.path ||
@@ -132,10 +127,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    'border-b-2 py-1 text-sm transition-colors',
+                    'rounded-full px-3.5 py-2 text-sm font-bold transition-all',
                     isActive
-                      ? 'border-brand font-semibold text-ink dark:border-brand-light dark:text-white'
-                      : 'border-transparent text-slate-500 hover:text-ink dark:text-slate-400 dark:hover:text-white',
+                      ? 'bg-slate-950 text-white shadow-sm shadow-slate-950/10 dark:bg-white dark:text-slate-950 dark:shadow-white/10'
+                      : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-white',
                   )}
                 >
                   {item.name}
@@ -144,7 +139,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             })}
             <button
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center border border-rule text-slate-600 transition-colors hover:border-ink hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-rule-dark dark:text-slate-300 dark:hover:border-slate-300 dark:hover:text-white"
+              className="ml-1 rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-800 flex items-center justify-center h-9 w-9 focus-visible:outline-none"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -164,7 +159,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex shrink-0 items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="flex h-10 w-10 items-center justify-center overflow-hidden border border-rule p-2 transition-colors hover:border-ink dark:border-rule-dark"
+              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900 flex items-center justify-center h-10 w-10 overflow-hidden"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -181,7 +176,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="border border-rule p-2 transition-colors hover:border-ink dark:border-rule-dark"
+              className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:text-brand dark:border-slate-800 dark:bg-slate-900"
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen}
             >
@@ -196,9 +191,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-rule bg-paper px-4 py-4 dark:border-rule-dark dark:bg-paper-dark"
+              className="md:hidden border-b border-slate-200 bg-white/95 px-4 py-4 shadow-sm backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/95"
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-4">
                 {navItems.map((item) => {
                   const isActive =
                     location.pathname === item.path ||
@@ -208,10 +203,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       key={item.path}
                       to={item.path}
                       className={cn(
-                        'border-b border-rule py-3 font-display text-xl font-bold tracking-tight dark:border-rule-dark',
+                        'rounded-lg px-3 py-2 text-lg font-bold tracking-tight transition-all',
                         isActive
-                          ? 'text-brand dark:text-brand-light'
-                          : 'text-ink hover:text-brand dark:text-slate-100',
+                          ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950'
+                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white',
                       )}
                     >
                       {item.name}
@@ -224,7 +219,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      <main id="main-content" className="relative z-10 pt-24 pb-16 min-h-screen">
+      <main id="main-content" className="pt-24 pb-16 min-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -239,7 +234,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </main>
 
-      <footer className="relative z-10 border-t border-ink bg-paper py-12 transition-colors dark:border-slate-200 dark:bg-paper-dark">
+      <footer className="border-t border-slate-200/80 bg-white/85 py-12 transition-colors dark:border-slate-800/80 dark:bg-slate-950/85">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold">{resumeData.name}</h3>
@@ -252,35 +247,35 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               href={resumeData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="icon-tile transition-colors hover:border-ink hover:text-brand dark:hover:border-slate-300"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={24} />
             </a>
             <a
               href={resumeData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="icon-tile transition-colors hover:border-ink hover:text-brand dark:hover:border-slate-300"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <Github size={24} />
             </a>
             <a
               href={resumeData.kaggle}
               target="_blank"
               rel="noopener noreferrer"
-              className="icon-tile transition-colors hover:border-ink hover:text-brand dark:hover:border-slate-300"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="Kaggle"
             >
-              <BarChart3 size={20} />
+              <BarChart3 size={24} />
             </a>
             <a
               href={`mailto:${resumeData.email}`}
-              className="icon-tile transition-colors hover:border-ink hover:text-brand dark:hover:border-slate-300"
+              className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="Email"
             >
-              <Mail size={20} />
+              <Mail size={24} />
             </a>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">

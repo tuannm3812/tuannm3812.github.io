@@ -5,7 +5,24 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
-## 17 November 2026 — Phase 1 defaults (awaiting confirmation)
+## 17 November 2026 — Keep the original look; flagship is self-initiated work
+
+Mike, after seeing the Swiss index build: refine the original site instead of
+changing so much. He prefers its modern font (Outfit).
+
+- Reverted to the original styling: Outfit, rounded cards, cover images on
+  Home, the original header and footer. Supersedes "Swiss index" (16 Nov).
+- `ui-audit` keeps only the static-Firebase rule; the Swiss style rules are gone.
+- Kept from Phases 0–1, in the original style: origin groups on Projects,
+  Playground Series as one table, a Download Resume button, the roles eyebrow,
+  and the content fixes.
+- Flagship: BirdCLEF is a Kaggle entry; Solana and Airbnb ELT were coursework.
+  None of the three is flagship now.
+- Mike has newer free-scope work to feature, such as the Terminal-Bench agent
+  harness and the active-fire research. He wants slide decks or previews shown
+  for them. Those repos are private, so how they appear is still open.
+
+## 17 November 2026 — Phase 1 defaults (partly superseded above)
 
 Mike said "ok" to Phase 1 without answering the roles and lineup questions, so
 these drafts are live on the branch and easy to change.

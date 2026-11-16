@@ -38,6 +38,7 @@ export const projectOrigin: Record<string, ProjectOrigin> = {
 
   // 1. Study
   'Production-Grade ELT Pipeline': 'coursework',
+  'Solana Price Forecasting': 'coursework',
   'Airbnb ELT Warehouse': 'coursework',
   'FoodLens: Calibrated Food Recognition': 'coursework',
   'NYC Taxi Databricks': 'coursework',
