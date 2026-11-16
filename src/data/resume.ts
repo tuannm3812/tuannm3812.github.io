@@ -206,7 +206,8 @@ export const resumeData: ResumeData = {
     },
     {
       title: 'Gender Equality Policy NLP',
-      category: 'Machine Learning & Kaggle',
+      // Coursework, not a Kaggle competition: the Kaggle category drew a Kaggle badge.
+      category: 'Data Engineering & Analytics',
       github: 'https://github.com/tuannm3812/gender-equality-policy-nlp',
       impact: 'Policy discourse analysis from parliamentary submissions',
       stack: ['NLP', 'TF-IDF', 'LDA', 'K-Means', 'Policy Analytics'],
@@ -240,7 +241,7 @@ export const resumeData: ResumeData = {
     {
       title: 'Enterprise Text-to-SQL Agent',
       category: 'AI Agents & LLM Products',
-      github: 'https://github.com/tuannm3812/aipa-text-to-sql-agent',
+      github: 'https://github.com/tuannm3812/text-to-sql-agent',
       demo: 'https://aipa-text-to-sql-agent.streamlit.app/',
       impact: 'Schema RAG agent with AST-validated SQLite execution sandbox',
       stack: ['Gemini/Ollama', 'Hybrid Schema RAG', 'Streamlit', 'SQLite', 'SQLGlot'],
@@ -275,7 +276,8 @@ export const resumeData: ResumeData = {
     {
       title: 'UTS Tech Festival 2026 GenAI Hackathon',
       category: 'AI Agents & LLM Products',
-      github: 'https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon',
+      // The repo is private, so a source link 404s for visitors. Restore
+      // `github` once uts-techfest-2026-genai-hackathon is made public.
       impact:
         'Solutions for LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite, and Austroads smart intersection',
       stack: [

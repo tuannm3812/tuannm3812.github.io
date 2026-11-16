@@ -57,7 +57,7 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 *Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQLGlot, SQL Safety*
 * Built a **secure schema-RAG Text-to-SQL agent** with query-repair loops, achieving high-fidelity translations without exposing raw client database records to LLM API endpoints.
 * Enforced **database execution safety** using SQLite authorizer controls and SQLGlot AST validation to block malicious prompt injections and unauthorized DDL commands.
-* **GitHub:** [aipa-text-to-sql-agent](https://github.com/tuannm3812/aipa-text-to-sql-agent) | **Live Demo:** [text-to-sql-demo](https://aipa-text-to-sql-agent.streamlit.app/)
+* **GitHub:** [text-to-sql-agent](https://github.com/tuannm3812/text-to-sql-agent) | **Live Demo:** [text-to-sql-demo](https://aipa-text-to-sql-agent.streamlit.app/)
 
 ### NYC Taxi Databricks (Data Engineering / Databricks)
 *PySpark, Databricks Workspace, Delta Lake, Spark SQL, Ridge Regression, Trip Feature Engineering*
