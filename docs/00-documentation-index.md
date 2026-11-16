@@ -27,6 +27,14 @@ and maintenance priorities.
 - [Pending Tasks](11-pending-tasks.md): The running checklist. Open decisions,
   security follow-ups, per-repo sync status, and the steps for adding a new
   project. Start here.
+- [Design Guideline](12-design-guideline.md): Grid, colour roles, type,
+  components, content and evidence rules for the site's look.
+- [UI Patterns](13-ui-patterns.md): Section layouts indexed by the reader
+  question each one answers.
+- [UI Workflow and QA](14-ui-workflow-and-qa.md): The process and checks for any
+  visual change.
+- [Design Decisions](15-design-decisions.md): Dated decisions by Mike about the
+  site's look and content.
 
 ## Working Notes
 

@@ -68,7 +68,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="site-backdrop min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-none focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white "
       >
         Skip to content
       </a>
@@ -103,7 +103,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </a>
                 <button
                   onClick={() => setIsDismissed(true)}
-                  className="bg-white/20 hover:bg-white/30 px-2 py-1 rounded transition-colors"
+                  className="bg-white/20 hover:bg-white/30 px-2 py-1 rounded-none transition-colors"
                 >
                   Dismiss
                 </button>

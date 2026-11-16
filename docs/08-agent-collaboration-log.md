@@ -36,6 +36,40 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-17 - Claude Code (Phase 0: design guideline, ui-audit, content fixes)
+
+**Branch:** `claude/project-thread-6dmp83` (PR #4)
+**Scope:** Phase 0 of the recruiter hub plan. Mike said "start now" without
+answering the open guideline questions, so the recommended defaults are used
+and recorded as awaiting confirmation in `docs/15-design-decisions.md`.
+
+**Changed**
+- New docs: `12-design-guideline.md`, `13-ui-patterns.md`,
+  `14-ui-workflow-and-qa.md`, `15-design-decisions.md`,
+  `working/ui-lessons/README.md`; index and `AGENTS.md` point to them.
+- `scripts/ui-audit.mjs` (+5 tests), chained into `npm run check`: colour
+  literals outside `index.css`, shadows, gradients, blur, non-square corners,
+  static Firebase imports outside the lazy routes. Fixed the 33 findings it
+  raised (blog article HTML, error panels, skip link, inputs); removed the
+  unused `.expertise-band` gradient.
+- Cherry-picked `ed4ba69` (FarmLens and Half-time Briefing card copy). The
+  cards themselves appear on the next sync run on `main`; the sync could not
+  run from this container (GitHub API 401).
+- UTS TechFest card: source link removed while the repo is private. Text-to-SQL
+  links updated to the renamed `text-to-sql-agent`. Gender Equality Policy NLP
+  moved out of the Kaggle category (it drew a Kaggle badge).
+
+**Verified**
+- `npm run check`: ui-audit 0 findings, 74 tests, build OK.
+- 24-shot matrix (6 routes x light/dark x 1440/390) in the shared folder
+  `portfolio-redesign/phase0/`.
+
+**Open / Handoff**
+- `public/assets/tuan-nguyen-resume.pdf` still shows the old Text-to-SQL URL
+  (GitHub redirects it); regenerate from `scripts/resume/resume.html` on the Mac.
+- The Contact page shows a phone number although the PDF omits it on purpose.
+  Left as is; Mike to decide.
+
 ## 2026-11-16 - Claude Code (UI redesign: "Swiss index")
 
 **Branch:** `claude/project-thread-6dmp83`

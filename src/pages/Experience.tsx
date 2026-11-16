@@ -148,7 +148,7 @@ export default function Experience() {
                 {stack.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="rounded bg-slate-100/60 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors hover:bg-brand/10 hover:text-brand dark:bg-slate-900/65 dark:text-slate-400 dark:hover:text-brand"
+                    className="rounded-none bg-slate-100/60 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors hover:bg-brand/10 hover:text-brand dark:bg-slate-900/65 dark:text-slate-400 dark:hover:text-brand"
                   >
                     {tool}
                   </span>

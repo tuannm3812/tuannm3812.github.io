@@ -36,7 +36,7 @@ export default class ErrorBoundary extends Component<Props, State> {
           </div>
           <button
             onClick={() => window.location.reload()}
-            className="flex items-center gap-2 px-6 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-bold hover:opacity-90 transition-all cursor-pointer"
+            className="flex items-center gap-2 px-6 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-none font-bold hover:opacity-90 transition-all cursor-pointer"
           >
             <RefreshCw size={18} />
             Reload Page
