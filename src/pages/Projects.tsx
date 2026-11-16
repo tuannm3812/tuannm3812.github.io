@@ -43,11 +43,13 @@ export default function Projects() {
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
-        <p className="section-eyebrow">Portfolio evidence</p>
-        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-          Technical <span className="text-brand">Projects</span>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand dark:text-brand-light">
+          Portfolio evidence
+        </p>
+        <h1 className="text-5xl font-black leading-[0.95] tracking-[-0.03em] md:text-6xl">
+          Projects
         </h1>
-        <p className="text-lg text-slate-500 dark:text-slate-400">
+        <p className="max-w-[60ch] text-lg text-slate-700 dark:text-slate-300">
           Public work across AI agents, deep learning, data engineering, Kaggle competitions, and
           deployed ML systems.
         </p>
@@ -55,20 +57,21 @@ export default function Projects() {
 
       <div className="flex flex-col gap-4">
         <div className="-mx-4 flex overflow-x-auto px-4 pb-2 scrollbar-none md:mx-0 md:px-0">
-          <div className="flex gap-1.5 rounded-full border border-slate-200/50 bg-slate-100/60 p-1 backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-900/60">
+          <div className="flex gap-5 border-b border-rule dark:border-rule-dark">
             {categories.map((category) => {
               const isActive = activeCategory === category;
               return (
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
-                  className="relative cursor-pointer select-none whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  aria-pressed={isActive}
+                  className="relative -mb-px cursor-pointer select-none whitespace-nowrap py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                   style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="active-project-pill"
-                      className="absolute inset-0 rounded-full bg-slate-950 shadow-sm dark:bg-white"
+                      className="absolute inset-x-0 bottom-0 h-0.5 bg-brand dark:bg-brand-light"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -76,8 +79,8 @@ export default function Projects() {
                     className={cn(
                       'relative z-10 transition-colors duration-200',
                       isActive
-                        ? 'text-white dark:text-slate-950'
-                        : 'text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white',
+                        ? 'font-semibold text-ink dark:text-white'
+                        : 'text-slate-500 hover:text-ink dark:text-slate-400 dark:hover:text-white',
                     )}
                   >
                     {category}
@@ -95,11 +98,11 @@ export default function Projects() {
             className="flex items-center gap-2 text-xs font-medium"
           >
             <span className="text-slate-500">Filtered by technology:</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/10 px-3 py-1 font-bold text-brand">
+            <span className="inline-flex items-center gap-1.5 border border-brand px-2 py-0.5 font-mono text-brand dark:border-brand-light dark:text-brand-light">
               {selectedTag}
               <button
                 onClick={() => setSelectedTag(null)}
-                className="cursor-pointer rounded-full p-0.5 hover:bg-brand/15"
+                className="cursor-pointer p-0.5 hover:bg-brand/15"
                 aria-label="Clear technology filter"
               >
                 <X size={11} />
@@ -111,16 +114,22 @@ export default function Projects() {
 
       {featuredProjects.length > 0 && (
         <section className="space-y-4">
-          <div className="flex items-baseline justify-between gap-4">
+          <div className="index-heading">
             <h2 className="section-eyebrow">Flagship work</h2>
-            <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
+            <span className="text-xs text-slate-500 dark:text-slate-400">
               Ranked · {featuredProjects.length} of {filteredProjects.length}
             </span>
           </div>
           <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
+              {featuredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  rank={index + 1}
+                  className={index === 0 ? 'md:col-span-2 lg:col-span-3' : ''}
+                  onTagClick={setSelectedTag}
+                />
               ))}
             </AnimatePresence>
           </motion.div>
@@ -129,9 +138,12 @@ export default function Projects() {
 
       <section className="space-y-4">
         {featuredProjects.length > 0 && (
-          <h2 className="section-eyebrow border-t border-slate-200/70 pt-8 dark:border-slate-800/70">
-            More projects
-          </h2>
+          <div className="index-heading mt-6">
+            <h2 className="section-eyebrow">More projects</h2>
+            <span className="text-xs text-slate-500 dark:text-slate-400">
+              {restProjects.length} more
+            </span>
+          </div>
         )}
         <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">

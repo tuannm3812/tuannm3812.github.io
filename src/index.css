@@ -3,16 +3,26 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+ * "Swiss index" direction (chosen 2026-11): paper white, near-black type, the
+ * brand blue as the only accent, a grotesk display face, hairline rules and a
+ * visible column grid. No gradients, glow or glass.
+ */
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Archivo', 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   --color-brand: #0540f2;
-  --color-brand-light: #056cf2;
+  --color-brand-light: #5b84ff;
   --color-brand-dark: #1e1b4b;
   --color-brand-bg: #f2f2f2;
-  --color-ink: #0f172a;
+  --color-ink: #101114;
   --color-muted: #64748b;
+  --color-paper: #fbfbfa;
+  --color-paper-dark: #0e0f11;
+  --color-rule: #e3e3e0;
+  --color-rule-dark: #24262b;
 }
 
 @layer base {
@@ -22,6 +32,15 @@
 
   body {
     min-width: 320px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   /* Clean outline styles for accessibility and minimal bold styling */
@@ -36,18 +55,25 @@
 
 @layer utilities {
   .site-backdrop {
-    background-image:
-      linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
-    background-color: #fafafa;
-    background-size: 40px 40px;
+    background-color: var(--color-paper);
   }
 
   .dark .site-backdrop {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-color: #0b0f19;
+    background-color: var(--color-paper-dark);
+  }
+
+  /* The column grid drawn behind the page: 4 columns on phones, 12 from md up. */
+  .column-grid {
+    @apply pointer-events-none fixed inset-0 z-0 mx-auto grid max-w-7xl grid-cols-4 px-4 md:grid-cols-12;
+  }
+  .column-grid > span {
+    border-left: 1px solid rgb(16 17 20 / 0.045);
+  }
+  .dark .column-grid > span {
+    border-color: rgb(255 255 255 / 0.04);
+  }
+  .column-grid > span:last-child {
+    border-right: 1px solid rgb(16 17 20 / 0.045);
   }
 
   .expertise-band {
@@ -57,35 +83,44 @@
 
 @layer components {
   .section-eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.22em] text-brand;
+    @apply font-display text-xs font-bold uppercase tracking-[0.16em] text-ink dark:text-slate-100;
+  }
+
+  /* Ruled section label: ink rule above, label left, a quiet note right. */
+  .index-heading {
+    @apply flex items-baseline justify-between gap-4 border-t border-ink pt-3 dark:border-slate-200;
   }
 
   .surface-card {
-    @apply rounded-lg border border-slate-200/80 bg-white/95 shadow-sm shadow-slate-200/60 transition-all dark:border-slate-800/80 dark:bg-slate-900/90 dark:shadow-black/10;
+    @apply rounded-none border border-rule bg-paper transition-colors dark:border-rule-dark dark:bg-paper-dark;
   }
 
   .surface-card-hover {
-    @apply hover:-translate-y-0.5 hover:border-brand/50 hover:shadow-md hover:shadow-slate-300/40 dark:hover:shadow-black/25;
+    @apply hover:border-ink dark:hover:border-slate-300;
   }
 
   .soft-panel {
-    @apply rounded-lg border border-slate-200/70 bg-slate-50/80 dark:border-slate-800/70 dark:bg-slate-950/45;
+    @apply rounded-none border border-rule bg-white dark:border-rule-dark dark:bg-slate-950/40;
   }
 
   .icon-tile {
-    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-white text-brand shadow-sm dark:border-slate-800 dark:bg-slate-950;
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-none border border-rule bg-paper text-ink dark:border-rule-dark dark:bg-paper-dark dark:text-slate-100;
   }
 
   .brand-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand/15 bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand;
+    @apply inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-brand dark:text-brand-light;
+  }
+
+  .tech-tag {
+    @apply rounded-none border border-rule px-2 py-0.5 font-mono text-[11px] text-slate-600 dark:border-rule-dark dark:text-slate-400;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:bg-white dark:text-slate-950 dark:hover:bg-brand dark:hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-ink px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:bg-slate-100 dark:text-ink dark:hover:bg-brand-light;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand/50 hover:text-brand hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-none border border-ink bg-transparent px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:border-slate-200 dark:text-slate-100 dark:hover:bg-slate-100 dark:hover:text-ink;
   }
 
   /* Custom scrollbars */
@@ -110,11 +145,6 @@
     background: #475569;
   }
 
-  /* Glow effects */
-  .text-glow {
-    text-shadow: 0 0 24px rgba(5, 64, 242, 0.2);
-  }
-
   /* Long-form blog article body (Tailwind Typography, tinted to brand) */
   .blog-article {
     @apply prose prose-slate max-w-none text-base leading-relaxed md:text-lg dark:prose-invert;
@@ -127,4 +157,10 @@
     --tw-prose-invert-quotes: #f1f5f9;
     --tw-prose-invert-quote-borders: var(--color-brand-light);
   }
+}
+
+/* Unlayered so it beats the text-brand utility: the brand blue is too dark to
+   read on the dark paper, so dark mode swaps in the lighter tint. */
+.dark .text-brand {
+  color: var(--color-brand-light);
 }

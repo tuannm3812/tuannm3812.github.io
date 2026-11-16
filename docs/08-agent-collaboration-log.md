@@ -36,6 +36,43 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-16 - Claude Code (UI redesign: "Swiss index")
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Mike was shown three hero mocks (Swiss index, Notebook, Model card)
+after rejecting "Aurora" (PR #2) in October. He picked **Swiss index**. This
+branch applies it across the site and puts flagship projects first.
+
+**Changed**
+- `src/index.css`: paper white / near-black palette, brand blue as the only
+  accent (a lighter tint in dark mode), Archivo display + Inter body, square
+  corners, hairline rules, no shadows/glow. New `index-heading`, `tech-tag` and
+  `column-grid` classes. Headings use the display face globally.
+- `index.html`: fonts swapped from Outfit to Archivo + Inter.
+- `Layout.tsx`: faint 12-column grid behind the page (4 on phones), ruled
+  header with underlined text nav, ruled footer.
+- `Home.tsx`: rebuilt. Hero with grayscale portrait, highlights row (the
+  project count is computed live, not the hand-typed `30` in `resume.ts`),
+  a ranked index of every 3-star project, "How I work". Cover-image cards and
+  `focusAreas`/`featuredProjects` data are gone; `src/data/home.tsx` became
+  `home.ts`. Cover images remain in `public/assets/projects/`, unused.
+- `lib/projects.ts`: `splitFlagshipProjects()` (+ tests). Projects page shows
+  all 3-star projects first (#1 full width), the rest collapsed to 6 with a
+  "Show all" button. Filters still give a flat grid.
+- `ProjectCard.tsx`: flat card, rank number, ink stars, text links.
+- Experience/Contact/Blog: rounded chips, blue rails and shadows replaced.
+
+**Verified**
+- `npm run check` passes (68 tests, build OK).
+- Headless Chromium screenshots of every page, light/dark, 1440px and 390px.
+  Shared folder: `portfolio-redesign/swiss-*.png`.
+
+**Open / Handoff**
+- Not fixed here (content): weekly sync red since 7 Oct (FarmLens and
+  Half-time Briefing copy is on branch `claude/project-thread-cj73bg`), and the
+  UTS TechFest card links a private repo.
+- Blog and Contact got only the shared restyle, not a bespoke pass.
+
 ## 2026-10-07 - Claude Code (Codex 2026-09-23 fixes, batch 3: findings 7, 3)
 
 **Branch:** `main`

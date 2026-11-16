@@ -310,7 +310,7 @@ export default function Blog() {
                     value={newComment}
                     onChange={(e) => handleCommentChange(e.target.value)}
                     disabled={isSubmitting}
-                    className="w-full resize-none rounded-lg border border-slate-100 bg-slate-50 p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-slate-800 dark:bg-slate-950"
+                    className="w-full resize-none rounded-none border border-slate-300 bg-white p-4 focus:outline-none focus:ring-2 focus:ring-brand dark:border-slate-800 dark:bg-slate-950"
                     placeholder="Share your thoughts..."
                     rows={3}
                     maxLength={2000}

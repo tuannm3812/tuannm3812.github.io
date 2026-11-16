@@ -77,12 +77,12 @@ export default function Experience() {
               className="relative"
             >
               {/* Timeline Dot */}
-              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-100 dark:border-slate-950" />
+              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-3 h-3 bg-ink dark:bg-slate-200" />
 
               <div className="surface-card surface-card-hover space-y-3 p-5">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                   <h3 className="text-xl font-bold">{exp.role}</h3>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-400">
+                  <span className="inline-flex items-center gap-2 font-mono text-xs text-slate-600 dark:text-slate-800/70 dark:text-slate-400">
                     <Calendar size={14} />
                     {exp.period}
                   </span>
@@ -103,7 +103,7 @@ export default function Experience() {
                       key={i}
                       className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex gap-2"
                     >
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
+                      <span className="mt-[0.6rem] h-px w-2.5 bg-slate-400 flex-shrink-0" />
                       {point}
                     </li>
                   ))}
@@ -175,7 +175,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="soft-panel border-l-4 border-l-brand p-5 space-y-3"
+              className="soft-panel border-t-2 border-t-ink dark:border-t-slate-200 p-5 space-y-3"
             >
               <div className="space-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
@@ -234,7 +234,7 @@ export default function Experience() {
               <ul className="space-y-2">
                 {edu.points.map((point, i) => (
                   <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex gap-2">
-                    <span className="mt-1 w-1 h-1 rounded-full bg-brand flex-shrink-0" />
+                    <span className="mt-2 h-px w-2 bg-slate-400 flex-shrink-0" />
                     {point}
                   </li>
                 ))}

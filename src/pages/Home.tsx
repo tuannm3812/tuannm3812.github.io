@@ -1,282 +1,162 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink, MapPin } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { resumeData } from '../data/resume';
-import { focusAreas, featuredProjects, workingStyle } from '../data/home';
+import { workingStyle } from '../data/home';
+import { getPortfolioProjects, splitFlagshipProjects } from '../lib/projects';
 
-function FocusAreaCard({ title, desc }: { title: string; desc: string }) {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [hovering, setHovering] = useState(false);
+const pad = (n: number) => String(n).padStart(2, '0');
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
-      className="relative soft-panel p-4 overflow-hidden transition-all duration-300 hover:border-brand/45 hover:-translate-y-0.5"
-    >
-      {hovering && (
-        <div
-          className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(120px circle at ${coords.x}px ${coords.y}px, rgba(5, 64, 242, 0.08), transparent 80%)`,
-          }}
-        />
-      )}
-      <span className="relative z-10 block text-sm font-black text-slate-950 dark:text-white">
-        {title}
-      </span>
-      <span className="relative z-10 mt-1 block text-xs font-semibold leading-snug text-slate-600 dark:text-slate-400">
-        {desc}
-      </span>
-    </div>
-  );
-}
-
-function WorkingStyleCard({
-  icon,
-  title,
-  desc,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-}) {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [hovering, setHovering] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
-      className="surface-card p-5 relative overflow-hidden transition-transform duration-300 hover:-translate-y-0.5"
-    >
-      {hovering && (
-        <div
-          className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(200px circle at ${coords.x}px ${coords.y}px, rgba(5, 64, 242, 0.045), transparent 80%)`,
-          }}
-        />
-      )}
-      <div className="relative z-10 flex items-start gap-3">
-        <div className="icon-tile h-9 w-9">{icon}</div>
-        <div>
-          <h3 className="font-bold">{title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{desc}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProjectCover({
-  icon,
-  title,
-  category,
-  coverImage,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  category: string;
-  coverImage?: string;
-}) {
-  return (
-    <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-950 dark:border-slate-800">
-      {coverImage ? (
-        <>
-          <img
-            src={coverImage}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-slate-950/20" />
-        </>
-      ) : (
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(14,165,233,0.22),rgba(15,23,42,0)_45%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,26px_26px,26px_26px]" />
-      )}
-      <div className="relative flex h-full flex-col justify-between p-5 text-white">
-        <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-sky-200">
-          {icon}
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-200">{category}</p>
-          <p className="mt-1 text-sm font-black">{title}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+// resume.ts carries a hand-typed project count for the PDF resume; on the site
+// the live count is shown instead so it always matches the Projects page.
+const PROJECT_COUNT_LABEL = 'Technical projects across ML, data, and AI';
 
 export default function Home() {
-  return (
-    <div className="space-y-14">
-      <section className="grid min-h-[62vh] min-w-0 items-center gap-10 py-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="min-w-0 space-y-6"
-        >
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <span className="section-eyebrow">AI, ML, and data engineering</span>
-            <span className="hidden h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700 sm:block" />
-            <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
-              <MapPin size={16} />
-              {resumeData.location}
-            </span>
-          </div>
+  const allProjects = getPortfolioProjects();
+  const { flagship } = splitFlagshipProjects(allProjects);
 
-          <h1 className="max-w-4xl break-words text-3xl font-black leading-[0.98] tracking-tight sm:text-5xl md:text-6xl xl:text-7xl">
-            Reliable AI systems from messy data.
+  return (
+    <div className="space-y-16 md:space-y-20">
+      <section className="grid min-w-0 gap-10 pt-6 md:grid-cols-12 md:gap-8 md:pt-10">
+        <div className="min-w-0 space-y-7 md:col-span-8">
+          <p className="flex flex-wrap gap-x-5 gap-y-1 text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+            <span className="font-semibold text-brand dark:text-brand-light">
+              AI · ML · Data engineering
+            </span>
+            <span>{resumeData.location}</span>
+          </p>
+
+          <h1 className="break-words text-5xl font-black leading-[0.92] tracking-[-0.035em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            Reliable AI systems from <span className="text-brand">messy data.</span>
           </h1>
 
-          <p className="max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg md:text-xl">
+          <p className="max-w-[46ch] text-lg leading-relaxed text-slate-700 dark:text-slate-300">
             I build applied AI agents, deployable ML prototypes, and data pipelines that are easy to
             inspect, rerun, and trust.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             <Link to="/projects" className="btn-primary group">
-              View Projects
-              <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+              View projects
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link to="/contact" className="btn-secondary">
-              Get in Touch
+              Get in touch
             </Link>
           </div>
+        </div>
 
-          <div className="grid gap-3 sm:grid-cols-3">
-            {focusAreas.map((area) => (
-              <FocusAreaCard key={area.title} title={area.title} desc={area.desc} />
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 }}
-          className="min-w-0"
-        >
-          <div className="surface-card relative w-full max-w-full overflow-hidden shadow-xl shadow-slate-300/40 dark:shadow-black/30">
-            <picture>
-              <source srcSet="/assets/tuan-profile.webp" type="image/webp" />
-              <img
-                src="/assets/tuan-profile.jpg"
-                alt="Tuan Nguyen looking across the water toward a city skyline"
-                width={1200}
-                height={1600}
-                fetchPriority="high"
-                className="h-[340px] w-full object-cover object-[42%_72%] md:h-[430px]"
-              />
-            </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-sky-200">
-                Sydney-based builder
-              </p>
-              <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-200">
-                Business context, clean data foundations, and production-minded AI delivery.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+        <figure className="min-w-0 space-y-2 self-end md:col-span-4">
+          <picture>
+            <source srcSet="/assets/tuan-profile.webp" type="image/webp" />
+            <img
+              src="/assets/tuan-profile.jpg"
+              alt="Tuan Nguyen looking across the water toward a city skyline"
+              width={1200}
+              height={1600}
+              fetchPriority="high"
+              className="aspect-[4/5] w-full object-cover object-[42%_60%] grayscale contrast-[1.05]"
+            />
+          </picture>
+          <figcaption className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+            Fig. 1 — {resumeData.location}
+          </figcaption>
+        </figure>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl space-y-3">
-            <p className="section-eyebrow">Featured projects</p>
-            <h2 className="text-3xl font-black tracking-tight md:text-4xl">
-              Flagship technical work.
-            </h2>
-            <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400 md:text-lg">
-              Selected large-scale builds across enterprise AI, AI product engineering, deep
-              learning research, and production-grade data architecture.
-            </p>
-          </div>
-          <Link to="/projects" className="btn-secondary w-fit">
-            Browse all projects
+      <section
+        aria-label="Highlights"
+        className="grid grid-cols-2 border-y border-ink md:grid-cols-4 dark:border-slate-200"
+      >
+        {resumeData.highlights
+          .map((item) =>
+            item.label === PROJECT_COUNT_LABEL
+              ? { ...item, value: String(allProjects.length) }
+              : item,
+          )
+          .map((item, index) => (
+            <div
+              key={item.label}
+              className={
+                'border-rule py-4 pr-3 dark:border-rule-dark ' +
+                (index % 2 === 1 ? 'border-l pl-4 ' : '') +
+                (index >= 2 ? 'border-t md:border-t-0 ' : '') +
+                (index === 2 ? 'md:border-l md:pl-4' : '')
+              }
+            >
+              <p className="font-display text-3xl font-extrabold leading-none tracking-tight">
+                {item.value}
+              </p>
+              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{item.label}</p>
+            </div>
+          ))}
+      </section>
+
+      <section className="space-y-2">
+        <div className="index-heading">
+          <h2 className="section-eyebrow">Flagship work</h2>
+          <span className="text-xs text-slate-500 dark:text-slate-400">
+            Ranked · {flagship.length} of {allProjects.length}
+          </span>
+        </div>
+
+        <ol className="divide-y divide-rule dark:divide-rule-dark">
+          {flagship.map((project, index) => {
+            const href = project.demo || project.github;
+            const body = (
+              <>
+                <span className="font-mono text-xs text-slate-500 md:col-span-1 md:pt-1.5 dark:text-slate-400">
+                  {pad(index + 1)}
+                </span>
+                <span className="font-display text-xl font-bold leading-tight tracking-tight transition-colors group-hover:text-brand md:col-span-4 md:text-2xl dark:group-hover:text-brand-light">
+                  {project.title}
+                </span>
+                <span className="text-sm leading-relaxed text-slate-700 md:col-span-4 md:pt-1 dark:text-slate-300">
+                  {project.impact}
+                </span>
+                <span className="flex items-start justify-between gap-3 font-mono text-[11px] text-slate-500 md:col-span-3 md:justify-end md:pt-1.5 md:text-right dark:text-slate-400">
+                  {project.stack.slice(0, 2).join(' · ')}
+                  {href && <ArrowUpRight size={14} className="shrink-0 group-hover:text-brand" />}
+                </span>
+              </>
+            );
+            const rowClass =
+              'group grid grid-cols-[2.5rem_1fr] gap-x-3 gap-y-1 py-4 md:grid-cols-12 md:gap-x-6 [&>*:nth-child(n+3)]:col-start-2 md:[&>*:nth-child(n+3)]:col-start-auto';
+            return (
+              <li key={project.title}>
+                {href ? (
+                  <a href={href} target="_blank" rel="noreferrer" className={rowClass}>
+                    {body}
+                  </a>
+                ) : (
+                  <div className={rowClass}>{body}</div>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+
+        <div className="pt-4">
+          <Link to="/projects" className="btn-secondary">
+            Browse all {allProjects.length} projects
             <ArrowRight size={18} />
           </Link>
         </div>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <motion.a
-              key={project.title}
-              href={project.href}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="surface-card surface-card-hover group flex min-h-full flex-col gap-5 p-5"
-            >
-              <ProjectCover
-                icon={project.icon}
-                title={project.title}
-                category={project.category}
-                coverImage={project.coverImage}
-              />
-
-              <div className="flex flex-1 flex-col justify-between gap-5">
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="brand-pill">{project.category}</span>
-                    <ExternalLink
-                      size={18}
-                      className="text-slate-400 transition-colors group-hover:text-brand"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-black tracking-tight transition-colors group-hover:text-brand">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {project.outcome}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 dark:border-slate-800">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono text-[10px] font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {workingStyle.map((item) => (
-          <WorkingStyleCard key={item.title} icon={item.icon} title={item.title} desc={item.desc} />
-        ))}
+      <section className="space-y-6">
+        <div className="index-heading">
+          <h2 className="section-eyebrow">How I work</h2>
+        </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {workingStyle.map((item) => (
+            <div key={item.title} className="space-y-2">
+              <h3 className="text-lg font-bold">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
