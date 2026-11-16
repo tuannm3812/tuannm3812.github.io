@@ -29,3 +29,20 @@ export function getPortfolioProjects() {
       a.title.localeCompare(b.title),
   );
 }
+
+/** Stars a project needs in projectPriority.ts to lead the Projects page. */
+export const FLAGSHIP_STARS = 3;
+
+/**
+ * Splits a ranked project list into flagship work (every 3-star entry in
+ * projectPriority.ts, in rank order) and the rest. Rank order is preserved on
+ * both sides, so the caller can pass an already-sorted list straight through.
+ */
+export function splitFlagshipProjects<T extends Pick<Project, 'title'>>(projects: T[]) {
+  const flagship: T[] = [];
+  const archive: T[] = [];
+  for (const project of projects) {
+    (getProjectRank(project.title).stars >= FLAGSHIP_STARS ? flagship : archive).push(project);
+  }
+  return { flagship, archive };
+}

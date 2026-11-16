@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 import { cn } from '../lib/utils';
 import ProjectCard from '../components/ProjectCard';
-import { getPortfolioProjects } from '../lib/projects';
+import { getPortfolioProjects, splitFlagshipProjects } from '../lib/projects';
 
-// The unfiltered grid runs to ~35 cards of equal visual weight, which buries the
-// strongest work. With no filter applied the list is split so the top-ranked
-// projects get their own band; any active filter falls back to a single flat grid.
-const FEATURED_COUNT = 6;
+// The unfiltered grid runs to ~45 cards of equal visual weight, which buries the
+// strongest work. With no filter applied, every 3-star project in
+// projectPriority.ts gets its own band and the rest collapse to a short preview;
+// any active filter falls back to a single flat grid of every match.
+const ARCHIVE_PREVIEW_COUNT = 6;
 
 export default function Projects() {
   const projects = getPortfolioProjects();
@@ -16,6 +17,7 @@ export default function Projects() {
   const categories = ['All', ...Array.from(new Set(projects.map((project) => project.category)))];
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [showAllArchive, setShowAllArchive] = useState(false);
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -29,8 +31,14 @@ export default function Projects() {
   });
 
   const isFiltered = activeCategory !== 'All' || Boolean(selectedTag);
-  const featuredProjects = isFiltered ? [] : filteredProjects.slice(0, FEATURED_COUNT);
-  const remainingProjects = isFiltered ? filteredProjects : filteredProjects.slice(FEATURED_COUNT);
+  const { flagship, archive } = splitFlagshipProjects(filteredProjects);
+  const featuredProjects = isFiltered ? [] : flagship;
+  const restProjects = isFiltered ? filteredProjects : archive;
+  const isArchiveCollapsed =
+    !isFiltered && !showAllArchive && restProjects.length > ARCHIVE_PREVIEW_COUNT;
+  const remainingProjects = isArchiveCollapsed
+    ? restProjects.slice(0, ARCHIVE_PREVIEW_COUNT)
+    : restProjects;
 
   return (
     <div className="space-y-8 pb-24">
@@ -104,9 +112,9 @@ export default function Projects() {
       {featuredProjects.length > 0 && (
         <section className="space-y-4">
           <div className="flex items-baseline justify-between gap-4">
-            <h2 className="section-eyebrow">Selected work</h2>
+            <h2 className="section-eyebrow">Flagship work</h2>
             <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
-              Strongest {featuredProjects.length} of {filteredProjects.length}
+              Ranked · {featuredProjects.length} of {filteredProjects.length}
             </span>
           </div>
           <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -132,6 +140,13 @@ export default function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
+        {isArchiveCollapsed && (
+          <div className="flex justify-center pt-2">
+            <button type="button" onClick={() => setShowAllArchive(true)} className="btn-secondary">
+              Show all {restProjects.length} projects
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );
