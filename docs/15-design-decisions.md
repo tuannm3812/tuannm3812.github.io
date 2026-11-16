@@ -5,6 +5,23 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 17 November 2026 — Phase 1 defaults (awaiting confirmation)
+
+Mike said "ok" to Phase 1 without answering the roles and lineup questions, so
+these drafts are live on the branch and easy to change.
+
+- Hero roles line: "Applied AI Engineer · ML Engineer · Data Engineer". Work
+  rights are left out until Mike gives the wording.
+- Flagship order: Text-to-SQL, CircleU, AI Meal Planner, BirdCLEF, FarmLens
+  (shows once its card syncs), UTS TechFest, Solana. Airbnb ELT drops to the
+  Coursework group, per Mike on 16 Nov.
+- Origin comes from the Mac folders. Text-to-SQL and Meal Planner sit in
+  "1. Study" but count as self-initiated because their topics were free.
+  Repos not on the Mac (Solana, Sydney Rainfall, TikTok Semantic, AfriWeave,
+  Apple Foundation Agent, VisionVoice, Flickr8k, YouTube Snowflake) show under
+  "Other projects" until Mike says where they came from.
+- Playground Series episodes are one table, not seven cards.
+
 ## 17 November 2026 — Phase 0 defaults (awaiting confirmation)
 
 Mike said "start now" on the recruiter hub plan without answering the open

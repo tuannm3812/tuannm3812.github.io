@@ -36,6 +36,22 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-17 - Claude Code (Phase 1: recruiter front door)
+
+- Home hero: roles kicker and a Download resume button; Get in touch became a
+  text link.
+- New `src/data/projectOrigin.ts` (title -> personal / hackathon / kaggle /
+  coursework; unmapped -> kaggle by name, else other). `groupProjectsByOrigin`
+  and `getPlaygroundEpisode` in `src/lib/projects.ts`, with tests.
+- Projects page: flagship band, then origin groups with per-group previews;
+  Playground S6 episodes render as one table. Filters still show a flat grid.
+- `projectPriority.ts`: Airbnb ELT to 2 stars; FarmLens to 3 stars (card
+  appears after the next sync). Flagship test now ignores titles with no card.
+- Verified: `npm run check` (79 tests, ui-audit 0), screenshot matrix in
+  project files `portfolio-redesign/phase1/`.
+- Open: Mike to confirm roles line, work rights, lineup and the eight
+  "Other" origins; resume PDF still needs regenerating on the Mac.
+
 ## 2026-11-17 - Claude Code (Phase 0: design guideline, ui-audit, content fixes)
 
 **Branch:** `claude/project-thread-6dmp83` (PR #4)

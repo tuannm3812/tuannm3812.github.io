@@ -15,9 +15,9 @@ implementation yet; see the recruiter hub plan for when they land.
 | What can he do technically? | Skill matrix | Tags grouped by area | Experience |
 | What does he think about? | Article list and article | Title, date, reading time; long-form body in the typography style | Blog |
 | How do I reach him? | Contact form | Labelled fields, one primary button, plain status messages | Contact |
-| *planned:* Which roles does he fit? | Roles line | Target roles, location and work rights, resume button | Home hero |
+| Which roles does he fit? | Roles line | Target roles and location in the hero kicker, a Download resume button beside View projects (work rights pending) | Home hero |
 | *planned:* What did a flagship project achieve? | Case study | Summary strip, problem, approach diagram, results with sourced numbers, demo, deck, limits | `/projects/<name>` |
-| *planned:* Where did the work come from? | Origin groups | Personal, Hackathons, Kaggle (featured, simulation, Playground as one entry), Coursework | Projects |
+| Where did the work come from? | Origin groups | Flagship band, then Self-initiated, Hackathons & events, Kaggle (cards, then Playground Series as one ruled table), Other, Coursework; each group previews a few cards. Origins live in `src/data/projectOrigin.ts` | Projects |
 | *planned:* Is he active now? | Notes and results strip | Short posts from LinkedIn with date and link back; a ruled row of placings | Blog, Home |
 
 ## Adding a pattern

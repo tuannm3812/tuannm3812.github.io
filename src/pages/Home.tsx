@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Download } from 'lucide-react';
 import { resumeData } from '../data/resume';
 import { workingStyle } from '../data/home';
 import { getPortfolioProjects, splitFlagshipProjects } from '../lib/projects';
@@ -20,7 +20,7 @@ export default function Home() {
         <div className="min-w-0 space-y-7 md:col-span-8">
           <p className="flex flex-wrap gap-x-5 gap-y-1 text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
             <span className="font-semibold text-brand dark:text-brand-light">
-              AI · ML · Data engineering
+              Applied AI Engineer · ML Engineer · Data Engineer
             </span>
             <span>{resumeData.location}</span>
           </p>
@@ -39,7 +39,14 @@ export default function Home() {
               View projects
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link to="/contact" className="btn-secondary">
+            <a href="/assets/tuan-nguyen-resume.pdf" download className="btn-secondary">
+              <Download size={18} aria-hidden="true" />
+              Download resume
+            </a>
+            <Link
+              to="/contact"
+              className="self-center px-2 text-sm font-medium underline decoration-rule underline-offset-4 hover:text-brand hover:decoration-brand dark:decoration-rule-dark dark:hover:text-brand-light"
+            >
               Get in touch
             </Link>
           </div>

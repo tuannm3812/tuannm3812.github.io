@@ -1,15 +1,78 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 import { cn } from '../lib/utils';
 import ProjectCard from '../components/ProjectCard';
-import { getPortfolioProjects, splitFlagshipProjects } from '../lib/projects';
+import {
+  ORIGIN_SECTIONS,
+  getPlaygroundEpisode,
+  getPortfolioProjects,
+  groupProjectsByOrigin,
+  splitFlagshipProjects,
+} from '../lib/projects';
+import type { ProjectOrigin } from '../data/projectOrigin';
+import type { Project } from '../data/resume';
 
 // The unfiltered grid runs to ~45 cards of equal visual weight, which buries the
 // strongest work. With no filter applied, every 3-star project in
-// projectPriority.ts gets its own band and the rest collapse to a short preview;
-// any active filter falls back to a single flat grid of every match.
-const ARCHIVE_PREVIEW_COUNT = 6;
+// projectPriority.ts gets its own band, then the rest are grouped by origin
+// (projectOrigin.ts) so self-initiated work reads before set coursework. Each
+// group shows a short preview; any active filter falls back to one flat grid.
+const SECTION_PREVIEW_COUNT: Record<ProjectOrigin, number> = {
+  personal: 6,
+  hackathon: 6,
+  kaggle: 6,
+  other: 3,
+  coursework: 3,
+};
+
+function PlaygroundTable({ episodes }: { episodes: Project[] }) {
+  return (
+    <div className="border-t border-ink dark:border-slate-200">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 py-3">
+        <h3 className="font-display text-lg font-bold tracking-tight">
+          Playground Series, season 6
+        </h3>
+        <span className="text-xs text-slate-500 dark:text-slate-400">
+          {episodes.length} monthly tabular competitions
+        </span>
+      </div>
+      <ol className="divide-y divide-rule border-y border-rule dark:divide-rule-dark dark:border-rule-dark">
+        {episodes.map((project) => {
+          const episode = getPlaygroundEpisode(project.title);
+          const name = project.title.replace(/^Kaggle S\d+E\d+\s*/, '');
+          return (
+            <li key={project.title}>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="group grid grid-cols-[4rem_1fr_auto] items-baseline gap-x-4 py-2.5 text-sm"
+              >
+                <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                  {episode}
+                </span>
+                <span className="min-w-0">
+                  <span className="font-medium group-hover:text-brand dark:group-hover:text-brand-light">
+                    {name}
+                  </span>
+                  <span className="ml-3 hidden font-mono text-[11px] text-slate-500 md:inline dark:text-slate-400">
+                    {project.stack.slice(0, 2).join(' · ')}
+                  </span>
+                </span>
+                <ArrowUpRight
+                  size={14}
+                  className="text-slate-400 group-hover:text-brand dark:group-hover:text-brand-light"
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
 
 export default function Projects() {
   const projects = getPortfolioProjects();
@@ -17,7 +80,8 @@ export default function Projects() {
   const categories = ['All', ...Array.from(new Set(projects.map((project) => project.category)))];
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-  const [showAllArchive, setShowAllArchive] = useState(false);
+  const [expanded, setExpanded] = useState<Set<ProjectOrigin>>(new Set());
+  const expand = (origin: ProjectOrigin) => setExpanded((current) => new Set(current).add(origin));
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -33,12 +97,7 @@ export default function Projects() {
   const isFiltered = activeCategory !== 'All' || Boolean(selectedTag);
   const { flagship, archive } = splitFlagshipProjects(filteredProjects);
   const featuredProjects = isFiltered ? [] : flagship;
-  const restProjects = isFiltered ? filteredProjects : archive;
-  const isArchiveCollapsed =
-    !isFiltered && !showAllArchive && restProjects.length > ARCHIVE_PREVIEW_COUNT;
-  const remainingProjects = isArchiveCollapsed
-    ? restProjects.slice(0, ARCHIVE_PREVIEW_COUNT)
-    : restProjects;
+  const { groups, playground } = groupProjectsByOrigin(archive);
 
   return (
     <div className="space-y-8 pb-24">
@@ -136,30 +195,58 @@ export default function Projects() {
         </section>
       )}
 
-      <section className="space-y-4">
-        {featuredProjects.length > 0 && (
-          <div className="index-heading mt-6">
-            <h2 className="section-eyebrow">More projects</h2>
-            <span className="text-xs text-slate-500 dark:text-slate-400">
-              {restProjects.length} more
-            </span>
-          </div>
-        )}
-        <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {remainingProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
-        {isArchiveCollapsed && (
-          <div className="flex justify-center pt-2">
-            <button type="button" onClick={() => setShowAllArchive(true)} className="btn-secondary">
-              Show all {restProjects.length} projects
-            </button>
-          </div>
-        )}
-      </section>
+      {isFiltered ? (
+        <section className="space-y-4">
+          <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </section>
+      ) : (
+        ORIGIN_SECTIONS.map(({ origin, title, note }) => {
+          const sectionProjects = groups.get(origin) ?? [];
+          const extra = origin === 'kaggle' ? playground : [];
+          if (sectionProjects.length + extra.length === 0) return null;
+          const preview = SECTION_PREVIEW_COUNT[origin];
+          const isCollapsed = !expanded.has(origin) && sectionProjects.length > preview;
+          const shown = isCollapsed ? sectionProjects.slice(0, preview) : sectionProjects;
+          const total = sectionProjects.length + extra.length;
+          return (
+            <section key={origin} className="space-y-4" aria-labelledby={`origin-${origin}`}>
+              <div className="index-heading mt-6">
+                <h2 id={`origin-${origin}`} className="section-eyebrow">
+                  {title}
+                </h2>
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  {note} · {total}
+                </span>
+              </div>
+              {shown.length > 0 && (
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  {shown.map((project) => (
+                    <ProjectCard
+                      key={project.title}
+                      project={project}
+                      onTagClick={setSelectedTag}
+                    />
+                  ))}
+                </div>
+              )}
+              {isCollapsed && (
+                <div className="flex justify-center pt-2">
+                  <button type="button" onClick={() => expand(origin)} className="btn-secondary">
+                    Show all {sectionProjects.length} in {title}
+                  </button>
+                </div>
+              )}
+              {extra.length > 0 && <PlaygroundTable episodes={extra} />}
+            </section>
+          );
+        })
+      )}
     </div>
   );
 }
