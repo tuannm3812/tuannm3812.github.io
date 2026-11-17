@@ -83,11 +83,12 @@ export default function Contact() {
     <div className="grid min-w-0 gap-10 py-8 md:grid-cols-2">
       <div className="min-w-0 space-y-8">
         <div className="space-y-3">
-          <p className="section-eyebrow">Contact</p>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight">Let's Connect.</h1>
+          <p className="hand-eyebrow">contact</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Let's <span className="hand-underline">talk.</span>
+          </h1>
           <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg">
-            Have an ML, data, or applied AI opportunity in mind? Send a note and I will get back to
-            you.
+            Have a project, a role or a messy data question? Send a note and I'll get back to you.
           </p>
         </div>
 
@@ -203,7 +204,7 @@ export default function Contact() {
                     'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
                     errors.name && 'border-red-500',
                   )}
-                  placeholder="John Doe"
+                  placeholder="Your name"
                 />
                 {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
               </div>
@@ -225,7 +226,7 @@ export default function Contact() {
                     'w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
                     errors.email && 'border-red-500',
                   )}
-                  placeholder="john@example.com"
+                  placeholder="you@company.com"
                 />
                 {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
               </div>
@@ -247,7 +248,7 @@ export default function Contact() {
                     'w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 dark:border-slate-700 dark:bg-slate-800',
                     errors.message && 'border-red-500',
                   )}
-                  placeholder="How can I help you?"
+                  placeholder="Tell me about the project, role or question"
                 />
                 {errors.message && (
                   <p className="text-xs text-red-500 font-medium">{errors.message}</p>

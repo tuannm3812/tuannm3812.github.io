@@ -133,6 +133,18 @@
 /* Option E accents (Mike, 17 Nov): an amber marker for key terms in the
    selected-work copy, and a hand-drawn amber underline under Caveat words. */
 @layer components {
+  .hand-eyebrow {
+    font-family: var(--font-hand);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-brand);
+  }
+
+  .dark .hand-eyebrow {
+    color: rgb(125 211 252);
+  }
+
   .key-term {
     background: linear-gradient(transparent 58%, rgb(253 230 138) 58%);
     color: inherit;

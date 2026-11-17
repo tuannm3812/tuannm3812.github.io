@@ -39,13 +39,13 @@ export default function Experience() {
       {/* Page Header with Resume Download */}
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-slate-100 pb-8 dark:border-slate-800/65">
         <div className="space-y-3">
-          <p className="section-eyebrow">Background & Credentials</p>
-          <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-            Professional <span className="text-brand">Path</span>
+          <p className="hand-eyebrow">experience</p>
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+            Where I've done <span className="hand-underline">the work.</span>
           </h1>
           <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
-            My career history, technical expertise matrix, professional philosophy, and academic
-            credentials.
+            Seven years across audit, strategy consulting and growth analytics, now building applied
+            AI and ML.
           </p>
         </div>
         <a
@@ -148,7 +148,7 @@ export default function Experience() {
                 {stack.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="rounded bg-slate-100/60 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors hover:bg-brand/10 hover:text-brand dark:bg-slate-900/65 dark:text-slate-400 dark:hover:text-brand"
+                    className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-900 dark:text-slate-300"
                   >
                     {tool}
                   </span>

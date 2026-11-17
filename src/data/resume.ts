@@ -89,7 +89,7 @@ export const resumeData: ResumeData = {
     {
       company: 'Shopee Vietnam',
       location: 'HCMC, Vietnam',
-      role: 'Lead Data Optimization & Insights Manager | Growth & Acquisition',
+      role: 'Lead Data Optimization & Insights Manager · Growth & Acquisition',
       period: 'Dec 2021 - Jan 2025',
       points: [
         'Delivered strategic growth and pricing insights directly to senior executives to optimize commercial fee structures, ad campaigns, and voucher incentives.',
@@ -113,7 +113,7 @@ export const resumeData: ResumeData = {
     {
       company: 'PwC Vietnam',
       location: 'Hanoi, Vietnam',
-      role: 'Senior Assurance Associate | Financial Services & Capital Markets',
+      role: 'Senior Assurance Associate · Financial Services & Capital Markets',
       period: 'Aug 2017 - Dec 2020',
       points: [
         'Acted as data champion, building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',

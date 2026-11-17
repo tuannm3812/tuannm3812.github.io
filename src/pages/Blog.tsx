@@ -163,12 +163,12 @@ export default function Blog() {
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
-        <p className="section-eyebrow">Writing</p>
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-          Reflections <span className="text-brand">&</span> Insights
+        <p className="hand-eyebrow">notes</p>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          Notes from <span className="hand-underline">the work.</span>
         </h2>
         <p className="text-lg text-slate-500 dark:text-slate-400">
-          Short notes on MLOps, data engineering, and applied AI from projects and practice.
+          What I learned building, competing and debugging, written up while it was fresh.
         </p>
       </div>
 

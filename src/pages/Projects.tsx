@@ -96,13 +96,12 @@ export default function Projects() {
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
-        <p className="section-eyebrow">Portfolio evidence</p>
-        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-          Technical <span className="text-brand">Projects</span>
+        <p className="hand-eyebrow">projects</p>
+        <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+          Everything <span className="hand-underline">I've built.</span>
         </h1>
         <p className="text-lg text-slate-500 dark:text-slate-400">
-          Public work across AI agents, deep learning, data engineering, Kaggle competitions, and
-          deployed ML systems.
+          AI agents, ML models, data pipelines and competition work. My own projects come first.
         </p>
       </div>
 
