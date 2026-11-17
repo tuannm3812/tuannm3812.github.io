@@ -130,7 +130,7 @@ export default function ProjectCard({
             className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-700 transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
           >
             <ExternalLink size={13} />
-            Live Demo
+            {project.demo.startsWith('/assets/posters/') ? 'Poster' : 'Live Demo'}
           </a>
         )}
       </div>
