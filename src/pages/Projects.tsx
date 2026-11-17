@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { cn } from '../lib/utils';
-import ProjectCard from '../components/ProjectCard';
+import ShowcaseCard from '../components/ShowcaseCard';
+import ProjectIndex from '../components/ProjectIndex';
 import {
   ORIGIN_SECTIONS,
   getPlaygroundEpisode,
@@ -18,6 +19,8 @@ import type { Project } from '../data/resume';
 // projectPriority.ts leads as "Selected work", then the rest are grouped by
 // origin (projectOrigin.ts) so self-initiated work reads before set coursework.
 // Each group shows a short preview; any active filter falls back to one grid.
+// Kaggle and coursework render as one-line index rows instead of cards.
+const INDEX_ORIGINS = new Set<ProjectOrigin>(['kaggle', 'coursework']);
 const SECTION_PREVIEW_COUNT: Record<ProjectOrigin, number> = {
   personal: 6,
   hackathon: 6,
@@ -172,7 +175,7 @@ export default function Projects() {
           <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
               {featuredProjects.map((project) => (
-                <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
+                <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
               ))}
             </AnimatePresence>
           </motion.div>
@@ -184,7 +187,7 @@ export default function Projects() {
           <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
-                <ProjectCard key={project.title} project={project} onTagClick={setSelectedTag} />
+                <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
               ))}
             </AnimatePresence>
           </motion.div>
@@ -194,8 +197,11 @@ export default function Projects() {
           const sectionProjects = groups.get(origin) ?? [];
           const extra = origin === 'kaggle' ? playground : [];
           if (sectionProjects.length + extra.length === 0) return null;
+          const asIndex = INDEX_ORIGINS.has(origin);
           const isCollapsed =
-            !expanded.has(origin) && sectionProjects.length > SECTION_PREVIEW_COUNT[origin];
+            !asIndex &&
+            !expanded.has(origin) &&
+            sectionProjects.length > SECTION_PREVIEW_COUNT[origin];
           const shown = isCollapsed
             ? sectionProjects.slice(0, SECTION_PREVIEW_COUNT[origin])
             : sectionProjects;
@@ -213,17 +219,20 @@ export default function Projects() {
                   {note} · {sectionProjects.length + extra.length}
                 </span>
               </div>
-              {shown.length > 0 && (
-                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                  {shown.map((project) => (
-                    <ProjectCard
-                      key={project.title}
-                      project={project}
-                      onTagClick={setSelectedTag}
-                    />
-                  ))}
-                </div>
-              )}
+              {shown.length > 0 &&
+                (asIndex ? (
+                  <ProjectIndex projects={shown} />
+                ) : (
+                  <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    {shown.map((project) => (
+                      <ShowcaseCard
+                        key={project.title}
+                        project={project}
+                        onTagClick={setSelectedTag}
+                      />
+                    ))}
+                  </div>
+                ))}
               {isCollapsed && (
                 <div className="flex justify-center">
                   <button type="button" onClick={() => expand(origin)} className="btn-secondary">

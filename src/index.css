@@ -183,3 +183,13 @@
     pointer-events: none;
   }
 }
+
+@layer components {
+  .drawn-cover {
+    background: var(--cover-bg);
+  }
+
+  .dark .drawn-cover {
+    background: var(--cover-dark);
+  }
+}

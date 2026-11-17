@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
+import OrgLogo from '../components/OrgLogo';
+import { EMPLOYER_LOGO } from '../data/orgLogos';
 import {
   Briefcase,
   GraduationCap,
@@ -81,7 +83,10 @@ export default function Experience() {
 
               <div className="surface-card surface-card-hover space-y-3 p-5">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                  <h3 className="text-xl font-bold">{exp.role}</h3>
+                  <div className="flex items-center gap-3">
+                    <OrgLogo id={EMPLOYER_LOGO[exp.company]} size={40} />
+                    <h3 className="text-xl font-bold">{exp.role}</h3>
+                  </div>
                   <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-400">
                     <Calendar size={14} />
                     {exp.period}
@@ -215,9 +220,12 @@ export default function Experience() {
               viewport={{ once: true }}
               className="surface-card surface-card-hover space-y-3 p-6"
             >
-              <div className="space-y-1">
-                <h3 className="text-lg font-bold">{edu.institution}</h3>
-                <p className="text-brand font-medium">{edu.degree}</p>
+              <div className="flex items-start gap-3">
+                <OrgLogo id={EMPLOYER_LOGO[edu.institution]} size={44} />
+                <div className="space-y-1">
+                  <h3 className="text-lg font-bold">{edu.institution}</h3>
+                  <p className="text-brand font-medium">{edu.degree}</p>
+                </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">

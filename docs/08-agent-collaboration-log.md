@@ -36,6 +36,13 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-17 - Claude Code (page headers, project cards, logos)
+
+- Every page header now uses a Caveat eyebrow and a `.hand-underline` word. Contact got client-facing copy, Experience got neutral skill chips.
+- Projects: `ShowcaseCard` replaces `ProjectCard`. A card shows its poster when the project has one, otherwise a cover drawn per category (`src/lib/projectVisuals.ts`). Kaggle and coursework render as `ProjectIndex` rows.
+- Logos: `src/data/orgLogos.ts` plus `OrgLogo`. Shopee and Kaggle come from Simple Icons; UTS, UNSW, Meal Planner and CircleU come from Mike's repos. PwC, FPT and FTU have no file in the repo yet, so they show monogram tiles. Drop a file into `public/assets/logos/` and set `src` to swap one in.
+- Verified: `npm run check` and screenshots of Projects and Experience at 1440 light/dark and at 390, with no horizontal overflow.
+
 ## 2026-11-17 - Claude Code (option E and the Selected work gallery)
 
 - Fonts: Figtree and Caveat (`--font-hand`). Added the `.hand-underline` and
