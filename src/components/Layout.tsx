@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import {
-  AlertTriangle,
-  BarChart3,
-  ExternalLink,
-  Github,
-  Linkedin,
-  Mail,
-  Menu,
-  Moon,
-  Sun,
-  X,
-} from 'lucide-react';
+import { AlertTriangle, ExternalLink, Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
+import SketchIcon from './artwork/SketchIcon';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { useFirebaseHealth } from '../hooks/useFirebaseHealth';
@@ -250,7 +240,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="LinkedIn"
             >
-              <Linkedin size={24} />
+              <SketchIcon name="linkedin" size={24} />
             </a>
             <a
               href={resumeData.github}
@@ -259,7 +249,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="GitHub"
             >
-              <Github size={24} />
+              <SketchIcon name="github" size={24} />
             </a>
             <a
               href={resumeData.kaggle}
@@ -268,14 +258,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="Kaggle"
             >
-              <BarChart3 size={24} />
+              <SketchIcon name="kaggle" size={24} />
             </a>
             <a
               href={`mailto:${resumeData.email}`}
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="Email"
             >
-              <Mail size={24} />
+              <SketchIcon name="mail" size={24} />
             </a>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">

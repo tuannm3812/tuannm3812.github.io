@@ -63,7 +63,7 @@ Gemini/Ollama, Text-to-SQL, Streamlit, SQLite, Schema RAG, Hybrid Retrieval, SQL
 - Built an **enterprise text-to-SQL agent** with Gemini/Ollama, Streamlit, SQLite, hybrid schema RAG, and SQLGlot-assisted safety validation.
 - Demonstrated a privacy-aware natural-language analytics workflow by sending only schema metadata to the LLM, enforcing read-only local execution, and documenting architecture, deployment, and evaluation evidence.
 
-GitHub: https://github.com/tuannm3812/aipa-text-to-sql-agent  
+GitHub: https://github.com/tuannm3812/text-to-sql-agent  
 Live demo: https://aipa-text-to-sql-agent.streamlit.app/
 
 ### AI Meal Planner (AI Product / Backend)
@@ -668,7 +668,7 @@ Current public project inventory, including the Text-to-SQL agent even though Gi
 | flickr-image-captioning | Computer Vision / Captioning | Supporting ML project |
 | airbnb-ELT-warehouse | Data Engineering | Strong data engineering project |
 | solana-price-prediction | Time-Series / MLOps | Strong deployed ML project |
-| aipa-text-to-sql-agent | Applied AI / Text-to-SQL | Strong AI agent project |
+| text-to-sql-agent | Applied AI / Text-to-SQL | Strong AI agent project |
 | gender-equality-policy-nlp | NLP / Policy Analytics | Strong NLP project |
 | tiktok-semantic | NLP / Marketing Analytics | Strong semantic analytics project |
 | AfriWeave | NLP / Generative Prototype | Applied AI project |

@@ -13,7 +13,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
     "validate:links": "node scripts/validate-project-links.mjs",
     "test": "vitest run",
-    "check": "npm run validate:links && npm run lint && npm run test && npm run build",
+    "ui-audit": "node scripts/ui-audit.mjs",
+    "check": "npm run validate:links && npm run ui-audit && npm run lint && npm run test && npm run build",
     "sync:github-projects": "node scripts/sync-github-projects.mjs",
     "sync:profile-readme": "node scripts/sync-profile-readme.mjs",
     "prepare": "husky"

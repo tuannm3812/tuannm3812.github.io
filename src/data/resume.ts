@@ -64,62 +64,64 @@ export const resumeData: ResumeData = {
     { value: '5', label: 'Domains: agents, vision, data eng, Kaggle, MLOps' },
     { value: 'Full-stack', label: 'From data pipelines to deployed AI apps' },
   ],
+  // [[double brackets]] mark key terms the Experience page highlights.
   education: [
     {
       institution: 'University of Technology Sydney',
       location: 'Sydney, Australia',
       degree: 'Master of Data Science and Innovation (High Distinction)',
-      period: 'Feb 2025 - Feb 2027 (expected)',
+      period: 'Feb 2025 – Feb 2027',
       points: [
-        'Coursework includes machine learning, big data engineering, statistical modelling, deep learning, computer vision, natural language processing, and applied AI systems.',
-        'Completed academic and portfolio projects in full-stack ML systems, Databricks and Snowflake analytics, MLOps pipelines, Kaggle competition workflows, computer vision, NLP, and AI-driven decision support.',
+        'Coursework in [[machine learning]], [[big data engineering]], statistical modelling, [[deep learning]], computer vision, NLP and [[applied AI systems]].',
+        'Built projects in [[full-stack ML systems]], [[Databricks and Snowflake]] analytics, [[MLOps pipelines]], Kaggle competitions and AI-driven decision support.',
       ],
     },
     {
       institution: 'Foreign Trade University',
       location: 'Hanoi, Vietnam',
-      degree: 'Bachelor of International Economics and Business (Distinction)',
-      period: 'Aug 2013 - Jun 2017',
+      degree: 'Bachelor of International Economics and Business (High Distinction)',
+      period: 'Aug 2013 – Jun 2017',
       points: [
-        'Completed a selective program emphasizing analytical thinking, applied economics, and professional communication, with foundations in econometrics, international trade, finance, and strategic management.',
+        'Selective program in [[applied economics]] and [[analytical thinking]], with foundations in [[econometrics]], international trade, finance and strategic management.',
       ],
     },
   ],
+  // [[double brackets]] mark key terms the Experience page highlights.
   experience: [
     {
       company: 'Shopee Vietnam',
       location: 'HCMC, Vietnam',
-      role: 'Lead Data Optimization & Insights Manager | Growth & Acquisition',
-      period: 'Dec 2021 - Jan 2025',
+      role: 'Lead Data Optimization & Insights Manager · Growth & Acquisition',
+      period: 'Dec 2021 – Jan 2025',
       points: [
-        'Delivered strategic growth and pricing insights directly to senior executives to optimize commercial fee structures, ad campaigns, and voucher incentives.',
-        'Served as the data and strategy lead for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.',
-        'Architected automated BigQuery data warehousing pipelines consolidating transaction and traffic data, reducing manual processing workloads by 80%.',
-        'Developed predictive modeling workflows in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%.',
+        'Delivered strategic growth and pricing insights directly to [[senior executives]] to optimize commercial fee structures, ad campaigns, and voucher incentives.',
+        'Served as the [[data and strategy lead]] for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.',
+        'Architected automated [[BigQuery data warehousing pipelines]] consolidating transaction and traffic data, reducing manual processing workloads by 80%.',
+        'Developed [[predictive modeling workflows]] in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%.',
       ],
     },
     {
       company: 'FPT Software & FPT Digital',
       location: 'Hanoi, Vietnam',
       role: 'Strategy Lead (Global Affairs) & Transformation Consultant',
-      period: 'Dec 2020 - Dec 2021',
+      period: 'Dec 2020 – Dec 2021',
       points: [
-        'Led strategic technology partnership communication with foreign multinational corporations (MNCs/FDIs) for the Global Affairs Team, establishing integration channels.',
-        'Collaborated with top-tier global consulting firms (McKinsey, BCG) on enterprise-level digital maturity and data architecture transformation projects.',
-        'Co-designed multi-year digital transformation roadmaps and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
-        'Presented breakthrough digital enablers directly to client Steering Committees (SteerCo) to accelerate technology adoption.',
+        'Led technology partnership communication with [[multinational corporations]] for the Global Affairs team, setting up integration channels.',
+        'Collaborated with top-tier global consulting firms ([[McKinsey, BCG]]) on enterprise-level digital maturity and data architecture transformation projects.',
+        'Co-designed multi-year [[digital transformation roadmaps]] and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
+        'Presented digital enablers to client [[steering committees]] to speed up technology adoption.',
       ],
     },
     {
       company: 'PwC Vietnam',
       location: 'Hanoi, Vietnam',
-      role: 'Senior Assurance Associate | Financial Services & Capital Markets',
-      period: 'Aug 2017 - Dec 2020',
+      role: 'Senior Assurance Associate · Financial Services & Capital Markets',
+      period: 'Aug 2017 – Dec 2020',
       points: [
-        'Acted as data champion, building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',
-        'Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to under 1 hour.',
-        'Ingested and analyzed millions of transactional records across 40+ commercial banking and securities clients using database querying.',
-        'Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to client C-levels.',
+        'Acted as [[data champion]], building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',
+        'Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to [[under 1 hour]].',
+        'Ingested and analyzed [[millions of transactional records]] across 40+ commercial banking and securities clients using database querying.',
+        'Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to [[client C-levels]].',
       ],
     },
   ],
@@ -206,7 +208,8 @@ export const resumeData: ResumeData = {
     },
     {
       title: 'Gender Equality Policy NLP',
-      category: 'Machine Learning & Kaggle',
+      // Coursework, not a Kaggle competition: the Kaggle category drew a Kaggle badge.
+      category: 'Data Engineering & Analytics',
       github: 'https://github.com/tuannm3812/gender-equality-policy-nlp',
       impact: 'Policy discourse analysis from parliamentary submissions',
       stack: ['NLP', 'TF-IDF', 'LDA', 'K-Means', 'Policy Analytics'],
@@ -238,9 +241,33 @@ export const resumeData: ResumeData = {
       ],
     },
     {
+      title: 'Terminal-Bench Agent Harness',
+      category: 'AI Agents & LLM Products',
+      // Private repo: no source link. The poster is hosted on the site instead.
+      demo: '/assets/posters/harness.jpg',
+      impact: 'Custom agent harness tested against Terminus 2 with the model held fixed',
+      stack: ['LangGraph', 'Harbor', 'Terminal-Bench', 'Python'],
+      points: [
+        'Led a team of six building a LangGraph agent harness inside Harbor and testing it against Terminus 2 on Terminal-Bench in paired three-attempt trials on a frozen protocol.',
+        'No accuracy advantage was established (0.356 vs 0.422 paired accuracy, same model); the frozen protocol gives a fair way to test any future harness change.',
+      ],
+    },
+    {
+      title: 'Wildfire Occurrence Prediction',
+      category: 'MLOps & Forecasting',
+      // Private repo: no source link. The poster is hosted on the site instead.
+      demo: '/assets/posters/fire.pdf',
+      impact: 'Daily fire prediction tested on regions the model has never seen',
+      stack: ['Python', 'TabPFN', 'Mixture of experts', 'Satellite data'],
+      points: [
+        'Audited 19,849 satellite hotspots and combined weather, fuel moisture and land cover into 376 predictors for the Greater Blue Mountains.',
+        'Compared logistic regression through TabPFN and a mixture of experts on 47 spatially blocked 25 km folds: holding a region out moved scores more than the choice of model.',
+      ],
+    },
+    {
       title: 'Enterprise Text-to-SQL Agent',
       category: 'AI Agents & LLM Products',
-      github: 'https://github.com/tuannm3812/aipa-text-to-sql-agent',
+      github: 'https://github.com/tuannm3812/text-to-sql-agent',
       demo: 'https://aipa-text-to-sql-agent.streamlit.app/',
       impact: 'Schema RAG agent with AST-validated SQLite execution sandbox',
       stack: ['Gemini/Ollama', 'Hybrid Schema RAG', 'Streamlit', 'SQLite', 'SQLGlot'],
@@ -275,9 +302,11 @@ export const resumeData: ResumeData = {
     {
       title: 'UTS Tech Festival 2026 GenAI Hackathon',
       category: 'AI Agents & LLM Products',
-      github: 'https://github.com/tuannm3812/uts-techfest-2026-genai-hackathon',
+      // The repo is private, so a source link 404s for visitors. Restore
+      // `github` once uts-techfest-2026-genai-hackathon is made public.
+      demo: '/assets/posters/techfest-deck.pdf',
       impact:
-        'Solutions for LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite, and Austroads smart intersection',
+        'Three GenAI solutions for resilient housing, a future worksite and a smart intersection',
       stack: [
         'Generative AI',
         'Austroads Signal Design',
@@ -288,18 +317,6 @@ export const resumeData: ResumeData = {
       points: [
         'Developed comprehensive technical submissions for three scenarios: LEGO sustainable urban housing, Caterpillar/WesTrac worksite fleet transition, and Austroads-aligned smart intersection mix design.',
         'Applied generative AI prompting strategy, adaptive signal logic, sustainable mix design, machinery telemetry plans, and automated HTML/PDF document compilation.',
-      ],
-    },
-    {
-      title: 'Personal Portfolio',
-      category: 'MLOps & Forecasting',
-      github: 'https://github.com/tuannm3812/tuannm3812.github.io',
-      demo: 'https://tuannm3812.github.io',
-      impact: 'React portfolio deployed with GitHub Pages',
-      stack: ['React', 'TypeScript', 'Tailwind', 'Firebase', 'GitHub Actions'],
-      points: [
-        'Built and maintained a React portfolio for presenting machine learning, data engineering, MLOps, and applied AI project evidence.',
-        'Applied TypeScript, Tailwind, Firebase contact/comment flows, Google Analytics tagging, GitHub Actions deployment, accessible routing, and automated GitHub project sync.',
       ],
     },
   ],

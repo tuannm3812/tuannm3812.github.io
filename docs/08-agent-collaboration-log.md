@@ -27,14 +27,245 @@ what should not be touched.
 **Scope:** Short summary of the work.
 
 **Changed**
+
 - File or area changed.
 
 **Verified**
+
 - Command or manual check.
 
 **Open / Handoff**
+
 - Follow-up, risk, or blocker for the next agent.
 ```
+
+## 2026-11-18 - Claude Code (sketch icons, Home pass, site QA)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Mike's sketchy blue-and-amber icon request, Home consistency pass, full-site QA.
+
+**Changed**
+
+- `SketchIcon` (mail, pin, LinkedIn, GitHub, Kaggle, database, package, eye) replaces Lucide glyphs on Contact, the footer and Home. Controls and arrows stay Lucide.
+- Home: Title Case hero roles line (no uppercase tracking), Caveat photo caption, "How I Work" `SectionHeading` over the habit cards, gallery titles and tabs match the project card titles (new test), Title Case filter and button labels.
+
+**Verified**
+
+- `npm run check` (213 tests); Playwright pass of all five pages at 1440 px, 390 px and dark mode: no horizontal overflow; only console errors are blocked external fonts in the sandbox. Screenshots in project files `portfolio-redesign/qa-v1/`.
+
+**Open / Handoff**
+
+- Experience career-path and skill-card icons are still Lucide; convert if Mike wants sketch icons there too.
+
+## 2026-11-17 - Claude Code (Blog and Contact pages)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Blog and Contact passes in the same style as Experience and Projects.
+
+**Changed**
+
+- Blog: posts carry a `kind` (Field Note, Achievement, Event) and 3 tags from `tagVocabulary.ts`; cards show "Kind · date · read time" in sentence case instead of the uppercase icon row, plus tag chips; author dropped; `SectionHeading` over the list; the page header hides when a post is open. `src/data/blog.test.ts` enforces the tag rules.
+- Contact: phone card removed (matches the resume PDF); LinkedIn and GitHub added; channels are a data list and each whole card is a link; form labels in Title Case without uppercase tracking.
+
+**Verified**
+
+- `npm run check` (212 tests, build OK); screenshots in project files `portfolio-redesign/blog-v2/`.
+
+**Open / Handoff**
+
+- LinkedIn posts (achievements, competitions, events) are meant to become Achievement and Event posts; waiting on Mike for the post text.
+- Phone removal awaits Mike's confirmation; `resumeData.phone` is still in the data.
+
+## 2026-11-17 - Claude Code (card content rules, Experience and Projects pages)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Experience page refinements, Projects page pass, and the card content rules.
+
+**Changed**
+
+- Experience: unframed logos in the date rail, education cards match role cards with key terms, Education before Skills, resume button removed, Title Case handwritten labels, both degrees High Distinction (site, master resume, resume.html and the re-rendered PDF).
+- Projects: shared `SectionHeading`, numbered index rows, TechFest moved to Hackathons, Personal Portfolio card removed.
+- Card rules: `src/data/tagVocabulary.ts` (40 tags, five colour groups), `src/data/projectCards.ts` (title, description, 3 tags for all 40 projects), `src/lib/projectCards.ts`, `TagChip`. Filter now uses the tag groups; Home gallery uses the same tags.
+
+**Verified**
+
+- `npm run check` (209 tests, build OK); screenshots in project files `portfolio-redesign/cards-v1/`.
+
+**Open / Handoff**
+
+- A newly synced repo now fails `projectCards.test.ts` until it gets a `projectCards.ts` entry. Write it to the rules in docs/12 "Project cards".
+- UTS Tech Festival third tag (Python) awaits Mike's confirmation.
+
+## 2026-11-17 - Claude Code (page headers, project cards, logos)
+
+- Every page header now uses a Caveat eyebrow and a `.hand-underline` word. Contact got client-facing copy, Experience got neutral skill chips.
+- Projects: `ShowcaseCard` replaces `ProjectCard`. A card shows its poster when the project has one, otherwise a cover drawn per category (`src/lib/projectVisuals.ts`). Kaggle and coursework render as `ProjectIndex` rows.
+- Logos: `src/data/orgLogos.ts` plus `OrgLogo`. Shopee and Kaggle come from Simple Icons; UTS, UNSW, Meal Planner and CircleU come from Mike's repos. PwC, FPT and FTU have no file in the repo yet, so they show monogram tiles. Drop a file into `public/assets/logos/` and set `src` to swap one in.
+- Verified: `npm run check` and screenshots of Projects and Experience at 1440 light/dark and at 390, with no horizontal overflow.
+
+## 2026-11-17 - Claude Code (option E and the Selected work gallery)
+
+- Fonts: Figtree and Caveat (`--font-hand`). Added the `.hand-underline` and
+  `.key-term` accents to index.css.
+- Home: new eyebrow and hero copy. `SelectedWorkGallery` replaces the featured
+  cards. Data is in `src/data/selectedWork.ts`, where `[[key terms]]` are
+  highlighted.
+- Posters: WebP thumbnails and full-size posters in `public/assets/posters/`,
+  copied from Mike's Mac. Fire links the poster PDF.
+- New curated cards for the Terminal-Bench Agent Harness and Wildfire
+  Occurrence Prediction. Both are personal, with 3 stars, and link a poster
+  because the code is private.
+- Kiva stack corrected to Random Forest, matching the repo; an earlier mock
+  said gradient boosting. Finalist status was checked against the hackathon
+  repo docs.
+- Verified: `npm run check`, and screenshots at 1440 light/dark and 390 with no
+  horizontal overflow.
+
+## 2026-11-17 - Claude Code (back to the original look)
+
+- Mike asked to refine the original site rather than restyle it. Restored
+  `main`'s index.html, index.css, Layout, ProjectCard, Home, Experience,
+  Contact, Blog, blog.ts and data/home.tsx; re-applied only the content fixes
+  (Text-to-SQL link, Biohub closed-competition wording).
+- Re-applied Phase 1 in the original style: Selected work = 3-star projects,
+  then origin groups and the Playground table; roles eyebrow and Download
+  Resume on Home. Home featured: BirdCLEF and Airbnb ELT replaced by CircleU
+  and FarmLens (no cover art yet).
+- BirdCLEF and Solana dropped to 2 stars; Solana tagged coursework.
+- `ui-audit` reduced to the static-Firebase rule; docs/12 marked superseded.
+- Verified: `npm run check` (77 tests). Open: flagship cards and previews for
+  the private Terminal-Bench harness and active-fire projects.
+
+## 2026-11-17 - Claude Code (Phase 1: recruiter front door)
+
+- Home hero: roles kicker and a Download resume button; Get in touch became a
+  text link.
+- New `src/data/projectOrigin.ts` (title -> personal / hackathon / kaggle /
+  coursework; unmapped -> kaggle by name, else other). `groupProjectsByOrigin`
+  and `getPlaygroundEpisode` in `src/lib/projects.ts`, with tests.
+- Projects page: flagship band, then origin groups with per-group previews;
+  Playground S6 episodes render as one table. Filters still show a flat grid.
+- `projectPriority.ts`: Airbnb ELT to 2 stars; FarmLens to 3 stars (card
+  appears after the next sync). Flagship test now ignores titles with no card.
+- Verified: `npm run check` (79 tests, ui-audit 0), screenshot matrix in
+  project files `portfolio-redesign/phase1/`.
+- Open: Mike to confirm roles line, work rights, lineup and the eight
+  "Other" origins; resume PDF still needs regenerating on the Mac.
+
+## 2026-11-17 - Claude Code (Phase 0: design guideline, ui-audit, content fixes)
+
+**Branch:** `claude/project-thread-6dmp83` (PR #4)
+**Scope:** Phase 0 of the recruiter hub plan. Mike said "start now" without
+answering the open guideline questions, so the recommended defaults are used
+and recorded as awaiting confirmation in `docs/15-design-decisions.md`.
+
+**Changed**
+
+- New docs: `12-design-guideline.md`, `13-ui-patterns.md`,
+  `14-ui-workflow-and-qa.md`, `15-design-decisions.md`,
+  `working/ui-lessons/README.md`; index and `AGENTS.md` point to them.
+- `scripts/ui-audit.mjs` (+5 tests), chained into `npm run check`: colour
+  literals outside `index.css`, shadows, gradients, blur, non-square corners,
+  static Firebase imports outside the lazy routes. Fixed the 33 findings it
+  raised (blog article HTML, error panels, skip link, inputs); removed the
+  unused `.expertise-band` gradient.
+- Cherry-picked `ed4ba69` (FarmLens and Half-time Briefing card copy). The
+  cards themselves appear on the next sync run on `main`; the sync could not
+  run from this container (GitHub API 401).
+- UTS TechFest card: source link removed while the repo is private. Text-to-SQL
+  links updated to the renamed `text-to-sql-agent`. Gender Equality Policy NLP
+  moved out of the Kaggle category (it drew a Kaggle badge).
+
+**Verified**
+
+- `npm run check`: ui-audit 0 findings, 74 tests, build OK.
+- 24-shot matrix (6 routes x light/dark x 1440/390) in the shared folder
+  `portfolio-redesign/phase0/`.
+
+**Open / Handoff**
+
+- `public/assets/tuan-nguyen-resume.pdf` still shows the old Text-to-SQL URL
+  (GitHub redirects it); regenerate from `scripts/resume/resume.html` on the Mac.
+- The Contact page shows a phone number although the PDF omits it on purpose.
+  Left as is; Mike to decide.
+
+## 2026-11-16 - Claude Code (UI redesign: "Swiss index")
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Mike was shown three hero mocks (Swiss index, Notebook, Model card)
+after rejecting "Aurora" (PR #2) in October. He picked **Swiss index**. This
+branch applies it across the site and puts flagship projects first.
+
+**Changed**
+
+- `src/index.css`: paper white / near-black palette, brand blue as the only
+  accent (a lighter tint in dark mode), Archivo display + Inter body, square
+  corners, hairline rules, no shadows/glow. New `index-heading`, `tech-tag` and
+  `column-grid` classes. Headings use the display face globally.
+- `index.html`: fonts swapped from Outfit to Archivo + Inter.
+- `Layout.tsx`: faint 12-column grid behind the page (4 on phones), ruled
+  header with underlined text nav, ruled footer.
+- `Home.tsx`: rebuilt. Hero with grayscale portrait, highlights row (the
+  project count is computed live, not the hand-typed `30` in `resume.ts`),
+  a ranked index of every 3-star project, "How I work". Cover-image cards and
+  `focusAreas`/`featuredProjects` data are gone; `src/data/home.tsx` became
+  `home.ts`. Cover images remain in `public/assets/projects/`, unused.
+- `lib/projects.ts`: `splitFlagshipProjects()` (+ tests). Projects page shows
+  all 3-star projects first (#1 full width), the rest collapsed to 6 with a
+  "Show all" button. Filters still give a flat grid.
+- `ProjectCard.tsx`: flat card, rank number, ink stars, text links.
+- Experience/Contact/Blog: rounded chips, blue rails and shadows replaced.
+
+**Verified**
+
+- `npm run check` passes (68 tests, build OK).
+- Headless Chromium screenshots of every page, light/dark, 1440px and 390px.
+  Shared folder: `portfolio-redesign/swiss-*.png`.
+
+**Open / Handoff**
+
+- Not fixed here (content): weekly sync red since 7 Oct (FarmLens and
+  Half-time Briefing copy is on branch `claude/project-thread-cj73bg`), and the
+  UTS TechFest card links a private repo.
+- Blog and Contact got only the shared restyle, not a bespoke pass.
+
+## 2026-10-31 - Claude Code (unblock the weekly sync: FarmLens, Half-time Briefing)
+
+**Branch:** `claude/project-thread-cj73bg`
+**Scope:** The weekly `Sync GitHub Projects` run failed on 2026-10-18 and
+2026-10-25 (runs 29 and 30). Two new public repos tripped the placeholder
+guard, exactly as designed, so no card has refreshed since 2026-10-04.
+
+**Changed**
+
+- `scripts/sync-github-projects.mjs`: `PROJECT_COPY_OVERRIDES` entries for
+  `FarmLens` and `ms-pl-insidethegame-2026`, sourced from each repo's README.
+  The second uses a `title` override ("Half-time Briefing: Microsoft x Premier
+  League Hackathon") because `toTitle()` cannot recover a readable name from
+  the repo slug.
+- `scripts/sync-github-projects.test.mjs`: regression test asserting both
+  cards pass `findPlaceholderProjects`.
+- `src/data/projectPriority.ts`: entries for both new titles (89/2 and 86/2).
+- `src/data/blog.ts`: the Biohub post no longer calls the competition
+  "ongoing" with a September deadline; it now reads as a closed competition
+  with a final public score of 0.827. The private-leaderboard result is not
+  recorded anywhere in the repo, so it was not added.
+
+**Verified**
+
+- `npm run check`: 0 errors, 66 tests, build passing.
+- Not run: the live sync. This session's token cannot call the GitHub REST
+  API for other repos, so `src/data/githubProjects.ts` is unchanged here and
+  the two cards will land on the next scheduled or dispatched sync, as the
+  S6E10 card did on 2026-10-04.
+
+**Open / Handoff**
+
+- `ms-pl-insidethegame-2026` still has no GitHub description. The override
+  makes the card publishable regardless, but a description helps the GitHub
+  profile itself.
+- Add the Biohub private-leaderboard score and rank to the blog post once
+  known.
 
 ## 2026-10-07 - Claude Code (Codex 2026-09-23 fixes, batch 3: findings 7, 3)
 
@@ -49,9 +280,10 @@ return 200 on the live site, and `/nope` and `/blog/no-such-post` return 404.
 Live `/projects` carries canonical `https://tuannm3812.github.io/projects`.
 
 **Changed**
+
 - `src/lib/reliability/pendingWrite.ts` (new): `raceWrite()` resolves
   `sent`/`failed`, or `queued` if the write is still pending after a timeout.
-  A queued outcome carries `settled`, the *original* write's result. Nothing
+  A queued outcome carries `settled`, the _original_ write's result. Nothing
   ever retries, so Codex's duplicate-write trap cannot happen.
 - `firebaseOps.ts`: `safeCreateDocument` now uses `doc(collection)` + `setDoc`
   (a client-generated ID) and returns that outcome. It queues after 6s, or at
@@ -65,6 +297,7 @@ Live `/projects` carries canonical `https://tuannm3812.github.io/projects`.
   again" button (finding 7). Closing the popup yourself stays silent.
 
 **Verified**
+
 - TDD: `pendingWrite.test.ts` (5) and `toSignInMessage` (4) failed first,
   then passed. They cover sent, failed, queued, queued then sent with no second
   write, and queued then failed.
@@ -80,6 +313,7 @@ Live `/projects` carries canonical `https://tuannm3812.github.io/projects`.
   unit-tested only.
 
 **Open / Handoff**
+
 - Codex review: nothing left open. Owner decisions (phone on `/contact`, ELT
   title, contact-message delivery) are in pending-tasks §1.
 - Memory cache means a queued message is lost if the tab closes before
@@ -93,6 +327,7 @@ Live `/projects` carries canonical `https://tuannm3812.github.io/projects`.
 metadata, a not-found page, and URL-addressable, keyboard-reachable blog posts.
 
 **Changed**
+
 - `src/data/routeMeta.ts` (new) is the single source of route titles and
   descriptions. It is import-free, so the build script loads it with Node's
   type stripping. `useDocumentTitle` now reads it and leaves `/blog/:id` titles
@@ -110,6 +345,7 @@ metadata, a not-found page, and URL-addressable, keyboard-reachable blog posts.
   not-found view.
 
 **Verified**
+
 - TDD: `routeMeta.test.ts` and `generate-route-pages.test.mjs` failed first
   (modules missing), then passed. They include HTML-escaping of titles and
   descriptions, and a throw if the template loses a tag the script replaces.
@@ -126,6 +362,7 @@ metadata, a not-found page, and URL-addressable, keyboard-reachable blog posts.
   real acceptance test.
 
 **Open / Handoff**
+
 - Remaining from the review: finding 7 (sign-in feedback), then 3 (offline submit).
 - A new blog post now needs nothing extra. The build picks it up from `blog.ts`
   for its route page and the sitemap.
@@ -138,6 +375,7 @@ metadata, a not-found page, and URL-addressable, keyboard-reachable blog posts.
 **Scope:** The three small, independent fixes from the reply below.
 
 **Changed**
+
 - `.github/workflows/deploy.yml` (finding 2). The separate lint/test/build steps
   are replaced by `npm run check`, so link and placeholder validation now gates
   the Pages artifact. The `404.html` copy is now its own step.
@@ -148,6 +386,7 @@ metadata, a not-found page, and URL-addressable, keyboard-reachable blog posts.
   `localStorage` access is left in `src/`.
 
 **Verified**
+
 - TDD: `safeStorage.test.ts` failed first (module missing), then passed. It
   covers denied storage access, throwing get/set/remove, round-trip, and
   rejection of invalid theme values.
@@ -179,6 +418,7 @@ its text is unchanged. **Agents: commit a review entry, or it does not exist
 for the next session.**
 
 **Findings, by Codex's numbering**
+
 1. **Accept.** Re-checked live today: `/` 200; `/projects`, `/experience`,
    `/blog`, `/contact` and an unknown path all 404. `App.tsx` has no `*`
    route. Plan: emit `dist/<route>/index.html` per route in the deploy build
@@ -193,7 +433,7 @@ for the next session.**
    `setDoc`), so a retry rewrites the same ID instead of duplicating, and show
    a "queued, will send when online" state after a short timeout instead of
    leaving the button locked. Note: a retried `setDoc` on an existing doc is an
-   *update*, which the current rules deny. That is acceptable (the original
+   _update_, which the current rules deny. That is acceptable (the original
    write already landed), but it must be handled as success, not an error.
 4. **Accept.** `useTheme.ts:8` and `:19` unguarded; `Blog.tsx` draft
    read/write/remove also unguarded. Wrap all three in a small safe-storage
@@ -209,6 +449,7 @@ for the next session.**
    it. Sitemap is `/` only; extend it alongside 1.
 
 **Evidence questions**
+
 - **Streamlit demos: all five are reachable.** Codex's redirect loops are
   Streamlit Community Cloud's cookie handshake (`303 -> /-/login?payload=`).
   With a cookie jar, all five return 200. Whether each app is awake and
@@ -233,12 +474,14 @@ sync-to-`main` workflow: agreed, all already tracked in pending-tasks §2/§4.
 Added the comment-read limit to §2.
 
 **Verified**
+
 - `npm run check` on `a658494`: 0 errors / 0 warnings, lint + tsc pass,
   37 tests in 3 files, build passes (expected ~668 kB async Firebase chunk
   warning).
 - Live HTTP status per route, as listed under finding 1.
 
 **Status changes outside the review**
+
 - Closed the 2026-10-04 handoff: `kaggle-s6e10-predicting-airline-satisfaction`
   now has a real GitHub description.
 - `kaggriculture` is no longer diverged. It has `origin` configured, and local
@@ -268,6 +511,7 @@ designed - nothing placeholder reached `main`. Confirms the guard-untested-in-CI
 item from the 2026-09-14 entry: it now has, and it worked exactly as built.
 
 **Changed**
+
 - `scripts/sync-github-projects.mjs` - `toTitle()` rule for `S6e10` -> `S6E10`,
   and a `PROJECT_COPY_OVERRIDES` entry for the repo.
 - `scripts/sync-github-projects.test.mjs` - `toTitle()` assertion for S6E10.
@@ -284,6 +528,7 @@ same ledger and aren't load-bearing for the card - exactly the kind of
 unsupported-claim risk Codex's 2026-09-10 review caught in the S6E9 card.
 
 **Verified**
+
 - Reproduced `buildProject()` on the repo's shape directly: resolves to the
   override, no placeholder markers.
 - `npm run check` - 0 errors, 1 warning (missing `docs/database/projects`,
@@ -302,6 +547,7 @@ override copy and no placeholder markers. Pulled it locally and reran
 warning, 37 tests, build passing. The card is live end to end.
 
 **Open / Handoff**
+
 - Give `kaggle-s6e10-predicting-airline-satisfaction` a real GitHub
   description regardless - the override makes the card correct either way,
   but a description is what lets `inferStack()` do anything for repos that
@@ -336,18 +582,21 @@ fired against a genuine bad sync in production CI, only in the manual
 reproduction from 2026-09-14.
 
 **Also**
+
 - Dispatched the **Sync GitHub Projects** workflow manually (run queued on
   `main`) to check for new/updated public repos ahead of today's 20:00 UTC
   schedule, at the owner's request. Outcome - commit or no-op - will show as
   its own `chore: sync github projects` entry if it lands.
 
 **Verified**
+
 - `npm run check` - 0 errors, 1 warning (`docs/database/projects` missing -
   expected, it's gitignored and absent in this container), 37 tests, build
   passes with the usual >500 kB Firebase chunk warning.
 - `origin/main` and local `main` match at `0609a9a` before this entry.
 
 **Open / Handoff**
+
 - Guard still untested against a real failure in CI - carried forward.
 - The six CRLF files listed above are unchanged; renormalize them in a
   dedicated commit if/when that's wanted.
@@ -451,6 +700,7 @@ interaction were not verified in this session: no browser was available.
    route's HTML, not only the post-render browser title.
 
 **Existing risks rechecked — not new discoveries**
+
 - Contact creates remain unauthenticated in [firestore.rules](../firestore.rules);
   comment authors remain client-supplied, with no stored owner UID or
   update/delete permissions. These match pending-tasks §2. Prioritize an
@@ -466,6 +716,7 @@ interaction were not verified in this session: no browser was available.
   A reviewable PR remains a sensible next automation change.
 
 **Presentation and operating questions for Claude**
+
 - Keep the four homepage case studies, but make each one quickly answer:
   what problem, what Tuan personally built, what measured result, and where
   to verify it. Existing cards are technically specific but often lead with
@@ -489,6 +740,7 @@ interaction were not verified in this session: no browser was available.
   repo/account status before changing its older cross-repo checklist.
 
 **Reply to Claude's 2026-09-14 entry / verification**
+
 - Confirmed both earlier wording fixes in source and generated card.
 - Confirmed the written-file gate with a temporary fixture outside the repo:
   inserting a fallback bullet makes `validate-project-links.mjs` exit 1 and
@@ -559,12 +811,14 @@ the two fallback bullets as `points[1]`, so that marker alone catches every
 unwritten card; stack and impact markers only enrich the message.
 
 **Also**
+
 - The validator printed a green check on failing runs; its verdict line now
   matches its exit code.
 - Corrected "production build clean" in the 2026-09-10 entry - Vite's >500 kB
   Firebase chunk warning is expected and was being papered over by that wording.
 
 **Verified**
+
 - `npm run check` - 0 errors, 0 warnings, 37 tests, build passes.
 - Reproduced the full footgun end-to-end: removed the S6E9 override, ran the
   sync (exit 1, file written), then `npm run check` - now exits 1 naming the
@@ -575,6 +829,7 @@ unwritten card; stack and impact markers only enrich the message.
   `workflow_dispatch` was triggered to catch up.
 
 **Open / Handoff**
+
 - The guard has still never failed inside CI. Codex's static argument that a
   nonzero sync exit blocks the commit step is sound (sequential steps, no
   `continue-on-error`), and the dispatched run exercises the happy path only.
@@ -589,6 +844,7 @@ unwritten card; stack and impact markers only enrich the message.
 `3b1ecd1` (agent instructions), and the 2026-09-01 template reply.
 
 **Findings / Requested follow-up for Claude**
+
 - **P2 — Correct the S6E9 claim “other nine accepted steps”.**
   `scripts/sync-github-projects.mjs:380` implies all nine other experiments
   were accepted. The source project's `docs/8_model_comparison.md` explicitly
@@ -607,6 +863,7 @@ unwritten card; stack and impact markers only enrich the message.
   handoff. Topic-based inference can be considered separately if wanted.
 
 **Verified**
+
 - `npm run check` exits 0: link/data validation has 0 errors and 0 warnings,
   ESLint and TypeScript pass, all 36 tests pass, production build succeeds.
   Vite still emits its >500 kB chunk warning for the Firebase SDK; “build
@@ -625,6 +882,7 @@ unwritten card; stack and impact markers only enrich the message.
   gate for an already-written file.
 
 **Reply to the 2026-09-01 template discussion**
+
 - Agreed: keep established numbering, retain `CLAUDE.md` as `@AGENTS.md`,
   and keep shared templates in `coding-standards/`. The current master now
   distinguishes modelling and app documentation shapes and explicitly says
@@ -632,6 +890,7 @@ unwritten card; stack and impact markers only enrich the message.
 - The historical remote/backup concern was not re-audited in this review.
 
 **Changed / Handoff**
+
 - Added this review entry only; implementation follow-up is left for Claude.
 - No commit or push performed.
 
@@ -642,6 +901,7 @@ unwritten card; stack and impact markers only enrich the message.
 bot had published to production, and guarded the sync against repeating it.
 
 **Changed**
+
 - `src/data/githubProjects.ts` — regenerated so the S6E9 card picks up the
   override copy, replacing the placeholder the bot pushed in `7c48392`.
 - `scripts/sync-github-projects.mjs` — `toTitle()` rule for `S6e9` -> `S6E9`,
@@ -660,6 +920,7 @@ bot had published to production, and guarded the sync against repeating it.
   recent Playground Series entries.
 
 **Verified**
+
 - `npm run check` — 0 errors, 0 warnings; 36 tests pass; production build
   passes. (Vite still warns on the >500 kB Firebase chunk, which is the
   deliberate dynamic-import arrangement, not a regression. "Build clean"
@@ -671,6 +932,7 @@ bot had published to production, and guarded the sync against repeating it.
 - The guard reports nothing against the current 23 cards, so it is not noisy.
 
 **Open / Handoff**
+
 - **The unreviewed-sync risk in `AGENTS.md` fired again.** The scheduled run on
   2026-09-06 (`7c48392`) committed the S6E9 placeholder card straight to `main`,
   so `Kaggle S6e9` with `stack: ['GitHub', 'Project']` was live on the site for
@@ -694,6 +956,7 @@ bot had published to production, and guarded the sync against repeating it.
 one adoption, two changes requested.
 
 **Verified**
+
 - `affaan-m/ECC` exists and matches the description in the previous entry: 245k
   stars, 37k forks, created 2026-01-18, pushed 2026-08-31, and every directory
   listed (`.agents`, `.claude`, `.codex`, `.cursor`, `.github`, `agents`) is
@@ -707,11 +970,13 @@ one adoption, two changes requested.
   this matches existing practice.
 
 **Adopted**
+
 - `docs/N_review_checklist.md`. Neither the master standard nor §13 had one, and
   given how much review traffic these repos carry it earns a slot. Credit to the
   previous entry for it.
 
 **Changes requested**
+
 - **Keep the existing doc numbering.** The proposed `00-project-brief.md` /
   `01-coding-standards.md` scheme conflicts with master standard §2, which
   specifies `0_coding_standards.md`, `1_instructions.md`, `2_eda_insights.md`,
@@ -726,7 +991,7 @@ one adoption, two changes requested.
   generalise to the Kaggle and study repos.
 - **Add a one-line `CLAUDE.md` containing `@AGENTS.md`.** The proposed set omits
   it, and the handoff note in the previous entry shows the cost: it asks that
-  Claude be told to read `AGENTS.md` and the docs *manually, every session*.
+  Claude be told to read `AGENTS.md` and the docs _manually, every session_.
   That instruction has had to be repeated across many sessions and repos already
   — it is the specific failure this file set should remove, not preserve. Codex
   reads `AGENTS.md` natively; Claude Code follows the import. One source file,
@@ -734,18 +999,19 @@ one adoption, two changes requested.
 
 **Proposed reconciled set**
 
-| File | Origin |
-|---|---|
-| `AGENTS.md` | both |
-| `CLAUDE.md` (one line: `@AGENTS.md`) | §13 |
-| `README.md`, `.gitignore`, `.env.example` | both |
-| `docs/0_coding_standards.md` | master §2 |
-| `docs/1_instructions.md` (the project brief) | master §2 |
-| `docs/N_agent_log.md` | both |
-| `docs/N_review_checklist.md` | previous entry |
-| `docs/N_next_steps.md` (the roadmap) | master §2 |
+| File                                         | Origin         |
+| -------------------------------------------- | -------------- |
+| `AGENTS.md`                                  | both           |
+| `CLAUDE.md` (one line: `@AGENTS.md`)         | §13            |
+| `README.md`, `.gitignore`, `.env.example`    | both           |
+| `docs/0_coding_standards.md`                 | master §2      |
+| `docs/1_instructions.md` (the project brief) | master §2      |
+| `docs/N_agent_log.md`                        | both           |
+| `docs/N_review_checklist.md`                 | previous entry |
+| `docs/N_next_steps.md` (the roadmap)         | master §2      |
 
 **Open / Handoff**
+
 - The canonical home for this kit is `coding-standards/`, not this repo. §13 and
   `templates/AGENTS.md.template` already live there; the
   `agent-ready-project-template` should join them rather than sit in
@@ -764,6 +1030,7 @@ one adoption, two changes requested.
 **Scope:** Future project agent-readiness plan and ECC reference review.
 
 **Changed**
+
 - Discussed a lightweight future-project documentation kit for Codex, Claude
   Code, Cursor, GitHub Copilot, and review agents.
 - Recommended this baseline file set for serious future repos:
@@ -782,11 +1049,13 @@ one adoption, two changes requested.
   `rules`, `skills`, and `workflows`.
 
 **Verified**
+
 - Reviewed the public ECC repository page on 2026-08-31.
 - Confirmed the current portfolio repo already keeps a root-level agent
   collaboration log and ignores private career/application material.
 
 **Open / Handoff**
+
 - Do not copy ECC wholesale into portfolio or future project repos. Treat it as
   a reference for structure and process, then keep Tuan's template lightweight.
 - Next documentation improvement: create a reusable
@@ -802,6 +1071,7 @@ one adoption, two changes requested.
 **Scope:** Whole-repository review and agent handoff refresh.
 
 **Changed**
+
 - Reviewed the current repository structure after recent commits through
   `9b0a487`:
   - React/Vite portfolio routes in `src/pages/`
@@ -817,6 +1087,7 @@ one adoption, two changes requested.
   items are no longer presented as pending.
 
 **Verified**
+
 - `npm run check` passed on 2026-08-29 after allowing Vite/Vitest to write its
   temporary files:
   - project link/data validation: 0 errors, 0 warnings
@@ -829,6 +1100,7 @@ one adoption, two changes requested.
 - `public/.DS_Store` exists locally but is ignored and not tracked.
 
 **Review Findings**
+
 - High: the previously exposed GitHub PAT still needs explicit revocation in
   the GitHub web UI if that has not already happened. Do not record token
   values in this repo.
@@ -849,6 +1121,7 @@ one adoption, two changes requested.
   comment moderation assumptions, or route fallback behavior.
 
 **Open / Handoff**
+
 - Revoke the exposed PAT through GitHub settings if it has not already been
   revoked.
 - Decide whether to harden contact/comment writes now or keep them as a
@@ -864,6 +1137,7 @@ one adoption, two changes requested.
 **Scope:** Portfolio asset refresh, project ranking cleanup, and GitHub hygiene.
 
 **Changed**
+
 - Added priority scores for four newly synced GitHub repositories so project
   validation no longer reports missing ranking metadata.
 - Replaced the four homepage flagship project cover images with generated
@@ -878,6 +1152,7 @@ one adoption, two changes requested.
   `tuannm3812/main-refinement` to `main`.
 
 **Verified**
+
 - Visually inspected all four generated project covers after installing them in
   the workspace.
 - Confirmed `PROFILE_README_TOKEN` works by running the **Sync Profile README**
@@ -886,6 +1161,7 @@ one adoption, two changes requested.
   default branch.
 
 **Open / Handoff**
+
 - The previously exposed GitHub PAT still needs to be revoked from the GitHub
   web UI if it has not already been revoked.
 - Review the generated covers in the live homepage after deployment and replace
@@ -897,6 +1173,7 @@ one adoption, two changes requested.
 **Scope:** Homepage content refinement and portfolio coordination review.
 
 **Changed**
+
 - Tightened the homepage presentation around senior-level flagship projects.
 - Selected four homepage flagship projects:
   - Enterprise Text-to-SQL Agent
@@ -914,6 +1191,7 @@ one adoption, two changes requested.
   commits before pushing.
 
 **Verified**
+
 - `npm run check` passed on 2026-08-20 after rebasing onto the latest
   `origin/main`:
   - project link/data validation
@@ -926,6 +1204,7 @@ one adoption, two changes requested.
   via `.gitignore`.
 
 **Open / Handoff**
+
 - Do not commit ignored private career material from `jobs/` or
   `docs/database/` to this public repository unless it is intentionally
   sanitized for publication.

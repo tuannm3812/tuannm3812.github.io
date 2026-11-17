@@ -1,246 +1,298 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
-import {
-  Briefcase,
-  GraduationCap,
-  MapPin,
-  Calendar,
-  Code2,
-  Database,
-  Cpu,
-  BrainCircuit,
-  Wrench,
-  Bot,
-  Lightbulb,
-  Terminal,
-  Download,
-} from 'lucide-react';
+import OrgLogo from '../components/OrgLogo';
+import SectionHeading from '../components/SectionHeading';
+import SketchIcon, { type SketchIconName } from '../components/artwork/SketchIcon';
+import { EMPLOYER_LOGO } from '../data/orgLogos';
 
-function getStackIcon(title: string) {
-  const t = title.toLowerCase();
-  if (t.includes('language') || t.includes('engineering'))
-    return <Code2 size={20} className="text-brand" />;
-  if (t.includes('platform')) return <Database size={20} className="text-brand" />;
-  if (t.includes('orchestration') || t.includes('analytics'))
-    return <Cpu size={20} className="text-brand" />;
-  if (t.includes('machine learning') || t.includes('ml'))
-    return <BrainCircuit size={20} className="text-brand" />;
-  if (t.includes('production') || t.includes('mlops'))
-    return <Wrench size={20} className="text-brand" />;
-  if (t.includes('ai') || t.includes('nlp') || t.includes('agent'))
-    return <Bot size={20} className="text-brand" />;
-  return <Terminal size={20} className="text-brand" />;
+// Skill groups use the same type colours as the drawn project covers:
+// blue for agents and code, green for data, amber for models.
+const SKILL_STYLE: Record<string, { icon: SketchIconName; tone: string; chip: string }> = {
+  'Languages & Engineering': {
+    icon: 'code',
+    tone: 'border-t-brand dark:border-t-sky-300',
+    chip: 'bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-200',
+  },
+  'Data Platforms': {
+    icon: 'database',
+    tone: 'border-t-emerald-600 dark:border-t-emerald-400',
+    chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
+  },
+  'Orchestration & Analytics': {
+    icon: 'flow',
+    tone: 'border-t-emerald-600 dark:border-t-emerald-400',
+    chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
+  },
+  'Machine Learning': {
+    icon: 'scatter',
+    tone: 'border-t-amber-600 dark:border-t-amber-400',
+    chip: 'bg-amber-50 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200',
+  },
+  'Production & MLOps': {
+    icon: 'rocket',
+    tone: 'border-t-amber-600 dark:border-t-amber-400',
+    chip: 'bg-amber-50 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200',
+  },
+  'AI, NLP & Agents': {
+    icon: 'nodes',
+    tone: 'border-t-brand dark:border-t-sky-300',
+    chip: 'bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-200',
+  },
+};
+
+// The career in four stops. Years come from the roles and education in resume.ts.
+const CAREER_PATH: {
+  year: string;
+  hand: string;
+  title: string;
+  org: string;
+  icon: SketchIconName;
+}[] = [
+  { year: '2017', hand: 'Audit', title: 'Data Champion in Audit', org: 'PwC', icon: 'ledger' },
+  {
+    year: '2020',
+    hand: 'Strategy',
+    title: 'Transformation Consulting',
+    org: 'FPT',
+    icon: 'compass',
+  },
+  { year: '2021', hand: 'Growth', title: 'Growth Analytics Lead', org: 'Shopee', icon: 'growth' },
+  { year: '2025', hand: 'AI', title: 'Applied AI & ML', org: 'UTS, Sydney', icon: 'spark' },
+];
+
+function CareerPath() {
+  return (
+    <div className="relative">
+      <svg
+        viewBox="0 0 1000 40"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        className="absolute left-[12%] top-[32px] hidden h-10 w-[76%] md:block"
+      >
+        <path
+          d="M4 22 C 120 6, 220 34, 340 20 S 560 8, 680 22 S 880 30, 996 14"
+          fill="none"
+          stroke="#f59e0b"
+          strokeWidth={4}
+          strokeLinecap="round"
+          strokeDasharray="2 12"
+        />
+      </svg>
+      <ol className="relative grid gap-6 md:grid-cols-4 md:gap-4">
+        {CAREER_PATH.map((stop, i) => (
+          <motion.li
+            key={stop.year}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.12 }}
+            className="flex items-center gap-4 md:flex-col md:text-center"
+          >
+            <span className="flex h-[104px] w-[104px] flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
+              <SketchIcon name={stop.icon} size={60} />
+            </span>
+            <span className="space-y-0.5">
+              <span className="block font-hand text-2xl font-bold leading-none text-brand dark:text-sky-300">
+                {stop.year} · {stop.hand}
+              </span>
+              <span className="block font-semibold">{stop.title}</span>
+              <span className="block text-sm text-slate-500 dark:text-slate-400">{stop.org}</span>
+            </span>
+          </motion.li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+/** Highlights [[key terms]] and measured results (percentages, counts like 40+). */
+function Highlighted({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/(\[\[.*?\]\]|\d+(?:\.\d+)?%|\d+\+)/).map((part, i) =>
+        i % 2 === 1 ? (
+          <mark key={i} className="key-term">
+            {part.replace(/^\[\[|\]\]$/g, '')}
+          </mark>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+function splitRole(role: string) {
+  const [title, team] = role.split(' · ');
+  return { title, team };
 }
 
 export default function Experience() {
   return (
     <div className="max-w-5xl mx-auto space-y-16">
-      {/* Page Header with Resume Download */}
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-slate-100 pb-8 dark:border-slate-800/65">
+      {/* Page Header */}
+      <div className="border-b border-slate-100 pb-8 dark:border-slate-800/65">
         <div className="space-y-3">
-          <p className="section-eyebrow">Background & Credentials</p>
-          <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-            Professional <span className="text-brand">Path</span>
+          <p className="hand-eyebrow">Experience</p>
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+            Where I've done <span className="hand-underline">the work.</span>
           </h1>
           <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
-            My career history, technical expertise matrix, professional philosophy, and academic
-            credentials.
+            Seven years across audit, strategy consulting and growth analytics, now building applied
+            AI and ML.
           </p>
         </div>
-        <a
-          href="/assets/tuan-nguyen-resume.pdf"
-          download
-          className="btn-secondary flex items-center gap-2 cursor-pointer w-fit"
-        >
-          <Download size={18} />
-          Download Resume (PDF)
-        </a>
       </div>
 
       {/* Work Experience */}
       <section className="space-y-8">
-        <p className="section-eyebrow">Professional path</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <Briefcase className="text-brand" />
-          Professional Experience
-        </h2>
+        <SectionHeading hand="From Audit to AI" title="Experience" />
+        <CareerPath />
 
-        <div className="space-y-10 border-l-2 border-slate-200/80 dark:border-slate-800/80 ml-4 pl-8 md:pl-10">
-          {resumeData.experience.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
-            >
-              {/* Timeline Dot */}
-              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-100 dark:border-slate-950" />
-
-              <div className="surface-card surface-card-hover space-y-3 p-5">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                  <h3 className="text-xl font-bold">{exp.role}</h3>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-400">
-                    <Calendar size={14} />
+        <ol className="space-y-6">
+          {resumeData.experience.map((exp, index) => {
+            const { title, team } = splitRole(exp.role);
+            return (
+              <motion.li
+                key={exp.company}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="grid gap-3 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
+              >
+                <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-3 md:pt-1">
+                  <OrgLogo id={EMPLOYER_LOGO[exp.company]} size={44} framed={false} />
+                  <p className="text-sm font-semibold tabular-nums text-slate-500 dark:text-slate-400">
                     {exp.period}
-                  </span>
+                  </p>
                 </div>
-
-                <div className="flex flex-wrap items-center gap-3 text-sm text-brand font-bold">
-                  <span>{exp.company}</span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700" />
-                  <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 font-medium italic">
-                    <MapPin size={14} />
-                    {exp.location}
-                  </span>
+                <div className="surface-card space-y-4 p-6">
+                  <div className="min-w-0 space-y-1">
+                    <h3 className="text-xl font-bold leading-snug tracking-tight">{title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      <span className="font-semibold text-slate-900 dark:text-white">
+                        {exp.company}
+                      </span>
+                      {team && <> · {team}</>} · {exp.location}
+                    </p>
+                  </div>
+                  <ul className="grid gap-x-8 gap-y-2.5 md:grid-cols-2">
+                    {exp.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-2.5 text-[15px] leading-relaxed text-slate-600 dark:text-slate-400"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400"
+                        />
+                        <span>
+                          <Highlighted text={point} />
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+              </motion.li>
+            );
+          })}
+        </ol>
+      </section>
 
-                <ul className="grid gap-2 md:grid-cols-2">
-                  {exp.points.map((point, i) => (
+      {/* Education */}
+      <section className="space-y-8">
+        <SectionHeading hand="Still Learning" title="Education" />
+
+        <ol className="space-y-6">
+          {resumeData.education.map((edu, index) => (
+            <motion.li
+              key={edu.institution}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="grid gap-3 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
+            >
+              <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-3 md:pt-1">
+                <OrgLogo id={EMPLOYER_LOGO[edu.institution]} size={44} framed={false} />
+                <p className="text-sm font-semibold tabular-nums text-slate-500 dark:text-slate-400">
+                  {edu.period}
+                </p>
+              </div>
+              <div className="surface-card space-y-4 p-6">
+                <div className="min-w-0 space-y-1">
+                  <h3 className="text-xl font-bold leading-snug tracking-tight">{edu.degree}</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <span className="font-semibold text-slate-900 dark:text-white">
+                      {edu.institution}
+                    </span>{' '}
+                    · {edu.location}
+                  </p>
+                </div>
+                <ul className="grid gap-x-8 gap-y-2.5 md:grid-cols-2">
+                  {edu.points.map((point) => (
                     <li
-                      key={i}
-                      className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex gap-2"
+                      key={point}
+                      className="flex gap-2.5 text-[15px] leading-relaxed text-slate-600 dark:text-slate-400"
                     >
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
-                      {point}
+                      <span
+                        aria-hidden="true"
+                        className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400"
+                      />
+                      <span>
+                        <Highlighted text={point} />
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
       </section>
 
       {/* Technical Skill Matrix */}
-      <section className="space-y-8">
-        <p className="section-eyebrow">Expertise & Stack</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <Terminal className="text-brand" />
-          Technical Skill Matrix
-        </h2>
+      <section className="space-y-8 pb-24">
+        <SectionHeading hand="What I Reach For" title="Skills" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {resumeData.technologyStack.map((stack, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="surface-card surface-card-hover flex flex-col justify-between p-5"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="icon-tile h-9 w-9">{getStackIcon(stack.title)}</div>
-                  <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
-                    {stack.title}
-                  </h3>
+          {resumeData.technologyStack.map((stack, index) => {
+            const style = SKILL_STYLE[stack.title] ?? SKILL_STYLE['Languages & Engineering'];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className={`surface-card flex flex-col justify-between border-t-4 p-5 ${style.tone}`}
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <SketchIcon name={style.icon} size={44} />
+                    <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
+                      {stack.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    {stack.description}
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {stack.description}
-                </p>
-              </div>
 
-              <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
-                {stack.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded bg-slate-100/60 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-600 transition-colors hover:bg-brand/10 hover:text-brand dark:bg-slate-900/65 dark:text-slate-400 dark:hover:text-brand"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Philosophy & Reflections */}
-      <section className="space-y-8">
-        <p className="section-eyebrow">Philosophy & Mindset</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <Lightbulb className="text-brand" />
-          Professional Philosophy
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {resumeData.reflections.map((ref, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="soft-panel border-l-4 border-l-brand p-5 space-y-3"
-            >
-              <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                  {ref.category}
-                </span>
-                <h3 className="text-base font-black text-slate-950 dark:text-white">{ref.title}</h3>
-              </div>
-              <ul className="space-y-2">
-                {ref.points.map((point, i) => (
-                  <li
-                    key={i}
-                    className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="space-y-8 pb-24">
-        <p className="section-eyebrow">Academic foundation</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <GraduationCap className="text-brand" />
-          Education
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-5">
-          {resumeData.education.map((edu, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="surface-card surface-card-hover space-y-3 p-6"
-            >
-              <div className="space-y-1">
-                <h3 className="text-lg font-bold">{edu.institution}</h3>
-                <p className="text-brand font-medium">{edu.degree}</p>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Calendar size={14} />
-                  {edu.period}
-                </span>
-                <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 italic">
-                  <MapPin size={14} />
-                  {edu.location}
-                </span>
-              </div>
-
-              <ul className="space-y-2">
-                {edu.points.map((point, i) => (
-                  <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex gap-2">
-                    <span className="mt-1 w-1 h-1 rounded-full bg-brand flex-shrink-0" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
+                  {stack.tools.map((tool) => (
+                    <span
+                      key={tool}
+                      className={`rounded-full px-2.5 py-1 text-xs font-semibold ${style.chip}`}
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
     </div>

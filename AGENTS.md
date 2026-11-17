@@ -43,6 +43,10 @@ poll on `/blog` and `/contact`, and `firebaseHealth.ts` imports the SDK
 dynamically. A static import anywhere in the Layout chain puts ~668 kB back in
 front of first paint.
 
+**Read `docs/12-design-guideline.md` and `docs/14-ui-workflow-and-qa.md` before
+any visual change.** New layouts are mocked and approved first; decisions go in
+`docs/15-design-decisions.md`.
+
 ## Evidence locations
 
 - `docs/00-documentation-index.md` — the map; start here
