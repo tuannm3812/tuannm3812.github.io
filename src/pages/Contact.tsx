@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import {
-  BarChart3,
-  CheckCircle2,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Send,
-  WifiOff,
-  type LucideIcon,
-} from 'lucide-react';
+import { CheckCircle2, Mail, MapPin, Send, WifiOff } from 'lucide-react';
+import BrandIcon from '../components/BrandIcon';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { db, collection, serverTimestamp } from '../lib/firebase';
@@ -21,17 +12,32 @@ import { ReliabilityError } from '../lib/reliability/types';
 import { SettledWrite } from '../lib/reliability/pendingWrite';
 
 /** The ways to reach Mike. The phone number stays off the public site, like the resume PDF. */
-const CHANNELS: { label: string; value: string; href?: string; Icon: LucideIcon }[] = [
-  { label: 'Email', value: resumeData.email, href: `mailto:${resumeData.email}`, Icon: Mail },
+const CHANNELS: { label: string; value: string; href?: string; icon: React.ReactNode }[] = [
+  {
+    label: 'Email',
+    value: resumeData.email,
+    href: `mailto:${resumeData.email}`,
+    icon: <Mail size={20} />,
+  },
   {
     label: 'LinkedIn',
     value: 'in/tuan-m-nguyen',
     href: resumeData.linkedin,
-    Icon: Linkedin,
+    icon: <BrandIcon brand="linkedin" />,
   },
-  { label: 'GitHub', value: 'tuannm3812', href: resumeData.github, Icon: Github },
-  { label: 'Kaggle', value: 'tuannm3812', href: resumeData.kaggle, Icon: BarChart3 },
-  { label: 'Based In', value: resumeData.location, Icon: MapPin },
+  {
+    label: 'GitHub',
+    value: 'tuannm3812',
+    href: resumeData.github,
+    icon: <BrandIcon brand="github" />,
+  },
+  {
+    label: 'Kaggle',
+    value: 'tuannm3812',
+    href: resumeData.kaggle,
+    icon: <BrandIcon brand="kaggle" />,
+  },
+  { label: 'Based In', value: resumeData.location, icon: <MapPin size={20} /> },
 ];
 
 export default function Contact() {
@@ -117,11 +123,11 @@ export default function Contact() {
         </div>
 
         <ul className="grid gap-3 sm:grid-cols-2">
-          {CHANNELS.map(({ label, value, href, Icon }) => {
+          {CHANNELS.map(({ label, value, href, icon }) => {
             const body = (
               <>
-                <div className="icon-tile shrink-0 transition-all group-hover:border-brand group-hover:bg-brand group-hover:text-white">
-                  <Icon size={20} />
+                <div className="icon-tile shrink-0 transition-all group-hover:border-brand/40">
+                  {icon}
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{label}</p>

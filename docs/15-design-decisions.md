@@ -5,6 +5,14 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 18 November 2026 — Profile icons follow each brand's guidelines
+
+Mike agreed to drop the phone number from Contact, and asked that profile icons
+use the versions the brands' own guidelines allow. LinkedIn, GitHub and Kaggle
+now use their official marks in their own colours (`src/components/BrandIcon.tsx`)
+on Contact and in the footer, instead of generic Lucide glyphs in site blue.
+Experience and project-card logos stay mono brand blue (17 Nov decision).
+
 ## 17 November 2026 — Blog and Contact follow the card rules
 
 Defaults taken while Mike asked to "continue next work": blog posts use the
@@ -12,7 +20,7 @@ same 3-tag vocabulary as project cards and a kind label (Field Note,
 Achievement, Event) so his LinkedIn posts can join as Achievements and Events;
 meta lines use sentence case, not uppercase tracking. Contact drops the phone
 number (as the resume PDF already does) and lists Email, LinkedIn, GitHub,
-Kaggle and location. Awaiting his confirmation on the phone number.
+Kaggle and location. Mike confirmed on 18 Nov.
 
 ## 17 November 2026 — Card content rules and colour-grouped tags
 
