@@ -1,38 +1,55 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
 import OrgLogo from '../components/OrgLogo';
 import { EMPLOYER_LOGO } from '../data/orgLogos';
-import {
-  Briefcase,
-  GraduationCap,
-  MapPin,
-  Calendar,
-  Code2,
-  Database,
-  Cpu,
-  BrainCircuit,
-  Wrench,
-  Bot,
-  Lightbulb,
-  Terminal,
-  Download,
-} from 'lucide-react';
+import { Code2, Database, Cpu, BrainCircuit, Wrench, Bot, Terminal, Download } from 'lucide-react';
 
 function getStackIcon(title: string) {
   const t = title.toLowerCase();
   if (t.includes('language') || t.includes('engineering'))
-    return <Code2 size={20} className="text-brand" />;
-  if (t.includes('platform')) return <Database size={20} className="text-brand" />;
+    return <Code2 size={18} className="text-brand dark:text-sky-300" />;
+  if (t.includes('platform'))
+    return <Database size={18} className="text-brand dark:text-sky-300" />;
   if (t.includes('orchestration') || t.includes('analytics'))
-    return <Cpu size={20} className="text-brand" />;
+    return <Cpu size={18} className="text-brand dark:text-sky-300" />;
   if (t.includes('machine learning') || t.includes('ml'))
-    return <BrainCircuit size={20} className="text-brand" />;
+    return <BrainCircuit size={18} className="text-brand dark:text-sky-300" />;
   if (t.includes('production') || t.includes('mlops'))
-    return <Wrench size={20} className="text-brand" />;
+    return <Wrench size={18} className="text-brand dark:text-sky-300" />;
   if (t.includes('ai') || t.includes('nlp') || t.includes('agent'))
-    return <Bot size={20} className="text-brand" />;
-  return <Terminal size={20} className="text-brand" />;
+    return <Bot size={18} className="text-brand dark:text-sky-300" />;
+  return <Terminal size={18} className="text-brand dark:text-sky-300" />;
+}
+
+/** Highlights the measured results in a bullet (percentages and counts like 40+). */
+function Highlighted({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/(\d+(?:\.\d+)?%|\d+\+)/).map((part, i) =>
+        i % 2 === 1 ? (
+          <mark key={i} className="key-term">
+            {part}
+          </mark>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+function SectionHeading({ hand, title }: { hand: string; title: string }) {
+  return (
+    <div className="space-y-1.5">
+      <p className="hand-eyebrow">{hand}</p>
+      <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
+    </div>
+  );
+}
+
+function splitRole(role: string) {
+  const [title, team] = role.split(' · ');
+  return { title, team };
 }
 
 export default function Experience() {
@@ -62,70 +79,62 @@ export default function Experience() {
 
       {/* Work Experience */}
       <section className="space-y-8">
-        <p className="section-eyebrow">Professional path</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <Briefcase className="text-brand" />
-          Professional Experience
-        </h2>
+        <SectionHeading hand="roles" title="Experience" />
 
-        <div className="space-y-10 border-l-2 border-slate-200/80 dark:border-slate-800/80 ml-4 pl-8 md:pl-10">
-          {resumeData.experience.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
-            >
-              {/* Timeline Dot */}
-              <div className="absolute -left-[41px] md:-left-[49px] top-1 w-4 h-4 rounded-full bg-brand border-4 border-slate-100 dark:border-slate-950" />
-
-              <div className="surface-card surface-card-hover space-y-3 p-5">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                  <div className="flex items-center gap-3">
-                    <OrgLogo id={EMPLOYER_LOGO[exp.company]} size={40} />
-                    <h3 className="text-xl font-bold">{exp.role}</h3>
+        <ol className="space-y-6">
+          {resumeData.experience.map((exp, index) => {
+            const { title, team } = splitRole(exp.role);
+            return (
+              <motion.li
+                key={exp.company}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="grid gap-3 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
+              >
+                <p className="pt-1 text-sm font-semibold tabular-nums text-slate-500 dark:text-slate-400">
+                  {exp.period}
+                </p>
+                <div className="surface-card space-y-4 p-6">
+                  <div className="flex items-start gap-4">
+                    <OrgLogo id={EMPLOYER_LOGO[exp.company]} size={44} />
+                    <div className="min-w-0 space-y-1">
+                      <h3 className="text-xl font-bold leading-snug tracking-tight">{title}</h3>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          {exp.company}
+                        </span>
+                        {team && <> · {team}</>} · {exp.location}
+                      </p>
+                    </div>
                   </div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-400">
-                    <Calendar size={14} />
-                    {exp.period}
-                  </span>
+                  <ul className="grid gap-x-8 gap-y-2.5 md:grid-cols-2">
+                    {exp.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-2.5 text-[15px] leading-relaxed text-slate-600 dark:text-slate-400"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400"
+                        />
+                        <span>
+                          <Highlighted text={point} />
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <div className="flex flex-wrap items-center gap-3 text-sm text-brand font-bold">
-                  <span>{exp.company}</span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700" />
-                  <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 font-medium italic">
-                    <MapPin size={14} />
-                    {exp.location}
-                  </span>
-                </div>
-
-                <ul className="grid gap-2 md:grid-cols-2">
-                  {exp.points.map((point, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex gap-2"
-                    >
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.li>
+            );
+          })}
+        </ol>
       </section>
 
       {/* Technical Skill Matrix */}
       <section className="space-y-8">
-        <p className="section-eyebrow">Expertise & Stack</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <Terminal className="text-brand" />
-          Technical Skill Matrix
-        </h2>
+        <SectionHeading hand="toolkit" title="Skills" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {resumeData.technologyStack.map((stack, index) => (
@@ -135,11 +144,11 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="surface-card surface-card-hover flex flex-col justify-between p-5"
+              className="surface-card flex flex-col justify-between p-5"
             >
               <div className="space-y-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="icon-tile h-9 w-9">{getStackIcon(stack.title)}</div>
+                  <div className="icon-tile h-8 w-8">{getStackIcon(stack.title)}</div>
                   <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
                     {stack.title}
                   </h3>
@@ -166,11 +175,7 @@ export default function Experience() {
 
       {/* Philosophy & Reflections */}
       <section className="space-y-8">
-        <p className="section-eyebrow">Philosophy & Mindset</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <Lightbulb className="text-brand" />
-          Professional Philosophy
-        </h2>
+        <SectionHeading hand="how I work" title="Principles" />
 
         <div className="grid md:grid-cols-3 gap-5">
           {resumeData.reflections.map((ref, index) => (
@@ -180,19 +185,19 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="soft-panel border-l-4 border-l-brand p-5 space-y-3"
+              className="surface-card space-y-3 p-6"
             >
               <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                  {ref.category}
+                <span className="font-hand text-xl font-bold leading-none text-amber-600 dark:text-amber-400">
+                  {ref.category.toLowerCase()}
                 </span>
-                <h3 className="text-base font-black text-slate-950 dark:text-white">{ref.title}</h3>
+                <h3 className="text-lg font-bold text-slate-950 dark:text-white">{ref.title}</h3>
               </div>
               <ul className="space-y-2">
                 {ref.points.map((point, i) => (
                   <li
                     key={i}
-                    className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+                    className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
                   >
                     {point}
                   </li>
@@ -205,11 +210,7 @@ export default function Experience() {
 
       {/* Education */}
       <section className="space-y-8 pb-24">
-        <p className="section-eyebrow">Academic foundation</p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-4">
-          <GraduationCap className="text-brand" />
-          Education
-        </h2>
+        <SectionHeading hand="study" title="Education" />
 
         <div className="grid md:grid-cols-2 gap-5">
           {resumeData.education.map((edu, index) => (
@@ -218,31 +219,30 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="surface-card surface-card-hover space-y-3 p-6"
+              className="surface-card space-y-4 p-6"
             >
               <div className="flex items-start gap-3">
                 <OrgLogo id={EMPLOYER_LOGO[edu.institution]} size={44} />
                 <div className="space-y-1">
                   <h3 className="text-lg font-bold">{edu.institution}</h3>
-                  <p className="text-brand font-medium">{edu.degree}</p>
+                  <p className="font-medium text-slate-600 dark:text-slate-300">{edu.degree}</p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Calendar size={14} />
-                  {edu.period}
-                </span>
-                <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400 italic">
-                  <MapPin size={14} />
-                  {edu.location}
-                </span>
-              </div>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                {edu.period} · {edu.location}
+              </p>
 
               <ul className="space-y-2">
                 {edu.points.map((point, i) => (
-                  <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex gap-2">
-                    <span className="mt-1 w-1 h-1 rounded-full bg-brand flex-shrink-0" />
+                  <li
+                    key={i}
+                    className="flex gap-2.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400"
+                    />
                     {point}
                   </li>
                 ))}
