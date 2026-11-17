@@ -240,7 +240,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="LinkedIn"
             >
-              <SketchIcon name="linkedin" size={24} />
+              <SketchIcon name="linkedin" size={30} />
             </a>
             <a
               href={resumeData.github}
@@ -249,7 +249,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="GitHub"
             >
-              <SketchIcon name="github" size={24} />
+              <SketchIcon name="github" size={30} />
             </a>
             <a
               href={resumeData.kaggle}
@@ -258,14 +258,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="Kaggle"
             >
-              <SketchIcon name="kaggle" size={24} />
+              <SketchIcon name="kaggle" size={30} />
             </a>
             <a
               href={`mailto:${resumeData.email}`}
               className="icon-tile hover:-translate-y-0.5 hover:border-brand/50 transition-all"
               aria-label="Email"
             >
-              <SketchIcon name="mail" size={24} />
+              <SketchIcon name="mail" size={30} />
             </a>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">
