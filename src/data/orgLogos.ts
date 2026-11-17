@@ -1,7 +1,7 @@
 // Logos shown on Experience and on project cards, all in one ink colour so they
 // read as a set (Mike, 17 Nov). Each file in public/assets/logos/mono/ is an
 // alpha mask made from the official logo: dark parts become ink, white parts
-// become clear. OrgLogo paints the mask in slate, so it follows dark mode.
+// become clear. OrgLogo paints the mask in brand blue (Mike, 17 Nov), so it follows dark mode.
 
 export interface OrgLogo {
   name: string;

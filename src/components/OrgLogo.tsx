@@ -10,12 +10,12 @@ export default function OrgLogo({ id, size = 40 }: { id?: string; size?: number 
       role="img"
       aria-label={`${logo.name} logo`}
       title={logo.name}
-      className="inline-flex shrink-0 rounded-[22%] bg-white ring-1 ring-slate-900/10 dark:bg-slate-900 dark:ring-white/10"
+      className="inline-flex shrink-0 rounded-[22%] bg-blue-50 ring-1 ring-brand/15 dark:bg-slate-900 dark:ring-sky-300/20"
       style={{ width: size, height: size, padding: pad }}
     >
       <span
         aria-hidden="true"
-        className="h-full w-full bg-slate-800 dark:bg-slate-200"
+        className="h-full w-full bg-brand dark:bg-sky-300"
         style={{ mask, WebkitMask: mask }}
       />
     </span>
