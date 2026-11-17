@@ -14,6 +14,9 @@ import {
 } from '../lib/projects';
 import type { ProjectOrigin } from '../data/projectOrigin';
 import type { Project } from '../data/resume';
+import { getProjectCard } from '../lib/projectCards';
+import { FILTER_GROUPS, TAG_GROUPS, type TagGroup } from '../data/tagVocabulary';
+import TagChip from '../components/TagChip';
 
 // The unfiltered grid runs to ~40 cards of equal visual weight, which buries the
 // strongest work. With no filter applied, every 3-star project in
@@ -53,10 +56,14 @@ function PlaygroundTable({ episodes }: { episodes: Project[] }) {
               </span>
               <span className="min-w-0">
                 <span className="font-semibold group-hover:text-brand">
-                  {project.title.replace(/^Kaggle S\d+E\d+\s*/, '')}
+                  {getProjectCard(project).title}
                 </span>
-                <span className="ml-3 hidden text-xs font-semibold text-slate-400 md:inline dark:text-slate-500">
-                  {project.stack.slice(0, 2).join(' · ')}
+                <span className="ml-3 hidden gap-1 align-middle md:inline-flex">
+                  {getProjectCard(project)
+                    .tags.slice(0, 2)
+                    .map((tag) => (
+                      <TagChip key={tag} tag={tag} size="xs" />
+                    ))}
                 </span>
               </span>
               <ArrowUpRight
@@ -75,20 +82,23 @@ function PlaygroundTable({ episodes }: { episodes: Project[] }) {
 export default function Projects() {
   const projects = getPortfolioProjects();
 
-  const categories = ['All', ...Array.from(new Set(projects.map((project) => project.category)))];
-  const [activeCategory, setActiveCategory] = useState('All');
+  // The filter offers the card groups from tagVocabulary.ts, so it matches the
+  // card labels and tag colours.
+  const categories: ('All' | TagGroup)[] = ['All', ...FILTER_GROUPS];
+  const [activeCategory, setActiveCategory] = useState<'All' | TagGroup>('All');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Set<ProjectOrigin>>(new Set());
   const expand = (origin: ProjectOrigin) => setExpanded((current) => new Set(current).add(origin));
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (category: 'All' | TagGroup) => {
     setActiveCategory(category);
     setSelectedTag(null);
   };
 
   const filteredProjects = projects.filter((project) => {
-    const matchesCategory = activeCategory === 'All' || project.category === activeCategory;
-    const matchesTag = !selectedTag || project.stack.includes(selectedTag);
+    const card = getProjectCard(project);
+    const matchesCategory = activeCategory === 'All' || card.group === activeCategory;
+    const matchesTag = !selectedTag || card.tags.includes(selectedTag);
     return matchesCategory && matchesTag;
   });
 
@@ -143,7 +153,7 @@ export default function Projects() {
                         : 'text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white',
                     )}
                   >
-                    {category}
+                    {category === 'All' ? 'All' : TAG_GROUPS[category].label}
                   </span>
                 </button>
               );
@@ -157,17 +167,16 @@ export default function Projects() {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 text-xs font-medium"
           >
-            <span className="text-slate-500">Filtered by technology:</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/10 px-3 py-1 font-bold text-brand">
-              {selectedTag}
-              <button
-                onClick={() => setSelectedTag(null)}
-                className="cursor-pointer rounded-full p-0.5 hover:bg-brand/15"
-                aria-label="Clear technology filter"
-              >
-                <X size={11} />
-              </button>
-            </span>
+            <span className="text-slate-500">Showing projects tagged</span>
+            <TagChip tag={selectedTag} />
+            <button
+              onClick={() => setSelectedTag(null)}
+              className="inline-flex cursor-pointer items-center gap-1 rounded-full px-2 py-1 text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white"
+              aria-label="Clear tag filter"
+            >
+              <X size={12} />
+              Clear
+            </button>
           </motion.div>
         )}
       </div>

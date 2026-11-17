@@ -2,6 +2,7 @@ import { selectedWork } from '../data/selectedWork';
 import { PROJECT_LOGO } from '../data/orgLogos';
 import type { Project } from '../data/resume';
 import { isKaggleProject } from './projects';
+import type { ProjectCard } from './projectCards';
 
 export type CoverKind = 'agent' | 'ml' | 'data' | 'vision';
 
@@ -16,10 +17,11 @@ export function getProjectPoster(project: Pick<Project, 'title'>): string | unde
   return selectedWork.find((work) => work.id === alias || work.title === project.title)?.thumb;
 }
 
-export function getCoverKind(project: Pick<Project, 'category'>): CoverKind {
-  if (project.category.includes('Agents')) return 'agent';
-  if (project.category.includes('Vision')) return 'vision';
-  if (project.category.includes('Data Engineering')) return 'data';
+/** Drawn-cover motif from the card's main skill (projectCards.ts). */
+export function getCoverKind(card: Pick<ProjectCard, 'group' | 'tags'>): CoverKind {
+  if (card.group === 'ai') return 'agent';
+  if (card.group === 'data' || card.group === 'analytics') return 'data';
+  if (card.tags[0] === 'Computer Vision') return 'vision';
   return 'ml';
 }
 

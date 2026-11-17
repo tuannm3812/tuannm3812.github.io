@@ -5,6 +5,16 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 17 November 2026 — Card content rules and colour-grouped tags
+
+Mike approved the "Project card content guideline" doc: fixed card slots,
+project-named titles, one-sentence descriptions with no model names, and
+exactly 3 generic tags from a fixed list of 40 in five colour groups (down from
+163 tags). The Home gallery uses the same tags. Defaults taken where he did not
+pick: 3 tags per card (2 on index rows), the five groups as drafted, and Python
+as the third UTS Tech Festival tag until he confirms the tools. Supersedes the
+per-project stack lists on cards and the old category filter.
+
 ## 17 November 2026 — Option E type and the Selected work gallery
 
 Mike chose option E from the type studies, and then refined the gallery over

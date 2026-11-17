@@ -5,6 +5,8 @@
 // Key terms are wrapped in [[double brackets]] and rendered with the amber
 // marker highlight. Keep it to one or two per sentence.
 
+import type { Tag } from './tagVocabulary';
+
 export type SelectedWorkGroup = 'research' | 'product' | 'event';
 
 export interface SelectedWork {
@@ -25,7 +27,8 @@ export interface SelectedWork {
   question: string;
   built: string;
   answer: string;
-  stack: string[];
+  /** Exactly 3 tags from tagVocabulary.ts, the same as the project's card. */
+  stack: Tag[];
   demo?: string;
   code?: string;
 }
@@ -54,7 +57,7 @@ export const selectedWork: SelectedWork[] = [
       'A [[LangGraph harness]] inside Harbor, tested against Terminus 2 in [[paired three-attempt trials]] on a frozen protocol.',
     answer:
       '[[No accuracy advantage]] was established, and the frozen protocol now gives [[a fair way]] to test any future harness change.',
-    stack: ['LangGraph', 'Harbor', 'Terminal-Bench', 'Python'],
+    stack: ['LLM Agents', 'Agent Evaluation', 'Python'],
   },
   {
     id: 'fire-prediction',
@@ -73,7 +76,7 @@ export const selectedWork: SelectedWork[] = [
       'Satellite hotspots, weather, fuel moisture and land cover for the Greater Blue Mountains, compared from logistic regression to [[TabPFN and a mixture of experts]] on [[spatially blocked folds]].',
     answer:
       'Newer learners helped, but [[holding a region out moved scores more]] than the choice of model did.',
-    stack: ['Python', 'TabPFN', 'Mixture of experts', 'Satellite data'],
+    stack: ['Machine Learning', 'Geospatial Analysis', 'Python'],
   },
   {
     id: 'text-to-sql',
@@ -90,7 +93,7 @@ export const selectedWork: SelectedWork[] = [
     built:
       'An agent that picks the relevant tables, drafts SQL, and [[checks it before running it read-only]] on SQLite, DuckDB or PostgreSQL.',
     answer: 'People [[see the SQL before the answer]], and [[raw records never reach the model]].',
-    stack: ['Schema RAG', 'SQLGlot', 'Streamlit', 'Gemini or Ollama'],
+    stack: ['Text-to-SQL', 'RAG', 'Python'],
     demo: 'https://aipa-text-to-sql-agent.streamlit.app/',
     code: 'https://github.com/tuannm3812/text-to-sql-agent',
   },
@@ -109,7 +112,7 @@ export const selectedWork: SelectedWork[] = [
     built:
       '[[Four agents]] that work like one kitchen: one sets the calories, one picks the meal, one checks the nutrition and one prices the shop.',
     answer: 'Three fixes took plans on target from 10 to [[all 72 of 72]].',
-    stack: ['FastAPI', 'Pydantic', 'Streamlit', 'USDA data'],
+    stack: ['Multi-Agent Systems', 'RAG', 'FastAPI'],
     demo: 'https://tuannm3812-ai-meal-planner.streamlit.app/',
     code: 'https://github.com/tuannm3812/ai-meal-planner',
   },
@@ -129,7 +132,7 @@ export const selectedWork: SelectedWork[] = [
     built:
       'An iOS journal with [[voice check-ins]] and [[Apple Intelligence]]: write it down, find your words, see what comes up.',
     answer: 'Private by design. Everything is [[kept on your iPhone]].',
-    stack: ['SwiftUI', 'Apple Intelligence', 'Speech', 'Firebase'],
+    stack: ['Speech & Voice AI', 'Generative AI', 'SwiftUI'],
     code: 'https://github.com/tuannm3812/CircleU',
   },
   {
@@ -148,7 +151,7 @@ export const selectedWork: SelectedWork[] = [
       'Analysed [[1.45 million loans]] and built [[a flag]] that marks likely slow loans when they are listed.',
     answer:
       'The flag at listing caught [[2.6 to 4.0 times as many]] of the slowest loans as a historical lookup, in every year tested.',
-    stack: ['Python', 'NLP text framing', 'Random Forest', 'Kiva open data'],
+    stack: ['Machine Learning', 'NLP', 'Python'],
     code: 'https://github.com/tuannm3812/unsw-ma-hackathon-2026',
   },
 ];

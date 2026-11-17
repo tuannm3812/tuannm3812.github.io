@@ -4,13 +4,15 @@ import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/resume';
 import { COVERS, getCoverKind, getProjectLogo, getProjectPoster } from '../lib/projectVisuals';
 import OrgLogo from './OrgLogo';
+import TagChip from './TagChip';
+import { getProjectCard } from '../lib/projectCards';
 
 function linkLabel(href: string) {
   return href.startsWith('/assets/posters/') ? 'Poster' : 'Live demo';
 }
 
 function DrawnCover({ project }: { project: Project }) {
-  const cover = COVERS[getCoverKind(project)];
+  const cover = COVERS[getCoverKind(getProjectCard(project))];
   return (
     <div
       className="drawn-cover relative aspect-[16/9] overflow-hidden"
@@ -56,6 +58,7 @@ export default function ShowcaseCard({
   const poster = getProjectPoster(project);
   const logo = getProjectLogo(project);
   const primary = project.demo ?? project.github;
+  const card = getProjectCard(project);
 
   return (
     <motion.article
@@ -89,7 +92,7 @@ export default function ShowcaseCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-2.5 p-5">
-        <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{project.category}</p>
+        <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{card.label}</p>
         <h3 className="text-lg font-bold leading-snug tracking-tight">
           {primary ? (
             <a
@@ -98,29 +101,21 @@ export default function ShowcaseCard({
               rel="noreferrer"
               className="transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
             >
-              {project.title}
+              {card.title}
             </a>
           ) : (
-            project.title
+            card.title
           )}
         </h3>
-        {project.impact && (
-          <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            {project.impact}
-          </p>
-        )}
+        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+          {card.description}
+        </p>
 
         <div className="mt-auto space-y-3 pt-2">
-          <ul aria-label="Tech stack" className="flex flex-wrap gap-1.5">
-            {project.stack.slice(0, 4).map((tech) => (
-              <li key={tech}>
-                <button
-                  type="button"
-                  onClick={() => onTagClick?.(tech)}
-                  className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 transition-colors hover:bg-brand/10 hover:text-brand dark:bg-slate-900 dark:text-slate-300"
-                >
-                  {tech}
-                </button>
+          <ul aria-label="Skills" className="flex flex-wrap gap-1.5">
+            {card.tags.map((tag) => (
+              <li key={tag}>
+                <TagChip tag={tag} onClick={onTagClick} />
               </li>
             ))}
           </ul>

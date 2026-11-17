@@ -1,5 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/resume';
+import { getProjectCard } from '../lib/projectCards';
+import TagChip from './TagChip';
 /**
  * One line per project: for Kaggle and coursework, where a wall of cards is too
  * heavy. Rows are numbered rather than logo-marked, because every row in a
@@ -10,8 +12,7 @@ export default function ProjectIndex({ projects }: { projects: Project[] }) {
     <ol className="surface-card divide-y divide-slate-200/80 overflow-hidden dark:divide-slate-800/80">
       {projects.map((project, index) => {
         const href = project.demo ?? project.github;
-        // The section already says Kaggle, so drop it from the start of each line.
-        const impact = project.impact?.replace(/^Kaggle\s+(\w)/, (_, c: string) => c.toUpperCase());
+        const card = getProjectCard(project);
         const body = (
           <>
             <span className="text-xs font-bold tabular-nums text-brand dark:text-sky-300">
@@ -19,19 +20,19 @@ export default function ProjectIndex({ projects }: { projects: Project[] }) {
             </span>
             <span className="min-w-0">
               <span className="block font-semibold text-slate-900 group-hover:text-brand dark:text-white">
-                {project.title.replace(/^Kaggle\s+/, '')}
+                {card.title}
               </span>
-              {impact && (
-                <span className="block text-sm text-slate-500 dark:text-slate-400 md:hidden">
-                  {impact}
-                </span>
-              )}
+              <span className="block text-sm text-slate-500 dark:text-slate-400 md:hidden">
+                {card.description}
+              </span>
             </span>
             <span className="hidden text-sm text-slate-600 md:block dark:text-slate-400">
-              {impact}
+              {card.description}
             </span>
-            <span className="hidden text-xs font-semibold text-slate-500 lg:block dark:text-slate-400">
-              {project.stack.slice(0, 3).join(' · ')}
+            <span className="hidden flex-wrap gap-1 lg:flex">
+              {card.tags.slice(0, 2).map((tag) => (
+                <TagChip key={tag} tag={tag} size="xs" />
+              ))}
             </span>
             {href && (
               <ArrowUpRight

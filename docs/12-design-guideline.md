@@ -117,6 +117,32 @@ and to any project copy.
 - **Stack**: 3 or 4 public tools as neutral chips, with no heading, no logos and
   no brand colours. Leave out hosting and compute.
 
+## Project cards (Mike, 17 Nov)
+
+Every project card and Home gallery entry follows these rules. The copy lives in
+`src/data/projectCards.ts` (keyed by the source title) and the tag list in
+`src/data/tagVocabulary.ts`; `src/data/projectCards.test.ts` fails the build on
+any break.
+
+- **Slots, top to bottom:** cover, label, title, description, 3 tags, links.
+  Kaggle and Coursework index rows show number, title, description and 2 tags.
+- **Label:** `Type of Work · Origin`, built from the first tag's group and
+  `projectOrigin.ts` ("Machine Learning · Hackathon").
+- **Title:** the project, not the event ("Kiva Loan Funding Speed", not "UNSW
+  MA Hackathon 2026"). No "Kaggle", years or course codes. Six words at most.
+- **Description:** one sentence, 8 to 14 words, saying what it does or found.
+  No model, library, client or sponsor names, no internal infrastructure, no
+  jargon a non-ML reader would stop on.
+- **Tags:** exactly 3 from the fixed list, main skill first, then method, then
+  tool. Generic over specific: "Gradient Boosting", not LightGBM. Named tools
+  only when recruiters hire for them by name. No topics, datasets or sponsors.
+- **Tag colours:** AI & Agents blue, Machine Learning amber, Data Engineering
+  green, Analytics & Viz violet, Tools slate. The Projects filter uses the
+  first four groups.
+- **New tags** are added to `tagVocabulary.ts` by decision first, then used.
+- **New repos** need a `projectCards.ts` entry before they appear; the test
+  names any project that has none.
+
 ## Motion
 
 - Motion only confirms a change the reader made (filter, expand) or plays once

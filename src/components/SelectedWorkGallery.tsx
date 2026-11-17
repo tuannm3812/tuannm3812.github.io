@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import TagChip from './TagChip';
 import {
   SELECTED_WORK_GROUPS,
   selectedWork,
@@ -53,7 +54,7 @@ export default function SelectedWorkGallery() {
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div className="space-y-2">
           <p className="font-hand text-3xl font-bold leading-none text-brand dark:text-sky-300">
-            selected work
+            Selected Work
           </p>
           <h2
             id="selected-work-heading"
@@ -197,13 +198,10 @@ export default function SelectedWorkGallery() {
           </dl>
 
           <div className="mt-auto space-y-5 border-t border-slate-200 pt-5 dark:border-slate-800">
-            <ul aria-label="Tech stack" className="flex flex-wrap gap-2">
-              {current.stack.map((tech) => (
-                <li
-                  key={tech}
-                  className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-800 dark:bg-slate-900 dark:text-slate-200"
-                >
-                  {tech}
+            <ul aria-label="Skills" className="flex flex-wrap gap-2">
+              {current.stack.map((tag) => (
+                <li key={tag}>
+                  <TagChip tag={tag} />
                 </li>
               ))}
             </ul>

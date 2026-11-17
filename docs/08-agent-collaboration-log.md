@@ -36,6 +36,23 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-17 - Claude Code (card content rules, Experience and Projects pages)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Experience page refinements, Projects page pass, and the card content rules.
+
+**Changed**
+- Experience: unframed logos in the date rail, education cards match role cards with key terms, Education before Skills, resume button removed, Title Case handwritten labels, both degrees High Distinction (site, master resume, resume.html and the re-rendered PDF).
+- Projects: shared `SectionHeading`, numbered index rows, TechFest moved to Hackathons, Personal Portfolio card removed.
+- Card rules: `src/data/tagVocabulary.ts` (40 tags, five colour groups), `src/data/projectCards.ts` (title, description, 3 tags for all 40 projects), `src/lib/projectCards.ts`, `TagChip`. Filter now uses the tag groups; Home gallery uses the same tags.
+
+**Verified**
+- `npm run check` (209 tests, build OK); screenshots in project files `portfolio-redesign/cards-v1/`.
+
+**Open / Handoff**
+- A newly synced repo now fails `projectCards.test.ts` until it gets a `projectCards.ts` entry. Write it to the rules in docs/12 "Project cards".
+- UTS Tech Festival third tag (Python) awaits Mike's confirmation.
+
 ## 2026-11-17 - Claude Code (page headers, project cards, logos)
 
 - Every page header now uses a Caveat eyebrow and a `.hand-underline` word. Contact got client-facing copy, Experience got neutral skill chips.
