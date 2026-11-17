@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
-import SketchIcon from '../components/SketchIcon';
+import SketchIcon from '../components/artwork/SketchIcon';
 import { resumeData } from '../data/resume';
 import { focusAreas, workingStyle } from '../data/home';
 import SelectedWorkGallery from '../components/SelectedWorkGallery';
@@ -125,10 +125,7 @@ export default function Home() {
               View Projects
               <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
             </Link>
-            <a href="/assets/tuan-nguyen-resume.pdf" download className="btn-secondary">
-              <Download size={18} aria-hidden="true" />
-              Download Resume
-            </a>
+
             <Link to="/contact" className="btn-secondary">
               Get in Touch
             </Link>

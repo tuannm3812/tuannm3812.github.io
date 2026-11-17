@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, Send, WifiOff } from 'lucide-react';
-import SketchIcon from '../components/SketchIcon';
+import SketchIcon from '../components/artwork/SketchIcon';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { db, collection, serverTimestamp } from '../lib/firebase';
@@ -17,27 +17,27 @@ const CHANNELS: { label: string; value: string; href?: string; icon: React.React
     label: 'Email',
     value: resumeData.email,
     href: `mailto:${resumeData.email}`,
-    icon: <SketchIcon name="mail" />,
+    icon: <SketchIcon name="mail" size={28} />,
   },
   {
     label: 'LinkedIn',
     value: 'in/tuan-m-nguyen',
     href: resumeData.linkedin,
-    icon: <SketchIcon name="linkedin" />,
+    icon: <SketchIcon name="linkedin" size={28} />,
   },
   {
     label: 'GitHub',
     value: 'tuannm3812',
     href: resumeData.github,
-    icon: <SketchIcon name="github" />,
+    icon: <SketchIcon name="github" size={28} />,
   },
   {
     label: 'Kaggle',
     value: 'tuannm3812',
     href: resumeData.kaggle,
-    icon: <SketchIcon name="kaggle" />,
+    icon: <SketchIcon name="kaggle" size={28} />,
   },
-  { label: 'Based In', value: resumeData.location, icon: <SketchIcon name="pin" /> },
+  { label: 'Based In', value: resumeData.location, icon: <SketchIcon name="pin" size={28} /> },
 ];
 
 export default function Contact() {

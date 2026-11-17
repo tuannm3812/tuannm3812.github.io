@@ -5,6 +5,16 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 18 November 2026 — One sketch icon set; no resume button on Home
+
+Mike asked for every icon to be sketchy, in the site's blue and amber, and
+consistent everywhere. The two sketch sets were merged into
+`src/components/artwork/SketchIcon.tsx` (18 icons), now roughened and traced
+twice, and used on Home, Experience, Contact and the footer; the standalone SVGs
+in `public/assets/artwork/` were regenerated. Controls and arrows stay Lucide.
+He also removed the Download Resume button from Home. With the Experience
+button already gone, no page links the PDF now; it is still served at its URL. He approved merging PR #4.
+
 ## 18 November 2026 — Sketchy blue and amber contact icons
 
 Mike agreed to drop the phone number from Contact. He first asked for official

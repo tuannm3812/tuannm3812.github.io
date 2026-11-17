@@ -1,5 +1,9 @@
-// Hand-drawn icon set for the portfolio. Each icon pairs blue ink strokes with
-// an amber blob behind it, matching the Caveat underline and key-term marker.
+import { useId } from 'react';
+
+// The one hand-drawn icon set for the portfolio (Mike, 18 Nov: every decorative
+// icon is sketchy, in the site's blue and amber). Each icon pairs a brand-blue
+// pen line, roughened and traced twice, with an amber blob behind it, matching
+// the Caveat underline and key-term marker. Controls and arrows stay Lucide.
 // Standalone SVG copies live in public/assets/artwork/ for decks and posts;
 // regenerate them if a drawing here changes.
 
@@ -89,9 +93,77 @@ export const SKETCH_ICONS = {
       'M41 19 V 30',
     ],
   },
+  mail: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [30, 32, 10],
+    paths: ['M3.5 6.5h17v11.5h-17z', 'M3.8 7l8.2 6.2 8.2-6.2'],
+  },
+  pin: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [30, 30, 9],
+    paths: [
+      'M12 21.2s-6.8-6.1-6.8-11.4a6.8 6.8 0 0 1 13.6 0c0 5.3-6.8 11.4-6.8 11.4z',
+      'M12 7.3a2.4 2.4 0 1 1 0 4.8a2.4 2.4 0 1 1 0-4.8z',
+    ],
+  },
+  linkedin: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [31, 31, 10],
+    paths: [
+      'M5.5 3.2h13a2.3 2.3 0 0 1 2.3 2.3v13a2.3 2.3 0 0 1-2.3 2.3h-13a2.3 2.3 0 0 1-2.3-2.3v-13a2.3 2.3 0 0 1 2.3-2.3z',
+      'M8 10.6v6.6',
+      'M8 7.4v.2',
+      'M11.6 17.2v-6.6',
+      'M11.6 13.4c0-1.7 1.2-2.8 2.7-2.8s2.5 1 2.5 2.9v3.7',
+    ],
+  },
+  github: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [30, 30, 10],
+    paths: [
+      'M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4',
+      'M9 18c-4.51 2-5-2-7-2',
+    ],
+  },
+  kaggle: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [30, 30, 9],
+    paths: ['M8 3.5v17', 'M17.2 6.5 8.4 14.6', 'M11.6 11.8l6.2 8.7'],
+  },
+  package: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [30, 31, 10],
+    paths: [
+      'M12 2.8l8.5 4.6v9.2L12 21.2l-8.5-4.6V7.4z',
+      'M3.8 7.6 12 12l8.2-4.4',
+      'M12 12v9',
+      'M7.8 5.1l8.4 4.6',
+    ],
+  },
+  eye: {
+    // Drawn on a 24 grid, rendered at 2x.
+    grid: 24,
+    blob: [30, 30, 9],
+    paths: [
+      'M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z',
+      'M12 9a3 3 0 1 1 0 6a3 3 0 1 1 0-6z',
+    ],
+  },
 } as const;
 
 export type SketchIconName = keyof typeof SKETCH_ICONS;
+
+interface SketchIcon {
+  grid?: 24;
+  blob: readonly [number, number, number];
+  paths: readonly string[];
+}
 
 export default function SketchIcon({
   name,
@@ -102,27 +174,45 @@ export default function SketchIcon({
   size?: number;
   className?: string;
 }) {
-  const icon = SKETCH_ICONS[name];
+  const filterId = `sketch-${useId().replace(/:/g, '')}`;
+  const icon: SketchIcon = SKETCH_ICONS[name];
   const [cx, cy, r] = icon.blob;
+  const scale = icon.grid === 24 ? 2 : 1;
+  const lines = (width: number) => (
+    <g transform={scale === 2 ? 'scale(2)' : undefined} strokeWidth={width / scale}>
+      {icon.paths.map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </g>
+  );
   return (
     <svg
       viewBox="0 0 48 48"
       width={size}
       height={size}
       aria-hidden="true"
-      className={`text-brand dark:text-sky-300 ${className}`}
+      focusable="false"
+      className={`shrink-0 overflow-visible text-brand dark:text-sky-300 ${className}`}
     >
-      <circle cx={cx} cy={cy} r={r} className="fill-amber-300/70 dark:fill-amber-500/35" />
+      <defs>
+        <filter id={filterId} filterUnits="userSpaceOnUse" x="-6" y="-6" width="60" height="60">
+          <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="2.6" />
+        </filter>
+      </defs>
+      <circle cx={cx} cy={cy} r={r} className="fill-amber-300/80 dark:fill-amber-400/45" />
       <g
+        filter={`url(#${filterId})`}
         fill="none"
         stroke="currentColor"
-        strokeWidth={2.4}
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {icon.paths.map((d) => (
-          <path key={d} d={d} />
-        ))}
+        {lines(2.6)}
+        {/* A lighter second pass, slightly off the first, for the pen-retrace look. */}
+        <g transform="translate(1.1 -0.9)" opacity={0.45}>
+          {lines(1.4)}
+        </g>
       </g>
     </svg>
   );

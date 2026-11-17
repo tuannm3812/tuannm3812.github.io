@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { AlertTriangle, ExternalLink, Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
-import SketchIcon from './SketchIcon';
+import SketchIcon from './artwork/SketchIcon';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { useFirebaseHealth } from '../hooks/useFirebaseHealth';
