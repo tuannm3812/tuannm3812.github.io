@@ -51,11 +51,11 @@ export function splitFlagshipProjects<T extends Pick<Project, 'title'>>(projects
 
 /** Section order on the Projects page: self-initiated work first, set coursework last. */
 export const ORIGIN_SECTIONS: { origin: ProjectOrigin; title: string; note: string }[] = [
-  { origin: 'personal', title: 'Self-initiated', note: 'Products and tools I scoped myself' },
-  { origin: 'hackathon', title: 'Hackathons & events', note: 'Built against the clock' },
-  { origin: 'kaggle', title: 'Kaggle', note: 'Competitions and simulations' },
-  { origin: 'other', title: 'Other projects', note: 'Earlier public builds' },
-  { origin: 'coursework', title: 'Coursework', note: 'Set assignments at UTS' },
+  { origin: 'personal', title: 'Self-Initiated', note: 'Scoped Myself' },
+  { origin: 'hackathon', title: 'Hackathons & Events', note: 'Built Against the Clock' },
+  { origin: 'kaggle', title: 'Kaggle', note: 'Competitions & Simulations' },
+  { origin: 'other', title: 'Other Projects', note: 'Earlier Public Builds' },
+  { origin: 'coursework', title: 'Coursework', note: 'Set Assignments at UTS' },
 ];
 
 /**

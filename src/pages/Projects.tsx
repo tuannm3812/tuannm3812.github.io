@@ -4,6 +4,7 @@ import { ArrowUpRight, X } from 'lucide-react';
 import { cn } from '../lib/utils';
 import ShowcaseCard from '../components/ShowcaseCard';
 import ProjectIndex from '../components/ProjectIndex';
+import SectionHeading from '../components/SectionHeading';
 import {
   ORIGIN_SECTIONS,
   getPlaygroundEpisode,
@@ -33,7 +34,7 @@ function PlaygroundTable({ episodes }: { episodes: Project[] }) {
   return (
     <div className="surface-card overflow-hidden">
       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-200/80 px-5 py-4 dark:border-slate-800/80">
-        <h3 className="text-base font-black tracking-tight">Kaggle Playground Series, season 6</h3>
+        <h3 className="text-base font-bold tracking-tight">Kaggle Playground Series, Season 6</h3>
         <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
           {episodes.length} monthly tabular competitions
         </span>
@@ -47,14 +48,14 @@ function PlaygroundTable({ episodes }: { episodes: Project[] }) {
               rel="noreferrer"
               className="group grid grid-cols-[4rem_1fr_auto] items-baseline gap-x-4 px-5 py-3 text-sm transition-colors hover:bg-brand/5"
             >
-              <span className="font-mono text-xs font-bold text-brand">
+              <span className="text-xs font-bold tabular-nums text-brand dark:text-sky-300">
                 {getPlaygroundEpisode(project.title)}
               </span>
               <span className="min-w-0">
                 <span className="font-semibold group-hover:text-brand">
                   {project.title.replace(/^Kaggle S\d+E\d+\s*/, '')}
                 </span>
-                <span className="ml-3 hidden font-mono text-[11px] text-slate-400 md:inline dark:text-slate-500">
+                <span className="ml-3 hidden text-xs font-semibold text-slate-400 md:inline dark:text-slate-500">
                   {project.stack.slice(0, 2).join(' · ')}
                 </span>
               </span>
@@ -95,6 +96,13 @@ export default function Projects() {
   const { flagship, archive } = splitFlagshipProjects(filteredProjects);
   const featuredProjects = isFiltered ? [] : flagship;
   const { groups, playground } = groupProjectsByOrigin(archive);
+  // One leftover self-initiated card (the rest are Selected Work) is not worth a
+  // section of its own, so it joins Other Projects.
+  const personal = groups.get('personal') ?? [];
+  if (personal.length === 1) {
+    groups.set('other', [...personal, ...(groups.get('other') ?? [])]);
+    groups.delete('personal');
+  }
 
   return (
     <div className="space-y-8 pb-24">
@@ -117,7 +125,7 @@ export default function Projects() {
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
-                  className="relative cursor-pointer select-none whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  className="relative cursor-pointer select-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                   style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
                   {isActive && (
@@ -165,13 +173,12 @@ export default function Projects() {
       </div>
 
       {featuredProjects.length > 0 && (
-        <section className="space-y-4">
-          <div className="flex items-baseline justify-between gap-4">
-            <h2 className="section-eyebrow">Selected work</h2>
-            <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
-              Flagship {featuredProjects.length} of {filteredProjects.length}
-            </span>
-          </div>
+        <section className="space-y-6">
+          <SectionHeading
+            hand="Start Here"
+            title="Selected Work"
+            aside={`${featuredProjects.length} of ${filteredProjects.length}`}
+          />
           <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
               {featuredProjects.map((project) => (
@@ -206,19 +213,13 @@ export default function Projects() {
             ? sectionProjects.slice(0, SECTION_PREVIEW_COUNT[origin])
             : sectionProjects;
           return (
-            <section
-              key={origin}
-              className="space-y-4 border-t border-slate-200/70 pt-8 dark:border-slate-800/70"
-              aria-labelledby={`origin-${origin}`}
-            >
-              <div className="flex items-baseline justify-between gap-4">
-                <h2 id={`origin-${origin}`} className="section-eyebrow">
-                  {title}
-                </h2>
-                <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
-                  {note} · {sectionProjects.length + extra.length}
-                </span>
-              </div>
+            <section key={origin} className="space-y-6 pt-10" aria-labelledby={`origin-${origin}`}>
+              <SectionHeading
+                id={`origin-${origin}`}
+                hand={note}
+                title={title}
+                aside={sectionProjects.length + extra.length}
+              />
               {shown.length > 0 &&
                 (asIndex ? (
                   <ProjectIndex projects={shown} />

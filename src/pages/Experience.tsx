@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
 import OrgLogo from '../components/OrgLogo';
+import SectionHeading from '../components/SectionHeading';
 import SketchIcon, { type SketchIconName } from '../components/artwork/SketchIcon';
 import { EMPLOYER_LOGO } from '../data/orgLogos';
 
@@ -118,15 +119,6 @@ function Highlighted({ text }: { text: string }) {
         ),
       )}
     </>
-  );
-}
-
-function SectionHeading({ hand, title }: { hand: string; title: string }) {
-  return (
-    <div className="space-y-1.5">
-      <p className="hand-eyebrow">{hand}</p>
-      <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
-    </div>
   );
 }
 
