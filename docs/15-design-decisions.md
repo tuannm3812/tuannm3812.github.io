@@ -5,6 +5,16 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 18 November 2026 — Polished sketch icons; project sync is manual
+
+Mike found the sketch icons a little messy and asked for "sketchy but more
+refined". The pen line now has a gentle low-frequency wobble and a faint second
+trace (was a jittery double trace). The full set, light and dark, in SVG and
+PNG, is also saved in the project's shared files under `artwork/sketch-icons/`.
+He also asked whether the weekly project sync is still needed. It is now
+manual only and opens a pull request, because every new project needs a
+hand-written card anyway.
+
 ## 18 November 2026 — One sketch icon set; no resume button on Home
 
 Mike asked for every icon to be sketchy, in the site's blue and amber, and

@@ -196,8 +196,8 @@ export default function SketchIcon({
     >
       <defs>
         <filter id={filterId} filterUnits="userSpaceOnUse" x="-6" y="-6" width="60" height="60">
-          <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7" />
-          <feDisplacementMap in="SourceGraphic" scale="2.6" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="1" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="1.8" />
         </filter>
       </defs>
       <circle cx={cx} cy={cy} r={r} className="fill-amber-300/80 dark:fill-amber-400/45" />
@@ -208,10 +208,10 @@ export default function SketchIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {lines(2.6)}
+        {lines(2.4)}
         {/* A lighter second pass, slightly off the first, for the pen-retrace look. */}
-        <g transform="translate(1.1 -0.9)" opacity={0.45}>
-          {lines(1.4)}
+        <g transform="translate(0.7 -0.5)" opacity={0.25}>
+          {lines(1.1)}
         </g>
       </g>
     </svg>

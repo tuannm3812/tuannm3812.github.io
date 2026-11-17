@@ -27,9 +27,9 @@ description and homepage — it never reads GitHub topics**, so adding topics to
 repo does nothing for its card; an overrides entry is the only reliable fix.
 This is how four placeholder cards reached production in 2026-08 and a fifth in
 2026-09. Two gates now stop a sixth: `findPlaceholderProjects` fails the sync
-with exit 1, so the weekly workflow cannot commit one, and `npm run check`
+with exit 1, so the sync workflow cannot commit one, and `npm run check`
 fails on an already-written file, so a `git add -A` after a failed sync cannot
-sneak one past either. **A red weekly sync usually means a new repo needs a
+sneak one past either. **A red sync usually means a new repo needs a
 `PROJECT_COPY_OVERRIDES` entry, not that the workflow is broken** — and until
 you write it, nothing else that run synced can land.
 
@@ -72,6 +72,6 @@ add a `projectPriority.ts` entry, then `npm run check`.
 - `public/assets/tuan-nguyen-resume.pdf` is publicly downloadable and generated
   from `scripts/resume/resume.html`. The published copy deliberately omits the
   phone number that `docs/09-master-resume.md` carries.
-- The weekly sync workflow commits generated cards straight to `main` with no
-  review step. The placeholder guard blocks the worst case, but any other bad
-  generated copy still ships unreviewed.
+- The sync workflow is manual (no schedule since 2026-11-18) and opens a pull
+  request instead of pushing to `main`. A new project also needs a
+  `src/data/projectCards.ts` entry, or `npm run test` fails the run.

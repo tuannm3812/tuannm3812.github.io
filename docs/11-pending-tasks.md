@@ -208,7 +208,8 @@ entry of that date. Suggested order is top to bottom.
       folders. Check for hardcoded paths in project docs first — several repos
       refer to a "personal master standard".
 
-- [ ] **Consider making the scheduled sync open a PR** instead of committing
+- [x] **Consider making the scheduled sync open a PR** (done 2026-11-18: the
+      workflow is manual-only and opens a PR) instead of committing
       generated project metadata straight to `main`
       (`.github/workflows/sync-github-projects.yml`). Generated cards currently
       go live with no review step — which is how four placeholder cards reached
