@@ -1,34 +1,118 @@
 import { motion } from 'motion/react';
 import { resumeData } from '../data/resume';
 import OrgLogo from '../components/OrgLogo';
+import SketchIcon, { type SketchIconName } from '../components/artwork/SketchIcon';
 import { EMPLOYER_LOGO } from '../data/orgLogos';
-import { Code2, Database, Cpu, BrainCircuit, Wrench, Bot, Terminal, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 
-function getStackIcon(title: string) {
-  const t = title.toLowerCase();
-  if (t.includes('language') || t.includes('engineering'))
-    return <Code2 size={18} className="text-brand dark:text-sky-300" />;
-  if (t.includes('platform'))
-    return <Database size={18} className="text-brand dark:text-sky-300" />;
-  if (t.includes('orchestration') || t.includes('analytics'))
-    return <Cpu size={18} className="text-brand dark:text-sky-300" />;
-  if (t.includes('machine learning') || t.includes('ml'))
-    return <BrainCircuit size={18} className="text-brand dark:text-sky-300" />;
-  if (t.includes('production') || t.includes('mlops'))
-    return <Wrench size={18} className="text-brand dark:text-sky-300" />;
-  if (t.includes('ai') || t.includes('nlp') || t.includes('agent'))
-    return <Bot size={18} className="text-brand dark:text-sky-300" />;
-  return <Terminal size={18} className="text-brand dark:text-sky-300" />;
+// Skill groups use the same type colours as the drawn project covers:
+// blue for agents and code, green for data, amber for models.
+const SKILL_STYLE: Record<string, { icon: SketchIconName; tone: string; chip: string }> = {
+  'Languages & Engineering': {
+    icon: 'code',
+    tone: 'border-t-brand dark:border-t-sky-300',
+    chip: 'bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-200',
+  },
+  'Data Platforms': {
+    icon: 'database',
+    tone: 'border-t-emerald-600 dark:border-t-emerald-400',
+    chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
+  },
+  'Orchestration & Analytics': {
+    icon: 'flow',
+    tone: 'border-t-emerald-600 dark:border-t-emerald-400',
+    chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
+  },
+  'Machine Learning': {
+    icon: 'scatter',
+    tone: 'border-t-amber-600 dark:border-t-amber-400',
+    chip: 'bg-amber-50 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200',
+  },
+  'Production & MLOps': {
+    icon: 'rocket',
+    tone: 'border-t-amber-600 dark:border-t-amber-400',
+    chip: 'bg-amber-50 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200',
+  },
+  'AI, NLP & Agents': {
+    icon: 'nodes',
+    tone: 'border-t-brand dark:border-t-sky-300',
+    chip: 'bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-200',
+  },
+};
+
+// The career in four stops. Years come from the roles and education in resume.ts.
+const CAREER_PATH: {
+  year: string;
+  hand: string;
+  title: string;
+  org: string;
+  icon: SketchIconName;
+}[] = [
+  { year: '2017', hand: 'audit', title: 'Data champion in audit', org: 'PwC', icon: 'ledger' },
+  {
+    year: '2020',
+    hand: 'strategy',
+    title: 'Transformation consulting',
+    org: 'FPT',
+    icon: 'compass',
+  },
+  { year: '2021', hand: 'growth', title: 'Growth analytics lead', org: 'Shopee', icon: 'growth' },
+  { year: '2025', hand: 'AI', title: 'Applied AI and ML', org: 'UTS, Sydney', icon: 'spark' },
+];
+
+function CareerPath() {
+  return (
+    <div className="relative">
+      <svg
+        viewBox="0 0 1000 40"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        className="absolute left-[12%] top-[32px] hidden h-10 w-[76%] md:block"
+      >
+        <path
+          d="M4 22 C 120 6, 220 34, 340 20 S 560 8, 680 22 S 880 30, 996 14"
+          fill="none"
+          stroke="#f59e0b"
+          strokeWidth={4}
+          strokeLinecap="round"
+          strokeDasharray="2 12"
+        />
+      </svg>
+      <ol className="relative grid gap-6 md:grid-cols-4 md:gap-4">
+        {CAREER_PATH.map((stop, i) => (
+          <motion.li
+            key={stop.year}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.12 }}
+            className="flex items-center gap-4 md:flex-col md:text-center"
+          >
+            <span className="flex h-[104px] w-[104px] flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
+              <SketchIcon name={stop.icon} size={60} />
+            </span>
+            <span className="space-y-0.5">
+              <span className="block font-hand text-2xl font-bold leading-none text-brand dark:text-sky-300">
+                {stop.year} · {stop.hand}
+              </span>
+              <span className="block font-semibold">{stop.title}</span>
+              <span className="block text-sm text-slate-500 dark:text-slate-400">{stop.org}</span>
+            </span>
+          </motion.li>
+        ))}
+      </ol>
+    </div>
+  );
 }
 
-/** Highlights the measured results in a bullet (percentages and counts like 40+). */
+/** Highlights [[key terms]] and measured results (percentages, counts like 40+). */
 function Highlighted({ text }: { text: string }) {
   return (
     <>
-      {text.split(/(\d+(?:\.\d+)?%|\d+\+)/).map((part, i) =>
+      {text.split(/(\[\[.*?\]\]|\d+(?:\.\d+)?%|\d+\+)/).map((part, i) =>
         i % 2 === 1 ? (
           <mark key={i} className="key-term">
-            {part}
+            {part.replace(/^\[\[|\]\]$/g, '')}
           </mark>
         ) : (
           <span key={i}>{part}</span>
@@ -79,7 +163,8 @@ export default function Experience() {
 
       {/* Work Experience */}
       <section className="space-y-8">
-        <SectionHeading hand="roles" title="Experience" />
+        <SectionHeading hand="from audit to AI" title="Experience" />
+        <CareerPath />
 
         <ol className="space-y-6">
           {resumeData.experience.map((exp, index) => {
@@ -134,83 +219,51 @@ export default function Experience() {
 
       {/* Technical Skill Matrix */}
       <section className="space-y-8">
-        <SectionHeading hand="toolkit" title="Skills" />
+        <SectionHeading hand="what I reach for" title="Skills" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {resumeData.technologyStack.map((stack, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="surface-card flex flex-col justify-between p-5"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="icon-tile h-8 w-8">{getStackIcon(stack.title)}</div>
-                  <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
-                    {stack.title}
-                  </h3>
+          {resumeData.technologyStack.map((stack, index) => {
+            const style = SKILL_STYLE[stack.title] ?? SKILL_STYLE['Languages & Engineering'];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className={`surface-card flex flex-col justify-between border-t-4 p-5 ${style.tone}`}
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <SketchIcon name={style.icon} size={44} />
+                    <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
+                      {stack.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    {stack.description}
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {stack.description}
-                </p>
-              </div>
 
-              <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
-                {stack.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-900 dark:text-slate-300"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Philosophy & Reflections */}
-      <section className="space-y-8">
-        <SectionHeading hand="how I work" title="Principles" />
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {resumeData.reflections.map((ref, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="surface-card space-y-3 p-6"
-            >
-              <div className="space-y-1">
-                <span className="font-hand text-xl font-bold leading-none text-amber-600 dark:text-amber-400">
-                  {ref.category.toLowerCase()}
-                </span>
-                <h3 className="text-lg font-bold text-slate-950 dark:text-white">{ref.title}</h3>
-              </div>
-              <ul className="space-y-2">
-                {ref.points.map((point, i) => (
-                  <li
-                    key={i}
-                    className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
+                  {stack.tools.map((tool) => (
+                    <span
+                      key={tool}
+                      className={`rounded-full px-2.5 py-1 text-xs font-semibold ${style.chip}`}
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
       {/* Education */}
       <section className="space-y-8 pb-24">
-        <SectionHeading hand="study" title="Education" />
+        <SectionHeading hand="still learning" title="Education" />
 
         <div className="grid md:grid-cols-2 gap-5">
           {resumeData.education.map((edu, index) => (

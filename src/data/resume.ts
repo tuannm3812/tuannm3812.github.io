@@ -85,6 +85,7 @@ export const resumeData: ResumeData = {
       ],
     },
   ],
+  // [[double brackets]] mark key terms the Experience page highlights.
   experience: [
     {
       company: 'Shopee Vietnam',
@@ -92,10 +93,10 @@ export const resumeData: ResumeData = {
       role: 'Lead Data Optimization & Insights Manager · Growth & Acquisition',
       period: 'Dec 2021 - Jan 2025',
       points: [
-        'Delivered strategic growth and pricing insights directly to senior executives to optimize commercial fee structures, ad campaigns, and voucher incentives.',
-        'Served as the data and strategy lead for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.',
-        'Architected automated BigQuery data warehousing pipelines consolidating transaction and traffic data, reducing manual processing workloads by 80%.',
-        'Developed predictive modeling workflows in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%.',
+        'Delivered strategic growth and pricing insights directly to [[senior executives]] to optimize commercial fee structures, ad campaigns, and voucher incentives.',
+        'Served as the [[data and strategy lead]] for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.',
+        'Architected automated [[BigQuery data warehousing pipelines]] consolidating transaction and traffic data, reducing manual processing workloads by 80%.',
+        'Developed [[predictive modeling workflows]] in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%.',
       ],
     },
     {
@@ -104,10 +105,10 @@ export const resumeData: ResumeData = {
       role: 'Strategy Lead (Global Affairs) & Transformation Consultant',
       period: 'Dec 2020 - Dec 2021',
       points: [
-        'Led strategic technology partnership communication with foreign multinational corporations (MNCs/FDIs) for the Global Affairs Team, establishing integration channels.',
-        'Collaborated with top-tier global consulting firms (McKinsey, BCG) on enterprise-level digital maturity and data architecture transformation projects.',
-        'Co-designed multi-year digital transformation roadmaps and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
-        'Presented breakthrough digital enablers directly to client Steering Committees (SteerCo) to accelerate technology adoption.',
+        'Led strategic technology partnership communication with foreign [[multinational corporations]] (MNCs/FDIs) for the Global Affairs Team, establishing integration channels.',
+        'Collaborated with top-tier global consulting firms ([[McKinsey, BCG]]) on enterprise-level digital maturity and data architecture transformation projects.',
+        'Co-designed multi-year [[digital transformation roadmaps]] and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
+        'Presented breakthrough digital enablers directly to client [[Steering Committees]] (SteerCo) to accelerate technology adoption.',
       ],
     },
     {
@@ -116,10 +117,10 @@ export const resumeData: ResumeData = {
       role: 'Senior Assurance Associate · Financial Services & Capital Markets',
       period: 'Aug 2017 - Dec 2020',
       points: [
-        'Acted as data champion, building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',
-        'Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to under 1 hour.',
-        'Ingested and analyzed millions of transactional records across 40+ commercial banking and securities clients using database querying.',
-        'Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to client C-levels.',
+        'Acted as [[data champion]], building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',
+        'Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to [[under 1 hour]].',
+        'Ingested and analyzed [[millions of transactional records]] across 40+ commercial banking and securities clients using database querying.',
+        'Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to [[client C-levels]].',
       ],
     },
   ],
