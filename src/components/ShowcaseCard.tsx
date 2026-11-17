@@ -8,6 +8,7 @@ import TagChip from './TagChip';
 import { getProjectCard } from '../lib/projectCards';
 
 function linkLabel(href: string) {
+  if (href.endsWith('-deck.pdf')) return 'Deck';
   return href.startsWith('/assets/posters/') ? 'Poster' : 'Live demo';
 }
 

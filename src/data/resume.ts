@@ -304,7 +304,7 @@ export const resumeData: ResumeData = {
       category: 'AI Agents & LLM Products',
       // The repo is private, so a source link 404s for visitors. Restore
       // `github` once uts-techfest-2026-genai-hackathon is made public.
-      demo: '/assets/posters/techfest.jpg',
+      demo: '/assets/posters/techfest-deck.pdf',
       impact:
         'Three GenAI solutions for resilient housing, a future worksite and a smart intersection',
       stack: [
