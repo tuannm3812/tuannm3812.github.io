@@ -12,9 +12,17 @@ const POSTER_ALIASES: Record<string, string> = {
   'UNSW MA Hackathon 2026': 'kiva',
 };
 
+// Cover images for projects outside the Home gallery.
+const EXTRA_THUMBS: Record<string, string> = {
+  'UTS Tech Festival 2026 GenAI Hackathon': '/assets/posters/techfest-thumb.webp',
+};
+
 export function getProjectPoster(project: Pick<Project, 'title'>): string | undefined {
   const alias = POSTER_ALIASES[project.title];
-  return selectedWork.find((work) => work.id === alias || work.title === project.title)?.thumb;
+  return (
+    EXTRA_THUMBS[project.title] ??
+    selectedWork.find((work) => work.id === alias || work.title === project.title)?.thumb
+  );
 }
 
 /** Drawn-cover motif from the card's main skill (projectCards.ts). */

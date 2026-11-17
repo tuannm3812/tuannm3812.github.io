@@ -37,6 +37,7 @@ export const TAG_VOCABULARY = {
     'Agent Evaluation',
     'Text-to-SQL',
     'Speech & Voice AI',
+    'Prompt Engineering',
   ],
   ml: [
     'Machine Learning',

@@ -43,11 +43,13 @@ export const PROJECT_CARDS: Record<string, ProjectCardCopy> = {
   },
 
   // Hackathons & events
+  // From the repo README (17 Nov): won the State Asphalts Intelligent Transport
+  // Solutions Award. A GenAI-assisted design proposal; no runnable controller.
   'UTS Tech Festival 2026 GenAI Hackathon': {
-    title: 'GenAI Infrastructure Concepts',
-    description: 'Three GenAI solutions for housing, a future worksite and a smart intersection.',
-    // Third tag awaits Mike's confirmation of the tools used.
-    tags: ['Generative AI', 'LLM Agents', 'Python'],
+    title: 'Smart Intersection Concept',
+    description:
+      'Award-winning GenAI concept for adaptive signals, bus priority and recycled pavement.',
+    tags: ['Generative AI', 'Prompt Engineering', 'Python'],
   },
   'Spatial Brain: UNSW AiSoc Hackathon 2026': {
     title: 'Spatial Brain',
