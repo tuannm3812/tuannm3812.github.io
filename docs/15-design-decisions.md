@@ -5,13 +5,15 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
-## 18 November 2026 — Profile icons follow each brand's guidelines
+## 18 November 2026 — Sketchy blue and amber contact icons
 
-Mike agreed to drop the phone number from Contact, and asked that profile icons
-use the versions the brands' own guidelines allow. LinkedIn, GitHub and Kaggle
-now use their official marks in their own colours (`src/components/BrandIcon.tsx`)
-on Contact and in the footer, instead of generic Lucide glyphs in site blue.
-Experience and project-card logos stay mono brand blue (17 Nov decision).
+Mike agreed to drop the phone number from Contact. He first asked for official
+brand marks on the profile icons, then chose instead to draw them all as
+sketchy icons in the site's blue and amber. Email, LinkedIn, GitHub, Kaggle and
+location now use `src/components/SketchIcon.tsx` on Contact and in the footer:
+an amber marker blob behind a roughened, double-traced brand-blue pen line.
+Supersedes the Lucide glyphs there and the short-lived official-marks version.
+Experience and project-card org logos stay mono brand blue (17 Nov decision).
 
 ## 17 November 2026 — Blog and Contact follow the card rules
 
