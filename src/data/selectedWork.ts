@@ -16,6 +16,7 @@ export interface SelectedWork {
   short: string;
   /** Title Case: "Type of Work · Problem Area". */
   label: string;
+  /** The same title as the project's card in projectCards.ts. */
   title: string;
   /** One insight line, 15 words or fewer, that does not repeat the question. */
   subtitle: string;
@@ -34,7 +35,7 @@ export interface SelectedWork {
 }
 
 export const SELECTED_WORK_GROUPS: { id: SelectedWorkGroup; label: string }[] = [
-  { id: 'research', label: 'Client & research' },
+  { id: 'research', label: 'Client & Research' },
   { id: 'product', label: 'Products' },
   { id: 'event', label: 'Hackathons' },
 ];
@@ -43,9 +44,9 @@ export const selectedWork: SelectedWork[] = [
   {
     id: 'agent-harness',
     group: 'research',
-    short: 'Agent harness',
+    short: 'Agent Harness',
     label: 'Industry Project · AI Agent Evaluation',
-    title: 'Terminal-Bench Agent Harness',
+    title: 'Agent Harness Evaluation',
     subtitle: 'Same model, different harness: a fair test before any claim of improvement.',
     role: 'Lead AI Engineer',
     thumb: '/assets/posters/harness-thumb.webp',
@@ -62,9 +63,9 @@ export const selectedWork: SelectedWork[] = [
   {
     id: 'fire-prediction',
     group: 'research',
-    short: 'Fire prediction',
+    short: 'Wildfire Prediction',
     label: 'Applied Research · Wildfire Risk',
-    title: 'Wildfire Occurrence Prediction',
+    title: 'Wildfire Prediction',
     subtitle: 'Where you test a fire model matters more than which model you pick.',
     role: 'ML Researcher',
     thumb: '/assets/posters/fire-thumb.webp',
@@ -83,7 +84,7 @@ export const selectedWork: SelectedWork[] = [
     group: 'product',
     short: 'Text-to-SQL',
     label: 'AI Product · Live Demo',
-    title: 'Enterprise Text-to-SQL Agent',
+    title: 'Text-to-SQL Agent',
     subtitle: 'Ask in English. Inspect the SQL before you trust the answer.',
     role: 'AI Engineer',
     thumb: '/assets/posters/t2sql-thumb.webp',
@@ -138,9 +139,9 @@ export const selectedWork: SelectedWork[] = [
   {
     id: 'kiva',
     group: 'event',
-    short: 'Kiva slow loans',
+    short: 'Kiva Loans',
     label: 'Hackathon Finalist · UNSW Marketing Analytics 2026',
-    title: 'Kiva Slow-Loan Flag',
+    title: 'Kiva Loan Funding Speed',
     subtitle: 'Spot the loans that will wait for funding on the day they are listed.',
     role: 'Data Scientist',
     thumb: '/assets/posters/kiva-thumb.webp',

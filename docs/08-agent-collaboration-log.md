@@ -39,6 +39,24 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-18 - Claude Code (sketch icons, Home pass, site QA)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Mike's sketchy blue-and-amber icon request, Home consistency pass, full-site QA.
+
+**Changed**
+
+- `SketchIcon` (mail, pin, LinkedIn, GitHub, Kaggle, database, package, eye) replaces Lucide glyphs on Contact, the footer and Home. Controls and arrows stay Lucide.
+- Home: Title Case hero roles line (no uppercase tracking), Caveat photo caption, "How I Work" `SectionHeading` over the habit cards, gallery titles and tabs match the project card titles (new test), Title Case filter and button labels.
+
+**Verified**
+
+- `npm run check` (213 tests); Playwright pass of all five pages at 1440 px, 390 px and dark mode: no horizontal overflow; only console errors are blocked external fonts in the sandbox. Screenshots in project files `portfolio-redesign/qa-v1/`.
+
+**Open / Handoff**
+
+- Experience career-path and skill-card icons are still Lucide; convert if Mike wants sketch icons there too.
+
 ## 2026-11-17 - Claude Code (Blog and Contact pages)
 
 **Branch:** `claude/project-thread-6dmp83`

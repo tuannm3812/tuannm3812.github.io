@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { selectedWork, splitKeyTerms } from './selectedWork';
+import { PROJECT_CARDS } from './projectCards';
 
 describe('splitKeyTerms', () => {
   it('splits [[key terms]] from plain text', () => {
@@ -23,5 +24,10 @@ describe('selectedWork copy rules', () => {
   it('never names a client', () => {
     const text = JSON.stringify(selectedWork);
     expect(text).not.toMatch(/Synogize|HPC/i);
+  });
+
+  it('uses the same title as the project card', () => {
+    const cardTitles = new Set(Object.values(PROJECT_CARDS).map((card) => card.title));
+    for (const p of selectedWork) expect(cardTitles.has(p.title), p.title).toBe(true);
   });
 });

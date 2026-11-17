@@ -235,7 +235,7 @@ export default function SelectedWorkGallery() {
       </div>
 
       <Link to="/projects" className="btn-secondary w-fit">
-        Browse all projects
+        Browse All Projects
         <ArrowRight size={18} aria-hidden="true" />
       </Link>
     </section>

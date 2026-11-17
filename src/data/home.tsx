@@ -1,5 +1,5 @@
 import React from 'react';
-import { PackageCheck, Database, ArrowRight } from 'lucide-react';
+import SketchIcon from '../components/SketchIcon';
 
 export interface FocusArea {
   title: string;
@@ -29,18 +29,18 @@ export const focusAreas: FocusArea[] = [
 
 export const workingStyle: WorkingStyle[] = [
   {
-    icon: <Database size={18} />,
-    title: 'Start with the data contract',
+    icon: <SketchIcon name="database" />,
+    title: 'Start With the Data Contract',
     desc: 'I define the source, schema, validation, and review path before chasing model complexity.',
   },
   {
-    icon: <PackageCheck size={18} />,
-    title: 'Ship a usable workflow',
+    icon: <SketchIcon name="package" />,
+    title: 'Ship a Usable Workflow',
     desc: 'The strongest project evidence is runnable: APIs, dashboards, tests, demos, and documented trade-offs.',
   },
   {
-    icon: <ArrowRight size={18} />,
-    title: 'Make decisions explainable',
+    icon: <SketchIcon name="eye" />,
+    title: 'Make Decisions Explainable',
     desc: 'I keep retrieval, metrics, diagnostics, and business context visible so reviewers can trust the result.',
   },
 ];
