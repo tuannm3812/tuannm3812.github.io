@@ -5,6 +5,15 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 17 November 2026 — Blog and Contact follow the card rules
+
+Defaults taken while Mike asked to "continue next work": blog posts use the
+same 3-tag vocabulary as project cards and a kind label (Field Note,
+Achievement, Event) so his LinkedIn posts can join as Achievements and Events;
+meta lines use sentence case, not uppercase tracking. Contact drops the phone
+number (as the resume PDF already does) and lists Email, LinkedIn, GitHub,
+Kaggle and location. Awaiting his confirmation on the phone number.
+
 ## 17 November 2026 — Card content rules and colour-grouped tags
 
 Mike approved the "Project card content guideline" doc: fixed card slots,

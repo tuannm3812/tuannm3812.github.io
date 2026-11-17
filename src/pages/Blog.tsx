@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Calendar, LogIn, MessageSquare, User, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, LogIn, MessageSquare } from 'lucide-react';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { blogPosts, BlogPost } from '../data/blog';
 import {
@@ -16,6 +16,8 @@ import { useBlogComments } from '../hooks/useBlogComments';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import FeatureErrorPanel from '../components/FeatureErrorPanel';
 import NotFound from './NotFound';
+import SectionHeading from '../components/SectionHeading';
+import TagChip from '../components/TagChip';
 import { toDisplayMessage, toSignInMessage } from '../lib/reliability/messages';
 import { ReliabilityError } from '../lib/reliability/types';
 import { SettledWrite } from '../lib/reliability/pendingWrite';
@@ -27,6 +29,39 @@ function calculateReadTime(html: string): string {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.ceil(words / wordsPerMinute);
   return `${minutes} min read`;
+}
+
+/** '2026-07-31' -> '31 Jul 2026'. Parsed as UTC so the day never shifts by time zone. */
+function formatPostDate(date: string): string {
+  return new Date(`${date}T00:00:00Z`).toLocaleDateString('en-AU', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+
+/** Kind, date and read time on one quiet line. */
+function PostMeta({ post }: { post: BlogPost }) {
+  return (
+    <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+      <span className="font-semibold text-brand dark:text-sky-300">{post.kind}</span>
+      <span aria-hidden="true"> · </span>
+      <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+      <span aria-hidden="true"> · </span>
+      {calculateReadTime(post.content)}
+    </p>
+  );
+}
+
+function PostTags({ post }: { post: BlogPost }) {
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {post.tags.map((tag) => (
+        <TagChip key={tag} tag={tag} size="xs" />
+      ))}
+    </div>
+  );
 }
 
 export default function Blog() {
@@ -162,15 +197,18 @@ export default function Blog() {
 
   return (
     <div className="space-y-8 pb-24">
-      <div className="max-w-3xl space-y-3">
-        <p className="hand-eyebrow">Notes</p>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-          Notes from <span className="hand-underline">the work.</span>
-        </h2>
-        <p className="text-lg text-slate-500 dark:text-slate-400">
-          What I learned building, competing and debugging, written up while it was fresh.
-        </p>
-      </div>
+      {/* The page header only frames the list; an open post leads with its own title. */}
+      {!selectedPost && (
+        <div className="max-w-3xl space-y-3">
+          <p className="hand-eyebrow">Blog</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Notes from <span className="hand-underline">the work.</span>
+          </h1>
+          <p className="text-lg text-slate-500 dark:text-slate-400">
+            What I learned building, competing and debugging, written up while it was fresh.
+          </p>
+        </div>
+      )}
 
       <AnimatePresence mode="wait">
         {!selectedPost ? (
@@ -179,34 +217,31 @@ export default function Blog() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid gap-4 md:grid-cols-2"
+            className="space-y-6"
           >
-            {blogPosts.map((post, index) => (
-              <motion.article
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="surface-card surface-card-hover group relative flex items-start gap-5 p-5 focus-within:ring-2 focus-within:ring-brand"
-              >
-                <div className="flex-1 space-y-3">
-                  <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <User size={14} />
-                      {post.author}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={14} />
-                      {calculateReadTime(post.content)}
-                    </span>
+            <SectionHeading
+              hand="Written While It Was Fresh"
+              title="Latest Notes"
+              aside={`${blogPosts.length} ${blogPosts.length === 1 ? 'post' : 'posts'}`}
+            />
+            <div className="grid gap-4 md:grid-cols-2">
+              {blogPosts.map((post, index) => (
+                <motion.article
+                  key={post.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="surface-card surface-card-hover group relative flex flex-col gap-4 p-6 focus-within:ring-2 focus-within:ring-brand"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <PostMeta post={post} />
+                    <div className="icon-tile shrink-0 rounded-full transition-all group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                      <ArrowRight size={18} />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold group-hover:text-brand transition-colors">
+                  <h3 className="text-xl font-bold leading-snug transition-colors group-hover:text-brand">
                     {/* The ::after overlay stretches the link over the whole card, so the
-                        card stays clickable while keyboard users get one real link. */}
+                      card stays clickable while keyboard users get one real link. */}
                     <Link
                       to={`/blog/${post.id}`}
                       className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
@@ -214,15 +249,13 @@ export default function Blog() {
                       {post.title}
                     </Link>
                   </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
+                  <p className="flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {post.excerpt}
                   </p>
-                </div>
-                <div className="icon-tile rounded-full group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all">
-                  <ArrowRight size={20} />
-                </div>
-              </motion.article>
-            ))}
+                  <PostTags post={post} />
+                </motion.article>
+              ))}
+            </div>
           </motion.div>
         ) : (
           <motion.div
@@ -250,23 +283,13 @@ export default function Blog() {
 
             <article className="space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={14} />
-                    {selectedPost.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <User size={14} />
-                    {selectedPost.author}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={14} />
-                    {calculateReadTime(selectedPost.content)}
-                  </span>
-                </div>
-                <h1 className="text-4xl md:text-5xl font-black tracking-tight">
+                <PostMeta post={selectedPost} />
+                <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
                   {selectedPost.title}
                 </h1>
+                <div className="pt-1">
+                  <PostTags post={selectedPost} />
+                </div>
               </div>
 
               {/* Post content is authored HTML from src/data/blog.ts, never user input, so

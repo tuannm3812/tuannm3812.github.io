@@ -1,5 +1,13 @@
+import type { Tag } from './tagVocabulary';
+
+/** What kind of post it is. LinkedIn achievements and event write-ups will use the other two. */
+export type BlogKind = 'Field Note' | 'Achievement' | 'Event';
+
 export interface BlogPost {
   id: string;
+  kind: BlogKind;
+  /** Exactly three tags from tagVocabulary.ts, the same rule as project cards. */
+  tags: [Tag, Tag, Tag];
   title: string;
   excerpt: string;
   date: string;
@@ -12,9 +20,11 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 'debugging-my-way-to-a-better-kaggle-score',
+    kind: 'Field Note',
+    tags: ['Computer Vision', 'Model Evaluation', 'Python'],
     title: 'Debugging My Way to a Better Kaggle Score',
     excerpt:
-      'A 3D cell-tracking Kaggle competition improved from 0.810 to 0.827 not through a better model, but through reading the scoring code closely enough to catch a bug that looked like a regression, a small-sample miss that reversed itself, and two negative results worth publishing.',
+      'A 3D cell-tracking score went from 0.810 to 0.827 by reading the scoring code closely, not by training a bigger model.',
     date: '2026-07-31',
     content: `
       <p><em>A field note from my entry in Kaggle&rsquo;s <a href="https://www.kaggle.com/competitions/biohub-cell-tracking-during-development" target="_blank" rel="noreferrer">Biohub &ndash; Cell Tracking During Development</a> competition, which closed on September 29, 2026. Final public leaderboard score: <strong>0.827</strong>, up from an initial 0.810 &mdash; a modest-sounding number that took four real submissions and a dozen local experiments to earn honestly.</em></p>
@@ -301,6 +311,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 'twelve-rejected-experiments-and-a-model-ceiling',
+    kind: 'Field Note',
+    tags: ['Machine Learning', 'Gradient Boosting', 'Model Evaluation'],
     title: 'Twelve Rejected Experiments and a Model Ceiling',
     excerpt:
       'A Kaggle health-risk classifier plateaued at 0.94959 balanced accuracy after twelve straight failed experiments. Reading five competitors’ notebooks explained why, and why stopping there was the right call.',

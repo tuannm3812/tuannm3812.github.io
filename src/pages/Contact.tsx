@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, BarChart3, WifiOff } from 'lucide-react';
+import {
+  BarChart3,
+  CheckCircle2,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Send,
+  WifiOff,
+  type LucideIcon,
+} from 'lucide-react';
 import { resumeData } from '../data/resume';
 import { cn } from '../lib/utils';
 import { db, collection, serverTimestamp } from '../lib/firebase';
@@ -9,6 +19,20 @@ import { toDisplayMessage } from '../lib/reliability/messages';
 import { safeCreateDocument } from '../lib/reliability/firebaseOps';
 import { ReliabilityError } from '../lib/reliability/types';
 import { SettledWrite } from '../lib/reliability/pendingWrite';
+
+/** The ways to reach Mike. The phone number stays off the public site, like the resume PDF. */
+const CHANNELS: { label: string; value: string; href?: string; Icon: LucideIcon }[] = [
+  { label: 'Email', value: resumeData.email, href: `mailto:${resumeData.email}`, Icon: Mail },
+  {
+    label: 'LinkedIn',
+    value: 'in/tuan-m-nguyen',
+    href: resumeData.linkedin,
+    Icon: Linkedin,
+  },
+  { label: 'GitHub', value: 'tuannm3812', href: resumeData.github, Icon: Github },
+  { label: 'Kaggle', value: 'tuannm3812', href: resumeData.kaggle, Icon: BarChart3 },
+  { label: 'Based In', value: resumeData.location, Icon: MapPin },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -92,64 +116,40 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="space-y-4">
-          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
-            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
-              <Mail size={20} />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Email Me</p>
-              <a
-                href={`mailto:${resumeData.email}`}
-                className="break-all font-bold transition-colors hover:text-brand"
-              >
-                {resumeData.email}
-              </a>
-            </div>
-          </div>
-
-          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
-            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
-              <Phone size={20} />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Phone</p>
-              <a
-                href={`tel:${resumeData.phone.replace(/\s/g, '')}`}
-                className="break-words font-bold transition-colors hover:text-brand"
-              >
-                {resumeData.phone}
-              </a>
-            </div>
-          </div>
-
-          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
-            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
-              <MapPin size={20} />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Location</p>
-              <p className="font-bold">{resumeData.location}</p>
-            </div>
-          </div>
-
-          <div className="surface-card surface-card-hover flex items-center gap-4 p-4 group">
-            <div className="icon-tile group-hover:bg-brand group-hover:text-white transition-all">
-              <BarChart3 size={20} />
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Kaggle</p>
-              <a
-                href={resumeData.kaggle}
-                target="_blank"
-                rel="noreferrer"
-                className="break-all font-bold transition-colors hover:text-brand"
-              >
-                kaggle.com/tuannm3812
-              </a>
-            </div>
-          </div>
-        </div>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {CHANNELS.map(({ label, value, href, Icon }) => {
+            const body = (
+              <>
+                <div className="icon-tile shrink-0 transition-all group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                  <Icon size={20} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{label}</p>
+                  <p className="break-all font-semibold transition-colors group-hover:text-brand">
+                    {value}
+                  </p>
+                </div>
+              </>
+            );
+            const box = 'surface-card group flex items-center gap-4 p-4';
+            return (
+              <li key={label} className={label === 'Email' ? 'sm:col-span-2' : undefined}>
+                {href ? (
+                  <a
+                    href={href}
+                    target={href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel={href.startsWith('mailto:') ? undefined : 'noreferrer'}
+                    className={`${box} surface-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40`}
+                  >
+                    {body}
+                  </a>
+                ) : (
+                  <div className={box}>{body}</div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <div className="surface-card relative min-w-0 overflow-hidden p-6 shadow-xl shadow-slate-200/70 dark:shadow-black/20">
@@ -162,12 +162,12 @@ export default function Contact() {
             <div className="w-20 h-20 bg-brand/10 text-brand rounded-full flex items-center justify-center">
               <CheckCircle2 size={48} />
             </div>
-            <h3 className="text-2xl font-bold italic">Message Received!</h3>
+            <h3 className="text-2xl font-bold">Message Received</h3>
             <p className="text-slate-500 dark:text-slate-400">
-              Thanks for reaching out, Tuan will get back to you soon.
+              Thanks for reaching out. I'll get back to you soon.
             </p>
             <button onClick={() => setStatus('idle')} className="btn-secondary mt-4 px-6 py-2">
-              Send another
+              Send Another
             </button>
           </motion.div>
         ) : status === 'error' && displayError ? (
@@ -189,7 +189,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label
                   htmlFor="name"
-                  className="text-sm font-bold uppercase tracking-wider text-slate-500"
+                  className="text-sm font-semibold text-slate-600 dark:text-slate-300"
                 >
                   Full Name
                 </label>
@@ -212,7 +212,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label
                   htmlFor="email"
-                  className="text-sm font-bold uppercase tracking-wider text-slate-500"
+                  className="text-sm font-semibold text-slate-600 dark:text-slate-300"
                 >
                   Email Address
                 </label>
@@ -234,7 +234,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-bold uppercase tracking-wider text-slate-500"
+                  className="text-sm font-semibold text-slate-600 dark:text-slate-300"
                 >
                   Your Message
                 </label>
