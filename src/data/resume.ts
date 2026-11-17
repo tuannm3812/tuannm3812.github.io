@@ -305,7 +305,7 @@ export const resumeData: ResumeData = {
       // The repo is private, so a source link 404s for visitors. Restore
       // `github` once uts-techfest-2026-genai-hackathon is made public.
       impact:
-        'Solutions for LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite, and Austroads smart intersection',
+        'Three GenAI solutions for resilient housing, a future worksite and a smart intersection',
       stack: [
         'Generative AI',
         'Austroads Signal Design',
@@ -316,18 +316,6 @@ export const resumeData: ResumeData = {
       points: [
         'Developed comprehensive technical submissions for three scenarios: LEGO sustainable urban housing, Caterpillar/WesTrac worksite fleet transition, and Austroads-aligned smart intersection mix design.',
         'Applied generative AI prompting strategy, adaptive signal logic, sustainable mix design, machinery telemetry plans, and automated HTML/PDF document compilation.',
-      ],
-    },
-    {
-      title: 'Personal Portfolio',
-      category: 'MLOps & Forecasting',
-      github: 'https://github.com/tuannm3812/tuannm3812.github.io',
-      demo: 'https://tuannm3812.github.io',
-      impact: 'React portfolio deployed with GitHub Pages',
-      stack: ['React', 'TypeScript', 'Tailwind', 'Firebase', 'GitHub Actions'],
-      points: [
-        'Built and maintained a React portfolio for presenting machine learning, data engineering, MLOps, and applied AI project evidence.',
-        'Applied TypeScript, Tailwind, Firebase contact/comment flows, Google Analytics tagging, GitHub Actions deployment, accessible routing, and automated GitHub project sync.',
       ],
     },
   ],

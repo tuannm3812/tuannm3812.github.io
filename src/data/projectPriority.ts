@@ -10,7 +10,7 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Wildfire Occurrence Prediction': { score: 94, stars: 3 },
   'AI Meal Planner': { score: 96, stars: 3 },
   'FarmLens: NSW Crop Suitability Explorer': { score: 92, stars: 3 },
-  'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 3 },
+  'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 2 },
   // Kaggle entry, not a flagship (Mike, 17 Nov).
   'Bioacoustic Species Classification': { score: 89, stars: 2 },
   'Half-time Briefing: Microsoft x Premier League Hackathon': { score: 86, stars: 2 },
@@ -52,5 +52,4 @@ export const projectPriority: Record<string, PriorityDetails> = {
   AfriWeave: { score: 60, stars: 1 },
   'Deep Learning Group 10': { score: 58, stars: 1 },
   'Apple Foundation Agent': { score: 55, stars: 1 },
-  'Personal Portfolio': { score: 45, stars: 1 },
 };
