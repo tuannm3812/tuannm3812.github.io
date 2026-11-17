@@ -83,7 +83,7 @@ export default function Contact() {
     <div className="grid min-w-0 gap-10 py-8 md:grid-cols-2">
       <div className="min-w-0 space-y-8">
         <div className="space-y-3">
-          <p className="hand-eyebrow">contact</p>
+          <p className="hand-eyebrow">Contact</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
             Let's <span className="hand-underline">talk.</span>
           </h1>

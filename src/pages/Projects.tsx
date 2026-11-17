@@ -99,7 +99,7 @@ export default function Projects() {
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
-        <p className="hand-eyebrow">projects</p>
+        <p className="hand-eyebrow">Projects</p>
         <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
           Everything <span className="hand-underline">I've built.</span>
         </h1>

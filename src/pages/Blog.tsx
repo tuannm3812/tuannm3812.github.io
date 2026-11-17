@@ -163,7 +163,7 @@ export default function Blog() {
   return (
     <div className="space-y-8 pb-24">
       <div className="max-w-3xl space-y-3">
-        <p className="hand-eyebrow">notes</p>
+        <p className="hand-eyebrow">Notes</p>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
           Notes from <span className="hand-underline">the work.</span>
         </h2>

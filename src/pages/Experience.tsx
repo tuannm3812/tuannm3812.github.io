@@ -47,16 +47,16 @@ const CAREER_PATH: {
   org: string;
   icon: SketchIconName;
 }[] = [
-  { year: '2017', hand: 'audit', title: 'Data champion in audit', org: 'PwC', icon: 'ledger' },
+  { year: '2017', hand: 'Audit', title: 'Data Champion in Audit', org: 'PwC', icon: 'ledger' },
   {
     year: '2020',
-    hand: 'strategy',
-    title: 'Transformation consulting',
+    hand: 'Strategy',
+    title: 'Transformation Consulting',
     org: 'FPT',
     icon: 'compass',
   },
-  { year: '2021', hand: 'growth', title: 'Growth analytics lead', org: 'Shopee', icon: 'growth' },
-  { year: '2025', hand: 'AI', title: 'Applied AI and ML', org: 'UTS, Sydney', icon: 'spark' },
+  { year: '2021', hand: 'Growth', title: 'Growth Analytics Lead', org: 'Shopee', icon: 'growth' },
+  { year: '2025', hand: 'AI', title: 'Applied AI & ML', org: 'UTS, Sydney', icon: 'spark' },
 ];
 
 function CareerPath() {
@@ -141,7 +141,7 @@ export default function Experience() {
       {/* Page Header */}
       <div className="border-b border-slate-100 pb-8 dark:border-slate-800/65">
         <div className="space-y-3">
-          <p className="hand-eyebrow">experience</p>
+          <p className="hand-eyebrow">Experience</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Where I've done <span className="hand-underline">the work.</span>
           </h1>
@@ -154,7 +154,7 @@ export default function Experience() {
 
       {/* Work Experience */}
       <section className="space-y-8">
-        <SectionHeading hand="from audit to AI" title="Experience" />
+        <SectionHeading hand="From Audit to AI" title="Experience" />
         <CareerPath />
 
         <ol className="space-y-6">
@@ -210,7 +210,7 @@ export default function Experience() {
 
       {/* Education */}
       <section className="space-y-8">
-        <SectionHeading hand="still learning" title="Education" />
+        <SectionHeading hand="Still Learning" title="Education" />
 
         <ol className="space-y-6">
           {resumeData.education.map((edu, index) => (
@@ -262,7 +262,7 @@ export default function Experience() {
 
       {/* Technical Skill Matrix */}
       <section className="space-y-8 pb-24">
-        <SectionHeading hand="what I reach for" title="Skills" />
+        <SectionHeading hand="What I Reach For" title="Skills" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {resumeData.technologyStack.map((stack, index) => {

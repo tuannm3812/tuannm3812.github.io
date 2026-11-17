@@ -75,4 +75,4 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 
 ## 🎓 Education
 * **Master of Data Science and Innovation (High Distinction)** | University of Technology Sydney | *Expected Feb 2027*
-* **Bachelor of International Economics and Business (Distinction)** | Foreign Trade University | *Jun 2017*
+* **Bachelor of International Economics and Business (High Distinction)** | Foreign Trade University | *Jun 2017*
