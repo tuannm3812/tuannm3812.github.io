@@ -4,8 +4,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-hand: 'Caveat', 'Segoe Print', cursive;
 
   --color-brand: #0540f2;
   --color-brand-light: #056cf2;
@@ -126,5 +127,47 @@
     --tw-prose-invert-bold: #f1f5f9;
     --tw-prose-invert-quotes: #f1f5f9;
     --tw-prose-invert-quote-borders: var(--color-brand-light);
+  }
+}
+
+/* Option E accents (Mike, 17 Nov): an amber marker for key terms in the
+   selected-work copy, and a hand-drawn amber underline under Caveat words. */
+@layer components {
+  .key-term {
+    background: linear-gradient(transparent 58%, rgb(253 230 138) 58%);
+    color: inherit;
+    font-weight: 700;
+    padding: 0 1px;
+  }
+
+  .dark .key-term {
+    background: linear-gradient(transparent 62%, rgb(180 83 9 / 0.55) 62%);
+  }
+
+  .hand-underline {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.15em;
+    font-family: var(--font-hand);
+    font-size: 1.25em;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: var(--color-brand);
+  }
+
+  .dark .hand-underline {
+    color: rgb(125 211 252);
+  }
+
+  .hand-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.12em;
+    height: 0.32em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cpath d='M4 16 C 60 6, 120 20, 180 10 S 270 8, 296 14' fill='none' stroke='%23f59e0b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E")
+      center / 100% 100% no-repeat;
+    pointer-events: none;
   }
 }

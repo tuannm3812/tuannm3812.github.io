@@ -36,6 +36,24 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-17 - Claude Code (option E and the Selected work gallery)
+
+- Fonts: Figtree and Caveat (`--font-hand`). Added the `.hand-underline` and
+  `.key-term` accents to index.css.
+- Home: new eyebrow and hero copy. `SelectedWorkGallery` replaces the featured
+  cards. Data is in `src/data/selectedWork.ts`, where `[[key terms]]` are
+  highlighted.
+- Posters: WebP thumbnails and full-size posters in `public/assets/posters/`,
+  copied from Mike's Mac. Fire links the poster PDF.
+- New curated cards for the Terminal-Bench Agent Harness and Wildfire
+  Occurrence Prediction. Both are personal, with 3 stars, and link a poster
+  because the code is private.
+- Kiva stack corrected to Random Forest, matching the repo; an earlier mock
+  said gradient boosting. Finalist status was checked against the hackathon
+  repo docs.
+- Verified: `npm run check`, and screenshots at 1440 light/dark and 390 with no
+  horizontal overflow.
+
 ## 2026-11-17 - Claude Code (back to the original look)
 
 - Mike asked to refine the original site rather than restyle it. Restored

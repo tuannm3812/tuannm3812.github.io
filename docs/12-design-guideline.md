@@ -92,6 +92,31 @@ Colours are named by role, never by hue.
   restate its impact line.
 - Two or more items are a list or tags, never "a; b; c" in one sentence.
 
+### Public content (Mike, 17 Nov)
+
+These rules apply to the Home "Selected work" gallery (`src/data/selectedWork.ts`)
+and to any project copy.
+
+- **No client or sponsor names** anywhere in the copy. Lead with the project's
+  topic and its tech stack. Posters may carry the names they already show.
+- **No internal details**: no university HPC or internal servers, no private
+  repo links (link the hosted poster instead), and no unpublished client numbers.
+- **Collaborators** are named only with their consent.
+- **The headline block** has four lines, always in this order:
+  1. Label: Title Case, `Type of Work · Problem Area`.
+  2. Title: the project's name.
+  3. Subtitle: one insight sentence, 15 words or fewer, that does not repeat
+     the question.
+  4. Role: a role title only, such as "Lead AI Engineer". Use "Lead" when Mike
+     led the team, and leave out team size.
+- **Story**: one sentence each for question, built and answer. Highlight one or
+  two `[[key terms]]` per sentence with the amber marker.
+- **No metrics block, no format caption, and no Poster or Deck buttons.** The
+  poster image opens the full poster. The only buttons are Live demo and Code,
+  and they are left out when neither exists.
+- **Stack**: 3 or 4 public tools as neutral chips, with no heading, no logos and
+  no brand colours. Leave out hosting and compute.
+
 ## Motion
 
 - Motion only confirms a change the reader made (filter, expand) or plays once

@@ -239,6 +239,30 @@ export const resumeData: ResumeData = {
       ],
     },
     {
+      title: 'Terminal-Bench Agent Harness',
+      category: 'AI Agents & LLM Products',
+      // Private repo: no source link. The poster is hosted on the site instead.
+      demo: '/assets/posters/harness.jpg',
+      impact: 'Custom agent harness tested against Terminus 2 with the model held fixed',
+      stack: ['LangGraph', 'Harbor', 'Terminal-Bench', 'Python'],
+      points: [
+        'Led a team of six building a LangGraph agent harness inside Harbor and testing it against Terminus 2 on Terminal-Bench in paired three-attempt trials on a frozen protocol.',
+        'No accuracy advantage was established (0.356 vs 0.422 paired accuracy, same model); the frozen protocol gives a fair way to test any future harness change.',
+      ],
+    },
+    {
+      title: 'Wildfire Occurrence Prediction',
+      category: 'MLOps & Forecasting',
+      // Private repo: no source link. The poster is hosted on the site instead.
+      demo: '/assets/posters/fire.pdf',
+      impact: 'Daily fire prediction tested on regions the model has never seen',
+      stack: ['Python', 'TabPFN', 'Mixture of experts', 'Satellite data'],
+      points: [
+        'Audited 19,849 satellite hotspots and combined weather, fuel moisture and land cover into 376 predictors for the Greater Blue Mountains.',
+        'Compared logistic regression through TabPFN and a mixture of experts on 47 spatially blocked 25 km folds: holding a region out moved scores more than the choice of model.',
+      ],
+    },
+    {
       title: 'Enterprise Text-to-SQL Agent',
       category: 'AI Agents & LLM Products',
       github: 'https://github.com/tuannm3812/text-to-sql-agent',

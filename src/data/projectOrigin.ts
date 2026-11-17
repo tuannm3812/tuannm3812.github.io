@@ -25,6 +25,10 @@ export const projectOrigin: Record<string, ProjectOrigin> = {
   'FarmLens: NSW Crop Suitability Explorer': 'personal',
   'ScriptClean AI': 'personal',
   'Personal Portfolio': 'personal',
+  // Industry and research projects (UTS Innovation Lab). Mike counts them as his
+  // own scoped work, not set coursework (17 Nov).
+  'Terminal-Bench Agent Harness': 'personal',
+  'Wildfire Occurrence Prediction': 'personal',
 
   // 4. Training
   'UTS Tech Festival 2026 GenAI Hackathon': 'hackathon',

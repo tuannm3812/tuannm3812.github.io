@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Download, ExternalLink, MapPin } from 'lucide-react';
+import { ArrowRight, Download, MapPin } from 'lucide-react';
 import { resumeData } from '../data/resume';
-import { focusAreas, featuredProjects, workingStyle } from '../data/home';
+import { focusAreas, workingStyle } from '../data/home';
+import SelectedWorkGallery from '../components/SelectedWorkGallery';
 
 function FocusAreaCard({ title, desc }: { title: string; desc: string }) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -88,45 +89,6 @@ function WorkingStyleCard({
   );
 }
 
-function ProjectCover({
-  icon,
-  title,
-  category,
-  coverImage,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  category: string;
-  coverImage?: string;
-}) {
-  return (
-    <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-950 dark:border-slate-800">
-      {coverImage ? (
-        <>
-          <img
-            src={coverImage}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-slate-950/20" />
-        </>
-      ) : (
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(14,165,233,0.22),rgba(15,23,42,0)_45%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,26px_26px,26px_26px]" />
-      )}
-      <div className="relative flex h-full flex-col justify-between p-5 text-white">
-        <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-sky-200">
-          {icon}
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-200">{category}</p>
-          <p className="mt-1 text-sm font-black">{title}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <div className="space-y-14">
@@ -137,7 +99,7 @@ export default function Home() {
           className="min-w-0 space-y-6"
         >
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            <span className="section-eyebrow">Applied AI · ML · Data engineer</span>
+            <span className="section-eyebrow">AI builder · ML engineer · AI consultant</span>
             <span className="hidden h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700 sm:block" />
             <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
               <MapPin size={16} />
@@ -146,12 +108,12 @@ export default function Home() {
           </div>
 
           <h1 className="max-w-4xl break-words text-3xl font-black leading-[0.98] tracking-tight sm:text-5xl md:text-6xl xl:text-7xl">
-            Reliable AI systems from messy data.
+            Reliable AI systems from <span className="hand-underline">messy data.</span>
           </h1>
 
           <p className="max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg md:text-xl">
-            I build applied AI agents, deployable ML prototypes, and data pipelines that are easy to
-            inspect, rerun, and trust.
+            I help teams turn scattered data into AI products, models and dashboards that people can
+            inspect, trust and act on, from first prototype to handover.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -206,76 +168,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl space-y-3">
-            <p className="section-eyebrow">Featured projects</p>
-            <h2 className="text-3xl font-black tracking-tight md:text-4xl">
-              Flagship technical work.
-            </h2>
-            <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400 md:text-lg">
-              Selected large-scale builds across enterprise AI, AI product engineering, deep
-              learning research, and production-grade data architecture.
-            </p>
-          </div>
-          <Link to="/projects" className="btn-secondary w-fit">
-            Browse all projects
-            <ArrowRight size={18} />
-          </Link>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <motion.a
-              key={project.title}
-              href={project.href}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="surface-card surface-card-hover group flex min-h-full flex-col gap-5 p-5"
-            >
-              <ProjectCover
-                icon={project.icon}
-                title={project.title}
-                category={project.category}
-                coverImage={project.coverImage}
-              />
-
-              <div className="flex flex-1 flex-col justify-between gap-5">
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="brand-pill">{project.category}</span>
-                    <ExternalLink
-                      size={18}
-                      className="text-slate-400 transition-colors group-hover:text-brand"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-black tracking-tight transition-colors group-hover:text-brand">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {project.outcome}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 dark:border-slate-800">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono text-[10px] font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
-      </section>
+      <SelectedWorkGallery />
 
       <section className="grid gap-4 md:grid-cols-3">
         {workingStyle.map((item) => (

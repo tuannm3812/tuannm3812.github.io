@@ -5,6 +5,25 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 17 November 2026 — Option E type and the Selected work gallery
+
+Mike chose option E from the type studies, and then refined the gallery over
+several rounds.
+
+- Figtree replaces Outfit. It is the closest licensable match to the Google Sans
+  in his decks. Caveat handwriting plus an amber hand-drawn underline is the
+  accent ("messy data", "working answer", gallery labels).
+- Positioning: AI builder, ML engineer, AI consultant. The hero copy is
+  business-facing.
+- Home "Featured projects" became the Selected work gallery: a filter, a
+  numbered project index, a poster thumbnail with arrows, and a fixed story
+  block. Public content rules are in [12](12-design-guideline.md#public-content-mike-17-nov).
+- Mike removed in review: client names, "UTS HPC", the metrics row, the
+  "Poster and deck" caption, Poster and Deck buttons, and the "Tech stack" and
+  "My role" labels. He chose role titles over team size.
+- The Terminal-Bench harness and wildfire research are flagship (3 stars) and
+  tagged self-initiated. They are private repos, so they link their posters.
+
 ## 17 November 2026 — Keep the original look; flagship is self-initiated work
 
 Mike, after seeing the Swiss index build: refine the original site instead of

@@ -6,6 +6,8 @@ export interface PriorityDetails {
 export const projectPriority: Record<string, PriorityDetails> = {
   'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
   CircleU: { score: 98, stars: 3 },
+  'Terminal-Bench Agent Harness': { score: 97, stars: 3 },
+  'Wildfire Occurrence Prediction': { score: 94, stars: 3 },
   'AI Meal Planner': { score: 96, stars: 3 },
   'FarmLens: NSW Crop Suitability Explorer': { score: 92, stars: 3 },
   'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 3 },
