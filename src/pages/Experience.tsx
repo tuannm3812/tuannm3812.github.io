@@ -3,7 +3,6 @@ import { resumeData } from '../data/resume';
 import OrgLogo from '../components/OrgLogo';
 import SketchIcon, { type SketchIconName } from '../components/artwork/SketchIcon';
 import { EMPLOYER_LOGO } from '../data/orgLogos';
-import { Download } from 'lucide-react';
 
 // Skill groups use the same type colours as the drawn project covers:
 // blue for agents and code, green for data, amber for models.
@@ -139,8 +138,8 @@ function splitRole(role: string) {
 export default function Experience() {
   return (
     <div className="max-w-5xl mx-auto space-y-16">
-      {/* Page Header with Resume Download */}
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-slate-100 pb-8 dark:border-slate-800/65">
+      {/* Page Header */}
+      <div className="border-b border-slate-100 pb-8 dark:border-slate-800/65">
         <div className="space-y-3">
           <p className="hand-eyebrow">experience</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
@@ -151,14 +150,6 @@ export default function Experience() {
             AI and ML.
           </p>
         </div>
-        <a
-          href="/assets/tuan-nguyen-resume.pdf"
-          download
-          className="btn-secondary flex items-center gap-2 cursor-pointer w-fit"
-        >
-          <Download size={18} />
-          Download Resume (PDF)
-        </a>
       </div>
 
       {/* Work Experience */}
@@ -217,52 +208,8 @@ export default function Experience() {
         </ol>
       </section>
 
-      {/* Technical Skill Matrix */}
-      <section className="space-y-8">
-        <SectionHeading hand="what I reach for" title="Skills" />
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {resumeData.technologyStack.map((stack, index) => {
-            const style = SKILL_STYLE[stack.title] ?? SKILL_STYLE['Languages & Engineering'];
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className={`surface-card flex flex-col justify-between border-t-4 p-5 ${style.tone}`}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <SketchIcon name={style.icon} size={44} />
-                    <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
-                      {stack.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                    {stack.description}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
-                  {stack.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className={`rounded-full px-2.5 py-1 text-xs font-semibold ${style.chip}`}
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
-
       {/* Education */}
-      <section className="space-y-8 pb-24">
+      <section className="space-y-8">
         <SectionHeading hand="still learning" title="Education" />
 
         <ol className="space-y-6">
@@ -311,6 +258,50 @@ export default function Experience() {
             </motion.li>
           ))}
         </ol>
+      </section>
+
+      {/* Technical Skill Matrix */}
+      <section className="space-y-8 pb-24">
+        <SectionHeading hand="what I reach for" title="Skills" />
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {resumeData.technologyStack.map((stack, index) => {
+            const style = SKILL_STYLE[stack.title] ?? SKILL_STYLE['Languages & Engineering'];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className={`surface-card flex flex-col justify-between border-t-4 p-5 ${style.tone}`}
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <SketchIcon name={style.icon} size={44} />
+                    <h3 className="font-bold text-slate-950 dark:text-white leading-tight">
+                      {stack.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    {stack.description}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-4 mt-4 dark:border-slate-800">
+                  {stack.tools.map((tool) => (
+                    <span
+                      key={tool}
+                      className={`rounded-full px-2.5 py-1 text-xs font-semibold ${style.chip}`}
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </section>
     </div>
   );

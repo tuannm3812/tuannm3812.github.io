@@ -64,6 +64,7 @@ export const resumeData: ResumeData = {
     { value: '5', label: 'Domains: agents, vision, data eng, Kaggle, MLOps' },
     { value: 'Full-stack', label: 'From data pipelines to deployed AI apps' },
   ],
+  // [[double brackets]] mark key terms the Experience page highlights.
   education: [
     {
       institution: 'University of Technology Sydney',
@@ -71,8 +72,8 @@ export const resumeData: ResumeData = {
       degree: 'Master of Data Science and Innovation (High Distinction)',
       period: 'Feb 2025 - Feb 2027 (expected)',
       points: [
-        'Coursework includes machine learning, big data engineering, statistical modelling, deep learning, computer vision, natural language processing, and applied AI systems.',
-        'Completed academic and portfolio projects in full-stack ML systems, Databricks and Snowflake analytics, MLOps pipelines, Kaggle competition workflows, computer vision, NLP, and AI-driven decision support.',
+        'Coursework includes [[machine learning]], [[big data engineering]], statistical modelling, [[deep learning]], computer vision, natural language processing, and [[applied AI systems]].',
+        'Completed academic and portfolio projects in [[full-stack ML systems]], [[Databricks and Snowflake]] analytics, [[MLOps pipelines]], Kaggle competition workflows, computer vision, NLP, and AI-driven decision support.',
       ],
     },
     {
@@ -81,7 +82,7 @@ export const resumeData: ResumeData = {
       degree: 'Bachelor of International Economics and Business (Distinction)',
       period: 'Aug 2013 - Jun 2017',
       points: [
-        'Completed a selective program emphasizing analytical thinking, applied economics, and professional communication, with foundations in econometrics, international trade, finance, and strategic management.',
+        'Completed a selective program emphasizing [[analytical thinking]], [[applied economics]], and professional communication, with foundations in [[econometrics]], international trade, finance, and strategic management.',
       ],
     },
   ],
