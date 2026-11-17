@@ -178,21 +178,21 @@ export default function Experience() {
                 transition={{ delay: index * 0.08 }}
                 className="grid gap-3 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
               >
-                <p className="pt-1 text-sm font-semibold tabular-nums text-slate-500 dark:text-slate-400">
-                  {exp.period}
-                </p>
+                <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-3 md:pt-1">
+                  <OrgLogo id={EMPLOYER_LOGO[exp.company]} size={44} framed={false} />
+                  <p className="text-sm font-semibold tabular-nums text-slate-500 dark:text-slate-400">
+                    {exp.period}
+                  </p>
+                </div>
                 <div className="surface-card space-y-4 p-6">
-                  <div className="flex items-start gap-4">
-                    <OrgLogo id={EMPLOYER_LOGO[exp.company]} size={44} />
-                    <div className="min-w-0 space-y-1">
-                      <h3 className="text-xl font-bold leading-snug tracking-tight">{title}</h3>
-                      <p className="text-sm text-slate-500 dark:text-slate-400">
-                        <span className="font-semibold text-slate-900 dark:text-white">
-                          {exp.company}
-                        </span>
-                        {team && <> · {team}</>} · {exp.location}
-                      </p>
-                    </div>
+                  <div className="min-w-0 space-y-1">
+                    <h3 className="text-xl font-bold leading-snug tracking-tight">{title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      <span className="font-semibold text-slate-900 dark:text-white">
+                        {exp.company}
+                      </span>
+                      {team && <> · {team}</>} · {exp.location}
+                    </p>
                   </div>
                   <ul className="grid gap-x-8 gap-y-2.5 md:grid-cols-2">
                     {exp.points.map((point) => (
@@ -265,44 +265,52 @@ export default function Experience() {
       <section className="space-y-8 pb-24">
         <SectionHeading hand="still learning" title="Education" />
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <ol className="space-y-6">
           {resumeData.education.map((edu, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.li
+              key={edu.institution}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="surface-card space-y-4 p-6"
+              transition={{ delay: index * 0.08 }}
+              className="grid gap-3 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
             >
-              <div className="flex items-start gap-3">
-                <OrgLogo id={EMPLOYER_LOGO[edu.institution]} size={44} />
-                <div className="space-y-1">
-                  <h3 className="text-lg font-bold">{edu.institution}</h3>
-                  <p className="font-medium text-slate-600 dark:text-slate-300">{edu.degree}</p>
-                </div>
+              <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-3 md:pt-1">
+                <OrgLogo id={EMPLOYER_LOGO[edu.institution]} size={44} framed={false} />
+                <p className="text-sm font-semibold tabular-nums text-slate-500 dark:text-slate-400">
+                  {edu.period}
+                </p>
               </div>
-
-              <p className="text-sm text-slate-500 dark:text-slate-400">
-                {edu.period} · {edu.location}
-              </p>
-
-              <ul className="space-y-2">
-                {edu.points.map((point, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-2.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400"
-                    />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              <div className="surface-card space-y-4 p-6">
+                <div className="min-w-0 space-y-1">
+                  <h3 className="text-xl font-bold leading-snug tracking-tight">{edu.degree}</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <span className="font-semibold text-slate-900 dark:text-white">
+                      {edu.institution}
+                    </span>{' '}
+                    · {edu.location}
+                  </p>
+                </div>
+                <ul className="grid gap-x-8 gap-y-2.5 md:grid-cols-2">
+                  {edu.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-2.5 text-[15px] leading-relaxed text-slate-600 dark:text-slate-400"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400"
+                      />
+                      <span>
+                        <Highlighted text={point} />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
       </section>
     </div>
   );
