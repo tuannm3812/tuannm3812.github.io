@@ -1,16 +1,18 @@
 import { selectedWork } from '../data/selectedWork';
 import { PROJECT_LOGO } from '../data/orgLogos';
+import { PROJECT_CARDS } from '../data/projectCards';
 import type { Project } from '../data/resume';
 import { isKaggleProject } from './projects';
 import type { ProjectCard } from './projectCards';
 
 export type CoverKind = 'agent' | 'ml' | 'data' | 'vision';
 
-/** Poster thumbnail for projects that have one (same files as the Home gallery). */
-// Project cards whose title differs from the gallery title.
-const POSTER_ALIASES: Record<string, string> = {
-  'UNSW MA Hackathon 2026': 'kiva',
-};
+/**
+ * Poster thumbnail for projects that have one (same files as the Home gallery).
+ * The gallery uses the card title from projectCards.ts, not the source title,
+ * so match on that. Matching on the source title silently dropped the
+ * Text-to-SQL, Agent Harness and Wildfire posters on 17 Nov.
+ */
 
 // Cover images for projects outside the Home gallery.
 const EXTRA_THUMBS: Record<string, string> = {
@@ -18,10 +20,9 @@ const EXTRA_THUMBS: Record<string, string> = {
 };
 
 export function getProjectPoster(project: Pick<Project, 'title'>): string | undefined {
-  const alias = POSTER_ALIASES[project.title];
+  const cardTitle = PROJECT_CARDS[project.title]?.title ?? project.title;
   return (
-    EXTRA_THUMBS[project.title] ??
-    selectedWork.find((work) => work.id === alias || work.title === project.title)?.thumb
+    EXTRA_THUMBS[project.title] ?? selectedWork.find((work) => work.title === cardTitle)?.thumb
   );
 }
 

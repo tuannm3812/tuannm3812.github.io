@@ -5,6 +5,18 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 18 November 2026 — Projects layout, real posters, no logos on personal work
+
+Mike picked the "feature + 2x2" Projects layout: the first Selected Work project
+is a wide feature card, the other four sit in a 2-column grid; Kaggle shows its
+top 6 with "Show all" (Playground Series inside); Other Projects are compact
+index rows like Coursework. He also flagged that Text-to-SQL, Agent Harness and
+Wildfire showed drawn placeholders despite having posters: the poster lookup
+matched gallery titles, which changed to card titles on 17 Nov. It now matches
+on the card title, with a test. Logos: CircleU shows UTS (built in the UTS Apple
+Foundation program); self-initiated work such as AI Meal Planner carries no
+logo, since its label already says Self-Initiated.
+
 ## 18 November 2026 — Clean blue-and-amber icons; project sync is manual
 
 Mike found the hand-drawn icons flawed and asked for a polished version that

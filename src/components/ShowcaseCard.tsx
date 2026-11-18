@@ -82,7 +82,7 @@ export default function ShowcaseCard({
               width={1200}
               height={848}
               loading="lazy"
-              className="aspect-[1.414/1] w-full rounded-t-md object-cover object-top"
+              className={`${feature ? 'aspect-[16/9]' : 'aspect-[1.414/1]'} w-full rounded-t-md object-cover object-top`}
             />
           </div>
         ) : (
