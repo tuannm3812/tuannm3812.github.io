@@ -7,8 +7,10 @@ decided and when.
 
 ## 18 November 2026 — Projects layout, real posters, no logos on personal work
 
-Mike picked the "feature + 2x2" Projects layout: the first Selected Work project
-is a wide feature card, the other four sit in a 2-column grid; Kaggle shows its
+Mike first picked a "feature + 2x2" Projects layout, then asked for smaller
+cards since the Home gallery already shows the big posters. Selected Work and
+Hackathons now use compact cards (small thumbnail left, copy right) in two
+columns; Kaggle shows its
 top 6 with "Show all" (Playground Series inside); Other Projects are compact
 index rows like Coursework. He also flagged that Text-to-SQL, Agent Harness and
 Wildfire showed drawn placeholders despite having posters: the poster lookup

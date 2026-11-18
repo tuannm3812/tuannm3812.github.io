@@ -16,7 +16,7 @@ function DrawnCover({ project }: { project: Project }) {
   const cover = COVERS[getCoverKind(getProjectCard(project))];
   return (
     <div
-      className="drawn-cover relative aspect-[16/9] overflow-hidden"
+      className="drawn-cover relative aspect-[1.414/1] overflow-hidden"
       style={{ '--cover-bg': cover.bg, '--cover-dark': cover.darkBg } as CSSProperties}
     >
       <svg
@@ -40,7 +40,7 @@ function DrawnCover({ project }: { project: Project }) {
         </g>
       </svg>
       <p
-        className="font-hand absolute bottom-2.5 left-4 text-3xl font-bold leading-none"
+        className="font-hand absolute bottom-1.5 left-2.5 text-xl font-bold leading-none"
         style={{ color: cover.ink }}
       >
         {cover.label}
@@ -49,15 +49,17 @@ function DrawnCover({ project }: { project: Project }) {
   );
 }
 
+/**
+ * Compact project card (Mike, 18 Nov): a small poster or drawn thumbnail on the
+ * left, copy on the right. The Home gallery already shows the big posters, so
+ * the Projects page keeps every card the same modest size.
+ */
 export default function ShowcaseCard({
   project,
   onTagClick,
-  feature = false,
 }: {
   project: Project;
   onTagClick?: (tag: string) => void;
-  /** Wide card: cover on the left, copy on the right, from md up. */
-  feature?: boolean;
 }) {
   const poster = getProjectPoster(project);
   const logo = getProjectLogo(project);
@@ -71,37 +73,31 @@ export default function ShowcaseCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className={`surface-card group flex h-full flex-col overflow-hidden transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg ${feature ? 'md:flex-row' : ''}`}
+      className="surface-card group flex h-full gap-4 p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:gap-5"
     >
-      <div className={`relative ${feature ? 'md:w-3/5 md:shrink-0' : ''}`}>
+      <div className="relative w-28 shrink-0 self-start overflow-hidden rounded-lg ring-1 ring-slate-200/80 sm:w-40 dark:ring-slate-800">
         {poster ? (
-          <div className="bg-slate-100 px-3.5 pt-3.5 dark:bg-slate-900">
-            <img
-              src={poster}
-              alt=""
-              width={1200}
-              height={848}
-              loading="lazy"
-              className={`${feature ? 'aspect-[16/9]' : 'aspect-[1.414/1]'} w-full rounded-t-md object-cover object-top`}
-            />
-          </div>
+          <img
+            src={poster}
+            alt=""
+            width={1200}
+            height={848}
+            loading="lazy"
+            className="aspect-[1.414/1] w-full bg-slate-100 object-cover object-top dark:bg-slate-900"
+          />
         ) : (
           <DrawnCover project={project} />
         )}
         {logo && (
-          <span className="absolute right-3 top-3">
-            <OrgLogo id={logo} size={34} />
+          <span className="absolute right-1.5 top-1.5">
+            <OrgLogo id={logo} size={22} />
           </span>
         )}
       </div>
 
-      <div
-        className={`flex flex-1 flex-col gap-2.5 p-5 ${feature ? 'md:justify-center md:p-8' : ''}`}
-      >
+      <div className="flex min-w-0 flex-1 flex-col gap-1.5">
         <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{card.label}</p>
-        <h3
-          className={`font-bold leading-snug tracking-tight ${feature ? 'text-2xl md:text-3xl' : 'text-lg'}`}
-        >
+        <h3 className="text-base font-bold leading-snug tracking-tight sm:text-lg">
           {primary ? (
             <a
               href={primary}
@@ -118,39 +114,36 @@ export default function ShowcaseCard({
         <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           {card.description}
         </p>
-
-        <div className="mt-auto space-y-3 pt-2">
-          <ul aria-label="Skills" className="flex flex-wrap gap-1.5">
-            {card.tags.map((tag) => (
-              <li key={tag}>
-                <TagChip tag={tag} onClick={onTagClick} />
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 border-t border-slate-100 pt-3 text-sm font-semibold dark:border-slate-800">
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-9 items-center gap-1 text-brand hover:underline dark:text-sky-300"
-              >
-                {linkLabel(project.demo)}
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </a>
-            )}
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-9 items-center gap-1 text-slate-700 hover:text-brand dark:text-slate-300"
-              >
-                Code
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </a>
-            )}
-          </div>
+        <ul aria-label="Skills" className="flex flex-wrap gap-1.5 pt-1">
+          {card.tags.map((tag) => (
+            <li key={tag}>
+              <TagChip tag={tag} size="xs" onClick={onTagClick} />
+            </li>
+          ))}
+        </ul>
+        <div className="mt-auto flex flex-wrap gap-x-4 pt-1 text-sm font-semibold">
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-9 items-center gap-1 text-brand hover:underline dark:text-sky-300"
+            >
+              {linkLabel(project.demo)}
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-9 items-center gap-1 text-slate-700 hover:text-brand dark:text-slate-300"
+            >
+              Code
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          )}
         </div>
       </div>
     </motion.article>
