@@ -24,13 +24,13 @@ import TagChip from '../components/TagChip';
 // origin (projectOrigin.ts) so self-initiated work reads before set coursework.
 // Each group shows a short preview; any active filter falls back to one grid.
 // Kaggle and coursework render as one-line index rows instead of cards.
-const INDEX_ORIGINS = new Set<ProjectOrigin>(['kaggle', 'coursework']);
+const INDEX_ORIGINS = new Set<ProjectOrigin>(['kaggle', 'other', 'coursework']);
 const SECTION_PREVIEW_COUNT: Record<ProjectOrigin, number> = {
   personal: 6,
   hackathon: 6,
   kaggle: 6,
-  other: 3,
-  coursework: 3,
+  other: 8,
+  coursework: 8,
 };
 
 function PlaygroundTable({ episodes }: { episodes: Project[] }) {
@@ -188,13 +188,12 @@ export default function Projects() {
             title="Selected Work"
             aside={`${featuredProjects.length} of ${filteredProjects.length}`}
           />
-          <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <AnimatePresence mode="popLayout">
-              {featuredProjects.map((project) => (
-                <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          <ShowcaseCard project={featuredProjects[0]} onTagClick={setSelectedTag} feature />
+          <div className="grid gap-5 md:grid-cols-2">
+            {featuredProjects.slice(1).map((project) => (
+              <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
+            ))}
+          </div>
         </section>
       )}
 
@@ -215,9 +214,8 @@ export default function Projects() {
           if (sectionProjects.length + extra.length === 0) return null;
           const asIndex = INDEX_ORIGINS.has(origin);
           const isCollapsed =
-            !asIndex &&
             !expanded.has(origin) &&
-            sectionProjects.length > SECTION_PREVIEW_COUNT[origin];
+            sectionProjects.length + extra.length > SECTION_PREVIEW_COUNT[origin];
           const shown = isCollapsed
             ? sectionProjects.slice(0, SECTION_PREVIEW_COUNT[origin])
             : sectionProjects;
@@ -246,11 +244,11 @@ export default function Projects() {
               {isCollapsed && (
                 <div className="flex justify-center">
                   <button type="button" onClick={() => expand(origin)} className="btn-secondary">
-                    Show all {sectionProjects.length} in {title}
+                    Show all {sectionProjects.length + extra.length} in {title}
                   </button>
                 </div>
               )}
-              {extra.length > 0 && <PlaygroundTable episodes={extra} />}
+              {extra.length > 0 && !isCollapsed && <PlaygroundTable episodes={extra} />}
             </section>
           );
         })

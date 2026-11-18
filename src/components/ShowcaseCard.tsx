@@ -52,9 +52,12 @@ function DrawnCover({ project }: { project: Project }) {
 export default function ShowcaseCard({
   project,
   onTagClick,
+  feature = false,
 }: {
   project: Project;
   onTagClick?: (tag: string) => void;
+  /** Wide card: cover on the left, copy on the right, from md up. */
+  feature?: boolean;
 }) {
   const poster = getProjectPoster(project);
   const logo = getProjectLogo(project);
@@ -68,9 +71,9 @@ export default function ShowcaseCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className="surface-card group flex h-full flex-col overflow-hidden transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg"
+      className={`surface-card group flex h-full flex-col overflow-hidden transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg ${feature ? 'md:flex-row' : ''}`}
     >
-      <div className="relative">
+      <div className={`relative ${feature ? 'md:w-3/5 md:shrink-0' : ''}`}>
         {poster ? (
           <div className="bg-slate-100 px-3.5 pt-3.5 dark:bg-slate-900">
             <img
@@ -92,9 +95,13 @@ export default function ShowcaseCard({
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-2.5 p-5">
+      <div
+        className={`flex flex-1 flex-col gap-2.5 p-5 ${feature ? 'md:justify-center md:p-8' : ''}`}
+      >
         <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{card.label}</p>
-        <h3 className="text-lg font-bold leading-snug tracking-tight">
+        <h3
+          className={`font-bold leading-snug tracking-tight ${feature ? 'text-2xl md:text-3xl' : 'text-lg'}`}
+        >
           {primary ? (
             <a
               href={primary}
