@@ -210,18 +210,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       <main id="main-content" className="pt-24 pb-16 min-h-screen">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="mx-auto max-w-7xl min-w-0 px-4"
-          >
-            <ErrorBoundary>{children}</ErrorBoundary>
-          </motion.div>
-        </AnimatePresence>
+        {/* Fade the new page in, with no exit animation. An AnimatePresence
+            "wait" exit here could stall (seen on /projects, 18 Nov) and leave the
+            page at opacity 0 until a reload, because `children` is already the
+            new route while the old wrapper is still exiting. */}
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mx-auto max-w-7xl min-w-0 px-4"
+        >
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </motion.div>
       </main>
 
       <footer className="border-t border-slate-200/80 bg-white/85 py-12 transition-colors dark:border-slate-800/80 dark:bg-slate-950/85">

@@ -32,13 +32,17 @@ export const EMPLOYER_LOGO: Record<string, string> = {
   'Foreign Trade University': 'ftu',
 };
 
-/** Project card logos, keyed by card title. Kaggle cards get the Kaggle mark automatically. */
+/**
+ * Project card logos, keyed by source title. Kaggle cards get the Kaggle mark
+ * automatically. Self-initiated work carries no logo (Mike, 18 Nov): its
+ * "Self-Initiated" label already says whose it is, and a badge would imply an
+ * organisation. CircleU was built in the UTS Apple Foundation program.
+ */
 export const PROJECT_LOGO: Record<string, string> = {
   'Terminal-Bench Agent Harness': 'uts',
   'Wildfire Occurrence Prediction': 'uts',
   'UTS Tech Festival 2026 GenAI Hackathon': 'uts',
   'Spatial Brain: UNSW AiSoc Hackathon 2026': 'unsw',
   'UNSW MA Hackathon 2026': 'unsw',
-  'AI Meal Planner': 'meal-planner',
-  CircleU: 'circleu',
+  CircleU: 'uts',
 };

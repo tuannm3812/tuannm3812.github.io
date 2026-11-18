@@ -23,14 +23,15 @@ import TagChip from '../components/TagChip';
 // projectPriority.ts leads as "Selected work", then the rest are grouped by
 // origin (projectOrigin.ts) so self-initiated work reads before set coursework.
 // Each group shows a short preview; any active filter falls back to one grid.
-// Kaggle and coursework render as one-line index rows instead of cards.
-const INDEX_ORIGINS = new Set<ProjectOrigin>(['kaggle', 'coursework']);
+// Kaggle, other and coursework render as one-line index rows; Selected Work and
+// hackathons use compact cards with a small thumbnail (Mike, 18 Nov).
+const INDEX_ORIGINS = new Set<ProjectOrigin>(['kaggle', 'other', 'coursework']);
 const SECTION_PREVIEW_COUNT: Record<ProjectOrigin, number> = {
   personal: 6,
   hackathon: 6,
   kaggle: 6,
-  other: 3,
-  coursework: 3,
+  other: 8,
+  coursework: 8,
 };
 
 function PlaygroundTable({ episodes }: { episodes: Project[] }) {
@@ -188,19 +189,17 @@ export default function Projects() {
             title="Selected Work"
             aside={`${featuredProjects.length} of ${filteredProjects.length}`}
           />
-          <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <AnimatePresence mode="popLayout">
-              {featuredProjects.map((project) => (
-                <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            {featuredProjects.map((project) => (
+              <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
+            ))}
+          </div>
         </section>
       )}
 
       {isFiltered ? (
         <section className="space-y-4">
-          <motion.div layout className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <motion.div layout className="grid gap-4 lg:grid-cols-2">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
                 <ShowcaseCard key={project.title} project={project} onTagClick={setSelectedTag} />
@@ -215,9 +214,8 @@ export default function Projects() {
           if (sectionProjects.length + extra.length === 0) return null;
           const asIndex = INDEX_ORIGINS.has(origin);
           const isCollapsed =
-            !asIndex &&
             !expanded.has(origin) &&
-            sectionProjects.length > SECTION_PREVIEW_COUNT[origin];
+            sectionProjects.length + extra.length > SECTION_PREVIEW_COUNT[origin];
           const shown = isCollapsed
             ? sectionProjects.slice(0, SECTION_PREVIEW_COUNT[origin])
             : sectionProjects;
@@ -233,7 +231,7 @@ export default function Projects() {
                 (asIndex ? (
                   <ProjectIndex projects={shown} />
                 ) : (
-                  <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid gap-4 lg:grid-cols-2">
                     {shown.map((project) => (
                       <ShowcaseCard
                         key={project.title}
@@ -246,11 +244,11 @@ export default function Projects() {
               {isCollapsed && (
                 <div className="flex justify-center">
                   <button type="button" onClick={() => expand(origin)} className="btn-secondary">
-                    Show all {sectionProjects.length} in {title}
+                    Show all {sectionProjects.length + extra.length} in {title}
                   </button>
                 </div>
               )}
-              {extra.length > 0 && <PlaygroundTable episodes={extra} />}
+              {extra.length > 0 && !isCollapsed && <PlaygroundTable episodes={extra} />}
             </section>
           );
         })
