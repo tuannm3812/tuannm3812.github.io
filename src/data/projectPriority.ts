@@ -15,7 +15,8 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Bioacoustic Species Classification': { score: 89, stars: 2 },
   'Half-time Briefing: Microsoft x Premier League Hackathon': { score: 86, stars: 2 },
   'Kaggle CSIRO Image2Biomass': { score: 88, stars: 2 },
-  'Spatial Brain: UNSW AiSoc Hackathon 2026': { score: 88, stars: 2 },
+  // Weak output, not featured (Mike, 18 Nov).
+  'Spatial Brain: UNSW AiSoc Hackathon 2026': { score: 70, stars: 1 },
   'FoodLens: Calibrated Food Recognition': { score: 87, stars: 2 },
   'Kaggle ROGII Wellbore Geology Prediction': { score: 86, stars: 2 },
   'Kaggle AI Agent Security': { score: 85, stars: 2 },
