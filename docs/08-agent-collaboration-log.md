@@ -39,6 +39,26 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-18 - Claude Code (featured projects update)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Mike's project ranking (see docs/15, "Which projects to feature").
+
+**Changed**
+
+- FarmLens: card copy, cover thumbnail from the repo's showcase image, origin `hackathon` (OpenAI Builder Days); stays in Selected Work by its 3 stars.
+- Half-time Briefing: card copy and a thumbnail from the repo's analyst screenshot; shows under Hackathons & Events.
+- Both added to `githubProjects.ts` by hand, matching `PROJECT_COPY_OVERRIDES`, since the sync last ran before their overrides existed.
+- Spatial Brain: origin `other`, 1 star, so it is an index row, not a card.
+
+**Verified**
+
+- `npm run check` (220 tests); Playwright screenshots of /projects at 1440 px and 390 px, no horizontal overflow.
+
+**Open / Handoff**
+
+- FireLens 3D stays off until Mike says it is finished.
+
 ## 2026-11-18 - Claude Code (sketch icons, Home pass, site QA)
 
 **Branch:** `claude/project-thread-6dmp83`

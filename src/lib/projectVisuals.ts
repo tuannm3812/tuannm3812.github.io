@@ -17,6 +17,8 @@ export type CoverKind = 'agent' | 'ml' | 'data' | 'vision';
 // Cover images for projects outside the Home gallery.
 const EXTRA_THUMBS: Record<string, string> = {
   'UTS Tech Festival 2026 GenAI Hackathon': '/assets/posters/techfest-thumb.webp',
+  'FarmLens: NSW Crop Suitability Explorer': '/assets/posters/farmlens-thumb.webp',
+  'Half-time Briefing: Microsoft x Premier League Hackathon': '/assets/posters/halftime-thumb.webp',
 };
 
 export function getProjectPoster(project: Pick<Project, 'title'>): string | undefined {

@@ -41,6 +41,13 @@ export const PROJECT_CARDS: Record<string, ProjectCardCopy> = {
     description: 'Forecasts daily fire risk and tests it on regions the model never saw.',
     tags: ['Machine Learning', 'Geospatial Analysis', 'Python'],
   },
+  // Built at OpenAI Builder Days; the more complete of Mike's two products
+  // there (18 Nov). The other, FireLens 3D, is an unfinished draft and stays off.
+  'FarmLens: NSW Crop Suitability Explorer': {
+    title: 'FarmLens',
+    description: 'Screens any NSW land point for crop fit and shows the reasons.',
+    tags: ['Geospatial Analysis', 'Data Pipelines', 'Python'],
+  },
 
   // Hackathons & events
   // From the repo README (17 Nov): won the State Asphalts Intelligent Transport
@@ -51,6 +58,12 @@ export const PROJECT_CARDS: Record<string, ProjectCardCopy> = {
       'Award-winning GenAI concept for adaptive signals, bus priority and recycled pavement.',
     tags: ['Generative AI', 'Prompt Engineering', 'Python'],
   },
+  'Half-time Briefing: Microsoft x Premier League Hackathon': {
+    title: 'Half-time Briefing',
+    description: 'Agents turn first-half match events into coaching calls and fan stories.',
+    tags: ['Multi-Agent Systems', 'LLM Agents', 'Python'],
+  },
+  // Weak output (Mike, 18 Nov): listed as a plain row under Other Projects.
   'Spatial Brain: UNSW AiSoc Hackathon 2026': {
     title: 'Spatial Brain',
     description: 'A shared canvas where agents link documents into reviewable context.',

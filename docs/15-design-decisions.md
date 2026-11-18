@@ -5,6 +5,18 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 18 November 2026 — Which projects to feature
+
+Mike set the project ranking: Text-to-SQL is the flagship. FarmLens, built at
+OpenAI Builder Days, is the more complete of his two products there, so it joins
+Selected Work with a Hackathon label and its own cover. FireLens 3D, the other
+Builder Days product, is an unfinished draft and stays off the site. Spatial
+Brain (UNSW AiSoc hackathon) had weak output, so it drops from a Hackathons card
+to a plain Other Projects row. Half-time Briefing (Microsoft x Premier League)
+is added to Hackathons & Events. FarmLens and Half-time Briefing were missing
+because the sync had failed on them; their entries were added by hand from
+`PROJECT_COPY_OVERRIDES`, so the next sync reproduces them.
+
 ## 18 November 2026 — Projects layout, real posters, no logos on personal work
 
 Mike first picked a "feature + 2x2" Projects layout, then asked for smaller

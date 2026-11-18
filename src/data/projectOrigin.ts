@@ -22,7 +22,6 @@ export const projectOrigin: Record<string, ProjectOrigin> = {
   'Enterprise Text-to-SQL Agent': 'personal',
   'AI Meal Planner': 'personal',
   CircleU: 'personal',
-  'FarmLens: NSW Crop Suitability Explorer': 'personal',
   'ScriptClean AI': 'personal',
   // Industry and research projects (UTS Innovation Lab). Mike counts them as his
   // own scoped work, not set coursework (17 Nov).
@@ -30,9 +29,13 @@ export const projectOrigin: Record<string, ProjectOrigin> = {
   'Wildfire Occurrence Prediction': 'personal',
 
   // 4. Training
+  // OpenAI Builder Days (Mike, 18 Nov). Still Selected Work by its 3 stars.
+  'FarmLens: NSW Crop Suitability Explorer': 'hackathon',
   'UTS Tech Festival 2026 GenAI Hackathon': 'hackathon',
   'Half-time Briefing: Microsoft x Premier League Hackathon': 'hackathon',
-  'Spatial Brain: UNSW AiSoc Hackathon 2026': 'hackathon',
+  // A hackathon, but its output was weak, so it sits as a plain row in Other
+  // Projects rather than a card (Mike, 18 Nov).
+  'Spatial Brain: UNSW AiSoc Hackathon 2026': 'other',
   'UNSW MA Hackathon 2026': 'hackathon',
 
   // 2. Kaggle
