@@ -4,13 +4,20 @@ export interface PriorityDetails {
 }
 
 export const projectPriority: Record<string, PriorityDetails> = {
+  // Ranked to Mike's tiers (21 Nov). Flagships: Text-to-SQL, Agent Harness,
+  // Wildfire, Transit Lakehouse (big data engineering), AI Meal Planner, Dinksight.
   'Enterprise Text-to-SQL Agent': { score: 100, stars: 3 },
-  CircleU: { score: 98, stars: 3 },
-  'Terminal-Bench Agent Harness': { score: 97, stars: 3 },
-  'Wildfire Occurrence Prediction': { score: 94, stars: 3 },
-  'AI Meal Planner': { score: 96, stars: 3 },
+  'Terminal-Bench Agent Harness': { score: 98, stars: 3 },
+  'Sydney Transit Live Lakehouse': { score: 97, stars: 3 },
+  'Wildfire Occurrence Prediction': { score: 96, stars: 3 },
+  'AI Meal Planner': { score: 95, stars: 3 },
+  Dinksight: { score: 94, stars: 3 },
+  'UNSW MA Hackathon 2026': { score: 93, stars: 2 },
   'FarmLens: NSW Crop Suitability Explorer': { score: 92, stars: 3 },
-  'UTS Tech Festival 2026 GenAI Hackathon': { score: 90, stars: 2 },
+  'Pocket Dojo': { score: 88, stars: 2 },
+  // Weak (Mike, 18 Nov): off Home and out of Selected Work (21 Nov).
+  CircleU: { score: 76, stars: 2 },
+  'UTS Tech Festival 2026 GenAI Hackathon': { score: 80, stars: 2 },
   // Kaggle entry, not a flagship (Mike, 17 Nov).
   'Bioacoustic Species Classification': { score: 89, stars: 2 },
   'Half-time Briefing: Microsoft x Premier League Hackathon': { score: 86, stars: 2 },
@@ -28,7 +35,6 @@ export const projectPriority: Record<string, PriorityDetails> = {
   'Kaggle NFL Player Contact Detection': { score: 84, stars: 2 },
   'VisionVoice: Image Captioning': { score: 83, stars: 2 },
   'Kaggle NeuroGolf 2026': { score: 82, stars: 2 },
-  'UNSW MA Hackathon 2026': { score: 81, stars: 2 },
   'NYC Taxi Databricks': { score: 81, stars: 2 },
   // Set assignments, not self-initiated: Mike moved them out of flagship 16-17 Nov.
   'Solana Price Forecasting': { score: 80, stars: 2 },

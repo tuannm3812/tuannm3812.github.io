@@ -241,6 +241,39 @@ export const resumeData: ResumeData = {
       ],
     },
     {
+      title: 'Sydney Transit Live Lakehouse',
+      category: 'Data Engineering & Analytics',
+      github: 'https://github.com/tuannm3812/sydney-transit-lakehouse',
+      impact: 'Live lakehouse on Transport for NSW real-time feeds',
+      stack: ['Python', 'AWS EC2', 'Docker', 'Apache Iceberg', 'DuckDB', 'dbt'],
+      points: [
+        'Building a live lakehouse on Transport for NSW real-time feeds: an always-on collector on AWS, replayable raw snapshots and Apache Iceberg tables.',
+        'Designed to show which scheduled services never ran and where buses bunch, through dbt marts, a public dashboard and a text-to-SQL analyst.',
+      ],
+    },
+    {
+      title: 'Dinksight',
+      category: 'Deep Learning & Vision',
+      // Private repo: no source link.
+      impact: 'Pickleball doubles footage turned into court positions, movement and speed',
+      stack: ['Python', 'Computer Vision', 'Object Tracking', 'React'],
+      points: [
+        'Building computer vision for single-camera pickleball doubles footage: four-player tracking, court calibration in metres and ball tracking with uncertainty evidence.',
+        'Built an interactive match-analysis dashboard with replay, court maps, shot and bounce analytics, backed by 600+ automated tests.',
+      ],
+    },
+    {
+      title: 'Pocket Dojo',
+      category: 'AI Agents & LLM Products',
+      // Private repo: no source link. Grew out of the OpenAI buildathon team entry.
+      impact: 'Household tips adapted to what you have, revised after each attempt',
+      stack: ['Next.js', 'TypeScript', 'OpenAI API'],
+      points: [
+        'Started as a team buildathon entry and now developed solo: a web app that adapts practical household fixes to the items and limits a person has.',
+        'Revises the next step from feedback on what failed, while keeping the original restrictions.',
+      ],
+    },
+    {
       title: 'Terminal-Bench Agent Harness',
       category: 'AI Agents & LLM Products',
       // Private repo: no source link. The poster is hosted on the site instead.
