@@ -52,8 +52,8 @@ what should not be touched.
 - Added a `PROJECT_COPY_OVERRIDES` entry for `sydney-transit-lakehouse` so a
   sync cannot trip the placeholder guard.
 - Verified: `npm run check` passes; Home and Projects checked in a browser.
-- Open: the transit copy describes Phase 0 only (collector live); update it when
-  the Iceberg tables ship. The public resume PDF is still the 17 Nov version.
+- Transit copy says what the project is building, not its day-to-day progress
+  (Mike, 21 Nov); add results when he says a phase is complete. The public resume PDF is still the 17 Nov version.
 
 ## 2026-11-18 - Claude Code (featured projects update)
 

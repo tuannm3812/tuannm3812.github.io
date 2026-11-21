@@ -123,7 +123,7 @@ export const selectedWork: SelectedWork[] = [
     short: 'Transit Lakehouse',
     label: 'Data Engineering · Live Public Transport',
     title: 'Sydney Transit Lakehouse',
-    subtitle: 'No archive of live transport data exists, so collection started on day one.',
+    subtitle: 'Live feeds show where the timetable and the street disagree.',
     role: 'Data Engineer',
     thumb: '/assets/posters/transit-thumb.webp',
     poster: '/assets/posters/transit.jpg',
@@ -131,9 +131,9 @@ export const selectedWork: SelectedWork[] = [
     question:
       'Which scheduled buses [[never actually ran]], and where do buses arrive [[in clumps]]?',
     built:
-      'An [[always-on collector on AWS]] that polls 12 live feeds and lands raw snapshots, feeding [[Iceberg bronze and silver tables]] next.',
+      'A [[live lakehouse]] on the transport real-time feeds: an always-on collector, replayable raw snapshots and [[Iceberg tables]].',
     answer:
-      '[[100% of polls captured]] since launch; ghost-bus and bunching marts come after the lakehouse tables.',
+      'Building toward a [[ghost-trip tracker]], a [[bunching radar]] and a public dashboard.',
     stack: ['Lakehouse', 'Big Data', 'Python'],
     code: 'https://github.com/tuannm3812/sydney-transit-lakehouse',
   },

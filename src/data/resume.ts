@@ -244,11 +244,11 @@ export const resumeData: ResumeData = {
       title: 'Sydney Transit Live Lakehouse',
       category: 'Data Engineering & Analytics',
       github: 'https://github.com/tuannm3812/sydney-transit-lakehouse',
-      impact: 'Live lakehouse on Transport for NSW real-time feeds, built in phases',
+      impact: 'Live lakehouse on Transport for NSW real-time feeds',
       stack: ['Python', 'AWS EC2', 'Docker', 'Apache Iceberg', 'DuckDB', 'dbt'],
       points: [
-        'Running an always-on collector on AWS that polls 12 Transport for NSW GTFS-realtime feeds, dedupes snapshots and lands raw protobuf, with 100% capture since 17 Nov 2026.',
-        'Next phases build bronze and silver Iceberg tables, dbt marts for ghost buses and bunching, and a public dashboard on the same live data.',
+        'Building a live lakehouse on Transport for NSW real-time feeds: an always-on collector on AWS, replayable raw snapshots and Apache Iceberg tables.',
+        'Designed to show which scheduled services never ran and where buses bunch, through dbt marts, a public dashboard and a text-to-SQL analyst.',
       ],
     },
     {

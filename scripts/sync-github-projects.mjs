@@ -144,11 +144,11 @@ const PROJECT_COPY_OVERRIDES = {
   'sydney-transit-lakehouse': {
     title: 'Sydney Transit Live Lakehouse',
     category: 'Data Engineering & Analytics',
-    impact: 'Live lakehouse on Transport for NSW real-time feeds, built in phases',
+    impact: 'Live lakehouse on Transport for NSW real-time feeds',
     stack: ['Python', 'AWS EC2', 'Docker', 'Apache Iceberg', 'DuckDB', 'dbt'],
     points: [
-      'Running an always-on collector on AWS that polls Transport for NSW GTFS-realtime feeds and lands raw protobuf snapshots.',
-      'Next phases build Iceberg tables, dbt marts for ghost buses and bunching, and a public dashboard.'
+      'Building a live lakehouse on Transport for NSW real-time feeds: an always-on collector, replayable raw snapshots and Iceberg tables.',
+      'Designed to show which scheduled services never ran and where buses bunch, through dbt marts and a public dashboard.'
     ]
   },
   'NYC-Taxi-Databricks': {

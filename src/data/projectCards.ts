@@ -41,8 +41,8 @@ export const PROJECT_CARDS: Record<string, ProjectCardCopy> = {
     description: 'Forecasts daily fire risk and tests it on regions the model never saw.',
     tags: ['Machine Learning', 'Geospatial Analysis', 'Python'],
   },
-  // Flagship for big data engineering (Mike, 21 Nov). Phase 0 collector is live;
-  // the lakehouse tables come next, so the copy says "live feeds", not results.
+  // Flagship for big data engineering (Mike, 21 Nov). Copy says what it is building,
+  // not day-to-day progress (Mike, 21 Nov).
   'Sydney Transit Live Lakehouse': {
     title: 'Sydney Transit Lakehouse',
     description: "Collects Sydney's live bus, train and metro feeds into a lakehouse.",
