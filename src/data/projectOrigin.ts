@@ -22,6 +22,8 @@ export const projectOrigin: Record<string, ProjectOrigin> = {
   'Enterprise Text-to-SQL Agent': 'personal',
   'AI Meal Planner': 'personal',
   CircleU: 'personal',
+  'Sydney Transit Live Lakehouse': 'personal',
+  Dinksight: 'personal',
   'ScriptClean AI': 'personal',
   // Industry and research projects (UTS Innovation Lab). Mike counts them as his
   // own scoped work, not set coursework (17 Nov).
@@ -37,6 +39,8 @@ export const projectOrigin: Record<string, ProjectOrigin> = {
   // Projects rather than a card (Mike, 18 Nov).
   'Spatial Brain: UNSW AiSoc Hackathon 2026': 'other',
   'UNSW MA Hackathon 2026': 'hackathon',
+  // Started at the OpenAI buildathon; Mike now develops it solo (21 Nov).
+  'Pocket Dojo': 'hackathon',
 
   // 2. Kaggle
   'Bioacoustic Species Classification': 'kaggle',

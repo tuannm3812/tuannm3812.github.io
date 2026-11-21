@@ -41,6 +41,19 @@ export const PROJECT_CARDS: Record<string, ProjectCardCopy> = {
     description: 'Forecasts daily fire risk and tests it on regions the model never saw.',
     tags: ['Machine Learning', 'Geospatial Analysis', 'Python'],
   },
+  // Flagship for big data engineering (Mike, 21 Nov). Phase 0 collector is live;
+  // the lakehouse tables come next, so the copy says "live feeds", not results.
+  'Sydney Transit Live Lakehouse': {
+    title: 'Sydney Transit Lakehouse',
+    description: "Collects Sydney's live bus, train and metro feeds into a lakehouse.",
+    tags: ['Lakehouse', 'Big Data', 'Python'],
+  },
+  // Flagship, nearly complete (Mike, 21 Nov). Private repo.
+  Dinksight: {
+    title: 'Dinksight',
+    description: 'Turns pickleball doubles footage into court positions, movement and speed.',
+    tags: ['Computer Vision', 'Dashboards', 'Python'],
+  },
   // Built at OpenAI Builder Days; the more complete of Mike's two products
   // there (18 Nov). The other, FireLens 3D, is an unfinished draft and stays off.
   'FarmLens: NSW Crop Suitability Explorer': {
@@ -62,6 +75,12 @@ export const PROJECT_CARDS: Record<string, ProjectCardCopy> = {
     title: 'Half-time Briefing',
     description: 'Agents turn first-half match events into coaching calls and fan stories.',
     tags: ['Multi-Agent Systems', 'LLM Agents', 'Python'],
+  },
+  // Projects page only, not Home (Mike, 21 Nov). Private repo.
+  'Pocket Dojo': {
+    title: 'Pocket Dojo',
+    description: 'Adapts household fixes to what you have and revises after each try.',
+    tags: ['Generative AI', 'LLM Agents', 'React'],
   },
   // Weak output (Mike, 18 Nov): listed as a plain row under Other Projects.
   'Spatial Brain: UNSW AiSoc Hackathon 2026': {

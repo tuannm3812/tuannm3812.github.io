@@ -39,6 +39,22 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-21 - Claude Code
+
+- Re-ranked projects to Mike's 21 Nov tiers. Flagships (3 stars): Text-to-SQL,
+  Agent Harness, Sydney Transit Lakehouse (new), Wildfire, AI Meal Planner,
+  Dinksight (new), FarmLens. Kiva raised to 93; TechFest to 80.
+- CircleU is off the Home gallery and out of Selected Work (weak, Mike 18 Nov);
+  its thumbnail moved to `EXTRA_THUMBS`.
+- Added curated cards for Sydney Transit Live Lakehouse (public repo, Home
+  gallery with its architecture diagram), Dinksight (private, drawn cover) and
+  Pocket Dojo (private, Projects page only, hackathon origin).
+- Added a `PROJECT_COPY_OVERRIDES` entry for `sydney-transit-lakehouse` so a
+  sync cannot trip the placeholder guard.
+- Verified: `npm run check` passes; Home and Projects checked in a browser.
+- Open: the transit copy describes Phase 0 only (collector live); update it when
+  the Iceberg tables ship. The public resume PDF is still the 17 Nov version.
+
 ## 2026-11-18 - Claude Code (featured projects update)
 
 **Branch:** `claude/project-thread-6dmp83`
