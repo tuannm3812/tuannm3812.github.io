@@ -51,9 +51,11 @@ what should not be touched.
   Pocket Dojo (private, Projects page only, hackathon origin).
 - Added a `PROJECT_COPY_OVERRIDES` entry for `sydney-transit-lakehouse` so a
   sync cannot trip the placeholder guard.
+- Replaced the public resume PDF and `scripts/resume/resume.html` with the
+  21 Nov resume (designed layout, no phone, no client name).
 - Verified: `npm run check` passes; Home and Projects checked in a browser.
 - Transit copy says what the project is building, not its day-to-day progress
-  (Mike, 21 Nov); add results when he says a phase is complete. The public resume PDF is still the 17 Nov version.
+  (Mike, 21 Nov); add results when he says a phase is complete.
 
 ## 2026-11-18 - Claude Code (featured projects update)
 
