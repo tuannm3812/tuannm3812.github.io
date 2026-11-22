@@ -53,7 +53,11 @@ what should not be touched.
   sync cannot trip the placeholder guard.
 - Replaced the public resume PDF and `scripts/resume/resume.html` with the
   21 Nov resume (designed layout, no phone, no client name).
-- Verified: `npm run check` passes; Home and Projects checked in a browser.
+- Experience rewritten to Mike's 22 Nov facts and guidelines (resume project
+  guidelines file, Experience section): new AI Builder entry, Shopee title
+  "Data Optimization & Insights Manager", FPT's two roles, PwC automation via
+  Excel VBA macros. No client or partner names anywhere.
+- Verified: `npm run check` passes; Home, Projects and Experience checked in a browser.
 - Transit copy says what the project is building, not its day-to-day progress
   (Mike, 21 Nov); add results when he says a phase is complete.
 

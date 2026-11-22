@@ -89,27 +89,37 @@ export const resumeData: ResumeData = {
   // [[double brackets]] mark key terms the Experience page highlights.
   experience: [
     {
+      company: 'Independent',
+      location: 'Sydney, Australia',
+      role: 'AI Builder · UTS projects, hackathons and builder events',
+      period: 'Feb 2025 – Present',
+      points: [
+        'Build and evaluate [[AI systems end to end]]: LLM agents, RAG, evaluation harnesses and live data pipelines, shipped with tests and demos.',
+        'Led a team of 6 in a UTS industry capstone that tested a custom [[AI agent harness]] against an established one, and wrote a [[research paper]] on wildfire prediction.',
+        '[[Finalist (8 of 44 teams)]] at the UNSW Marketing Analytics Hackathon; built a product at [[OpenAI Builder Days]]; compete on Kaggle.',
+      ],
+    },
+    {
       company: 'Shopee Vietnam',
       location: 'HCMC, Vietnam',
-      role: 'Lead Data Optimization & Insights Manager · Growth & Acquisition',
+      role: 'Data Optimization & Insights Manager',
       period: 'Dec 2021 – Jan 2025',
       points: [
-        'Delivered strategic growth and pricing insights directly to [[senior executives]] to optimize commercial fee structures, ad campaigns, and voucher incentives.',
-        'Served as the [[data and strategy lead]] for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.',
-        'Architected automated [[BigQuery data warehousing pipelines]] consolidating transaction and traffic data, reducing manual processing workloads by 80%.',
-        'Developed [[predictive modeling workflows]] in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%.',
+        'Led an [[insights team of 5]], turning analysis into recommendations for [[top management]] on seller fees, ad campaigns and voucher investment, which lifted investment ROI by 15%.',
+        'Put ML into the business: built churn-prediction and K-means seller-segmentation models in Python and BigQuery for the BD team, raising the partner milestone [[graduation rate to 85%+]].',
+        'Architected [[BigQuery ETL pipelines]] consolidating transaction and seller-traffic data, cutting manual processing by 80% and partner onboarding drop-off by 25%.',
+        'Built self-service dashboards in Looker Studio, cutting ad-hoc data requests from non-technical teams.',
       ],
     },
     {
       company: 'FPT Software & FPT Digital',
       location: 'Hanoi, Vietnam',
-      role: 'Strategy Lead (Global Affairs) & Transformation Consultant',
+      role: 'Global Affairs Manager & Digital Transformation Consultant',
       period: 'Dec 2020 – Dec 2021',
       points: [
-        'Led technology partnership communication with [[multinational corporations]] for the Global Affairs team, setting up integration channels.',
-        'Worked alongside [[global consulting firms]] on enterprise-level digital maturity and data architecture transformation projects.',
-        'Co-designed multi-year [[digital transformation roadmaps]] and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
-        'Presented digital enablers to client [[steering committees]] to speed up technology adoption.',
+        'Researched [[AI and machine learning applications]] and how to bring them to business clients, turning them into digital transformation roadmaps and data-architecture recommendations.',
+        'Delivered CRM implementation workstreams with [[predictive lead scoring]] and pipeline forecasting, working alongside global consulting firms.',
+        'As Global Affairs Manager, built partnerships with [[multinational companies]], positioning FPT as their local systems integrator.',
       ],
     },
     {
@@ -118,10 +128,9 @@ export const resumeData: ResumeData = {
       role: 'Senior Assurance Associate · Financial Services & Capital Markets',
       period: 'Aug 2017 – Dec 2020',
       points: [
-        'Acted as [[data champion]], building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',
-        'Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to [[under 1 hour]].',
-        'Ingested and analyzed [[millions of transactional records]] across 40+ commercial banking and securities clients using database querying.',
-        'Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to [[client C-levels]].',
+        'Led audit fieldwork as a senior for [[40+ banks, securities firms and investment funds]], owning data validation and reconciliation testing.',
+        'Joined the team that automated reconciliation reports with [[Excel VBA macros]] for clients and audit teams, cutting a 2-day reconciliation to [[under 1 hour]].',
+        'Presented control gaps and booking anomalies to [[client C-levels]], driving fixes in their systems.',
       ],
     },
   ],

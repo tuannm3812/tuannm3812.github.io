@@ -48,16 +48,16 @@ const CAREER_PATH: {
   org: string;
   icon: SketchIconName;
 }[] = [
-  { year: '2017', hand: 'Audit', title: 'Data Champion in Audit', org: 'PwC', icon: 'ledger' },
+  { year: '2017', hand: 'Audit', title: 'Audit Automation', org: 'PwC', icon: 'ledger' },
   {
     year: '2020',
     hand: 'Strategy',
-    title: 'Transformation Consulting',
+    title: 'AI for Business Clients',
     org: 'FPT',
     icon: 'compass',
   },
-  { year: '2021', hand: 'Growth', title: 'Growth Analytics Lead', org: 'Shopee', icon: 'growth' },
-  { year: '2025', hand: 'AI', title: 'Applied AI & ML', org: 'UTS, Sydney', icon: 'spark' },
+  { year: '2021', hand: 'Growth', title: 'ML & Insights Lead', org: 'Shopee', icon: 'growth' },
+  { year: '2025', hand: 'AI', title: 'AI Builder', org: 'Sydney', icon: 'spark' },
 ];
 
 function CareerPath() {
