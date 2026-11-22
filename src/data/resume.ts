@@ -107,7 +107,7 @@ export const resumeData: ResumeData = {
       period: 'Dec 2020 – Dec 2021',
       points: [
         'Led technology partnership communication with [[multinational corporations]] for the Global Affairs team, setting up integration channels.',
-        'Collaborated with top-tier global consulting firms ([[McKinsey, BCG]]) on enterprise-level digital maturity and data architecture transformation projects.',
+        'Worked alongside [[global consulting firms]] on enterprise-level digital maturity and data architecture transformation projects.',
         'Co-designed multi-year [[digital transformation roadmaps]] and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
         'Presented digital enablers to client [[steering committees]] to speed up technology adoption.',
       ],

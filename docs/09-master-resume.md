@@ -31,7 +31,7 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 
 ### FPT Software & FPT Digital (FDX)
 *Strategy Lead (Global Affairs) & Digital Transformation Consultant* | **Dec 2020 - Dec 2021**
-* **Audited** digital maturity and designed cloud-migration data blueprints for enterprise conglomerates (e.g., Minh Phu Seafood Corp, Vietnam Electricity) in collaboration with McKinsey and BCG.
+* **Audited** digital maturity and designed cloud-migration data blueprints for large enterprise groups, working alongside global consulting firms.
 * **Led** Salesforce CRM implementation workstreams and delivered predictive analytics modules for lead scoring, **driving a 20% improvement in lead-to-opportunity conversion rates**.
 * **Negotiated** technology partnership frameworks with multinational corporations (MNCs), **securing FPT as the local systems integrator** for foreign direct investment clients.
 * **Translated** client operational bottlenecks into detailed implementation roadmaps, agile delivery plans, and Customer Data Platform (CDP) architecture recommendations.
