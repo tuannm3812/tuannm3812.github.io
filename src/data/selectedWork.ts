@@ -51,7 +51,7 @@ export const selectedWork: SelectedWork[] = [
     role: 'Lead AI Engineer',
     thumb: '/assets/posters/harness-thumb.webp',
     poster: '/assets/posters/harness.jpg',
-    alt: 'Poster: Same model, different harness, an AI agent harness evaluation on Terminal-Bench',
+    alt: 'Poster: AI agent harness evaluation, does a custom harness beat Terminus 2 when the model is held constant?',
     question:
       'Can a custom agent harness beat Terminus 2 on Terminal-Bench when [[the model stays the same]]?',
     built:
