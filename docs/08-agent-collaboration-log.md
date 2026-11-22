@@ -59,6 +59,10 @@ what should not be touched.
   Excel VBA macros. No client or partner names anywhere.
 - Site text aligned with the resume: summary and title, UTS education bullets,
   Experience intro and the Skills cards (AI first; Iceberg, DuckDB, TabPFN, AWS added).
+- New covers (22 Nov, from Mike's Mac): Text-to-SQL thumbnail is the UTS deck
+  cover; AI Meal Planner poster and thumbnail are the new project poster;
+  Dinksight gets its poster (thumb + Poster link). The new harness deck cover
+  names the client, so the harness keeps its old thumbnail.
 - Verified: `npm run check` passes; Home, Projects and Experience checked in a browser.
 - Transit copy says what the project is building, not its day-to-day progress
   (Mike, 21 Nov); add results when he says a phase is complete.

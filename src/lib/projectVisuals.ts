@@ -18,6 +18,7 @@ export type CoverKind = 'agent' | 'ml' | 'data' | 'vision';
 const EXTRA_THUMBS: Record<string, string> = {
   // Off the Home gallery since 21 Nov, so its poster is listed here instead.
   CircleU: '/assets/posters/circleu-thumb.webp',
+  Dinksight: '/assets/posters/dinksight-thumb.webp',
   'UTS Tech Festival 2026 GenAI Hackathon': '/assets/posters/techfest-thumb.webp',
   'FarmLens: NSW Crop Suitability Explorer': '/assets/posters/farmlens-thumb.webp',
   'Half-time Briefing: Microsoft x Premier League Hackathon': '/assets/posters/halftime-thumb.webp',

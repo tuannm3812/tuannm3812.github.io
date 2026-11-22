@@ -263,7 +263,8 @@ export const resumeData: ResumeData = {
     {
       title: 'Dinksight',
       category: 'Deep Learning & Vision',
-      // Private repo: no source link.
+      // Private repo: no source link. The poster is hosted on the site instead.
+      demo: '/assets/posters/dinksight.jpg',
       impact: 'Pickleball doubles footage turned into court positions, movement and speed',
       stack: ['Python', 'Computer Vision', 'Object Tracking', 'React'],
       points: [
