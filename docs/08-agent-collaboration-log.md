@@ -57,6 +57,8 @@ what should not be touched.
   guidelines file, Experience section): new AI Builder entry, Shopee title
   "Data Optimization & Insights Manager", FPT's two roles, PwC automation via
   Excel VBA macros. No client or partner names anywhere.
+- Site text aligned with the resume: summary and title, UTS education bullets,
+  Experience intro and the Skills cards (AI first; Iceberg, DuckDB, TabPFN, AWS added).
 - Verified: `npm run check` passes; Home, Projects and Experience checked in a browser.
 - Transit copy says what the project is building, not its day-to-day progress
   (Mike, 21 Nov); add results when he says a phase is complete.

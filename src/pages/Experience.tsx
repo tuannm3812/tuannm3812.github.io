@@ -18,7 +18,7 @@ const SKILL_STYLE: Record<string, { icon: SketchIconName; tone: string; chip: st
     tone: 'border-t-emerald-600 dark:border-t-emerald-400',
     chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
   },
-  'Orchestration & Analytics': {
+  'Pipelines & Analytics': {
     icon: 'flow',
     tone: 'border-t-emerald-600 dark:border-t-emerald-400',
     chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
@@ -33,7 +33,7 @@ const SKILL_STYLE: Record<string, { icon: SketchIconName; tone: string; chip: st
     tone: 'border-t-amber-600 dark:border-t-amber-400',
     chip: 'bg-amber-50 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200',
   },
-  'AI, NLP & Agents': {
+  'AI, LLMs & Agents': {
     icon: 'nodes',
     tone: 'border-t-brand dark:border-t-sky-300',
     chip: 'bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-200',
@@ -138,8 +138,8 @@ export default function Experience() {
             Where I've done <span className="hand-underline">the work.</span>
           </h1>
           <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
-            Seven years across audit, strategy consulting and growth analytics, now building applied
-            AI and ML.
+            Seven years across audit, AI consulting and ML insights, now building AI systems in
+            Sydney.
           </p>
         </div>
       </div>

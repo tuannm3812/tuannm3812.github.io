@@ -49,7 +49,7 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   name: 'Tuan Nguyen (Mike)',
-  title: 'Machine Learning Engineer & Data Professional',
+  title: 'Applied AI Engineer · Machine Learning & Data',
   email: 'tuannm3812@gmail.com',
   phone: '+61 433 466 749',
   location: 'Sydney, NSW',
@@ -57,7 +57,7 @@ export const resumeData: ResumeData = {
   github: 'https://github.com/tuannm3812',
   kaggle: 'https://www.kaggle.com/tuannm3812',
   summary:
-    'Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, MLOps, computer vision, and Kaggle-style experimentation.',
+    'Applied AI and Machine Learning Engineer with 7+ years across data, analytics and consulting. Builds and measures LLM systems (agents, retrieval and evaluation harnesses) shipped as working apps with tests and live demos, with a track record of turning business problems into models and pipelines that executives acted on.',
   highlights: [
     { value: '7+', label: 'Years building analytics and ML workflows' },
     { value: '30', label: 'Technical projects across ML, data, and AI' },
@@ -72,8 +72,8 @@ export const resumeData: ResumeData = {
       degree: 'Master of Data Science and Innovation (High Distinction)',
       period: 'Feb 2025 – Feb 2027',
       points: [
-        'Coursework in [[machine learning]], [[big data engineering]], statistical modelling, [[deep learning]], computer vision, NLP and [[applied AI systems]].',
-        'Built projects in [[full-stack ML systems]], [[Databricks and Snowflake]] analytics, [[MLOps pipelines]], Kaggle competitions and AI-driven decision support.',
+        'Coursework in [[machine learning]], [[deep learning]], applied NLP, computer vision, [[big data engineering]] and statistical modelling.',
+        'Projects in [[LLM agents and evaluation]], retrieval-augmented generation, [[multimodal ML research]] and cloud data engineering.',
       ],
     },
     {
@@ -390,55 +390,40 @@ export const resumeData: ResumeData = {
   ],
   technologyStack: [
     {
-      title: 'Languages & Engineering',
+      title: 'AI, LLMs & Agents',
       description:
-        'Daily tools for analysis, modelling, automation, and maintainable project structure.',
-      tools: ['Python', 'SQL', 'PySpark', 'TypeScript', 'OOP', 'Testing'],
-    },
-    {
-      title: 'Data Platforms',
-      description:
-        'Cloud warehouse and lakehouse patterns for reliable analytics, ingestion, and historical modelling.',
-      tools: ['BigQuery', 'Snowflake', 'Databricks', 'Delta Lake', 'PostgreSQL', 'Medallion'],
-    },
-    {
-      title: 'Orchestration & Analytics',
-      description: 'Pipelines, transformation layers, and stakeholder-facing reporting workflows.',
-      tools: ['Apache Airflow', 'dbt', 'ETL/ELT', 'API Ingestion', 'Looker Studio', 'Data Quality'],
+        'Agents, retrieval and evaluation harnesses, built and measured as working products.',
+      tools: ['LangGraph', 'RAG', 'Evaluation Harnesses', 'Text-to-SQL', 'Gemini', 'Ollama'],
     },
     {
       title: 'Machine Learning',
       description:
-        'Classical ML, deep learning, computer vision, audio ML, and time-series experimentation.',
-      tools: ['PyTorch', 'scikit-learn', 'LightGBM', 'CatBoost', 'ResNet50', 'Perch v2'],
+        'Classical ML, deep learning, computer vision and forecasting, tested on held-out data.',
+      tools: ['PyTorch', 'scikit-learn', 'XGBoost', 'LightGBM', 'TabPFN', 'Object Tracking'],
+    },
+    {
+      title: 'Data Platforms',
+      description:
+        'Warehouse and lakehouse patterns for reliable analytics, live ingestion and history.',
+      tools: ['BigQuery', 'Snowflake', 'Databricks', 'Apache Iceberg', 'DuckDB', 'PostgreSQL'],
+    },
+    {
+      title: 'Pipelines & Analytics',
+      description: 'Pipelines, transformation layers and stakeholder-facing reporting.',
+      tools: ['Apache Airflow', 'dbt', 'ETL/ELT', 'Real-time APIs', 'Looker Studio', 'Plotly'],
     },
     {
       title: 'Production & MLOps',
-      description:
-        'Deployment patterns for moving models, agents, and data products beyond notebooks.',
-      tools: [
-        'FastAPI',
-        'Streamlit',
-        'GitHub Actions',
-        'pytest',
-        'Model Artifacts',
-        'Submission Workflows',
-      ],
+      description: 'Moving models, agents and data products beyond notebooks.',
+      tools: ['FastAPI', 'React', 'Streamlit', 'Docker', 'AWS', 'GitHub Actions'],
     },
     {
-      title: 'AI, NLP & Agents',
-      description:
-        'Applied language systems for text understanding, schema reasoning, and natural-language interfaces.',
-      tools: [
-        'LLMs',
-        'Hybrid Retrieval',
-        'Text-to-SQL',
-        'SQLGlot',
-        'Semantic Analytics',
-        'Topic Modelling',
-      ],
+      title: 'Languages & Engineering',
+      description: 'Daily tools for analysis, modelling, automation and maintainable code.',
+      tools: ['Python', 'SQL', 'TypeScript', 'PySpark', 'pytest', 'Git'],
     },
   ],
+
   skills: {
     programming: [
       'Python',
