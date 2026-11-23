@@ -1,63 +1,90 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import SketchIcon from '../components/artwork/SketchIcon';
 import { resumeData } from '../data/resume';
-import { workingStyle } from '../data/home';
+import OrgLogo from '../components/OrgLogo';
+import { proofEmployers, proofFacts, workingStyle } from '../data/home';
 import SelectedWorkGallery from '../components/SelectedWorkGallery';
 
-function WorkingStyleCard({
+function ProofStrip() {
+  return (
+    <section
+      aria-label="Experience and results"
+      className="tint-band grid items-center gap-6 rounded-2xl px-6 py-6 md:px-8 lg:grid-cols-[auto_1fr] lg:gap-12"
+    >
+      <div className="space-y-3">
+        <p className="font-hand text-2xl font-bold leading-none text-brand dark:text-sky-300">
+          Where I've Worked
+        </p>
+        <ul className="flex flex-wrap items-center gap-3">
+          {proofEmployers.map((id) => (
+            <li key={id}>
+              <OrgLogo id={id} size={48} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <dl className="grid gap-5 sm:grid-cols-3 lg:border-l lg:border-brand/15 lg:pl-12 dark:lg:border-sky-300/20">
+        {proofFacts.map((fact) => (
+          <div key={fact.value}>
+            <dt className="text-2xl font-black tracking-tight">
+              <mark className="key-term">{fact.value}</mark>
+            </dt>
+            <dd className="mt-1.5 text-sm leading-snug text-slate-600 dark:text-slate-400">
+              {fact.label}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+function WorkingStyleStep({
+  step,
   icon,
   title,
   desc,
+  last,
 }: {
+  step: number;
   icon: React.ReactNode;
   title: string;
   desc: string;
+  last: boolean;
 }) {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [hovering, setHovering] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
   return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
-      className="surface-card p-5 relative overflow-hidden transition-transform duration-300 hover:-translate-y-0.5"
-    >
-      {hovering && (
-        <div
-          className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(200px circle at ${coords.x}px ${coords.y}px, rgba(5, 64, 242, 0.045), transparent 80%)`,
-          }}
+    <li className="relative">
+      {/* Dotted amber connector to the next step, as on the Experience career path. */}
+      {!last && (
+        <span
+          aria-hidden="true"
+          className="absolute left-[4.75rem] right-[-1rem] top-8 hidden border-t-[3px] border-dotted border-amber-400 md:block"
         />
       )}
-      <div className="relative z-10 flex items-start gap-3">
-        <div className="icon-tile h-11 w-11 shrink-0">{icon}</div>
-        <div>
-          <h3 className="font-bold">{title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{desc}</p>
-        </div>
+      <div className="relative flex items-center gap-3">
+        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
+          {icon}
+        </span>
       </div>
-    </div>
+      <p className="font-hand mt-4 text-2xl font-bold leading-none text-brand dark:text-sky-300">
+        Step {step}
+      </p>
+      <h3 className="mt-1.5 text-lg font-bold tracking-tight">{title}</h3>
+      <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+        {desc}
+      </p>
+    </li>
   );
 }
 
 export default function Home() {
   return (
     <div className="space-y-14">
-      <section className="grid min-h-[62vh] min-w-0 items-center gap-10 py-8 lg:grid-cols-[1.05fr_0.95fr]">
+      <section className="grid min-h-[56vh] min-w-0 items-center gap-10 py-8 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -103,9 +130,9 @@ export default function Home() {
         >
           <div className="surface-card relative w-full max-w-full overflow-hidden shadow-xl shadow-slate-300/40 dark:shadow-black/30">
             <picture>
-              <source srcSet="/assets/tuan-profile.webp" type="image/webp" />
+              <source srcSet="/assets/tuan-profile-warm.webp" type="image/webp" />
               <img
-                src="/assets/tuan-profile.jpg"
+                src="/assets/tuan-profile-warm.jpg"
                 alt="Tuan Nguyen looking across the water toward a city skyline"
                 width={1200}
                 height={1600}
@@ -113,7 +140,7 @@ export default function Home() {
                 className="h-[340px] w-full object-cover object-[42%_72%] md:h-[430px]"
               />
             </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/5 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <p className="font-hand text-2xl font-bold leading-none text-amber-300">
                 Sydney-Based Builder
@@ -126,23 +153,51 @@ export default function Home() {
         </motion.div>
       </section>
 
+      <ProofStrip />
+
       <SelectedWorkGallery />
 
-      <section className="space-y-6 pb-10" aria-labelledby="how-i-work-heading">
+      <section className="space-y-6" aria-labelledby="how-i-work-heading">
         <SectionHeading
           hand="How I Work"
           title="Three Habits Behind Every Project"
           id="how-i-work-heading"
         />
-        <div className="grid gap-4 md:grid-cols-3">
-          {workingStyle.map((item) => (
-            <WorkingStyleCard
+        <ol className="grid gap-8 pt-2 md:grid-cols-3 md:gap-10">
+          {workingStyle.map((item, i) => (
+            <WorkingStyleStep
               key={item.title}
+              step={i + 1}
               icon={item.icon}
               title={item.title}
               desc={item.desc}
+              last={i === workingStyle.length - 1}
             />
           ))}
+        </ol>
+      </section>
+
+      <section
+        aria-labelledby="closing-heading"
+        className="tint-band-warm flex flex-col items-start gap-6 rounded-2xl px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10"
+      >
+        <div className="space-y-2">
+          <p className="hand-eyebrow">Next Step</p>
+          <h2 id="closing-heading" className="text-3xl font-bold tracking-tight md:text-4xl">
+            Have a messy data question? <span className="hand-underline">Let's talk.</span>
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400">
+            Open to applied AI and ML engineering roles in Sydney.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link to="/contact" className="btn-primary group">
+            Get in Touch
+            <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link to="/experience" className="btn-secondary">
+            See Experience
+          </Link>
         </div>
       </section>
     </div>
