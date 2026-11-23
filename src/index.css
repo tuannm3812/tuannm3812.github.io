@@ -193,3 +193,19 @@
     background: var(--cover-dark);
   }
 }
+
+/* Sideways-scrolling rows (gallery tabs, filter pills) fade at the right edge on
+   small screens, so a clipped label reads as "more this way", not as a bug. */
+@media (max-width: 767px) {
+  .scroll-fade-x {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+  }
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

@@ -5,6 +5,18 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 23 November 2026 — Refinement plan, phase 1 quick fixes
+
+Mike asked for a review of the whole interface and chose a phased plan (six
+phases, one pull request each). Phase 1, approved with "go": the Home gallery
+follows the flagship ranking, so Text-to-SQL leads and FarmLens joins; the three
+focus cards under the hero buttons are removed because the roles line and photo
+caption already say the same; on phones, scrolling tab and filter rows fade at
+the right edge and project cards put tags on a full-width row; the footer sits
+at the bottom of the viewport instead of the page being forced a screen taller.
+Later phases (proof strip on Home, Kaggle results, deck covers, blog) each need
+a mock or material from Mike first.
+
 ## 18 November 2026 — Which projects to feature
 
 Mike set the project ranking: Text-to-SQL is the flagship. FarmLens, built at

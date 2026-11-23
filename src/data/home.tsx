@@ -1,31 +1,11 @@
 import React from 'react';
 import SketchIcon from '../components/artwork/SketchIcon';
 
-export interface FocusArea {
-  title: string;
-  desc: string;
-}
-
 export interface WorkingStyle {
   icon: React.ReactNode;
   title: string;
   desc: string;
 }
-
-export const focusAreas: FocusArea[] = [
-  {
-    title: 'Applied AI',
-    desc: 'Agents, RAG, validation, and useful interfaces.',
-  },
-  {
-    title: 'ML Systems',
-    desc: 'Models with diagnostics, tests, and deployment paths.',
-  },
-  {
-    title: 'Data Engineering',
-    desc: 'Pipelines, warehouses, and trustworthy analytical layers.',
-  },
-];
 
 export const workingStyle: WorkingStyle[] = [
   {

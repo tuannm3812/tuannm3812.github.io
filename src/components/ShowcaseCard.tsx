@@ -73,9 +73,9 @@ export default function ShowcaseCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className="surface-card group flex h-full gap-4 p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:gap-5"
+      className="surface-card group grid h-full grid-cols-[6.5rem_minmax(0,1fr)] grid-rows-[auto_1fr] gap-x-4 gap-y-2.5 p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-x-5 sm:gap-y-1.5"
     >
-      <div className="relative w-28 shrink-0 self-start overflow-hidden rounded-lg ring-1 ring-slate-200/80 sm:w-40 dark:ring-slate-800">
+      <div className="relative self-start overflow-hidden rounded-lg ring-1 ring-slate-200/80 sm:row-span-2 dark:ring-slate-800">
         {poster ? (
           <img
             src={poster}
@@ -95,7 +95,9 @@ export default function ShowcaseCard({
         )}
       </div>
 
-      <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+      {/* On phones the label and title sit beside the thumbnail and the rest
+          runs full width below, so tags stay on one line (23 Nov). */}
+      <div className="flex min-w-0 flex-col justify-center gap-1.5 sm:justify-start">
         <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{card.label}</p>
         <h3 className="text-base font-bold leading-snug tracking-tight sm:text-lg">
           {primary ? (
@@ -111,6 +113,8 @@ export default function ShowcaseCard({
             card.title
           )}
         </h3>
+      </div>
+      <div className="col-span-2 flex min-w-0 flex-col gap-1.5 sm:col-span-1 sm:col-start-2">
         <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           {card.description}
         </p>

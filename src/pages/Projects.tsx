@@ -128,7 +128,7 @@ export default function Projects() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <div className="-mx-4 flex overflow-x-auto px-4 pb-2 scrollbar-none md:mx-0 md:px-0">
+        <div className="scroll-fade-x -mx-4 flex overflow-x-auto px-4 pb-2 pr-12 scrollbar-none md:mx-0 md:px-0">
           <div className="flex gap-1.5 rounded-full border border-slate-200/50 bg-slate-100/60 p-1 backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-900/60">
             {categories.map((category) => {
               const isActive = activeCategory === category;
