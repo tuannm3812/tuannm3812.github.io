@@ -70,7 +70,7 @@ export const resumeData: ResumeData = {
       institution: 'University of Technology Sydney',
       location: 'Sydney, Australia',
       degree: 'Master of Data Science and Innovation (High Distinction)',
-      period: 'Feb 2025 – Feb 2027',
+      period: 'Feb 2025 – Nov 2026',
       points: [
         'Coursework in [[machine learning]], [[deep learning]], applied NLP, computer vision, [[big data engineering]] and statistical modelling.',
         'Projects in [[LLM agents and evaluation]], retrieval-augmented generation, [[multimodal ML research]] and cloud data engineering.',
