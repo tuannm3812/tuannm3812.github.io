@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import TagChip from './TagChip';
@@ -44,6 +45,14 @@ export default function SelectedWorkGallery() {
   const at = list.indexOf(current);
   const go = (i: number) => setIndex((i + list.length) % list.length);
   const tone = GROUP_TONE[current.group];
+  // Swipe left or right on the cover to change project (phones).
+  const touchX = useRef<number | null>(null);
+  const onTouchEnd = (x: number) => {
+    if (touchX.current === null) return;
+    const dx = x - touchX.current;
+    touchX.current = null;
+    if (Math.abs(dx) > 48) go(dx < 0 ? at + 1 : at - 1);
+  };
   const filters: { id: Filter; label: string }[] = [
     { id: 'all', label: 'All' },
     ...SELECTED_WORK_GROUPS,
@@ -89,73 +98,92 @@ export default function SelectedWorkGallery() {
         </div>
       </div>
 
-      <nav
-        aria-label="Selected projects"
-        className="scroll-fade-x scrollbar-none overflow-x-auto border-b border-slate-200 dark:border-slate-800"
+      <div
+        aria-live="polite"
+        className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:gap-12"
       >
-        <div className="flex min-w-max gap-7 pr-10 md:pr-0">
-          {list.map((p, i) => (
-            <button
-              key={p.id}
-              type="button"
-              aria-current={i === at ? 'true' : undefined}
-              onClick={() => go(i)}
-              className={`-mb-px inline-flex min-h-11 items-baseline gap-2 border-b-2 pb-3 text-[15px] whitespace-nowrap transition-colors ${
-                i === at
-                  ? 'border-brand font-bold text-slate-950 dark:border-sky-300 dark:text-white'
-                  : 'border-transparent font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
-              }`}
-            >
-              <span className="text-xs tabular-nums text-slate-400">{pad(i + 1)}</span>
-              {p.short}
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      <div aria-live="polite" className="grid items-stretch gap-10 lg:grid-cols-2">
-        <figure className="m-0 rounded-3xl bg-slate-100 p-4 sm:p-5 dark:bg-slate-900">
+        <figure
+          className="m-0 min-w-0 space-y-4"
+          onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+          onTouchEnd={(e) => onTouchEnd(e.changedTouches[0].clientX)}
+        >
           <a
             href={current.poster}
             target="_blank"
             rel="noreferrer"
             aria-label={`Open the full poster for ${current.title}`}
-            className="block overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+            className="surface-card block overflow-hidden rounded-2xl shadow-[0_1px_2px_rgba(15,23,42,0.06),0_24px_48px_-24px_rgba(15,23,42,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
           >
-            <img
+            <motion.img
               key={current.id}
+              initial={{ opacity: 0, scale: 1.01 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
               src={current.thumb}
               alt={current.alt}
               width={1200}
               height={848}
               loading="lazy"
-              className="aspect-[1.414/1] w-full object-cover object-top shadow-[0_1px_2px_rgba(15,23,42,0.08),0_12px_32px_-12px_rgba(15,23,42,0.25)] transition-transform duration-500 hover:scale-[1.015]"
+              className="aspect-[1.414/1] w-full bg-white object-cover object-top"
             />
           </a>
-          <figcaption className="flex items-center justify-end gap-2.5 pt-4">
-            <span className="text-[13px] font-semibold tabular-nums text-slate-500 dark:text-slate-400">
-              {pad(at + 1)} / {pad(list.length)}
-            </span>
-            <button
-              type="button"
-              onClick={() => go(at - 1)}
-              aria-label="Previous project"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition-colors hover:border-brand hover:text-brand dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+          <figcaption className="flex items-center gap-3">
+            <nav
+              aria-label="Selected projects"
+              className="scroll-fade-x scrollbar-none min-w-0 flex-1 overflow-x-auto py-1"
             >
-              <ArrowLeft size={18} aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              onClick={() => go(at + 1)}
-              aria-label="Next project"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-white transition-colors hover:bg-brand dark:bg-white dark:text-slate-950 dark:hover:bg-sky-300"
-            >
-              <ArrowRight size={18} aria-hidden="true" />
-            </button>
+              <div className="flex min-w-max gap-2.5 px-1 pr-10 md:pr-1">
+                {list.map((p, i) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    aria-current={i === at ? 'true' : undefined}
+                    aria-label={p.title}
+                    title={p.title}
+                    onClick={() => go(i)}
+                    className={`w-[4.5rem] shrink-0 overflow-hidden rounded-md bg-white ring-2 transition-[opacity,box-shadow] lg:w-16 xl:w-[4.25rem] ${
+                      i === at
+                        ? 'ring-brand dark:ring-sky-300'
+                        : 'opacity-60 ring-slate-200 hover:opacity-100 dark:ring-slate-700'
+                    }`}
+                  >
+                    <img
+                      src={p.thumb}
+                      alt=""
+                      width={1200}
+                      height={848}
+                      loading="lazy"
+                      className="aspect-[1.414/1] w-full object-cover object-top"
+                    />
+                  </button>
+                ))}
+              </div>
+            </nav>
+            <div className="hidden shrink-0 items-center gap-2.5 sm:flex">
+              <span className="text-[13px] font-semibold tabular-nums text-slate-500 dark:text-slate-400">
+                {pad(at + 1)} / {pad(list.length)}
+              </span>
+              <button
+                type="button"
+                onClick={() => go(at - 1)}
+                aria-label="Previous project"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition-colors hover:border-brand hover:text-brand dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+              >
+                <ArrowLeft size={18} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={() => go(at + 1)}
+                aria-label="Next project"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-white transition-colors hover:bg-brand dark:bg-white dark:text-slate-950 dark:hover:bg-sky-300"
+              >
+                <ArrowRight size={18} aria-hidden="true" />
+              </button>
+            </div>
           </figcaption>
         </figure>
 
-        <div className="flex min-w-0 flex-col gap-6 lg:py-5">
+        <div className="flex min-w-0 flex-col gap-6 lg:pt-2">
           <div className="space-y-2.5">
             <p className={`flex items-center gap-2 text-[13px] font-bold ${tone.text}`}>
               <span aria-hidden="true" className={`h-2 w-2 rounded-full ${tone.dot}`} />
