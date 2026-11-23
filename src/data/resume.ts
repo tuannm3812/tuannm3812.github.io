@@ -49,7 +49,7 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   name: 'Tuan Nguyen (Mike)',
-  title: 'Machine Learning Engineer & Data Professional',
+  title: 'Applied AI Engineer · Machine Learning & Data',
   email: 'tuannm3812@gmail.com',
   phone: '+61 433 466 749',
   location: 'Sydney, NSW',
@@ -57,7 +57,7 @@ export const resumeData: ResumeData = {
   github: 'https://github.com/tuannm3812',
   kaggle: 'https://www.kaggle.com/tuannm3812',
   summary:
-    'Data and machine learning professional with 7+ years of experience turning ambiguous business problems into reliable analytics products, predictive models, and production-ready data workflows. I combine stakeholder-facing judgment from consulting and e-commerce with hands-on engineering across Python, SQL, cloud data platforms, MLOps, computer vision, and Kaggle-style experimentation.',
+    'Applied AI and Machine Learning Engineer with 7+ years across data, analytics and consulting. Builds and measures LLM systems (agents, retrieval and evaluation harnesses) shipped as working apps with tests and live demos, with a track record of turning business problems into models and pipelines that executives acted on.',
   highlights: [
     { value: '7+', label: 'Years building analytics and ML workflows' },
     { value: '30', label: 'Technical projects across ML, data, and AI' },
@@ -70,10 +70,10 @@ export const resumeData: ResumeData = {
       institution: 'University of Technology Sydney',
       location: 'Sydney, Australia',
       degree: 'Master of Data Science and Innovation (High Distinction)',
-      period: 'Feb 2025 – Feb 2027',
+      period: 'Feb 2025 – Nov 2026',
       points: [
-        'Coursework in [[machine learning]], [[big data engineering]], statistical modelling, [[deep learning]], computer vision, NLP and [[applied AI systems]].',
-        'Built projects in [[full-stack ML systems]], [[Databricks and Snowflake]] analytics, [[MLOps pipelines]], Kaggle competitions and AI-driven decision support.',
+        'Coursework in [[machine learning]], [[deep learning]], applied NLP, computer vision, [[big data engineering]] and statistical modelling.',
+        'Projects in [[LLM agents and evaluation]], retrieval-augmented generation, [[multimodal ML research]] and cloud data engineering.',
       ],
     },
     {
@@ -89,27 +89,37 @@ export const resumeData: ResumeData = {
   // [[double brackets]] mark key terms the Experience page highlights.
   experience: [
     {
+      company: 'Independent',
+      location: 'Sydney, Australia',
+      role: 'AI Builder · UTS projects, hackathons and builder events',
+      period: 'Feb 2025 – Present',
+      points: [
+        'Build and evaluate [[AI systems end to end]]: LLM agents, RAG, evaluation harnesses and live data pipelines, shipped with tests and demos.',
+        'Led a team of 6 in a UTS industry capstone that tested a custom [[AI agent harness]] against an established one, and wrote a [[research paper]] on wildfire prediction.',
+        '[[Finalist (8 of 44 teams)]] at the UNSW Marketing Analytics Hackathon; built a product at [[OpenAI Builder Days]]; compete on Kaggle.',
+      ],
+    },
+    {
       company: 'Shopee Vietnam',
       location: 'HCMC, Vietnam',
-      role: 'Lead Data Optimization & Insights Manager · Growth & Acquisition',
+      role: 'Data Optimization & Insights Manager',
       period: 'Dec 2021 – Jan 2025',
       points: [
-        'Delivered strategic growth and pricing insights directly to [[senior executives]] to optimize commercial fee structures, ad campaigns, and voucher incentives.',
-        'Served as the [[data and strategy lead]] for the acquisition and onboarding team, designing unified datasets mapping the entire partner lifecycle.',
-        'Architected automated [[BigQuery data warehousing pipelines]] consolidating transaction and traffic data, reducing manual processing workloads by 80%.',
-        'Developed [[predictive modeling workflows]] in Python (churn prediction, growth clustering) that improved partner graduation rates to 85% and increased voucher campaign ROI by 15%.',
+        'Led an [[insights team of 5]], turning analysis into recommendations for [[top management]] on seller fees, ad campaigns and voucher investment, which lifted investment ROI by 15%.',
+        'Put ML into the business: built churn-prediction and K-means seller-segmentation models in Python and BigQuery for the BD team, raising the partner milestone [[graduation rate to 85%+]].',
+        'Architected [[BigQuery ETL pipelines]] consolidating transaction and seller-traffic data, cutting manual processing by 80% and partner onboarding drop-off by 25%.',
+        'Built self-service dashboards in Looker Studio, cutting ad-hoc data requests from non-technical teams.',
       ],
     },
     {
       company: 'FPT Software & FPT Digital',
       location: 'Hanoi, Vietnam',
-      role: 'Strategy Lead (Global Affairs) & Transformation Consultant',
+      role: 'Global Affairs Manager & Digital Transformation Consultant',
       period: 'Dec 2020 – Dec 2021',
       points: [
-        'Led technology partnership communication with [[multinational corporations]] for the Global Affairs team, setting up integration channels.',
-        'Collaborated with top-tier global consulting firms ([[McKinsey, BCG]]) on enterprise-level digital maturity and data architecture transformation projects.',
-        'Co-designed multi-year [[digital transformation roadmaps]] and technology blueprints (relational DWH, cloud migration) for billion-dollar enterprises and regional economic hubs.',
-        'Presented digital enablers to client [[steering committees]] to speed up technology adoption.',
+        'Researched [[AI and machine learning applications]] and how to bring them to business clients, turning them into digital transformation roadmaps and data-architecture recommendations.',
+        'Delivered CRM implementation workstreams with [[predictive lead scoring]] and pipeline forecasting, working alongside global consulting firms.',
+        'As Global Affairs Manager, built partnerships with [[multinational companies]], positioning FPT as their local systems integrator.',
       ],
     },
     {
@@ -118,10 +128,9 @@ export const resumeData: ResumeData = {
       role: 'Senior Assurance Associate · Financial Services & Capital Markets',
       period: 'Aug 2017 – Dec 2020',
       points: [
-        'Acted as [[data champion]], building Python and SQL scripts to automate high-volume transaction matching, reconciliations, and interest rate audits.',
-        'Reduced complex transaction testing workloads by over 90%, shrinking 2-day manual verification cycles to [[under 1 hour]].',
-        'Ingested and analyzed [[millions of transactional records]] across 40+ commercial banking and securities clients using database querying.',
-        'Identified control deficiencies and systemic booking anomalies, presenting audit insights and structural fixes directly to [[client C-levels]].',
+        'Led audit fieldwork as a senior for [[40+ banks, securities firms and investment funds]], owning data validation and reconciliation testing.',
+        'Joined the team that automated reconciliation reports with [[Excel VBA macros]] for clients and audit teams, cutting a 2-day reconciliation to [[under 1 hour]].',
+        'Presented control gaps and booking anomalies to [[client C-levels]], driving fixes in their systems.',
       ],
     },
   ],
@@ -241,6 +250,40 @@ export const resumeData: ResumeData = {
       ],
     },
     {
+      title: 'Sydney Transit Live Lakehouse',
+      category: 'Data Engineering & Analytics',
+      github: 'https://github.com/tuannm3812/sydney-transit-lakehouse',
+      impact: 'Live lakehouse on Transport for NSW real-time feeds',
+      stack: ['Python', 'AWS EC2', 'Docker', 'Apache Iceberg', 'DuckDB', 'dbt'],
+      points: [
+        'Building a live lakehouse on Transport for NSW real-time feeds: an always-on collector on AWS, replayable raw snapshots and Apache Iceberg tables.',
+        'Designed to show which scheduled services never ran and where buses bunch, through dbt marts, a public dashboard and a text-to-SQL analyst.',
+      ],
+    },
+    {
+      title: 'Dinksight',
+      category: 'Deep Learning & Vision',
+      // Private repo: no source link. The poster is hosted on the site instead.
+      demo: '/assets/posters/dinksight.jpg',
+      impact: 'Pickleball doubles footage turned into court positions, movement and speed',
+      stack: ['Python', 'Computer Vision', 'Object Tracking', 'React'],
+      points: [
+        'Building computer vision for single-camera pickleball doubles footage: four-player tracking, court calibration in metres and ball tracking with uncertainty evidence.',
+        'Built an interactive match-analysis dashboard with replay, court maps, shot and bounce analytics, backed by 600+ automated tests.',
+      ],
+    },
+    {
+      title: 'Pocket Dojo',
+      category: 'AI Agents & LLM Products',
+      // Private repo: no source link. Grew out of the OpenAI buildathon team entry.
+      impact: 'Household tips adapted to what you have, revised after each attempt',
+      stack: ['Next.js', 'TypeScript', 'OpenAI API'],
+      points: [
+        'Started as a team buildathon entry and now developed solo: a web app that adapts practical household fixes to the items and limits a person has.',
+        'Revises the next step from feedback on what failed, while keeping the original restrictions.',
+      ],
+    },
+    {
       title: 'Terminal-Bench Agent Harness',
       category: 'AI Agents & LLM Products',
       // Private repo: no source link. The poster is hosted on the site instead.
@@ -348,55 +391,40 @@ export const resumeData: ResumeData = {
   ],
   technologyStack: [
     {
-      title: 'Languages & Engineering',
+      title: 'AI, LLMs & Agents',
       description:
-        'Daily tools for analysis, modelling, automation, and maintainable project structure.',
-      tools: ['Python', 'SQL', 'PySpark', 'TypeScript', 'OOP', 'Testing'],
-    },
-    {
-      title: 'Data Platforms',
-      description:
-        'Cloud warehouse and lakehouse patterns for reliable analytics, ingestion, and historical modelling.',
-      tools: ['BigQuery', 'Snowflake', 'Databricks', 'Delta Lake', 'PostgreSQL', 'Medallion'],
-    },
-    {
-      title: 'Orchestration & Analytics',
-      description: 'Pipelines, transformation layers, and stakeholder-facing reporting workflows.',
-      tools: ['Apache Airflow', 'dbt', 'ETL/ELT', 'API Ingestion', 'Looker Studio', 'Data Quality'],
+        'Agents, retrieval and evaluation harnesses, built and measured as working products.',
+      tools: ['LangGraph', 'RAG', 'Evaluation Harnesses', 'Text-to-SQL', 'Gemini', 'Ollama'],
     },
     {
       title: 'Machine Learning',
       description:
-        'Classical ML, deep learning, computer vision, audio ML, and time-series experimentation.',
-      tools: ['PyTorch', 'scikit-learn', 'LightGBM', 'CatBoost', 'ResNet50', 'Perch v2'],
+        'Classical ML, deep learning, computer vision and forecasting, tested on held-out data.',
+      tools: ['PyTorch', 'scikit-learn', 'XGBoost', 'LightGBM', 'TabPFN', 'Object Tracking'],
+    },
+    {
+      title: 'Data Platforms',
+      description:
+        'Warehouse and lakehouse patterns for reliable analytics, live ingestion and history.',
+      tools: ['BigQuery', 'Snowflake', 'Databricks', 'Apache Iceberg', 'DuckDB', 'PostgreSQL'],
+    },
+    {
+      title: 'Pipelines & Analytics',
+      description: 'Pipelines, transformation layers and stakeholder-facing reporting.',
+      tools: ['Apache Airflow', 'dbt', 'ETL/ELT', 'Real-time APIs', 'Looker Studio', 'Plotly'],
     },
     {
       title: 'Production & MLOps',
-      description:
-        'Deployment patterns for moving models, agents, and data products beyond notebooks.',
-      tools: [
-        'FastAPI',
-        'Streamlit',
-        'GitHub Actions',
-        'pytest',
-        'Model Artifacts',
-        'Submission Workflows',
-      ],
+      description: 'Moving models, agents and data products beyond notebooks.',
+      tools: ['FastAPI', 'React', 'Streamlit', 'Docker', 'AWS', 'GitHub Actions'],
     },
     {
-      title: 'AI, NLP & Agents',
-      description:
-        'Applied language systems for text understanding, schema reasoning, and natural-language interfaces.',
-      tools: [
-        'LLMs',
-        'Hybrid Retrieval',
-        'Text-to-SQL',
-        'SQLGlot',
-        'Semantic Analytics',
-        'Topic Modelling',
-      ],
+      title: 'Languages & Engineering',
+      description: 'Daily tools for analysis, modelling, automation and maintainable code.',
+      tools: ['Python', 'SQL', 'TypeScript', 'PySpark', 'pytest', 'Git'],
     },
   ],
+
   skills: {
     programming: [
       'Python',

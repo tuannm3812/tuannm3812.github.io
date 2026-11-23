@@ -139,6 +139,18 @@ export function getDemoUrl(repo) {
 }
 
 const PROJECT_COPY_OVERRIDES = {
+  // Curated in src/data/resume.ts as 'Sydney Transit Live Lakehouse'; this entry
+  // only keeps the placeholder guard green when the repo is synced.
+  'sydney-transit-lakehouse': {
+    title: 'Sydney Transit Live Lakehouse',
+    category: 'Data Engineering & Analytics',
+    impact: 'Live lakehouse on Transport for NSW real-time feeds',
+    stack: ['Python', 'AWS EC2', 'Docker', 'Apache Iceberg', 'DuckDB', 'dbt'],
+    points: [
+      'Building a live lakehouse on Transport for NSW real-time feeds: an always-on collector, replayable raw snapshots and Iceberg tables.',
+      'Designed to show which scheduled services never ran and where buses bunch, through dbt marts and a public dashboard.'
+    ]
+  },
   'NYC-Taxi-Databricks': {
     category: 'Data Engineering & Analytics',
     impact: 'Databricks lakehouse analytics for NYC taxi trips',

@@ -71,5 +71,11 @@ page. After editing [Master Resume](09-master-resume.md), mirror the change into
   scripts/resume/resume.html
 ```
 
+Since 21 Nov 2026, `scripts/resume/resume.html` is generated from Mike's resume
+content file (`content.py` + `build.py`, kept outside this repo with his other
+resume versions), using the designed layout. The public build removes the phone
+number and the capstone client's name. Rebuild it from that file, rather than
+hand-editing the HTML.
+
 The published PDF deliberately omits the phone number that the master resume
 carries; add it back to `scripts/resume/resume.html` if you want it public.

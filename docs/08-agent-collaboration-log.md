@@ -39,6 +39,35 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-21 - Claude Code
+
+- Re-ranked projects to Mike's 21 Nov tiers. Flagships (3 stars): Text-to-SQL,
+  Agent Harness, Sydney Transit Lakehouse (new), Wildfire, AI Meal Planner,
+  Dinksight (new), FarmLens. Kiva raised to 93; TechFest to 80.
+- CircleU is off the Home gallery and out of Selected Work (weak, Mike 18 Nov);
+  its thumbnail moved to `EXTRA_THUMBS`.
+- Added curated cards for Sydney Transit Live Lakehouse (public repo, Home
+  gallery with its architecture diagram), Dinksight (private, drawn cover) and
+  Pocket Dojo (private, Projects page only, hackathon origin).
+- Added a `PROJECT_COPY_OVERRIDES` entry for `sydney-transit-lakehouse` so a
+  sync cannot trip the placeholder guard.
+- Replaced the public resume PDF and `scripts/resume/resume.html` with the
+  21 Nov resume (designed layout, no phone, no client name).
+- Experience rewritten to Mike's 22 Nov facts and guidelines (resume project
+  guidelines file, Experience section): new AI Builder entry, Shopee title
+  "Data Optimization & Insights Manager", FPT's two roles, PwC automation via
+  Excel VBA macros. No client or partner names anywhere.
+- Site text aligned with the resume: summary and title, UTS education bullets,
+  Experience intro and the Skills cards (AI first; Iceberg, DuckDB, TabPFN, AWS added).
+- New covers (22 Nov, from Mike's Mac): Text-to-SQL thumbnail is the UTS deck
+  cover; AI Meal Planner poster and thumbnail are the new project poster;
+  Dinksight gets its poster (thumb + Poster link). The new harness deck cover
+  names the client, so the harness uses its 21 Nov poster instead (client logo
+  only, approved by Mike 22 Nov).
+- Verified: `npm run check` passes; Home, Projects and Experience checked in a browser.
+- Transit copy says what the project is building, not its day-to-day progress
+  (Mike, 21 Nov); add results when he says a phase is complete.
+
 ## 2026-11-18 - Claude Code (featured projects update)
 
 **Branch:** `claude/project-thread-6dmp83`
