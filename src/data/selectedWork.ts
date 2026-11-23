@@ -40,7 +40,27 @@ export const SELECTED_WORK_GROUPS: { id: SelectedWorkGroup; label: string }[] = 
   { id: 'event', label: 'Hackathons' },
 ];
 
+// Order follows the flagship ranking in projectPriority.ts: Text-to-SQL leads.
 export const selectedWork: SelectedWork[] = [
+  {
+    id: 'text-to-sql',
+    group: 'product',
+    short: 'Text-to-SQL',
+    label: 'AI Product · Live Demo',
+    title: 'Text-to-SQL Agent',
+    subtitle: 'Ask in English. Inspect the SQL before you trust the answer.',
+    role: 'AI Engineer',
+    thumb: '/assets/posters/t2sql-thumb.webp',
+    poster: '/assets/posters/t2sql.jpg',
+    alt: 'Poster: Ask in English. Inspect the SQL.',
+    question: 'How can business users ask a database questions without trusting [[a black box]]?',
+    built:
+      'An agent that picks the relevant tables, drafts SQL, and [[checks it before running it read-only]] on SQLite, DuckDB or PostgreSQL.',
+    answer: 'People [[see the SQL before the answer]], and [[raw records never reach the model]].',
+    stack: ['Text-to-SQL', 'RAG', 'Python'],
+    demo: 'https://aipa-text-to-sql-agent.streamlit.app/',
+    code: 'https://github.com/tuannm3812/text-to-sql-agent',
+  },
   {
     id: 'agent-harness',
     group: 'research',
@@ -59,6 +79,26 @@ export const selectedWork: SelectedWork[] = [
     answer:
       '[[No accuracy advantage]] was established, and the frozen protocol now gives [[a fair way]] to test any future harness change.',
     stack: ['LLM Agents', 'Agent Evaluation', 'Python'],
+  },
+  {
+    id: 'transit-lakehouse',
+    group: 'product',
+    short: 'Transit Lakehouse',
+    label: 'Data Engineering · Live Public Transport',
+    title: 'Sydney Transit Lakehouse',
+    subtitle: 'Live feeds show where the timetable and the street disagree.',
+    role: 'Data Engineer',
+    thumb: '/assets/posters/transit-thumb.webp',
+    poster: '/assets/posters/transit.jpg',
+    alt: 'Architecture: live transport feeds to a collector, Iceberg lakehouse tables, dbt gold tables and products',
+    question:
+      'Which scheduled buses [[never actually ran]], and where do buses arrive [[in clumps]]?',
+    built:
+      'A [[live lakehouse]] on the transport real-time feeds: an always-on collector, replayable raw snapshots and [[Iceberg tables]].',
+    answer:
+      'Building toward a [[ghost-trip tracker]], a [[bunching radar]] and a public dashboard.',
+    stack: ['Lakehouse', 'Big Data', 'Python'],
+    code: 'https://github.com/tuannm3812/sydney-transit-lakehouse',
   },
   {
     id: 'fire-prediction',
@@ -80,25 +120,6 @@ export const selectedWork: SelectedWork[] = [
     stack: ['Machine Learning', 'Geospatial Analysis', 'Python'],
   },
   {
-    id: 'text-to-sql',
-    group: 'product',
-    short: 'Text-to-SQL',
-    label: 'AI Product · Live Demo',
-    title: 'Text-to-SQL Agent',
-    subtitle: 'Ask in English. Inspect the SQL before you trust the answer.',
-    role: 'AI Engineer',
-    thumb: '/assets/posters/t2sql-thumb.webp',
-    poster: '/assets/posters/t2sql.jpg',
-    alt: 'Poster: Ask in English. Inspect the SQL.',
-    question: 'How can business users ask a database questions without trusting [[a black box]]?',
-    built:
-      'An agent that picks the relevant tables, drafts SQL, and [[checks it before running it read-only]] on SQLite, DuckDB or PostgreSQL.',
-    answer: 'People [[see the SQL before the answer]], and [[raw records never reach the model]].',
-    stack: ['Text-to-SQL', 'RAG', 'Python'],
-    demo: 'https://aipa-text-to-sql-agent.streamlit.app/',
-    code: 'https://github.com/tuannm3812/text-to-sql-agent',
-  },
-  {
     id: 'meal-planner',
     group: 'product',
     short: 'Meal Planner',
@@ -118,24 +139,23 @@ export const selectedWork: SelectedWork[] = [
     code: 'https://github.com/tuannm3812/ai-meal-planner',
   },
   {
-    id: 'transit-lakehouse',
-    group: 'product',
-    short: 'Transit Lakehouse',
-    label: 'Data Engineering · Live Public Transport',
-    title: 'Sydney Transit Lakehouse',
-    subtitle: 'Live feeds show where the timetable and the street disagree.',
-    role: 'Data Engineer',
-    thumb: '/assets/posters/transit-thumb.webp',
-    poster: '/assets/posters/transit.jpg',
-    alt: 'Architecture: live transport feeds to a collector, Iceberg lakehouse tables, dbt gold tables and products',
-    question:
-      'Which scheduled buses [[never actually ran]], and where do buses arrive [[in clumps]]?',
+    id: 'farmlens',
+    group: 'event',
+    short: 'FarmLens',
+    label: 'Hackathon Build · Crop Suitability',
+    title: 'FarmLens',
+    subtitle: 'Every crop score comes with the reasons behind it.',
+    role: 'AI Builder',
+    thumb: '/assets/posters/farmlens-thumb.webp',
+    poster: '/assets/posters/farmlens.jpg',
+    alt: 'Showcase: FarmLens, a clearer starting point for your land',
+    question: 'What could grow on this land, and [[why]]?',
     built:
-      'A [[live lakehouse]] on the transport real-time feeds: an always-on collector, replayable raw snapshots and [[Iceberg tables]].',
+      'A map-first explorer that pulls climate, soil and imagery for any point in NSW and screens it against [[15 crop profiles]].',
     answer:
-      'Building toward a [[ghost-trip tracker]], a [[bunching radar]] and a public dashboard.',
-    stack: ['Lakehouse', 'Big Data', 'Python'],
-    code: 'https://github.com/tuannm3812/sydney-transit-lakehouse',
+      'Up to three crop candidates, each with [[a visible reason for every score]], and unknown data left labelled.',
+    stack: ['Geospatial Analysis', 'Data Pipelines', 'Python'],
+    code: 'https://github.com/tuannm3812/FarmLens',
   },
   {
     id: 'kiva',

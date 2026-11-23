@@ -5,45 +5,8 @@ import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import SketchIcon from '../components/artwork/SketchIcon';
 import { resumeData } from '../data/resume';
-import { focusAreas, workingStyle } from '../data/home';
+import { workingStyle } from '../data/home';
 import SelectedWorkGallery from '../components/SelectedWorkGallery';
-
-function FocusAreaCard({ title, desc }: { title: string; desc: string }) {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [hovering, setHovering] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
-      className="relative soft-panel p-4 overflow-hidden transition-all duration-300 hover:border-brand/45 hover:-translate-y-0.5"
-    >
-      {hovering && (
-        <div
-          className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(120px circle at ${coords.x}px ${coords.y}px, rgba(5, 64, 242, 0.08), transparent 80%)`,
-          }}
-        />
-      )}
-      <span className="relative z-10 block text-sm font-black text-slate-950 dark:text-white">
-        {title}
-      </span>
-      <span className="relative z-10 mt-1 block text-xs font-semibold leading-snug text-slate-600 dark:text-slate-400">
-        {desc}
-      </span>
-    </div>
-  );
-}
 
 function WorkingStyleCard({
   icon,
@@ -129,12 +92,6 @@ export default function Home() {
             <Link to="/contact" className="btn-secondary">
               Get in Touch
             </Link>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-3">
-            {focusAreas.map((area) => (
-              <FocusAreaCard key={area.title} title={area.title} desc={area.desc} />
-            ))}
           </div>
         </motion.div>
 

@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const showStatus = isFirebaseOffline && !isDismissed;
 
   return (
-    <div className="site-backdrop min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
+    <div className="site-backdrop flex min-h-screen flex-col overflow-x-hidden text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand selection:text-white">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:shadow-lg"
@@ -209,7 +209,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      <main id="main-content" className="pt-24 pb-16 min-h-screen">
+      <main id="main-content" className="flex-1 pt-24 pb-16">
         {/* Fade the new page in, with no exit animation. An AnimatePresence
             "wait" exit here could stall (seen on /projects, 18 Nov) and leave the
             page at opacity 0 until a reload, because `children` is already the

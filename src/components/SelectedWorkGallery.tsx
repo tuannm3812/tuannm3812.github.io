@@ -66,7 +66,7 @@ export default function SelectedWorkGallery() {
         <div
           role="group"
           aria-label="Filter selected work"
-          className="flex w-fit flex-wrap gap-0.5 rounded-full bg-slate-100 p-1 dark:bg-slate-900"
+          className="scrollbar-none flex w-fit max-w-full gap-0.5 overflow-x-auto rounded-full bg-slate-100 p-1 dark:bg-slate-900"
         >
           {filters.map((f) => (
             <button
@@ -77,7 +77,7 @@ export default function SelectedWorkGallery() {
                 setFilter(f.id);
                 setIndex(0);
               }}
-              className={`min-h-9 rounded-full px-3.5 text-sm font-semibold transition-colors ${
+              className={`min-h-9 shrink-0 whitespace-nowrap rounded-full px-3.5 text-sm font-semibold transition-colors ${
                 filter === f.id
                   ? 'bg-white text-slate-950 shadow-sm dark:bg-slate-700 dark:text-white'
                   : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
@@ -91,9 +91,9 @@ export default function SelectedWorkGallery() {
 
       <nav
         aria-label="Selected projects"
-        className="overflow-x-auto border-b border-slate-200 dark:border-slate-800"
+        className="scroll-fade-x scrollbar-none overflow-x-auto border-b border-slate-200 dark:border-slate-800"
       >
-        <div className="flex min-w-max gap-7">
+        <div className="flex min-w-max gap-7 pr-10 md:pr-0">
           {list.map((p, i) => (
             <button
               key={p.id}

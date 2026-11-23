@@ -39,6 +39,27 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-23 - Claude Code (refinement plan, phase 1)
+
+**Branch:** `claude/project-thread-6dmp83`, stacked on `claude/project-thread-0oie7r` (PR #8)
+**Scope:** Quick fixes from the 23 Nov interface review (docs/15).
+
+**Changed**
+
+- `selectedWork.ts`: order follows the flagship ranking; FarmLens entry added with its showcase image.
+- Home: focus-area cards and their data removed.
+- `.scroll-fade-x` and `.scrollbar-none` utilities; used on the gallery tabs, gallery filter and Projects filter.
+- `ShowcaseCard`: grid layout, so on phones the description, tags and links run full width under the thumbnail.
+- `Layout`: flex column, `main` grows instead of `min-h-screen`.
+
+**Verified**
+
+- `npm run check` (230 tests); Playwright screenshots of all five pages at 1440 px, 390 px and dark, no horizontal overflow.
+
+**Open / Handoff**
+
+- Phases 2 to 5 of the plan wait on Mike (mock approval, Kaggle results, covers, LinkedIn posts).
+
 ## 2026-11-21 - Claude Code
 
 - Re-ranked projects to Mike's 21 Nov tiers. Flagships (3 stars): Text-to-SQL,
