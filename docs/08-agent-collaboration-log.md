@@ -39,6 +39,26 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-24 - Claude Code (Home gallery and closing band)
+
+**Branch:** `claude/project-thread-6dmp83`
+**Scope:** Home visual refinements Mike approved from a mock (docs/15).
+
+**Changed**
+
+- `SelectedWorkGallery`: 60/40 grid, white card frame, thumbnail strip instead of text tabs, fade-in on change, touch swipe.
+- `Home`: `WorkingStyleStep` replaces the habit cards; closing call-to-action band; `tint-band-warm` utility; brightened hero photo (`tuan-profile-warm.*`).
+- Posters: landscape builds for Text-to-SQL and Agent Harness (`t2sql.*`, `harness.*`).
+
+**Verified**
+
+- `npm run check` (230 tests); Playwright screenshots at 1440 px, 390 px and dark.
+
+**Open / Handoff**
+
+- Landscape posters still missing for AI Meal Planner and Wildfire.
+- The closing band line "Open to applied AI and ML engineering roles in Sydney" is a draft Mike has not explicitly confirmed.
+
 ## 2026-11-23 - Claude Code (refinement plan, phase 1)
 
 **Branch:** `claude/project-thread-6dmp83`, stacked on `claude/project-thread-0oie7r` (PR #8)

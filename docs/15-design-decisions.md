@@ -5,6 +5,18 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 24 November 2026 — Home: gallery, numbered habits, closing band
+
+Mike reviewed a Home mock. Rejected: a proof strip under the hero (employer
+logos plus result facts); do not propose it again. Approved: the gallery gives
+the image about 60% of the width in a white card, small poster thumbnails
+replace the text tabs, projects crossfade and swipe on phones; "How I Work" is
+three numbered steps joined by a dotted amber line; a warm-tinted closing band
+ends the page; the hero photo is brightened. Gallery images are landscape
+posters (his choice over portrait): Text-to-SQL and Agent Harness now use their
+landscape poster builds. AI Meal Planner and Wildfire have portrait posters only,
+so the gallery shows the top of each until landscape versions exist.
+
 ## 23 November 2026 — Refinement plan, phase 1 quick fixes
 
 Mike asked for a review of the whole interface and chose a phased plan (six
