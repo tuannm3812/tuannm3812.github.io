@@ -24,13 +24,3 @@ export const workingStyle: WorkingStyle[] = [
     desc: 'I keep retrieval, metrics, diagnostics, and business context visible so reviewers can trust the result.',
   },
 ];
-
-// Proof strip under the hero (mock, 24 Nov). Facts must match the Experience
-// page and the project posters; no client or sponsor names.
-export const proofEmployers = ['shopee', 'fpt', 'pwc', 'uts'] as const;
-
-export const proofFacts: { value: string; label: string }[] = [
-  { value: '7+ years', label: 'in data, analytics and consulting' },
-  { value: 'Finalist', label: 'UNSW Marketing Analytics Hackathon 2026' },
-  { value: 'Award winner', label: 'UTS Tech Festival 2026 GenAI Hackathon' },
-];

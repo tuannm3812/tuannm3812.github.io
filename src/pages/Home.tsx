@@ -5,43 +5,8 @@ import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import SketchIcon from '../components/artwork/SketchIcon';
 import { resumeData } from '../data/resume';
-import OrgLogo from '../components/OrgLogo';
-import { proofEmployers, proofFacts, workingStyle } from '../data/home';
+import { workingStyle } from '../data/home';
 import SelectedWorkGallery from '../components/SelectedWorkGallery';
-
-function ProofStrip() {
-  return (
-    <section
-      aria-label="Experience and results"
-      className="tint-band grid items-center gap-6 rounded-2xl px-6 py-6 md:px-8 lg:grid-cols-[auto_1fr] lg:gap-12"
-    >
-      <div className="space-y-3">
-        <p className="font-hand text-2xl font-bold leading-none text-brand dark:text-sky-300">
-          Where I've Worked
-        </p>
-        <ul className="flex flex-wrap items-center gap-3">
-          {proofEmployers.map((id) => (
-            <li key={id}>
-              <OrgLogo id={id} size={48} />
-            </li>
-          ))}
-        </ul>
-      </div>
-      <dl className="grid gap-5 sm:grid-cols-3 lg:border-l lg:border-brand/15 lg:pl-12 dark:lg:border-sky-300/20">
-        {proofFacts.map((fact) => (
-          <div key={fact.value}>
-            <dt className="text-2xl font-black tracking-tight">
-              <mark className="key-term">{fact.value}</mark>
-            </dt>
-            <dd className="mt-1.5 text-sm leading-snug text-slate-600 dark:text-slate-400">
-              {fact.label}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-  );
-}
 
 function WorkingStyleStep({
   step,
@@ -152,8 +117,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      <ProofStrip />
 
       <SelectedWorkGallery />
 
