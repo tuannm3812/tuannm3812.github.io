@@ -10,6 +10,13 @@ https://tuannm3812.github.io within about a minute of a push.
 Follow the master standard at `~/Documents/GitHub/coding-standards/`.
 Documentation map and update workflow: @docs/00-documentation-index.md
 
+## External review
+
+The reviewer is Google Antigravity with Gemini 4 Hydrogen, not Codex (since
+2026-11-25). Run `scripts/agents/antigravity_review.sh <base>..<head>`; it reads
+only and appends its review to `docs/08-agent-collaboration-log.md`. Commit that
+entry unchanged and reply to it in a separate Claude entry.
+
 ## Deltas from the master
 
 **Doc naming here is `NN-name.md`, not the master's `N_name.md`.** This is a

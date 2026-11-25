@@ -301,9 +301,9 @@ const PROJECT_COPY_OVERRIDES = {
     title: 'UTS Tech Festival 2026 GenAI Hackathon',
     category: 'AI Agents & LLM Products',
     impact: 'Resilient infrastructure, smart intersection, and autonomous worksite solutions for civil & environmental engineering challenges',
-    stack: ['Generative AI', 'Austroads Smart Intersection', 'Sustainable Asphalt', 'Telemetry & Fleet Spec', 'Prompt Engineering', 'Project Strategy'],
+    stack: ['Generative AI', 'Smart Intersection', 'Sustainable Asphalt', 'Telemetry & Fleet Spec', 'Prompt Engineering', 'Project Strategy'],
     points: [
-      'Developed comprehensive technical submissions for three engineering scenarios: LEGO resilient infrastructure, a Caterpillar/WesTrac future worksite fleet spec, and an Austroads-aligned smart intersection.',
+      'Developed comprehensive technical submissions for three engineering scenarios: resilient infrastructure, a future worksite fleet spec, and a smart intersection aligned with national road standards.',
       'Applied generative AI prompting strategy, adaptive signal logic design, sustainable mix design, telemetry planning, and automated HTML/PDF document compilation.'
     ]
   },
@@ -579,6 +579,8 @@ async function main() {
     .filter((repo) => !repo.disabled)
     .filter((repo) => repo.size > 0)
     .filter((repo) => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
+    // The site's own repo is not a project card.
+    .filter((repo) => repo.name.toLowerCase() !== `${GITHUB_USER}.github.io`.toLowerCase())
     .filter((repo) => !IGNORED_REPOS.has(repo.name))
     .filter((repo) => !curatedGithubLinks.has(repo.html_url.replace(/\/$/, '')))
     .map(buildProject)

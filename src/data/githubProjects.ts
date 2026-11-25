@@ -16,6 +16,26 @@ export const githubProjects: Project[] = [
     ],
   },
   {
+    title: 'FarmLens: NSW Crop Suitability Explorer',
+    category: 'Data Engineering & Analytics',
+    github: 'https://github.com/tuannm3812/FarmLens',
+    impact:
+      'Explainable crop suitability screening for NSW land, built on eight open climate, soil and imagery sources',
+    stack: [
+      'Python',
+      'Leaflet',
+      'Open-Meteo',
+      'CSIRO SLGA Soil',
+      'NSW Spatial Imagery',
+      'FAO EcoCrop',
+      'Streamlit',
+    ],
+    points: [
+      'Built a map-first land explorer that pulls ten years of climate, a seven-day forecast, modelled Australian soil and dated aerial imagery for any NSW point, then scores up to three crop candidates against 15 sourced crop profiles with visible per-factor reasons.',
+      'Designed the scoring as a transparent screening index with centralized weights, source-linked NSW agronomy checks and an optional LLM guide (Finn) that explains but never sets the scores; tested offline with saved fixtures and blocked live HTTP in CI.',
+    ],
+  },
+  {
     title: 'FoodLens: Calibrated Food Recognition',
     category: 'Deep Learning & Vision',
     github: 'https://github.com/tuannm3812/foodlens-calibrated-food-recognition',
@@ -25,6 +45,25 @@ export const githubProjects: Project[] = [
     points: [
       'Built FoodLens, a calibrated Food-101 recognition system with confidence-based decision routing, multi-food crop detection, and image, video, and URL analysis workflows.',
       'Applied PyTorch ResNet50 fine-tuning, temperature scaling calibration, confidence-gated routing, FastAPI serving, and React interface delivery.',
+    ],
+  },
+  {
+    title: 'Half-time Briefing: Microsoft x Premier League Hackathon',
+    category: 'AI Agents & LLM Products',
+    github: 'https://github.com/tuannm3812/ms-pl-insidethegame-2026',
+    impact:
+      'Multi-agent football briefing on Microsoft Agent Framework that turns match events into coaching calls and fan stories',
+    stack: [
+      'Microsoft Agent Framework',
+      'Azure AI Foundry',
+      'FastAPI',
+      'MCP',
+      'Expected Threat (xT)',
+      'Azure Container Apps',
+    ],
+    points: [
+      'Built a stats -> tactics -> explainer -> coach/fan -> overlay agent pipeline for the Microsoft x Premier League Inside the Game hackathon, computing xG, expected threat, PPDA and momentum in code so model-backed agents only explain and decide.',
+      'Guarded every model reply against hallucinated numbers with rule-based fallbacks, exposed the match tools over MCP, and shipped a single container to Azure Container Apps with keyless managed-identity auth; 39 offline tests.',
     ],
   },
   {
@@ -336,45 +375,6 @@ export const githubProjects: Project[] = [
     points: [
       'Built a Databricks lakehouse workflow for large-scale NYC green and yellow taxi trip analytics, borough-level business questions, and fare prediction modeling.',
       'Applied PySpark, Spark SQL, Delta Lake curation, schema harmonization, trip feature engineering, quality filtering, ridge regression, segment diagnostics, and reusable artifacts.',
-    ],
-  },
-  {
-    title: 'FarmLens: NSW Crop Suitability Explorer',
-    category: 'Data Engineering & Analytics',
-    github: 'https://github.com/tuannm3812/FarmLens',
-    impact:
-      'Explainable crop suitability screening for NSW land, built on eight open climate, soil and imagery sources',
-    stack: [
-      'Python',
-      'Leaflet',
-      'Open-Meteo',
-      'CSIRO SLGA Soil',
-      'NSW Spatial Imagery',
-      'FAO EcoCrop',
-      'Streamlit',
-    ],
-    points: [
-      'Built a map-first land explorer that pulls ten years of climate, a seven-day forecast, modelled Australian soil and dated aerial imagery for any NSW point, then scores up to three crop candidates against 15 sourced crop profiles with visible per-factor reasons.',
-      'Designed the scoring as a transparent screening index with centralized weights, source-linked NSW agronomy checks and an optional LLM guide (Finn) that explains but never sets the scores; tested offline with saved fixtures and blocked live HTTP in CI.',
-    ],
-  },
-  {
-    title: 'Half-time Briefing: Microsoft x Premier League Hackathon',
-    category: 'AI Agents & LLM Products',
-    github: 'https://github.com/tuannm3812/ms-pl-insidethegame-2026',
-    impact:
-      'Multi-agent football briefing on Microsoft Agent Framework that turns match events into coaching calls and fan stories',
-    stack: [
-      'Microsoft Agent Framework',
-      'Azure AI Foundry',
-      'FastAPI',
-      'MCP',
-      'Expected Threat (xT)',
-      'Azure Container Apps',
-    ],
-    points: [
-      'Built a stats -> tactics -> explainer -> coach/fan -> overlay agent pipeline for the Microsoft x Premier League Inside the Game hackathon, computing xG, expected threat, PPDA and momentum in code so model-backed agents only explain and decide.',
-      'Guarded every model reply against hallucinated numbers with rule-based fallbacks, exposed the match tools over MCP, and shipped a single container to Azure Container Apps with keyless managed-identity auth; 39 offline tests.',
     ],
   },
   {

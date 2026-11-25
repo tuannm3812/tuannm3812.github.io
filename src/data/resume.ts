@@ -12,7 +12,6 @@ export interface ResumeData {
   name: string;
   title: string;
   email: string;
-  phone: string;
   location: string;
   linkedin: string;
   github: string;
@@ -51,7 +50,6 @@ export const resumeData: ResumeData = {
   name: 'Tuan Nguyen (Mike)',
   title: 'Applied AI Engineer · Machine Learning & Data',
   email: 'tuannm3812@gmail.com',
-  phone: '+61 433 466 749',
   location: 'Sydney, NSW',
   linkedin: 'https://linkedin.com/in/tuan-m-nguyen',
   github: 'https://github.com/tuannm3812',
@@ -352,13 +350,13 @@ export const resumeData: ResumeData = {
         'Three GenAI solutions for resilient housing, a future worksite and a smart intersection',
       stack: [
         'Generative AI',
-        'Austroads Signal Design',
+        'Traffic Signal Design',
         'Sustainable Asphalt Mix',
         'Telemetry & Fleet Matrix',
         'Prompt Engineering',
       ],
       points: [
-        'Developed comprehensive technical submissions for three scenarios: LEGO sustainable urban housing, Caterpillar/WesTrac worksite fleet transition, and Austroads-aligned smart intersection mix design.',
+        'Developed comprehensive technical submissions for three scenarios: sustainable urban housing, a worksite fleet transition, and a smart intersection mix design aligned with national road standards.',
         'Applied generative AI prompting strategy, adaptive signal logic, sustainable mix design, machinery telemetry plans, and automated HTML/PDF document compilation.',
       ],
     },

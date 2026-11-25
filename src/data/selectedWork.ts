@@ -40,7 +40,8 @@ export const SELECTED_WORK_GROUPS: { id: SelectedWorkGroup; label: string }[] = 
   { id: 'event', label: 'Hackathons' },
 ];
 
-// Order follows the flagship ranking in projectPriority.ts: Text-to-SQL leads.
+// Order follows the score in projectPriority.ts (Text-to-SQL leads). Kiva is a
+// 2-star finalist entry kept on Home for the hackathon result; see docs/15.
 export const selectedWork: SelectedWork[] = [
   {
     id: 'text-to-sql',
@@ -139,23 +140,22 @@ export const selectedWork: SelectedWork[] = [
     code: 'https://github.com/tuannm3812/ai-meal-planner',
   },
   {
-    id: 'farmlens',
-    group: 'event',
-    short: 'FarmLens',
-    label: 'Hackathon Build · Crop Suitability',
-    title: 'FarmLens',
-    subtitle: 'Every crop score comes with the reasons behind it.',
-    role: 'AI Builder',
-    thumb: '/assets/posters/farmlens-thumb.webp',
-    poster: '/assets/posters/farmlens.jpg',
-    alt: 'Showcase: FarmLens, a clearer starting point for your land',
-    question: 'What could grow on this land, and [[why]]?',
+    id: 'dinksight',
+    group: 'product',
+    short: 'Dinksight',
+    label: 'Computer Vision · Sports Analytics',
+    title: 'Dinksight',
+    subtitle: 'One camera turns a doubles rally into positions, movement and speed.',
+    role: 'ML Engineer',
+    thumb: '/assets/posters/dinksight-thumb.webp',
+    poster: '/assets/posters/dinksight.jpg',
+    alt: 'Poster: Dinksight',
+    question: 'What can [[one ordinary camera]] tell a pickleball doubles team about their game?',
     built:
-      'A map-first explorer that pulls climate, soil and imagery for any point in NSW and screens it against [[15 crop profiles]].',
+      'Computer vision that tracks [[all four players]] and the ball, calibrates the court in metres, and feeds a replay dashboard.',
     answer:
-      'Up to three crop candidates, each with [[a visible reason for every score]], and unknown data left labelled.',
-    stack: ['Geospatial Analysis', 'Data Pipelines', 'Python'],
-    code: 'https://github.com/tuannm3812/FarmLens',
+      'Court maps, movement and shot analytics, with [[uncertain ball tracks flagged]] rather than guessed.',
+    stack: ['Computer Vision', 'Dashboards', 'Python'],
   },
   {
     id: 'kiva',
@@ -175,6 +175,25 @@ export const selectedWork: SelectedWork[] = [
       'The flag at listing caught [[2.6 to 4.0 times as many]] of the slowest loans as a historical lookup, in every year tested.',
     stack: ['Machine Learning', 'NLP', 'Python'],
     code: 'https://github.com/tuannm3812/unsw-ma-hackathon-2026',
+  },
+  {
+    id: 'farmlens',
+    group: 'event',
+    short: 'FarmLens',
+    label: 'Hackathon Build · Crop Suitability',
+    title: 'FarmLens',
+    subtitle: 'Every crop score comes with the reasons behind it.',
+    role: 'AI Builder',
+    thumb: '/assets/posters/farmlens-thumb.webp',
+    poster: '/assets/posters/farmlens.jpg',
+    alt: 'Showcase: FarmLens, a clearer starting point for your land',
+    question: 'What could grow on this land, and [[why]]?',
+    built:
+      'A map-first explorer that pulls climate, soil and imagery for any point in NSW and screens it against [[15 crop profiles]].',
+    answer:
+      'Up to three crop candidates, each with [[a visible reason for every score]], and unknown data left labelled.',
+    stack: ['Geospatial Analysis', 'Data Pipelines', 'Python'],
+    code: 'https://github.com/tuannm3812/FarmLens',
   },
 ];
 
