@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { selectedWork, splitKeyTerms } from './selectedWork';
 import { PROJECT_CARDS } from './projectCards';
+import { resumeData } from './resume';
+
+// Client and sponsor names that must not appear in public copy (docs/12, Public content).
+const BANNED = /\b(LEGO|Caterpillar|WesTrac|Austroads|Synogize|HPC)\b/i;
 
 describe('splitKeyTerms', () => {
   it('splits [[key terms]] from plain text', () => {
@@ -13,17 +17,27 @@ describe('splitKeyTerms', () => {
 });
 
 describe('selectedWork copy rules', () => {
-  it('keeps subtitles to 15 words and stacks to 3-4 chips', () => {
+  it('keeps subtitles to 15 words', () => {
     for (const p of selectedWork) {
       expect(p.subtitle.split(/\s+/).length, p.id).toBeLessThanOrEqual(15);
-      expect(p.stack.length, p.id).toBeGreaterThanOrEqual(3);
-      expect(p.stack.length, p.id).toBeLessThanOrEqual(4);
     }
   });
 
-  it('never names a client', () => {
-    const text = JSON.stringify(selectedWork);
-    expect(text).not.toMatch(/Synogize|HPC/i);
+  it('uses exactly the tags of the project card', () => {
+    const cards = Object.values(PROJECT_CARDS);
+    for (const p of selectedWork) {
+      const card = cards.find((c) => c.title === p.title);
+      expect(p.stack, p.id).toEqual(card?.tags);
+    }
+  });
+
+  it('never names a client or sponsor, in the gallery or the resume data', () => {
+    expect(JSON.stringify(selectedWork)).not.toMatch(BANNED);
+    expect(JSON.stringify(resumeData)).not.toMatch(BANNED);
+  });
+
+  it('keeps the phone number out of the public bundle', () => {
+    expect(JSON.stringify(resumeData)).not.toMatch(/\+61|\b04\d{2}\s?\d{3}\s?\d{3}\b/);
   });
 
   it('uses the same title as the project card', () => {

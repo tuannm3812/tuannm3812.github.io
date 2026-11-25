@@ -98,10 +98,11 @@ export default function SelectedWorkGallery() {
         </div>
       </div>
 
-      <div
-        aria-live="polite"
-        className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:gap-12"
-      >
+      {/* Announce only the change of project, not the whole story. */}
+      <p aria-live="polite" className="sr-only">
+        Project {at + 1} of {list.length}: {current.title}
+      </p>
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:gap-12">
         <figure
           className="m-0 min-w-0 space-y-4"
           onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}

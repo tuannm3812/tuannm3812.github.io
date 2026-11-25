@@ -21,27 +21,32 @@ Machine Learning and Data Engineer with **7+ years of experience** building pred
 
 ## 💼 Professional Experience
 
-### Shopee Vietnam
-*Lead Data Optimization & Insights Manager | Growth & Acquisition* | **Dec 2021 - Jan 2025**
-* **Engineered** Python predictive models (churn forecasting, K-means clustering) in BigQuery to optimize the distribution of growth vouchers, **driving an 85%+ partner milestone graduation rate**.
-* **Architected** BigQuery ETL pipelines to consolidate transaction and seller traffic datasets, **reducing manual data-processing latency by 80%** and decreasing partner onboarding drop-off by 25%.
-* **Developed** regression and econometric models to measure partner fee elasticity at the shop level, **improving voucher spend efficiency and investment ROI by 15%**.
-* **Automated** lead scraping pipelines using Python (BeautifulSoup, REST APIs) to consolidate competitor seller data, replacing offline tracking spreadsheets.
-* **Coached** an analytics team of 5 data professionals on SQL, predictive modeling, and automated report delivery in Looker Studio.
+<!-- Mirrors src/data/resume.ts experience (Mike's confirmed facts, 21-22 Nov 2026). Edit both together. -->
 
-### FPT Software & FPT Digital (FDX)
-*Strategy Lead (Global Affairs) & Digital Transformation Consultant* | **Dec 2020 - Dec 2021**
-* **Audited** digital maturity and designed cloud-migration data blueprints for large enterprise groups, working alongside global consulting firms.
-* **Led** Salesforce CRM implementation workstreams and delivered predictive analytics modules for lead scoring, **driving a 20% improvement in lead-to-opportunity conversion rates**.
-* **Negotiated** technology partnership frameworks with multinational corporations (MNCs), **securing FPT as the local systems integrator** for foreign direct investment clients.
-* **Translated** client operational bottlenecks into detailed implementation roadmaps, agile delivery plans, and Customer Data Platform (CDP) architecture recommendations.
+### Independent
+*AI Builder · UTS projects, hackathons and builder events* | Sydney | **Feb 2025 - Present**
+* Build and evaluate **AI systems end to end**: LLM agents, RAG, evaluation harnesses and live data pipelines, shipped with tests and demos.
+* Led a team of 6 in a UTS industry capstone that tested a custom **AI agent harness** against an established one, and wrote a **research paper** on wildfire prediction.
+* **Finalist (8 of 44 teams)** at the UNSW Marketing Analytics Hackathon; built a product at **OpenAI Builder Days**; compete on Kaggle.
+
+### Shopee Vietnam
+*Data Optimization & Insights Manager* | HCMC | **Dec 2021 - Jan 2025**
+* Led an **insights team of 5**, turning analysis into recommendations for **top management** on seller fees, ad campaigns and voucher investment, which lifted investment ROI by 15%.
+* Put ML into the business: built churn-prediction and K-means seller-segmentation models in Python and BigQuery for the BD team, raising the partner milestone **graduation rate to 85%+**.
+* Architected **BigQuery ETL pipelines** consolidating transaction and seller-traffic data, cutting manual processing by 80% and partner onboarding drop-off by 25%.
+* Built self-service dashboards in Looker Studio, cutting ad-hoc data requests from non-technical teams.
+
+### FPT Software & FPT Digital
+*Global Affairs Manager & Digital Transformation Consultant* | Hanoi | **Dec 2020 - Dec 2021**
+* Researched **AI and machine learning applications** and how to bring them to business clients, turning them into digital transformation roadmaps and data-architecture recommendations.
+* Delivered CRM implementation workstreams with **predictive lead scoring** and pipeline forecasting, working alongside global consulting firms.
+* As Global Affairs Manager, built partnerships with **multinational companies**, positioning FPT as their local systems integrator.
 
 ### PwC Vietnam
-*Senior Assurance Associate | Financial Services & Capital Markets* | **Aug 2017 - Dec 2020**
-* **Directed** financial audit engagements as the Senior-in-Charge for a diverse portfolio of 40+ commercial banks, securities firms, investment funds, and corporate clients across multiple domain industries.
-* **Programmed** Python (pandas) and SQL data-validation scripts on client Oracle databases, **automating manual bank reconciliation workflows and cutting execution time by 90%** (2 days down to under 1 hour).
-* **Analyzed** core banking transaction ledgers using SQL to identify security gaps and double-posted entries, **expanding audit coverage to 100% of transaction data**.
-* **Presented** database control deficiencies and systemic booking anomalies directly to client C-level executives, driving database remediation strategies.
+*Senior Assurance Associate · Financial Services & Capital Markets* | Hanoi | **Aug 2017 - Dec 2020**
+* Led audit fieldwork as a senior for **40+ banks, securities firms and investment funds**, owning data validation and reconciliation testing.
+* Joined the team that automated reconciliation reports with **Excel VBA macros** for clients and audit teams, cutting a 2-day reconciliation to **under 1 hour**.
+* Presented control gaps and booking anomalies to **client C-levels**, driving fixes in their systems.
 
 ---
 

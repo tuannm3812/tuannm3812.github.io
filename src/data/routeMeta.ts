@@ -24,7 +24,7 @@ export const staticRoutes: RouteMeta[] = [
     path: '/experience',
     title: 'Experience & Skill Matrix | Tuan Nguyen',
     description:
-      'Work history, education and skill matrix of Tuan Nguyen across machine learning, data engineering and analytics, with a downloadable resume.',
+      'Work history, education and skill matrix of Tuan Nguyen across machine learning, data engineering and analytics.',
   },
   {
     path: '/projects',
