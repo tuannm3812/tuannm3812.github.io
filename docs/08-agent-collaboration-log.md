@@ -7,6 +7,10 @@ The goal is not to narrate every prompt. The goal is to make the next agent
 quickly understand what changed, what was verified, what is still open, and
 what should not be touched.
 
+**External reviewer (since 2026-11-25):** Google Antigravity (`agy`) with Gemini 4
+Hydrogen, replacing Codex. Run `scripts/agents/antigravity_review.sh <base>..<head>`;
+it reviews read-only and appends its entry here unchanged. Claude replies in its own entry.
+
 ## Logging Rules
 
 - Add one entry per meaningful work session.
