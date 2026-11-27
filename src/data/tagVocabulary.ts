@@ -8,19 +8,19 @@ export type TagGroup = 'ai' | 'ml' | 'data' | 'analytics' | 'tools';
 export const TAG_GROUPS: Record<TagGroup, { label: string; chip: string }> = {
   ai: {
     label: 'AI & Agents',
-    chip: 'bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-200',
+    chip: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
   },
   ml: {
     label: 'Machine Learning',
-    chip: 'bg-amber-50 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200',
+    chip: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
   },
   data: {
     label: 'Data Engineering',
-    chip: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200',
+    chip: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
   },
   analytics: {
     label: 'Analytics & Viz',
-    chip: 'bg-violet-50 text-violet-800 dark:bg-violet-950/60 dark:text-violet-200',
+    chip: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
   },
   tools: {
     label: 'Tools',

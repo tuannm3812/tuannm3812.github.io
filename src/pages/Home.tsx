@@ -27,11 +27,11 @@ function WorkingStyleStep({
       {!last && (
         <span
           aria-hidden="true"
-          className="absolute left-[4.75rem] right-[-1rem] top-8 hidden border-t-[3px] border-dotted border-amber-400 md:block"
+          className="absolute left-[4.75rem] right-[-1rem] top-8 hidden border-t-2 border-dotted border-slate-300 dark:border-slate-700 md:block"
         />
       )}
       <div className="relative flex items-center gap-3">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
+        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
           {icon}
         </span>
       </div>
@@ -71,8 +71,8 @@ export default function Home() {
           </h1>
 
           <p className="max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg md:text-xl">
-            I help teams turn scattered data into AI products, models and dashboards that people can
-            inspect, trust and act on, from first prototype to handover.
+            I'm Mike. I help teams turn scattered data into AI products, models and dashboards that
+            people can inspect, trust and act on, from first prototype to handover.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -93,7 +93,7 @@ export default function Home() {
           transition={{ delay: 0.35 }}
           className="min-w-0"
         >
-          <div className="surface-card relative w-full max-w-full overflow-hidden shadow-xl shadow-slate-300/40 dark:shadow-black/30">
+          <div className="relative w-full max-w-full overflow-hidden rounded-2xl">
             <picture>
               <source srcSet="/assets/tuan-profile-warm.webp" type="image/webp" />
               <img
@@ -142,7 +142,7 @@ export default function Home() {
 
       <section
         aria-labelledby="closing-heading"
-        className="tint-band-warm flex flex-col items-start gap-6 rounded-2xl px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10"
+        className="flex flex-col items-start gap-6 border-t border-slate-200 pt-12 md:flex-row md:items-center md:justify-between dark:border-slate-800"
       >
         <div className="space-y-2">
           <p className="hand-eyebrow">Next Step</p>
