@@ -73,7 +73,7 @@ export default function ShowcaseCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className="surface-card group grid h-full grid-cols-[6.5rem_minmax(0,1fr)] grid-rows-[auto_1fr] gap-x-4 gap-y-2.5 p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-x-5 sm:gap-y-1.5"
+      className="group grid h-full grid-cols-[6.5rem_minmax(0,1fr)] grid-rows-[auto_1fr] gap-x-4 gap-y-2.5 border-t border-slate-200 pt-5 pb-2 dark:border-slate-800 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-x-5 sm:gap-y-1.5"
     >
       <div className="relative self-start overflow-hidden rounded-lg ring-1 ring-slate-200/80 sm:row-span-2 dark:ring-slate-800">
         {poster ? (

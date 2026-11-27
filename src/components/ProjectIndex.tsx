@@ -9,7 +9,7 @@ import TagChip from './TagChip';
  */
 export default function ProjectIndex({ projects }: { projects: Project[] }) {
   return (
-    <ol className="surface-card divide-y divide-slate-200/80 overflow-hidden dark:divide-slate-800/80">
+    <ol className="divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800">
       {projects.map((project, index) => {
         const href = project.demo ?? project.github;
         const card = getProjectCard(project);
@@ -44,7 +44,7 @@ export default function ProjectIndex({ projects }: { projects: Project[] }) {
           </>
         );
         const grid =
-          'group grid grid-cols-[1.75rem_minmax(0,1fr)_1rem] items-center gap-x-4 px-5 py-3.5 md:grid-cols-[1.75rem_minmax(0,1fr)_minmax(0,1.4fr)_1rem] lg:grid-cols-[1.75rem_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,0.9fr)_1rem]';
+          'group grid grid-cols-[1.75rem_minmax(0,1fr)_1rem] items-center gap-x-4 px-1 py-3.5 md:grid-cols-[1.75rem_minmax(0,1fr)_minmax(0,1.4fr)_1rem] lg:grid-cols-[1.75rem_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,0.9fr)_1rem]';
         return (
           <li key={project.title}>
             {href ? (
@@ -52,7 +52,7 @@ export default function ProjectIndex({ projects }: { projects: Project[] }) {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className={`${grid} transition-colors hover:bg-brand/5`}
+                className={`${grid} transition-colors hover:text-brand`}
               >
                 {body}
               </a>

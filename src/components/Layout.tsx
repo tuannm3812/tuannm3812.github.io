@@ -97,17 +97,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-white/80 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/80 dark:shadow-black/20">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-[#fafafa]/90 backdrop-blur-xl dark:border-slate-800/70 dark:bg-[#0b0f19]/90">
         <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+          {/* Wordmark (brand kit, 28 Nov): "Mike" in Figtree Black, closed by the amber full stop. */}
           <Link
             to="/"
-            className="flex min-w-0 items-center gap-1 text-xl font-black tracking-tighter transition-colors hover:text-brand"
+            aria-label={`${resumeData.name}, home`}
+            className="flex items-baseline text-2xl font-black tracking-[-0.045em] text-brand transition-opacity hover:opacity-80 dark:text-[#5b84ff]"
           >
-            <span className="truncate">{resumeData.name}</span>
-            <span className="text-brand">.</span>
+            Mike<span className="text-amber-500 dark:text-amber-400">.</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/85 p-1 shadow-sm shadow-slate-200/40 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/75 dark:shadow-black/20">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive =
                 location.pathname === item.path ||
@@ -117,16 +118,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    'rounded-full px-3.5 py-2 text-sm font-bold transition-all',
+                    'px-3 py-2 text-[15px] font-semibold transition-colors',
                     isActive
-                      ? 'bg-slate-950 text-white shadow-sm shadow-slate-950/10 dark:bg-white dark:text-slate-950 dark:shadow-white/10'
-                      : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-white',
+                      ? 'text-brand dark:text-[#5b84ff]'
+                      : 'text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white',
                   )}
                 >
                   {item.name}
                 </Link>
               );
             })}
+            <Link
+              to="/contact"
+              className="ml-4 hidden items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-950 lg:inline-flex dark:text-slate-400 dark:hover:text-white"
+            >
+              <span
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-amber-500 dark:bg-amber-400"
+              />
+              Open to work
+            </Link>
             <button
               onClick={toggleTheme}
               className="ml-1 rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-800 flex items-center justify-center h-9 w-9 focus-visible:outline-none"

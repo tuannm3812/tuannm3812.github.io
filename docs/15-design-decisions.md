@@ -5,6 +5,20 @@ first. Each entry says what it supersedes. Rules live in
 [12](12-design-guideline.md) and [13](13-ui-patterns.md); this file records who
 decided and when.
 
+## 28 November 2026 — Personal logo and a cleaner layout (mock, awaiting review)
+
+Inspired by liwang.design (borrowing the approach, not the look). Mike chose a
+logo pair: the "Mike." wordmark (Figtree Black, brand blue, amber full stop) in
+the header, and a round-stroke "tn" monogram in a blue tile, also ending on the
+amber dot, as favicon (`public/favicon.svg`) and avatar. The amber dot is the
+one signature; amber is otherwise kept for small "live" signals (the
+"Open to work" header status). The mock in this branch also: drops the backdrop
+grid for plain paper, makes nav plain text with the active page in blue, shows
+tags in neutral grey instead of four group colours, unboxes project cards and
+index lists (thin dividers instead of cards), turns the "How I Work" connector
+grey and replaces the warm closing band with a top rule (both supersede 24 Nov
+if approved), and opens the intro with "I'm Mike." Measured results stay.
+
 ## 24 November 2026 — Home: gallery, numbered habits, closing band
 
 Mike reviewed a Home mock. Rejected: a proof strip under the hero (employer

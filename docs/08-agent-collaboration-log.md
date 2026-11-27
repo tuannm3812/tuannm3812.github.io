@@ -39,6 +39,17 @@ what should not be touched.
 - Follow-up, risk, or blocker for the next agent.
 ```
 
+## 2026-11-28 - Claude Code (personal logo and cleaner layout mock)
+
+- Added the logo pair Mike chose: "Mike." wordmark in the header, "tn" tile as
+  `public/favicon.svg`. Drafts canvas lives outside the repo.
+- Mock of a cleaner layout: plain backdrop, plain-text nav, "Open to work"
+  status, neutral grey tags, unboxed project cards and index lists, grey habit
+  connector, closing band as a top rule. Decision record in docs/15.
+- Verified with `npm run check` and before/after screenshots of Home and Projects.
+- Open: Mike's review of the mock; the brand kit (logo files, colours, type,
+  icons, usage rules) follows once the layout is settled.
+
 ## 2026-11-24 - Claude Code (Home gallery and closing band)
 
 **Branch:** `claude/project-thread-6dmp83`
